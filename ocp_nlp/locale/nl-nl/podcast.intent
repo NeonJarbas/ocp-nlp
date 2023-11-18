@@ -1,0 +1,6 @@
+(luister|speel|begin|start) (pod cast|podcast) {{query}}
+(luister|speel|begin|start) {{query}} (pod cast|podcast)
+(luister|speel|begin|start) (pod cast|podcast)
+(luister|speel|begin|start) (pod cast|podcast) {{query}} (aflevering| episode|nummer|hoofdstuk) {{number}}
+(luister|speel|begin|start) {{query}} (pod cast|podcast) (aflevering| episode|nummer|hoofdstuk) {{number}}
+(luister|speel|begin|start) (pod cast|podcast) (aflevering| episode) {{number}}

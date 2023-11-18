@@ -1,0 +1,3 @@
+(speel|start) (tekenfilm|animatie|cartoons) {{query}}
+(speel|start) {{query}} (tekenfilm|animatie|cartoons)
+(speel|start) (tekenfilm|animatie|cartoons)

@@ -1,0 +1,5 @@
+(kijk|start|begin|begin met|speel) een documentaire 
+{{query}} documentaire
+documentaire {{query}}
+(kijk|start|begin|begin met|speel) {{query}} documentaire
+(kijk|start|begin|begin met|speel) documentaire {{query}}

@@ -1,0 +1,3 @@
+(spiel|spiele|beginn|beginne|start|starte) stummfilm {query}
+(spiel|spiele|beginn|beginne|start|starte) {query} (stummfilm|stummfilme)
+(spiel|spiele|beginn|beginne|start|starte) (einen|irgendeinen) (stummfilm|stummfilme)

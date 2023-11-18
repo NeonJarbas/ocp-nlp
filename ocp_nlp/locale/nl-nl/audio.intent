@@ -1,0 +1,5 @@
+(speel|begin|start|) alleen (audio|muziek|geluid) {{query}}
+(speel|begin|start|) {{query}} met alleen (audio|muziek|geluid) 
+speel {{query}} af met alleen audio
+speel alleen audio
+(speel|begin|start|) (audio|muziek|geluid)

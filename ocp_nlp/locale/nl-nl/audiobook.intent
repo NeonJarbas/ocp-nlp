@@ -1,0 +1,5 @@
+(speel|start|begin|lees) (audioboek|audio boek|gesproken boek|luisterverhaal|luister verhaal|verhaal|luister boek|luisterboek) {{query}}
+(speel|start|begin|lees) {{query}} (audioboek|audio boek|gesproken boek|luisterverhaal|luister verhaal|verhaal|luister boek|luisterboek)
+(speel|start|begin|lees) (een|het) (audioboek|audio boek|gesproken boek|luisterverhaal|luister verhaal|verhaal|luister boek|luisterboek)
+lees (een|het) (audioboek|audio boek|gesproken boek|luisterverhaal|luister verhaal|verhaal|luister boek|luisterboek) voor
+{{query}} (audioboek|audio boek|gesproken boek|luisterverhaal|luister verhaal|verhaal|luister boek|luisterboek)

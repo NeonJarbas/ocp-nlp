@@ -1,0 +1,3 @@
+(speel|start) stomme (film|films) {{query}}
+(speel|start) {{query}} stomme (film|films)
+(speel|start) (een stomme|stomme) (film|films)
