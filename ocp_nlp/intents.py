@@ -90,7 +90,7 @@ class OCP:
         """
         self.bus.on("ovos.common_play.search", self.handle_search_query)
 
-    def register_ocp_intents(self, message=None):
+    def register_ocp_intents(self):
         intents = ["play.intent", "read.intent", "open.intent",
                    "next.intent", "prev.intent", "pause.intent",
                    "resume.intent"]

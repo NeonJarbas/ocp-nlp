@@ -1,12 +1,20 @@
+import mimetypes
 from os.path import join, dirname
 from typing import Optional, Tuple, List, Union
 
 from ovos_utils.json_helper import merge_dict
 from ovos_utils.log import LOG
 
-
 from .constants import *
-from .utils import find_mime
+
+
+def find_mime(uri):
+    """ Determine mime type. """
+    mime = mimetypes.guess_type(uri)
+    if mime:
+        return mime
+    else:
+        return None
 
 
 # TODO subclass from dict (?)
