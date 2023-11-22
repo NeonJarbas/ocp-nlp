@@ -4,7 +4,7 @@ import re
 from os.path import join, dirname
 from threading import RLock
 
-from ovos_bus_client import Message
+from ovos_bus_client.message import Message, dig_for_message
 from ovos_utils.enclosure.api import EnclosureAPI
 from ovos_utils.gui import can_use_gui
 from ovos_utils.log import LOG
@@ -138,7 +138,7 @@ class OCP:
             self.bus.emit(Message('ovos.common_play.resume'))
             return  # TODO ret IntentMatch
         if not phrase:
-            phrase = self.get_response("play.what")
+            phrase = self.get_response("play.what")  # TODO - port this method
             if not phrase:
                 # TODO some dialog ?
                 self.bus.emit(Message('ovos.common_play.stop'))
@@ -149,14 +149,14 @@ class OCP:
 
         # search common play skills
         results = self._search(phrase, utterance, media_type, lang)
-        self._do_play(phrase, results, media_type)
+        self._do_play(phrase, lang, results, media_type)
         return  # TODO ret IntentMatch
 
-    def _do_play(self, phrase, results, media_type=MediaType.GENERIC):
+    def _do_play(self, phrase, lang, results, media_type=MediaType.GENERIC):
         self.bus.emit(Message('ovos.common_play.reset'))
         LOG.debug(f"Playing {len(results)} results for: {phrase}")
         if not results:
-            self.speak_dialog("cant.play",
+            self.speak_dialog("cant.play", lang=lang,
                               data={"phrase": phrase,
                                     "media_type": media_type})
         else:
@@ -191,7 +191,7 @@ class OCP:
         lang = message.data.get("lang") or message.context.get("session", {}).get("lang", "en-us")
         # search common play skills
         results = self._search(phrase, utterance, MediaType.AUDIOBOOK, lang)
-        self._do_play(phrase, results, MediaType.AUDIOBOOK)
+        self._do_play(phrase, lang, results, MediaType.AUDIOBOOK)
 
     # NLP
     def classify_media(self, query, lang):
@@ -299,6 +299,30 @@ class OCP:
                 # Substitute only whole words matching the token
                 utt = re.sub(r'\b' + i + r"\b", "", utt)
         return utt
+
+    def speak_dialog(self, dialog: str, data: dict, lang: str):
+        samples = self._dialogs.get("lang", {}).get(dialog) or \
+                  self._dialogs.get("lang", {}).get(dialog + ".dialog")
+        if not samples:
+            utt = dialog
+        else:
+            utt = random.choice(samples)
+        data = {"utterance": utt, "lang": lang,
+                "meta": {'dialog': dialog.replace(".dialog", ""),
+                         'data': data}}
+        # no dialog renderer, do a manual replace, accounting for whitespaces and double brackets
+        for k, v in data.items():
+            utt = utt.replace("{{", "{").\
+                replace("}}", "}").\
+                replace("{ ", "{").\
+                replace(" }", "}").\
+                replace("{" + k + "}", v)
+        # grab message that triggered speech so we can keep context
+        message = dig_for_message()
+        m = message.forward("speak", data) if message \
+            else Message("speak", data)
+        m.context["skill_id"] = OCP_ID
+        self.bus.emit(m)
 
     # search
     def _search(self, phrase, utterance, media_type, lang: str):
