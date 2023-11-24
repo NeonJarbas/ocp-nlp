@@ -114,7 +114,7 @@ class OCP:
         for lang, intent_data in self._intents.items():
             self.media_engines[lang] = IntentContainer()
             for intent_name in intents:
-                samples = intent_data.get(intent_name)
+                samples = intent_data.get(intent_name + ".intent")
                 LOG.debug(f"registering media type intent: {intent_name}")
                 self.media_engines[lang].add_intent(intent_name, samples)
 
@@ -312,11 +312,12 @@ class OCP:
                          'data': data}}
         # no dialog renderer, do a manual replace, accounting for whitespaces and double brackets
         for k, v in data.items():
-            utt = utt.replace("{{", "{").\
-                replace("}}", "}").\
-                replace("{ ", "{").\
-                replace(" }", "}").\
-                replace("{" + k + "}", v)
+            if isinstance(v, str):
+                utt = utt.replace("{{", "{").\
+                    replace("}}", "}").\
+                    replace("{ ", "{").\
+                    replace(" }", "}").\
+                    replace("{" + k + "}", v)
         # grab message that triggered speech so we can keep context
         message = dig_for_message()
         m = message.forward("speak", data) if message \

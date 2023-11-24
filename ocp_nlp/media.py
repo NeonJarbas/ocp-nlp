@@ -267,7 +267,7 @@ class Playlist(list):
         if isinstance(entry, dict):
             entry = MediaEntry.from_dict(entry)
         assert isinstance(entry, MediaEntry)
-        for idx, e in self.entries:
+        for idx, e in enumerate(self.entries):
             if e == entry:
                 self.pop(idx)
                 break

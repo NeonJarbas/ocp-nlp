@@ -2,12 +2,16 @@ import time
 from threading import Lock
 from typing import List
 
-from ovos_plugin_common_play.ocp.utils import available_extractors
 from ovos_utils.gui import is_gui_connected, is_gui_running
 from ovos_utils.log import LOG
 from ovos_utils.messagebus import Message
 
 from ocp_nlp.constants import *
+
+
+def available_extractors():
+    from ovos_plugin_common_play.ocp.utils import available_extractors as _real
+    return _real() # TODO
 
 
 class OCPQuery:
