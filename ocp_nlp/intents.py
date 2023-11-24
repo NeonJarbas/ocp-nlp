@@ -10,8 +10,8 @@ from ovos_utils.gui import can_use_gui
 from ovos_utils.log import LOG
 from padacioso import IntentContainer
 
-from .constants import *
-from .search import OCPQuery
+from ocp_nlp.constants import *
+from ocp_nlp.search import OCPQuery
 
 
 class OCP:

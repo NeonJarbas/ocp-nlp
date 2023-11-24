@@ -5,7 +5,7 @@ from typing import Optional, Tuple, List, Union
 from ovos_utils.json_helper import merge_dict
 from ovos_utils.log import LOG
 
-from .constants import *
+from ocp_nlp.constants import *
 
 
 def find_mime(uri):
