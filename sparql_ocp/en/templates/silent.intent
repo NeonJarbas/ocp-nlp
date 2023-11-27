@@ -1,5 +1,6 @@
 Any suggestions for a silent movie night? I'm open to {film_genre} films on {movie_streaming_service}.
 Can you find me a {film_genre} silent film that stands out on {movie_streaming_service}?
+Can you find silent films from {country_name} on {movie_streaming_service}?
 Can you immerse me in the charm of silent films on {movie_streaming_service}, possibly by {film_studio}?
 Can you initiate a silent film marathon on the attic projector?
 Can you initiate a silent film marathon on the digital art frame in the living room?
@@ -12,8 +13,10 @@ Can you initiate a silent movie session in the car on the entertainment system?
 Can you play a {film_genre} silent film by {film_studio} on the kids' room tablet?
 Can you recommend a silent film that captures the essence of {film_studio} on {movie_streaming_service}?
 Can you recommend a silent movie from {film_studio} on {movie_streaming_service}?
+Can you recommend some silent films from {country_name} available on {movie_streaming_service}?
 Can you start a silent film marathon on the home theater system?
 Can you start a silent film playlist in the attic on the vintage projector?
+Can you suggest silent films from {country_name} on {movie_streaming_service}?
 Can you unearth a silent masterpiece from {film_studio} on {movie_streaming_service}?
 Can you unearth a silent masterpiece that resonates with {film_studio} on {movie_streaming_service}?
 Check out the silent film collection on {movie_streaming_service} for notable works from {film_studio}.
@@ -76,12 +79,16 @@ Guide me through the silent movie selection on {movie_streaming_service}; pick o
 Guide me through the world of silent cinema; suggest a film from {film_studio} on {movie_streaming_service}.
 Hey, let's set the mood—play that silent film from {film_studio} on the living room TV.
 How about some silent cinema magic? Play a {film_genre} silent film on the bedroom TV from {movie_streaming_service}.
+I want to explore silent movies from {country_name}—play them on {movie_streaming_service}.
+I want to explore silent movies from {country_name}—what's on {movie_streaming_service}?
 I want to explore the era of silent films; find me a captivating one on {movie_streaming_service}.
 I want to see a silent movie called {silent_movie_name} on {movie_streaming_service}.
 I want to watch {silent_movie_name} in {movie_streaming_service}.
 I want to watch {silent_movie_name} on {movie_streaming_service}.
+I'd like to discover silent films from {country_name} on {movie_streaming_service}.
 I'd like to watch a silent movie, maybe {silent_movie_name} on {movie_streaming_service}.
 I'd like to watch a silent movie, perhaps {silent_movie_name} on {movie_streaming_service}.
+I'd like to watch silent movies from {country_name} on {movie_streaming_service}.
 I'm curious about silent films from {film_studio} on {movie_streaming_service}, any recommendations?
 I'm curious about silent films from {film_studio} on {movie_streaming_service}—any suggestions?
 I'm curious about the artistry of silent films; recommend one from {film_studio} on {movie_streaming_service}.
@@ -100,7 +107,9 @@ I'm in the mood for a silent movie, like {silent_movie_name} on {movie_streaming
 I'm in the mood for a silent movie, maybe {silent_movie_name} on {movie_streaming_service}.
 I'm in the mood for a {film_genre} silent experience on {movie_streaming_service}—any recommendations?
 I'm in the mood for a {film_genre} silent film on {movie_streaming_service}; any standout options by {film_studio}?
+I'm in the mood for silent movies from {country_name}—what's on {movie_streaming_service}?
 I'm in the mood for silent storytelling; recommend a {film_genre} film from {film_studio} on {movie_streaming_service}.
+I'm interested in silent movies from {country_name}—what's on {movie_streaming_service}?
 I'm intrigued by silent films; what's available from {film_studio} on {movie_streaming_service}?
 I'm intrigued by silent storytelling; suggest a {film_genre} silent film on {movie_streaming_service}.
 I'm intrigued by the artistic expression of silent films; recommend a {film_genre} one on {movie_streaming_service}.
@@ -109,6 +118,7 @@ I'm intrigued by the elegance of silent films—find me a {film_genre} one on {m
 I'm looking for a silent movie called {silent_movie_name} available on {movie_streaming_service}.
 I'm looking for a unique cinematic experience; any recommendations for silent films on {movie_streaming_service}?
 I'm looking for a {film_genre} silent film on {movie_streaming_service} to add to my watchlist.
+I'm looking for silent movies from {country_name}—play them on {movie_streaming_service}.
 I'm on a quest for a silent gem that encapsulates the essence of {film_studio} on {movie_streaming_service}.
 I'm on a quest for a {film_genre} silent gem on {movie_streaming_service}—any suggestions?
 I'm on the hunt for a silent masterpiece; what does {movie_streaming_service} offer from {film_studio}?
@@ -195,6 +205,11 @@ Play a {film_genre} silent movie by {film_studio} in the study on the smart disp
 Play a {film_genre} silent movie on the VR headset; let's make it immersive from {film_studio}.
 Play a {film_genre} silent movie on the balcony speakers from {film_studio}.
 Play a {film_genre} silent movie on the rooftop speakers.
+Play classic silent films from {country_name} on {movie_streaming_service}.
+Play silent films from {country_name} on {movie_streaming_service} for me.
+Play silent movies from {country_name} on {movie_streaming_service}.
+Play silent movies from {country_name}—what's available on {movie_streaming_service}?
+Play {silent_movie_name} from {country_name} as a silent film on {movie_streaming_service}.
 Play {silent_movie_name} from {movie_streaming_service}.
 Play {silent_movie_name} in {movie_streaming_service} for me.
 Play {silent_movie_name} on {movie_streaming_service} for me.
@@ -202,6 +217,9 @@ Recommend a silent classic from {film_studio} available on {movie_streaming_serv
 Recommend a silent classic that's currently available from {film_studio} on {movie_streaming_service}.
 Recommend a silent masterpiece from {film_studio} for a cozy evening on {movie_streaming_service}.
 Recommend a silent movie from {film_studio} on {movie_streaming_service}.
+Recommend silent films from {country_name} available on {movie_streaming_service}.
+Recommend some silent films from {country_name} available on {movie_streaming_service}.
+Recommend some silent films from {country_name} on {movie_streaming_service}.
 Set the mood in the guest room; play a {film_genre} silent film by {film_studio} on the guest room smart TV.
 Sift through the silent film collection on {movie_streaming_service} for hidden treasures from {film_studio}.
 Sift through {movie_streaming_service} for a {film_genre} silent film that stands out from {film_studio}.
@@ -222,6 +240,7 @@ Start a {film_genre} silent film on the smart fridge display in the kitchen.
 Start a {film_genre} silent film on the smart glasses display by {film_studio}.
 Start a {film_genre} silent film on the smartwatch; let's make it immersive from {film_studio}.
 Start a {film_genre} silent film on {movie_streaming_service} by {film_studio} in the home office.
+Suggest silent movies from {country_name} on {movie_streaming_service}.
 Take me back in time with a {film_genre} silent film on {movie_streaming_service}.
 Take me back to the enchanting era of silent films with a selection from {film_studio} on {movie_streaming_service}.
 Take me back to the enchanting era of silent films; suggest one from {film_studio} on {movie_streaming_service}.
@@ -235,6 +254,8 @@ Transform the atmosphere in the home studio; play a {film_genre} silent film fro
 Unearth a silent masterpiece on {movie_streaming_service} with your recommendation from {film_studio}.
 Watch a {film_genre} silent film on {movie_streaming_service}.
 Watch {silent_movie_name} on {movie_streaming_service}.
+What are some silent movies from {country_name} currently on {movie_streaming_service}?
+What silent films from {country_name} are on {movie_streaming_service}?
 begin a black and white cinematic experience
 begin a black and white silent cinematic adventure
 begin a black and white silent cinematic classic

@@ -317,8 +317,8 @@ What {music_genre} albums are critically acclaimed on {music_streaming_service} 
 What {music_genre} albums are critically acclaimed on {music_streaming_service}?
 What {music_genre} albums are popular among {music_streaming_service} users from {record_label}?
 What {music_genre} albums are popular among {music_streaming_service} users?
-What {music_genre} albums are popular in {country} on {music_streaming_service} from {record_label}?
-What {music_genre} albums are popular in {country} on {music_streaming_service}?
+What {music_genre} albums are popular in {country_name} on {music_streaming_service} from {record_label}?
+What {music_genre} albums are popular in {country_name} on {music_streaming_service}?
 What {music_genre} albums are trending globally on {music_streaming_service} from {record_label}?
 What {music_genre} albums are trending globally on {music_streaming_service}?
 What {music_genre} songs are gaining popularity on {music_streaming_service} from {record_label}?

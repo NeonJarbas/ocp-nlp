@@ -14,11 +14,15 @@ Can you find and play a classic black and white movie in the bedroom?
 Can you find and play a classic black and white movie on the living room TV?
 Can you find and play a vintage {bw_movie_name} on the smart speaker?
 Can you find and play a {film_genre} black and white movie on the home theater system?
+Can you find me {film_genre} black and white movies from {country_name} on {movie_streaming_service}?
 Can you queue up a classic black and white movie on the smart speaker?
 Can you queue up a classic {bw_movie_name} in black and white on the home theater system?
 Can you recommend an old black and white movie for playback on the smart speaker?
 Can you recommend an old {bw_movie_name} for playback on the living room TV?
+Can you recommend some black and white movies from {country_name} on {movie_streaming_service}?
+Can you recommend some vintage {film_genre} black and white movies from {country_name} on {movie_streaming_service}?
 Can you suggest a black and white movie available on the smart speaker?
+Can you suggest some {film_genre} black and white movies from {country_name} on {movie_streaming_service}?
 Commence a classic {bw_movie_name} in black and white on {movie_streaming_service}.
 Commence a {film_genre} black and white film on the bedroom TV.
 Commence a {film_genre} black and white film on the home theater system.
@@ -69,6 +73,7 @@ How about queuing up a vintage {bw_movie_name} on the home theater system?
 How about starting a {film_genre} black and white movie in the bedroom?
 How about starting a {film_genre} monochromatic movie in the bedroom?
 How about starting a {film_genre} monochrome movie in the bedroom?
+I want to watch black and white movies from {country_name}—what's on {movie_streaming_service}?
 I was wondering if you could suggest a black and white movie available on the smart speaker.
 I was wondering if you could suggest a movie available on the smart speaker in monochrome.
 I was wondering if you could suggest a movie available on the smart speaker, with no color.
@@ -88,9 +93,13 @@ I'm considering watching a classic {bw_movie_name} on the smart speaker in the k
 I'm in the mood for a black and white {bw_movie_name}—could you start it in the kitchen?
 I'm in the mood for a vintage film in black and white on the home theater system.
 I'm in the mood for a vintage grayscale film on the home theater system.
+I'm in the mood for black and white movies—suggest some from {country_name} on {movie_streaming_service}.
+I'm in the mood for {country_name} black and white movies—what's available on {movie_streaming_service}?
 I'm interested in launching a {film_genre} black and white film in the bedroom.
 I'm interested in launching a {film_genre} black and white film on the smart speaker.
 I'm interested in streaming a vintage {bw_movie_name} on the living room TV. Can you make that happen?
+I'm interested in {country_name} black and white movies—what's available on {movie_streaming_service}?
+I'm looking for black and white movies from {country_name}—what's on {movie_streaming_service}?
 I'm thinking of launching a vintage {bw_movie_name} in black and white on the home theater system. What do you recommend?
 If it's convenient, could you play a classic {bw_movie_name} on the smart speaker in the kitchen?
 If it's convenient, could you play a classic {bw_movie_name} with a lack of color on the smart speaker in the kitchen?
@@ -164,6 +173,9 @@ Play a {film_genre} monochrome movie in the kitchen when you have a moment.
 Play a {film_genre} monochrome movie on the home theater system, please.
 Play an old black and white {bw_movie_name} on the home cinema system.
 Play an old {bw_movie_name} on the smart speaker.
+Play black and white films from {country_name} on {movie_streaming_service}.
+Play classic black and white films from {country_name} on {movie_streaming_service}.
+Play {bw_movie_name} from {country_name} on {movie_streaming_service}.
 Pull up an old {bw_movie_name} on {movie_streaming_service} to play.
 Queue up a classic black and white movie on the smart speaker.
 Queue up a classic {bw_movie_name} in black and white on the home theater system.
@@ -185,6 +197,7 @@ Recommend an old {bw_movie_name} available in black and white on {movie_streamin
 Recommend an old {bw_movie_name} for playback on the living room TV.
 Recommend an old {bw_movie_name} on the home theater system.
 Recommend an old {bw_movie_name} to play in black and white.
+Recommend some vintage {film_genre} black and white movies from {country_name} on {movie_streaming_service}.
 Retrieve an old {bw_movie_name} for me on {movie_streaming_service}.
 Search and play an old {bw_movie_name} in black and white on {movie_streaming_service}.
 Search for a {film_genre} black and white classic on the mobile device.

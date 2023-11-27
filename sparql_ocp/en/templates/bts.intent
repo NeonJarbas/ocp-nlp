@@ -32,15 +32,20 @@ How about finding and playing {movie_name} behind-the-scenes on {movie_streaming
 How about playing behind-the-scenes videos for the movie {movie_name} on {movie_streaming_service}.
 How about playing the making-of {movie_name} on {movie_streaming_service}?
 I want to play {movie_name} behind-the-scenes videos on {movie_streaming_service}.
+I want to see behind-the-scenes content for {movie_name} in {country_name} on {streaming_service}.
+I want to see behind-the-scenes videos for {movie_name} in {country_name} on {streaming_service}.
+I want to see the making-of {movie_name} in {country_name} on {streaming_service}.
 I want to start {movie_streaming_service} and see the behind-the-scenes of {movie_name}.
 I'd like to begin watching the behind-the-scenes of {movie_name} on {movie_streaming_service}.
 I'd like to play behind-the-scenes videos for {movie_name} on {movie_streaming_service}.
 I'd like to watch the making-of {movie_name} on {movie_streaming_service}.
 I'm curious about the behind-the-scenes content of {movie_name} on {movie_streaming_service}.
+I'm curious about the making-of {movie_name} in {country_name} on {streaming_service}.
 I'm eager to begin watching {movie_name} behind-the-scenes on {movie_streaming_service}.
 I'm in the mood for some behind-the-scenes content, specifically for {movie_name} on {movie_streaming_service}.
 I'm in the mood to explore and play behind-the-scenes content for {movie_name} on {movie_streaming_service}.
 I'm interested in exploring and watching behind-the-scenes content for {movie_name} on {movie_streaming_service}.
+I'm interested in the making-of {movie_name} in {country_name} on {streaming_service}.
 Inform me about behind-the-scenes footage of {movie_name} available on {movie_streaming_service}.
 Is there any behind-the-scenes material available for {movie_name} on {movie_streaming_service}?
 Let's begin playing behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
@@ -51,11 +56,20 @@ Let's start {movie_streaming_service} for behind-the-scenes of {movie_name}.
 List behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
 Look for behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
 Look for behind-the-scenes videos of {movie_name} on {movie_streaming_service}.
+Play behind-the-scenes content for {movie_name} from {country_name} on {streaming_service}.
+Play behind-the-scenes content for {movie_name} on {streaming_service} from {country_name}.
+Play behind-the-scenes footage for {movie_name} from {country_name} on {streaming_service}.
+Play behind-the-scenes footage for {movie_name} in {country_name} on {streaming_service}.
 Play behind-the-scenes footage for {movie_name} on {movie_streaming_service}.
+Play behind-the-scenes footage for {movie_name} on {streaming_service} in {country_name}.
 Play behind-the-scenes videos for the movie {movie_name} on {movie_streaming_service}.
+Play behind-the-scenes videos for {movie_name} from {country_name} on {streaming_service}.
 Play behind-the-scenes videos for {movie_name} on {movie_streaming_service}.
+Play behind-the-scenes videos for {movie_name} on {streaming_service} from {country_name}.
+Play behind-the-scenes videos for {movie_name} on {streaming_service} in {country_name}.
 Play the behind-the-scenes of {movie_name} on {movie_streaming_service}.
 Play the behind-the-scenes videos for {movie_name} on {movie_streaming_service}.
+Play the making-of {movie_name} from {country_name} on {streaming_service}.
 Play the making-of {movie_name} on {movie_streaming_service}.
 Play {movie_name} behind-the-scenes on {movie_streaming_service}.
 Play {movie_name} behind-the-scenes videos on {movie_streaming_service}.
@@ -66,6 +80,10 @@ Show me behind-the-scenes clips of {movie_name} on {movie_streaming_service}.
 Show me behind-the-scenes content for {movie_name} on {movie_streaming_service}.
 Show me behind-the-scenes footage for {movie_name} on {movie_streaming_service}.
 Show me behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
+Show me behind-the-scenes videos for {movie_name} on {streaming_service} from {country_name}.
+Show me how they created {movie_name} in {country_name} on {streaming_service}.
+Show me how they made {movie_name} in {country_name} on {streaming_service}.
+Show me how {movie_name} was made in {country_name} on {streaming_service}.
 Show me {movie_name} behind-the-scenes on {movie_streaming_service}.
 Start playing {movie_name} behind-the-scenes on {movie_streaming_service}.
 Start {movie_streaming_service} and show me behind-the-scenes of {movie_name}.
