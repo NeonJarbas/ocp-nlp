@@ -109,10 +109,10 @@ Play the news report from {country_name} on {news_streaming_service}.
 Play the news report from {news_provider}.
 Play the news update from {news_provider} on {news_streaming_service}.
 Play the news.
-Play the {country_name} news highlights on {news_streaming_service}.
-Play the {country_name} news updates on {news_streaming_service}.
 Play the {country_name} news from {news_provider} on {news_streaming_service}.
+Play the {country_name} news highlights on {news_streaming_service}.
 Play the {country_name} news update from {news_provider} on {news_streaming_service}.
+Play the {country_name} news updates on {news_streaming_service}.
 Play the {news_provider} news briefing on {news_streaming_service}.
 Play the {news_provider} news coverage on {news_streaming_service}.
 Play the {news_provider} news flash on {news_streaming_service}.

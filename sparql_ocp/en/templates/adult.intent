@@ -129,9 +129,19 @@ play something spicy
 play something steamy
 play {porn_film_name}
 play {porn_genre}
+play {porn_genre} on {porn_streaming_service}
 play {porn_genre} porn
 play {porn_site}
+play {pornstar_name} anal
+play {pornstar_name} on {porn_streaming_service}
 play {pornstar_name} porn
+play {pornstar_name} scenes from {porn_streaming_service}
+play {pornstar_name} {porn_genre} in {porn_streaming_service}
+search {porn_genre} on {porn_streaming_service}
+search {pornstar_name} blowjob
+search {pornstar_name} on {porn_streaming_service}
+search {pornstar_name} scenes from {porn_streaming_service}
+search {pornstar_name} {porn_genre} in {porn_streaming_service}
 show me adult clips
 show me adult content
 show me adult entertainment
@@ -219,9 +229,13 @@ start {porn_site}
 start {pornstar_name} porn
 view {porn_film_name}
 view {porn_genre}
+view {porn_genre} on {porn_streaming_service}
 view {porn_genre} porn
 view {porn_site}
+view {pornstar_name} on {porn_streaming_service}
 view {pornstar_name} porn
+view {pornstar_name} scenes from {porn_streaming_service}
+view {pornstar_name} {porn_genre} in {porn_streaming_service}
 watch something explicit
 watch something for grown-ups
 watch something naughty
@@ -232,12 +246,20 @@ watch {porn_film_name} on {porn_site}
 watch {porn_genre}
 watch {porn_genre} in {porn_site}
 watch {porn_genre} on {porn_site}
+watch {porn_genre} on {porn_streaming_service}
 watch {porn_genre} porn
 watch {porn_genre} porn in {porn_site}
 watch {porn_genre} porn on {porn_site}
 watch {porn_site}
 watch {porn_site} in {porn_site}
 watch {porn_site} on {porn_site}
+watch {pornstar_name} on {porn_streaming_service}
 watch {pornstar_name} porn
 watch {pornstar_name} porn in {porn_site}
 watch {pornstar_name} porn on {porn_site}
+watch {pornstar_name} scenes from {porn_streaming_service}
+watch {pornstar_name} {porn_genre} in {porn_streaming_service}
+{pornstar_name} anal
+{pornstar_name} anal in {porn_streaming_service}
+{pornstar_name} blowjob
+{pornstar_name} blowjob in {porn_streaming_service}

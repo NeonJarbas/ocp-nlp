@@ -9,7 +9,7 @@ from unidecode import unidecode
 
 endpoint_url = "https://query.wikidata.org/sparql"
 
-LANGS = ["ca", "pt", "es", "fr", "en", "de", "uk", "gl", "ru"]
+LANGS = ["ca", "pt", "es", "fr", "en", "de", "uk", "gl", "ru", "da", "fi"]
 
 import random
 
@@ -121,11 +121,6 @@ ENTITIES = {
     "movie_streaming_service": {
         "P31": [
             "Q109509795",  # web broadcaster  - movie
-        ]
-    },
-    "generic_streaming_service": {
-        "P31": [
-            "Q212805"  # digital library
         ]
     },
     "tv_streaming_service": {
