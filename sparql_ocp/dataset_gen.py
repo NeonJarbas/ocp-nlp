@@ -10,7 +10,7 @@ from unidecode import unidecode
 endpoint_url = "https://query.wikidata.org/sparql"
 
 LANGS = ["ca", "pt", "es", "fr", "en", "de", "uk", "gl", "ru"]
-LANGS = ["en"]
+
 import random
 
 MANUAL_DEFINITIONS = {  # TODO - find a good wikidata query for these

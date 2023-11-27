@@ -1,3 +1,0 @@
-lees (boek|audioboek|audio boek) {{query}}
-lees {{query}} (boek|audioboek|audio boek)
-lees {{query}}
