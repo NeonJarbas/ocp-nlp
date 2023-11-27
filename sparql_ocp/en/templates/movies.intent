@@ -6,14 +6,19 @@ Begin {movie_name} on the home theater system.
 Can you play the movie {movie_name} in the home theater?
 Can you recommend a {film_genre} movie from {film_studio} on {movie_streaming_service}?
 Can you recommend a {film_genre} movie on {movie_streaming_service}?
+Can you recommend a {movie_genre} movie from {country_name} available on {streaming_service}?
 Can you suggest a good {film_genre} movie on {movie_streaming_service}?
+Can you suggest a movie from {country_name} available on {streaming_service}?
 Can you suggest a popular {movie_genre} movie available on the gaming console, like {movie_name}?
 Can you suggest a popular {movie_genre} movie available on the home theater system, like {movie_name}?
 Can you suggest a popular {movie_genre} movie available on the smart TV, like {movie_name}?
 Can you suggest a popular {movie_genre} movie available on {movie_streaming_service}, like {movie_name}?
 Can you suggest a {movie_genre} movie available on {movie_streaming_service}?
+Can you suggest a {movie_genre} movie from {country_name} on {streaming_service}?
 Commence playback of {movie_name} on the home theater system.
+Explore films from {country_name} on {streaming_service}.
 Explore movie options in the {film_genre} category on {movie_streaming_service}.
+Explore {country_name} movies on {streaming_service}.
 Explore {movie_genre} films on {movie_streaming_service}.
 Explore {movie_name} in the home theater collection.
 Explore {movie_name} options in the {film_genre} category on {movie_streaming_service}.
@@ -22,9 +27,12 @@ Explore {movie_name} under the {movie_genre} section on the smart TV.
 Explore {movie_name} under the {movie_genre} section on {movie_streaming_service}.
 Find a movie to watch on {movie_streaming_service}.
 Find a {film_genre} movie on {movie_streaming_service} to watch.
+Find a {movie_genre} movie from {country_name} on {streaming_service}.
 Find a {movie_genre} movie on {movie_streaming_service}.
+Find films from {country_name} on {streaming_service}.
 Find me a good movie to watch on {movie_streaming_service}.
 Find movies from {film_studio} on {movie_streaming_service}.
+Find {country_name} movies in {streaming_service} library.
 Find {movie_name} and play it in the home theater.
 Find {movie_name} from {film_studio} on {movie_streaming_service}.
 Find {movie_name} in the home theater movie collection.
@@ -47,7 +55,10 @@ Find {movie_name} within the collection on the e-reader.
 Find {movie_name} within the collection on the mobile device.
 Find {movie_name} within the collection on the television.
 Find {movie_name} within the collection on {movie_streaming_service}.
+Give me details about the movie from {country_name} on {streaming_service}.
 Give me details about the movie {movie_name} on {movie_streaming_service}.
+Give me information about a movie from {country_name}.
+Give me information about the {country_name} film {movie_name}.
 Give me information about {movie_name}.
 Give me information on the movie {movie_name} on the digital assistant.
 Give me information on the movie {movie_name} on the gaming console.
@@ -63,22 +74,29 @@ I want to watch a movie from {film_studio}.
 I'm in the mood for a classic movie from {film_studio} on {movie_streaming_service}.
 I'm in the mood for a movie from {film_studio}.
 I'm in the mood for a {film_genre} movie, what's on {movie_streaming_service}?
+Inform me about a movie from {country_name} available on {streaming_service}.
 Inform me about the availability of {movie_name} on the desktop computer.
 Inform me about the availability of {movie_name} on the streaming device.
 Inform me about the availability of {movie_name} on the television.
 Inform me about the availability of {movie_name} on {movie_streaming_service}.
+Inform me about the {country_name} film {movie_name} available on {streaming_service}.
 Inform me about {movie_name} available on {movie_streaming_service}.
 Initiate playback of {movie_name} in the home theater.
 Initiate {movie_name} in the home theater from {movie_streaming_service}.
 Launch {movie_name} on the home theater screen.
+List movies from {country_name} available on {streaming_service}.
+List movies from {country_name} on {streaming_service}.
 List movies in the {movie_genre} genre, including {movie_name}, on the e-reader.
 List movies in the {movie_genre} genre, including {movie_name}, on the laptop.
 List movies in the {movie_genre} genre, including {movie_name}, on the television.
 List movies in the {movie_genre} genre, including {movie_name}, on {movie_streaming_service}.
+List {country_name} films available on {streaming_service}.
 List {movie_genre} movies available on {movie_streaming_service}.
 Look up movie options on {movie_streaming_service}.
 Look up {movie_name} on {movie_streaming_service}.
 Look up {movie_name} options on {movie_streaming_service}.
+Play a film from {country_name} on {streaming_service}.
+Play a movie from {country_name} on {streaming_service}.
 Play a movie from {film_studio} on {movie_streaming_service}.
 Play a movie suitable for family viewing on {movie_streaming_service}.
 Play a movie with high ratings on {movie_streaming_service}.
@@ -88,6 +106,8 @@ Play a {film_genre} movie on {movie_streaming_service} directed by {film_studio}
 Play a {film_genre} movie on {movie_streaming_service} for me.
 Play a {film_genre} movie on {movie_streaming_service} from {film_studio}.
 Play a {film_genre} movie on {movie_streaming_service}.
+Play a {movie_genre} film from {country_name} on {streaming_service}.
+Play a {movie_genre} film from {film_studio} in {country_name} on {streaming_service}.
 Play a {movie_genre} film from {film_studio} on {movie_streaming_service}.
 Play a {movie_genre} film on {movie_streaming_service}.
 Play a {movie_genre} film produced by {film_studio} named {movie_name} on the TV.
@@ -112,6 +132,8 @@ Provide details about the movie {movie_name} in the {movie_genre} category on th
 Provide details about the movie {movie_name} in the {movie_genre} category on the tablet.
 Provide details about the movie {movie_name} in the {movie_genre} category on the television.
 Provide details about the movie {movie_name} in the {movie_genre} category on {movie_streaming_service}.
+Recommend a film from {country_name} on {streaming_service}.
+Recommend a movie from {country_name} on {streaming_service}.
 Recommend a movie from {film_studio} on {movie_streaming_service}.
 Recommend a movie like {movie_name} for the home theater.
 Recommend a movie on {movie_streaming_service}.
@@ -123,6 +145,8 @@ Recommend a {movie_genre} movie, like {movie_name}, on the desktop computer.
 Recommend a {movie_genre} movie, like {movie_name}, on the gaming console.
 Recommend a {movie_genre} movie, like {movie_name}, on the smart TV.
 Recommend a {movie_genre} movie, like {movie_name}, on {movie_streaming_service}.
+Recommend {country_name} movies on {streaming_service}.
+Recommend {movie_genre} films from {country_name} on {streaming_service}.
 Recommend {movie_genre} films on {movie_streaming_service}.
 Recommend {movie_genre} films that include {movie_name} on the laptop.
 Recommend {movie_genre} films that include {movie_name} on the mobile device.
@@ -153,8 +177,10 @@ Suggest a great {movie_genre} film such as {movie_name} on the smart TV.
 Suggest a great {movie_genre} film such as {movie_name} on the smartphone.
 Suggest a great {movie_genre} film such as {movie_name} on the tablet.
 Suggest a great {movie_genre} film such as {movie_name} on {movie_streaming_service}.
+Suggest a movie from {country_name} on {streaming_service}.
 Suggest a movie in the {film_genre} category on {movie_streaming_service}.
 Suggest a movie in the {film_genre} genre on {movie_streaming_service}.
+Suggest a {country_name} movie on {streaming_service}.
 Suggest a {film_genre} movie available on {movie_streaming_service}.
 Suggest a {movie_genre} movie on {movie_streaming_service}.
 Suggest a {movie_name} in the {film_genre} genre on {movie_streaming_service}.
@@ -165,7 +191,11 @@ Suggest some {film_genre} movie on {movie_streaming_service} to watch.
 Suggest some {film_genre} movie on {movie_streaming_service}.
 Suggest some {film_genre} movie streaming on {movie_streaming_service}.
 Suggest some {film_genre} movies available on {movie_streaming_service}.
+Tell me about a {movie_genre} movie from {country_name}.
+Tell me about the film from {country_name} on {streaming_service}.
 Tell me about the film {movie_name}.
+Tell me about the {country_name} film {movie_name}.
+Tell me about the {country_name} movie {movie_name}.
 Tell me about the {movie_genre} film called {movie_name} available on the computer.
 Tell me about the {movie_genre} film called {movie_name} available on the tablet.
 Tell me about the {movie_genre} film called {movie_name} available on the television.
@@ -176,6 +206,8 @@ Tell me more about the film titled {movie_name} available on the desktop compute
 Tell me more about the film titled {movie_name} available on the digital assistant.
 Tell me more about the film titled {movie_name} available on the smart TV.
 Tell me more about the film titled {movie_name} available on {movie_streaming_service}.
+Watch a film from {country_name} on {streaming_service}.
+Watch a {movie_genre} film from {country_name} on {streaming_service}.
 Watch {movie_name} from the TV.
 Watch {movie_name} from the home entertainment system.
 Watch {movie_name} from the laptop.
@@ -183,10 +215,13 @@ Watch {movie_name} from {movie_streaming_service}.
 Watch {movie_name} in {movie_streaming_service}.
 Watch {movie_name} on the home theater setup.
 Watch {movie_name} on {movie_streaming_service}.
+What are some good movies from {country_name} available on {streaming_service}?
+What are some good movies from {country_name} on {streaming_service}?
 What are some good {movie_genre} movies on {movie_streaming_service}?
 What are some popular {film_genre} movie on {movie_streaming_service}?
 What are some popular {film_genre} movies on {movie_streaming_service}?
 What are some {film_genre} movies on {movie_streaming_service}?
+What are the top-rated movies from {country_name} on {streaming_service}?
 What are the top-rated {film_genre} movies on {movie_streaming_service}?
 What movie can I watch on {movie_streaming_service}?
 What movie is available on {movie_streaming_service}?
@@ -200,7 +235,9 @@ What {film_genre} movies can I watch on {movie_streaming_service}?
 What {movie_name} can I watch on {movie_streaming_service}?
 What {movie_name} is available on {movie_streaming_service}?
 What's a critically acclaimed movie on {movie_streaming_service} right now?
+What's a good movie from {country_name} on {streaming_service}?
 What's a good {film_genre} movie on {movie_streaming_service}?
+What's a good {movie_genre} movie from {country_name} on {streaming_service}?
 What's a good {movie_genre} movie on {movie_streaming_service}?
 What's a good {movie_genre} movie to watch in the home theater, like {movie_name}?
 What's a highly rated movie from {film_studio} available for streaming on {movie_streaming_service} right now?

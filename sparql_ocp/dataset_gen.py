@@ -13,23 +13,13 @@ LANGS = ["ca", "pt", "es", "fr", "en", "de", "uk", "gl", "ru"]
 
 import random
 
-MANUAL_DEFINITIONS = {  # TODO - find a good wikidata query for these
-    "news_genre": ["technology",
-                   "international",
-                   "business",
-                   "health",
-                   "local",
-                   "politics",
-                   "entertainment",
-                   "general",
-                   "science",
-                   "sports",
-                   "weather",
-                   "breaking"]
-}
+
 
 ENTITIES = {
     # entity examples
+    "country_name": {
+        "P31": ["Q6256"]  # country - used in templates to extend queries
+    },
     "series_name": {
         "P31": ["Q5398426"]
     },
