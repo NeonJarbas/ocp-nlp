@@ -313,10 +313,10 @@ class OCP:
         # no dialog renderer, do a manual replace, accounting for whitespaces and double brackets
         for k, v in data.items():
             if isinstance(v, str):
-                utt = utt.replace("{{", "{").\
-                    replace("}}", "}").\
-                    replace("{ ", "{").\
-                    replace(" }", "}").\
+                utt = utt.replace("{{", "{"). \
+                    replace("}}", "}"). \
+                    replace("{ ", "{"). \
+                    replace(" }", "}"). \
                     replace("{" + k + "}", v)
         # grab message that triggered speech so we can keep context
         message = dig_for_message()

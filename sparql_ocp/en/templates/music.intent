@@ -1,0 +1,632 @@
+Add {song_name} to my {playlist_name} on {music_streaming_service}.
+Begin playback of {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Can you play the song {song_name} by {artist_name} from the album {album_name}?
+Can you play the song {song_name} from {album_name} by {artist_name} on {music_music_streaming_service}?
+Can you play {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}?
+Can you play {song_name} from the album {album_name} by {artist_name} on {music_music_streaming_service} for me?
+Can you play {song_name} from {album_name} by {artist_name} on {music_music_streaming_service} for me?
+Can you play {song_name} from {album_name} by {artist_name} on {music_music_streaming_service}, please?
+Can you play {song_name} from {album_name} by {artist_name}?
+Can you play {song_name} from {playlist_name} by {artist_name} on {music_music_streaming_service} for me?
+Can you play {song_name} from {playlist_name} by {artist_name} on {music_music_streaming_service}, please?
+Can you play {song_name} from {playlist_name} by {artist_name}?
+Can you start {album_name} and play the song {song_name} by {artist_name} on {music_music_streaming_service}?
+Can you start {playlist_name} and play the song {song_name} by {artist_name} on {music_music_streaming_service}?
+Can you start {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}?
+Commence playback of {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Commence playback of {song_name} by {artist_name} from {album_name} on {music_music_streaming_service}.
+Commence playing {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Commence playing {song_name} by {artist_name} off {album_name} on {music_music_streaming_service}.
+Create a dynamic playlist with {song_name} and upbeat {music_genre} on {music_streaming_service} from {record_label}.
+Create a dynamic playlist with {song_name} and upbeat {music_genre} on {music_streaming_service}.
+Create a dynamic {playlist_name} with {song_name} and upbeat {music_genre} on {music_streaming_service}.
+Create a mix of {music_genre} and {music_genre} on {music_streaming_service} from {record_label}.
+Create a mix of {music_genre} and {music_genre} on {music_streaming_service}.
+Create a playlist featuring {artist_name} and {artist_name} on {music_streaming_service}.
+Create a playlist with songs from {artist_name} on {music_streaming_service} from {record_label}.
+Create a playlist with songs from {artist_name} on {music_streaming_service}.
+Create a playlist with {song_name} and other {music_genre} favorites on {music_streaming_service} from {record_label}.
+Create a playlist with {song_name} and other {music_genre} favorites on {music_streaming_service}.
+Create a playlist with {song_name} and similar songs on {music_streaming_service} from {record_label}.
+Create a playlist with {song_name} and similar songs on {music_streaming_service}.
+Create a {music_genre} playlist for a relaxing weekend on {music_streaming_service} from {record_label}.
+Create a {music_genre} playlist for a relaxing weekend on {music_streaming_service}.
+Create a {music_genre} {playlist_name} for a relaxing weekend on {music_streaming_service}.
+Create a {playlist_name} featuring {artist_name} and {artist_name} on {music_streaming_service}.
+Create a {playlist_name} with songs from {artist_name} on {music_streaming_service}.
+Create a {playlist_name} with {song_name} and other {music_genre} favorites on {music_streaming_service}.
+Create a {playlist_name} with {song_name} and similar songs on {music_streaming_service}.
+Create a {playlist_name} with {song_name} and {song_name} on {music_streaming_service}.
+Did you catch the recent release from {artist_name} on {music_music_streaming_service}?
+Did you catch {artist_name}'s latest track, {song_name}, from the album {album_name}?
+Did you catch {artist_name}'s recent live performance? It was phenomenal.
+Did you catch {artist_name}'s recent performance? They played {song_name} from {album_name}, and it was amazing.
+Did you hear the latest song by {artist_name} from the album {album_name}?
+Discover new music on {music_streaming_service} from {record_label}.
+Discover new music on {music_streaming_service}.
+Discover underrated {music_genre} artists on {music_streaming_service}.
+Discover {music_genre} songs from the 80s on {music_streaming_service} from {record_label}.
+Discover {music_genre} songs from the 80s on {music_streaming_service}.
+Discover {record_label}'s collection of timeless {music_genre} on {music_streaming_service}.
+Explore new albums on {music_streaming_service} from {record_label}.
+Explore new albums on {music_streaming_service}.
+Explore {music_genre} albums on {music_streaming_service} from {record_label}.
+Explore {music_genre} albums on {music_streaming_service}.
+Explore {music_genre} on {music_streaming_service}.
+Explore {music_streaming_service} for new {music_genre} releases from {record_label}.
+Explore {music_streaming_service} for new {music_genre} releases.
+Explore {music_streaming_service} for the best {music_genre} tracks from {record_label}.
+Explore {music_streaming_service} for the best {music_genre} tracks to start the day from {record_label}.
+Explore {music_streaming_service} for the best {music_genre} tracks to start the day.
+Explore {music_streaming_service} for the best {music_genre} tracks.
+Explore {music_streaming_service} for the most-streamed {music_genre} tracks from {record_label}.
+Explore {music_streaming_service} for the most-streamed {music_genre} tracks.
+Explore {music_streaming_service} for the top {music_genre} tracks of the year from {record_label}.
+Explore {music_streaming_service} for the top {music_genre} tracks of the year.
+Explore {music_streaming_service} for underrated {music_genre} artists from {record_label}.
+Explore {music_streaming_service} for underrated {music_genre} artists.
+Explore {music_streaming_service} for {music_genre} recommendations.
+Explore {record_label}'s collection of {music_genre} on {music_streaming_service}.
+Find a playlist of {music_genre} on {music_streaming_service} curated by {playlist_name}.
+Find a playlist of {music_genre} on {music_streaming_service}.
+Find a {music_genre} album released in the last month on {music_streaming_service} from {record_label}.
+Find a {music_genre} album released in the last month on {music_streaming_service}.
+Find a {music_genre} playlist for a chill evening on {music_streaming_service}.
+Find a {music_genre} playlist for a cozy night on {music_streaming_service} from {record_label}.
+Find a {music_genre} playlist for a cozy night on {music_streaming_service}.
+Find a {music_genre} playlist to boost my productivity on {music_streaming_service} from {record_label}.
+Find a {music_genre} playlist to boost my productivity on {music_streaming_service}.
+Find a {music_genre} song to fit my mood on {music_streaming_service} from {record_label}.
+Find a {music_genre} song to fit my mood on {music_streaming_service}.
+Find a {music_genre} {playlist_name} for a chill evening on {music_streaming_service}.
+Find a {music_genre} {playlist_name} for a cozy night on {music_streaming_service}.
+Find a {music_genre} {playlist_name} to boost my productivity on {music_streaming_service}.
+Find a {playlist_name} of {music_genre} on {music_streaming_service}.
+Find albums from the {music_genre} era on {music_streaming_service} from {record_label}.
+Find albums from the {music_genre} era on {music_streaming_service}.
+Find albums released by {record_label} on {music_streaming_service}.
+Find {artist_name} top songs on {music_streaming_service}.
+Have you checked out the new {music_genre} album by {artist_name} on {music_music_streaming_service}?
+Have you checked out {song_name} by {artist_name} from the album {album_name}? It's worth a listen.
+Have you checked out {song_name} by {artist_name} on {music_music_streaming_service}? It's fantastic.
+Have you explored {artist_name}'s discography beyond their popular hits?
+Have you explored {artist_name}'s discography, specifically {album_name}? It's worth a listen.
+Have you had a chance to explore {music_genre} recently? {artist_name}'s {album_name} is a good starting point, especially with {song_name}.
+Have you had a chance to listen to {artist_name}'s {album_name} in {music_music_streaming_service}?
+Have you had a chance to listen to {song_name} by {artist_name} from the album {album_name}?
+Have you had the chance to check out {artist_name}'s {album_name}? I think {song_name} is a standout track.
+Have you heard the latest song from {artist_name} on {music_music_streaming_service}?
+Have you heard {song_name} by {artist_name} from the album {album_name}? It's worth a listen.
+Have you heard {song_name} from {album_name} by {artist_name}? It's been on my mind recently.
+Have you listened to the latest album by {artist_name}? The track {song_name} is a standout.
+Have you listened to {artist_name}'s latest release, especially the track {song_name} from {album_name}?
+Have you listened to {song_name} from {album_name} by {artist_name}?
+I came across {album_name} by {artist_name} on {music_music_streaming_service} – have you explored it yet?
+I came across {artist_name}'s new album, and I'm curious if you've heard {song_name} from it.
+I can't stop listening to {song_name} by {artist_name}.
+I enjoy exploring different music genres, and {artist_name}'s {album_name} has been a recent discovery for me.
+I enjoy {music_genre}, and {artist_name}'s {album_name} perfectly captures the essence of it.
+I like exploring new {music_genre}, and {artist_name}'s {album_name} caught my attention recently.
+I like the versatility of {artist_name}'s music, especially in {album_name}.
+I like the vibes of {music_genre}, and {artist_name} captures it perfectly.
+I like to discover new music, and {artist_name}'s {album_name} introduced me to the fantastic track {song_name}.
+I like to stay updated on new releases, and {artist_name}'s latest album features the impressive track {song_name}.
+I recently attended a concert by {artist_name}, and they performed an incredible version of {song_name}.
+I recently attended a live performance by {artist_name}, and the rendition of {song_name} from {album_name} was unforgettable.
+I recently attended a live performance by {artist_name}, and they played an amazing rendition of {song_name}.
+I recently discovered {artist_name} and found {song_name} from {album_name} to be a great introduction to their music.
+I recently discovered {artist_name} and their album {album_name}—it's amazing!
+I recently discovered {artist_name}'s discography, and {album_name} is a personal favorite.
+I recently discovered {artist_name}'s music, and I'm really enjoying the song {song_name} from the album {album_name}.
+I recently discovered {artist_name}'s music, and {album_name} has become a favorite.
+I recently discovered {artist_name}'s music, and {song_name} has become a go-to
+I recently discovered {artist_name}'s {album_name}, and I can't get enough of their unique sound.
+I recently discovered {artist_name}'s {album_name}, and I'm impressed by the range of styles in each track.
+I recently discovered {artist_name}'s {album_name}, and it's been a delightful find.
+I recently discovered {artist_name}, and I'm hooked on their track {song_name} from {album_name}.
+I recently listened to {artist_name}'s {album_name}, and the song {song_name} has been stuck in my head.
+I recently stumbled upon {artist_name}'s discography, and {album_name} is a standout.
+I recently stumbled upon {artist_name}'s {album_name}, and I'm loving the vibes.
+I stumbled upon {artist_name}'s discography, and {song_name} from {album_name} has become a favorite of mine.
+I stumbled upon {song_name} by {artist_name} from the album {album_name}, and it's become a favorite of mine.
+I stumbled upon {song_name} by {artist_name} from the album {album_name}, and it's been on my playlist non-stop.
+I want to enjoy {song_name} from the album {album_name} by {artist_name}—can you play it?
+I want to hear {artist_name}'s {album_name}, and make sure to play the track {song_name} on {music_music_streaming_service}.
+I want to hear {artist_name}'s {album_name}, and specifically, the track {song_name} on {music_music_streaming_service}.
+I want to hear {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+I want to hear {song_name} by {artist_name} on {music_streaming_service}.
+I want to listen to {album_name} on {music_streaming_service} from {record_label}.
+I want to listen to {album_name} on {music_streaming_service}.
+I want to listen to {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+I want to listen to {song_name} from the album {album_name} by {artist_name}.
+I was browsing through music recommendations, and {artist_name}'s {album_name} was highly praised, especially the track {song_name}.
+I was introduced to {artist_name}'s {album_name} recently, and now I can't get enough of it.
+I'd like to hear the song {song_name} from the album {album_name} by {artist_name}.
+I'd like to hear {song_name} from the album {album_name} by {artist_name}.
+I'd like to hear {song_name} from {album_name} by {artist_name} on {music_music_streaming_service}.
+I'd like to listen to {album_name} by {artist_name}, and I'm specifically interested in the track {song_name} on {music_music_streaming_service}.
+I'd like to listen to {album_name} by {artist_name}, and make sure to play the song {song_name} on {music_music_streaming_service}.
+I'd like to listen to {album_name} by {artist_name}, and specifically, the track {song_name} on {music_music_streaming_service}.
+I'd like to listen to {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+I'm a big fan of {artist_name}, and {song_name} from {album_name} is one of my favorites.
+I'm a fan of {music_genre}, and {artist_name}'s {album_name} has some great tracks, including {song_name}.
+I'm a fan of {music_genre}, especially {artist_name}'s latest work like {album_name}.
+I'm curious if you've come across {artist_name}'s latest album—it's quite impressive.
+I'm curious if you've come across {artist_name}'s {album_name}. I think {song_name} is worth a listen.
+I'm curious if you've come across {artist_name}'s {album_name}. The track {song_name} has been on my playlist for a while.
+I'm curious if you've explored {artist_name}'s work in the {music_genre} genre.
+I'm curious if you've listened to {artist_name}'s latest album. The song {song_name} is a personal favorite.
+I'm curious to know your thoughts on {artist_name}'s {album_name} – it's been on my radar lately.
+I'm curious, have you explored the {music_genre} genre, specifically {artist_name}'s work?
+I'm curious, what's your opinion on {artist_name}'s new release, {album_name}?
+I'm in the mood for {music_genre} on {music_streaming_service} from {record_label}.
+I'm in the mood for {music_genre} on {music_streaming_service}.
+I'm in the mood for {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+I'm in the mood for {song_name} by {artist_name} from {album_name}—can you play it?
+I'm really into {music_genre} these days, especially {artist_name}.
+I'm really into {music_genre}, and {artist_name} is one of my favorites in that genre.
+I'm really into {music_genre}, and {artist_name} is one of my favorites, especially their album {album_name}.
+I'm really vibing with {artist_name}'s music lately, especially {album_name}.
+I've added some tracks from {artist_name}'s {album_name} to my playlist – they're so good!
+I've added {song_name} by {artist_name} to my favorite playlist.
+I've become a fan of {artist_name}'s unique sound, especially in {song_name}.
+I've been captivated by the depth of {artist_name}'s music, especially in {album_name}.
+I've been discussing music with friends, and {artist_name}'s {album_name} has come up multiple times. Have you heard {song_name}?
+I've been discussing music with friends, and {artist_name}'s {album_name} keeps coming up. Have you had a chance to listen to {song_name}?
+I've been enjoying the creativity in {artist_name}'s music, particularly in {song_name}.
+I've been enjoying the latest releases from {artist_name}—they never disappoint.
+I've been enjoying the musical journey of {artist_name} through their album {album_name}.
+I've been enjoying {album_name} by {artist_name} lately.
+I've been enjoying {music_genre} lately, and {artist_name}'s {album_name} perfectly fits the vibe.
+I've been exploring different music genres lately, and {artist_name}'s {album_name} caught my attention, particularly {song_name}.
+I've been exploring different music genres, and {artist_name}'s {album_name} caught my attention, especially {song_name}.
+I've been exploring different {music_genre} artists, and {artist_name} caught my attention.
+I've been exploring {artist_name}'s discography, and {album_name} stands out.
+I've been exploring {artist_name}'s musical journey, and {album_name} is a standout piece.
+I've been exploring {music_genre} lately, and {artist_name}'s {album_name} is on my playlist.
+I've been exploring {music_genre} more, and {artist_name}'s {album_name} has become a favorite of mine.
+I've been exploring {music_genre} more, and {artist_name}'s {album_name} is a gem.
+I've been exploring {music_genre} more, and {artist_name}'s {album_name} is a standout for me.
+I've been immersed in the world of {music_genre}, with {artist_name}'s tracks on repeat.
+I've been immersed in {artist_name}'s discography, and {song_name} is a favorite.
+I've been immersed in {music_genre} lately, and {artist_name}'s {album_name} has been a significant part of that exploration.
+I've been immersing myself in {music_genre} recently, and {artist_name}'s {album_name} is a standout.
+I've been impressed by {artist_name}'s work, particularly {album_name} – have you given it a listen?
+I've been listening to {artist_name} across various albums—each one has its own charm.
+Initiate playback of {album_name} by {artist_name}, and focus on the song {song_name} on {music_music_streaming_service}.
+Initiate playback of {album_name} by {artist_name}, and specifically play the song {song_name} on {music_music_streaming_service}.
+Initiate playback of {album_name}, and focus on the song {song_name} by {artist_name} on {music_music_streaming_service}.
+Initiate playback of {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Initiate {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Initiate {song_name} by {artist_name} from {album_name} on {music_music_streaming_service}.
+Launch {music_music_streaming_service} and play the song {song_name} from {album_name} by {artist_name}.
+Launch {music_music_streaming_service} and play {song_name} by {artist_name} from the album {album_name}.
+Launch {music_music_streaming_service} and play {song_name} from the album {album_name} by {artist_name}.
+Let's listen to {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Listen to {album_name} by {artist_name} on {music_streaming_service}.
+Play a random song on {music_streaming_service} from {record_label}.
+Play a random song on {music_streaming_service}.
+Play a {music_genre} mix for a road trip on {music_streaming_service} from {record_label}.
+Play a {music_genre} mix for a road trip on {music_streaming_service}.
+Play a {record_label} mix of {music_genre} and {music_genre} on {music_streaming_service}.
+Play some {music_genre} from the {record_label} catalog on {music_streaming_service}.
+Play some {music_genre} from {artist_name} on {music_streaming_service}.
+Play some {music_genre} from {record_label} on {music_streaming_service}.
+Play some {music_genre} on {music_streaming_service} from {record_label}.
+Play some {music_genre} on {music_streaming_service}.
+Play the album {album_name} by {artist_name} on {music_streaming_service} from {record_label}.
+Play the album {album_name} by {artist_name} on {music_streaming_service}.
+Play the album {album_name} on {music_streaming_service}.
+Play the latest hits on {music_streaming_service} from {record_label}.
+Play the latest hits on {music_streaming_service}.
+Play the latest {album_name} on {music_streaming_service}.
+Play the latest {music_genre} releases on {music_streaming_service}.
+Play the song {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Play the song {song_name} on {music_streaming_service} from {record_label}.
+Play the song {song_name} on {music_streaming_service}.
+Play the top {music_genre} hits from the 90s on {music_streaming_service} from {record_label}.
+Play the top {music_genre} hits from the 90s on {music_streaming_service}.
+Play the track {song_name} by {artist_name} from the album titled {album_name}.
+Play the track {song_name} by {artist_name} from the album {album_name}.
+Play the track {song_name} from the album {album_name} by {artist_name} on {music_music_streaming_service}.
+Play the {album_name} album, and specifically the song {song_name} by {artist_name}.
+Play the {album_name} album, specifically the song {song_name} by {artist_name} on {music_music_streaming_service}.
+Play the {playlist_name} by {artist_name} on {music_streaming_service}.
+Play the {playlist_name} playlist on {music_streaming_service}.
+Play the {playlist_name} playlist with {song_name} and other {music_genre} hits on {music_streaming_service} from {record_label}.
+Play the {song_name} from the album {album_name} on {music_streaming_service}.
+Play {album_name} by {artist_name} from {record_label} on {music_streaming_service}.
+Play {album_name} in its entirety by {artist_name} on {music_streaming_service} from {record_label}.
+Play {album_name} in its entirety by {artist_name} on {music_streaming_service}.
+Play {artist_name} acoustic sessions on {music_streaming_service} from {record_label}.
+Play {artist_name} acoustic sessions on {music_streaming_service}.
+Play {artist_name} greatest hits on {music_streaming_service} from {record_label}.
+Play {artist_name} greatest hits on {music_streaming_service}.
+Play {artist_name} latest hits on {music_streaming_service} from {record_label}.
+Play {artist_name} latest hits on {music_streaming_service}.
+Play {artist_name}'s {album_name} on {music_music_streaming_service}, and focus on the track {song_name}.
+Play {artist_name}'s {album_name} on {music_music_streaming_service}, and make sure to play the song {song_name}.
+Play {artist_name}'s {album_name} on {music_music_streaming_service}, and specifically the track {song_name}.
+Play {song_name} and similar {music_genre} hits on {music_streaming_service} from {record_label}.
+Play {song_name} and similar {music_genre} hits on {music_streaming_service}.
+Play {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}, please.
+Play {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Play {song_name} by {artist_name} from {album_name} on {music_music_streaming_service}.
+Play {song_name} by {artist_name} from {album_name} on {music_streaming_service} from {record_label}.
+Play {song_name} by {artist_name} from {album_name} on {music_streaming_service}.
+Play {song_name} by {artist_name} off of the album {album_name} on {music_music_streaming_service}.
+Play {song_name} by {artist_name} on {music_streaming_service}.
+Play {song_name} by {artist_name} that's part of the album {album_name} on {music_music_streaming_service}.
+Play {song_name} from the album {album_name} by {artist_name} on {music_music_streaming_service}.
+Play {song_name} from the album {album_name} on {music_streaming_service}.
+Play {song_name} from {album_name} by {artist_name} on {music_music_streaming_service}, please.
+Play {song_name} from {album_name} by {artist_name} on {music_music_streaming_service}.
+Recommend a diverse {music_genre} playlist on {music_streaming_service} from {record_label}.
+Recommend a diverse {music_genre} playlist on {music_streaming_service}.
+Recommend a diverse {music_genre} {playlist_name} on {music_streaming_service}.
+Recommend a playlist on {music_streaming_service} for {music_genre} from {record_label}.
+Recommend a playlist on {music_streaming_service} for {music_genre}.
+Recommend a playlist with {song_name} and other {music_genre} hits on {music_streaming_service}.
+Recommend a {music_genre} playlist for a rainy day on {music_streaming_service} from {record_label}.
+Recommend a {music_genre} playlist for a rainy day on {music_streaming_service}.
+Recommend a {music_genre} playlist for a workout on {music_streaming_service} from {record_label}.
+Recommend a {music_genre} playlist for a workout on {music_streaming_service}.
+Recommend a {music_genre} {playlist_name} for a rainy day on {music_streaming_service}.
+Recommend a {music_genre} {playlist_name} for a workout on {music_streaming_service}.
+Recommend a {playlist_name} on {music_streaming_service} for {music_genre}.
+Recommend a {playlist_name} with {song_name} and other {music_genre} hits on {music_streaming_service}.
+Recommend a {record_label} mix of {music_genre} and {music_genre} on {music_streaming_service}.
+Recommend me an {music_genre} album on {music_streaming_service}.
+Start playing {song_name} by {artist_name} from {album_name} on {music_music_streaming_service}.
+Start the album {album_name} by {artist_name}, and make sure to play the song {song_name} on {music_music_streaming_service}.
+Start the album {album_name} by {artist_name}, and play the song {song_name} on {music_music_streaming_service}.
+Start the album {album_name} by {artist_name}, and specifically, play the song {song_name} on {music_music_streaming_service}.
+Start {song_name} by {artist_name} from the album {album_name} on {music_music_streaming_service}.
+Suggest a playlist by {artist_name} on {music_streaming_service} from {record_label}.
+Suggest a playlist by {artist_name} on {music_streaming_service}.
+Suggest a song by {artist_name} on {music_streaming_service} from {record_label}.
+Suggest a song by {artist_name} on {music_streaming_service}.
+Suggest a song similar to {song_name} on {music_streaming_service}.
+Suggest a {music_genre} album with an eclectic mix on {music_streaming_service} from {record_label}.
+Suggest a {music_genre} album with an eclectic mix on {music_streaming_service}.
+Suggest a {music_genre} album with relaxing vibes on {music_streaming_service} from {record_label}.
+Suggest a {music_genre} album with relaxing vibes on {music_streaming_service}.
+Suggest a {music_genre} playlist with {song_name} and {song_name} on {music_streaming_service} from {record_label}.
+Suggest a {music_genre} playlist with {song_name} and {song_name} on {music_streaming_service}.
+Suggest a {music_genre} {playlist_name} with an eclectic mix on {music_streaming_service}.
+Suggest a {music_genre} {playlist_name} with relaxing vibes on {music_streaming_service}.
+Suggest a {music_genre} {playlist_name} with {song_name} and {song_name} on {music_streaming_service}.
+Suggest a {playlist_name} by {artist_name} on {music_streaming_service}.
+Suggest a {record_label} playlist with {song_name} and {song_name} on {music_streaming_service}.
+Suggest a {record_label} {playlist_name} with {song_name} and {song_name} on {music_streaming_service}.
+Tell me more about {artist_name}.
+The latest album from {artist_name} has some incredible tracks.
+The latest release from {artist_name} showcases their evolution in the {music_genre} scene.
+The latest {music_genre} release by {artist_name} is worth checking out.
+The latest {music_genre} releases from {artist_name} are keeping me hooked.
+The latest {music_genre} tracks from {artist_name} on {music_music_streaming_service} are quite impressive.
+The music scene has been buzzing with {artist_name}'s latest tracks—have you heard them?
+The song {song_name} by {artist_name} has been on my playlist—it has such a good vibe.
+What are the top albums in {music_genre} on {music_streaming_service} currently?
+What are the top albums in {music_genre} on {music_streaming_service} from {record_label}?
+What are the top albums in {music_genre} on {music_streaming_service}?
+What are the trending {music_genre} songs on {music_streaming_service}?
+What are your thoughts on {artist_name}'s latest album? I'm really enjoying the track {song_name}.
+What are your thoughts on {song_name} from {album_name} by {artist_name}?
+What {music_genre} albums are critically acclaimed on {music_streaming_service} from {record_label}?
+What {music_genre} albums are critically acclaimed on {music_streaming_service}?
+What {music_genre} albums are popular among {music_streaming_service} users from {record_label}?
+What {music_genre} albums are popular among {music_streaming_service} users?
+What {music_genre} albums are popular in {country} on {music_streaming_service} from {record_label}?
+What {music_genre} albums are popular in {country} on {music_streaming_service}?
+What {music_genre} albums are trending globally on {music_streaming_service} from {record_label}?
+What {music_genre} albums are trending globally on {music_streaming_service}?
+What {music_genre} songs are gaining popularity on {music_streaming_service} from {record_label}?
+What {music_genre} songs are gaining popularity on {music_streaming_service}?
+What's the best {music_genre} playlist for a party on {music_streaming_service} from {record_label}?
+What's the best {music_genre} playlist for a party on {music_streaming_service}?
+What's the best {music_genre} playlist on {music_streaming_service} from {record_label}?
+What's the best {music_genre} playlist on {music_streaming_service}?
+What's the best {music_genre} {playlist_name} for a party on {music_streaming_service}?
+What's the latest album by {artist_name} on {music_streaming_service}?
+What's the latest album by {artist_name} on {record_label}?
+What's the latest album by {artist_name}?
+What's the latest {music_genre} album on {music_streaming_service}?
+What's the most popular song by {artist_name} on {music_streaming_service} from {record_label}?
+What's the most popular song by {artist_name} on {music_streaming_service} right now?
+What's the most popular song by {artist_name} on {music_streaming_service}?
+What's the most-played {music_genre} track on {music_streaming_service} this week from {record_label}?
+What's the most-played {music_genre} track on {music_streaming_service} this week?
+What's the top {music_genre} song on {music_streaming_service} currently?
+What's the top {music_genre} song on {music_streaming_service} right now from {record_label}?
+What's the top {music_genre} song on {music_streaming_service} right now?
+What's trending in {music_genre} on {music_streaming_service}?
+What's your opinion on {album_name} by {artist_name}?
+What's your opinion on {album_name} by {artist_name}? I find it quite captivating.
+What's your opinion on {artist_name}'s latest work, especially {album_name}?
+What's your opinion on {artist_name}'s {album_name}? I can't get enough of the track {song_name}.
+What's your opinion on {song_name} by {artist_name} from the album {album_name}? I find it captivating.
+What's your take on {artist_name}'s latest release, {album_name}?
+What's your take on {song_name} by {artist_name} from the album {album_name}?
+Who is the artist of {song_name}?
+play a K-pop hit
+play a blues track
+play a classic rock track
+play a classic tune
+play a country song
+play a country track
+play a dance track
+play a favorite artist
+play a folk song
+play a folk track
+play a hip-hop song
+play a jazz fusion track
+play a random song
+play a random track
+play a random track from [Album]
+play a reggae playlist
+play a reggae track
+play a rock song
+play a song about love
+play a song by Adele
+play a song by Ariana Grande
+play a song by Beyoncé
+play a song by Billie Eilish
+play a song by Coldplay
+play a song by Drake
+play a song by Elton John
+play a song by John Legend
+play a song by Justin Bieber
+play a song by Lady Gaga
+play a song by Michael Jackson
+play a song by Pink Floyd
+play a song by Shawn Mendes
+play a song by Taylor Swift
+play a song by The Beatles
+play a song by The Chainsmokers
+play a song for a beach day
+play a song for a celebration
+play a song for a date night
+play a song for a journey
+play a song for a party
+play a song for a rainy day
+play a song for a rainy evening
+play a song for a road trip
+play a song for a special occasion
+play a song for a sunny day
+play a song for chilling
+play a song for creative work
+play a song for meditation
+play a song for nostalgia
+play a song for reflection
+play a song for studying
+play a song for the morning
+play a song for the night
+play a song for winter
+play a song from a Broadway musical
+play a song from a TV show theme
+play a song from a movie soundtrack
+play a song from a musical
+play a song from a video game soundtrack
+play a song from the 80s
+play a song from the 90s
+play a song to boost energy
+play a song to express emotions
+play a song to inspire
+play a song to lift my mood
+play a song to relax
+play a song with a great beat
+play a song with beautiful vocals
+play a song with catchy lyrics
+play a song with lyrics
+play a soul track
+play a specific music genre
+play a track for a workout
+play a track from Adele
+play a track from Bruno Mars
+play a track from Ed Sheeran
+play a track from Eminem
+play a track from Katy Perry
+play a track from Maroon 5
+play a track from Queen
+play a track from Rihanna
+play a track from Sia
+play a track from The Weeknd
+play an 80s pop hit
+play classical music
+play electronic music
+play indie music
+play instrumental music
+play jazz
+play music
+play music by Beyoncé
+play music by Bruno Mars
+play music by Elvis Presley
+play music by Lady Gaga
+play music by Michael Jackson
+play music by Rihanna
+play music by Taylor Swift
+play music by The Beatles
+play my favorite songs
+play rock music
+play some background music
+play some music
+play something by Adele
+play something by Bob Marley
+play something by Frank Sinatra
+play something by Justin Bieber
+play something by Queen
+play something from the 2000s
+play something from the 50s
+play something from the 60s
+play something from the 70s
+play something mellow
+play something romantic
+play something upbeat
+play the best of EDM
+play the best of Motown
+play the best of alternative rock
+play the best of classical music
+play the latest hits
+play the top 10 hits
+play the top charts
+play {album_name}
+play {artist_name}
+play {music_genre}
+play {playlist_name}
+play {song_name}
+put on {playlist_name}
+search {music_genre}
+search {playlist_name}
+shuffle my music
+start a Bollywood music session
+start a Celtic music playlist
+start a Latin music playlist
+start a R&B playlist
+start a beach party playlist
+start a bedtime melody
+start a blues music playlist
+start a calming music playlist
+start a calming song
+start a classical music session
+start a country music playlist
+start a cozy music evening
+start a cozy winter music session
+start a custom playlist
+start a dance music playlist
+start a dance track
+start a disco playlist
+start a dubstep session
+start a festive music playlist
+start a flamenco guitar playlist
+start a focus music playlist
+start a folk music playlist
+start a folk music session
+start a garage rock session
+start a glitch hop session
+start a grunge rock session
+start a gym playlist
+start a hip-hop playlist
+start a hip-hop track
+start a indie music session
+start a jazz playlist
+start a laid-back music session
+start a live music performance
+start a lo-fi hip-hop session
+start a mellow song
+start a melody for concentration
+start a metal music session
+start a minimalist music session
+start a motivational music playlist
+start a music adventure
+start a music discovery session
+start a music escape
+start a music exploration
+start a music journey
+start a music journey through time
+start a music party
+start a music playlist
+start a music session
+start a nostalgic music session
+start a party playlist
+start a playlist
+start a playlist by Coldplay
+start a playlist for the weekend
+start a playlist with acoustic songs
+start a playlist with emotional songs
+start a playlist with energetic songs
+start a playlist with love songs
+start a playlist with party songs
+start a playlist with rap songs
+start a playlist with summer vibes
+start a pop music playlist
+start a pop music session
+start a pop song
+start a pop-rock music session
+start a post-punk session
+start a productive music session
+start a punk rock session
+start a rainy day music session
+start a reggae music session
+start a reggae rock playlist
+start a reggaeton playlist
+start a relaxing music session
+start a rock and roll playlist
+start a rock music session
+start a romantic evening playlist
+start a romantic music selection
+start a ska playlist
+start a song
+start a song by Ed Sheeran
+start a song by [Artist]
+start a soul music playlist
+start a soulful song
+start a summer vibes playlist
+start a techno playlist
+start a thoughtful music session
+start a throwback music playlist
+start a trap music playlist
+start a travel music session
+start a trip-hop session
+start a tropical house playlist
+start a wake-up playlist
+start a workout playlist
+start a world music playlist
+start an acoustic playlist
+start an ambient music session
+start an electronic dance session
+start an emotional music journey
+start an energetic music session
+start an indie pop playlist
+start my music collection
+start playing my favorite music
+start some song
+start the album 'A Head Full of Dreams'
+start the album 'Abbey Road'
+start the album 'Bigger Love'
+start the album 'Chromatica'
+start the album 'Classical Masterpieces'
+start the album 'Fearless (Taylor's Version)'
+start the album 'Happier Than Ever'
+start the album 'Positions'
+start the album 'The Dark Side of the Moon'
+start the album 'Wonder'
+start the playlist 'Chart-Toppers'
+start the playlist 'Drake Essentials'
+start the playlist 'EDM Party'
+start the playlist 'Electronic Beats'
+start the playlist 'Elton's Classics'
+start the playlist 'Indie Vibes'
+start the playlist 'King of Pop'
+start the playlist 'R&B Hits'
+start the playlist 'Top Hits'
+start {album_name}
+start {artist_name}
+start {music_genre}
+start {playlist_name}
+start {song_name}
+watch {album_name}
+watch {artist_name}
+watch {song_name}
+{album_name} by {artist_name} has been in my rotation lately – it's a great collection of songs.
+{album_name} by {artist_name} has been on my playlist recently – it's such a solid collection of songs.
+{album_name} by {artist_name} is a masterpiece, don't you think?
+{album_name} by {artist_name} is on repeat for me – such a great collection of songs.
+{artist_name} always brings a fresh perspective to {music_genre}—it's quite refreshing.
+{artist_name} always delivers fantastic music—have you explored their latest album?
+{artist_name} dropped a new single – {song_name} – and it's worth giving a listen.
+{artist_name} has a diverse discography, and I'm currently hooked on {song_name} from {album_name}.
+{artist_name} has a unique style, and I find {song_name} from {album_name} to be particularly captivating.
+{artist_name} has a unique style, and I'm enjoying their latest album, {album_name}.
+{artist_name} has been consistently delivering great music
+{artist_name} has been creating some amazing music recently, and {album_name} is a standout for me.
+{artist_name} has been creating some incredible music lately, especially in {music_genre}.
+{artist_name} just released a new song called {song_name}, and it's been on repeat for me.
+{artist_name} just released a new song, {song_name}, and I think it's fantastic.
+{artist_name} released a new album called {album_name} – have you checked it out?
+{artist_name}'s latest album, {album_name}, has some incredible tracks – have you given it a listen?
+{artist_name}'s music has a unique blend of {music_genre} elements that I appreciate.
+{artist_name}'s music, especially the song {song_name}, has been on repeat for me.
+{artist_name}'s music, especially the song {song_name}, resonates with me.
+{artist_name}'s {album_name} has a nice mix of tracks, perfect for different moods.
+{artist_name}'s {album_name} has some great tracks—have you given it a listen?

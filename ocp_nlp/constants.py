@@ -89,26 +89,28 @@ class PlaybackMode(IntEnum):
 
 
 class MediaType(IntEnum):
-    GENERIC = 0
-    AUDIO = 1
+    GENERIC = 0  # nothing else matches
+    AUDIO = 1  # things like ambient noises
     MUSIC = 2
-    VIDEO = 3
+    VIDEO = 3  # eg, youtube videos
     AUDIOBOOK = 4
-    GAME = 5
+    GAME = 5  # because it shares the verb "play", mostly for disambguation
     PODCAST = 6
-    RADIO = 7
-    NEWS = 8
-    TV = 9
+    RADIO = 7  # live radio
+    NEWS = 8  # news reports
+    TV = 9  # live tv stream
     MOVIE = 10
     TRAILER = 11
-    VISUAL_STORY = 13
+    VISUAL_STORY = 13  # things like animated comic books
     BEHIND_THE_SCENES = 14
     DOCUMENTARY = 15
     RADIO_THEATRE = 16
-    SHORT_FILM = 17
+    SHORT_FILM = 17  # typically movies under 45 min
     SILENT_MOVIE = 18
+    VIDEO_EPISODES = 19  # tv series etc
     BLACK_WHITE_MOVIE = 20
     CARTOON = 21
+    ANIME = 22
 
-    ADULT = 69
-    HENTAI = 70
+    ADULT = 69  # for content filtering # for content filtering
+    HENTAI = 70  # for content filtering # for content filtering
