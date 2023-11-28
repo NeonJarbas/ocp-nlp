@@ -1,5 +1,3 @@
-
- what's on {youtube_channel}.
 Can you find Let's Play videos for popular video games on {video_streaming_service}?
 Can you find insightful book review videos on {video_streaming_service}?
 Can you find me some interesting cooking tutorial videos on {video_streaming_service}?
@@ -398,3 +396,4 @@ watch video from {youtube_channel}
 watch {video_genre}
 what's new from {youtube_channel}?
 what's new in {youtube_channel}?
+what's on {youtube_channel}.
