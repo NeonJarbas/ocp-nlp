@@ -1,3 +1,52 @@
+Activate a {comics_genre} motion comic titled {comic_name} on {comic_streaming_service}.
+Activate the playback of a {comics_genre} animated comic on {comic_streaming_service} named {comic_name}.
+Begin playback of a {comics_genre} animated comic on {comic_streaming_service}.
+Begin playback of the animated comic {comic_name} in {comic_streaming_service}.
+Begin playback of the animated comic {comic_name} on {comic_streaming_service} in the {comics_genre} category.
+Begin playing a {comic_name} animated comic on {comic_streaming_service} named {comic_name}.
+Begin streaming the motion comic called {comic_name} in the {comics_genre} category on {comic_streaming_service}.
+Begin streaming the motion comic titled {comic_name} on {comic_streaming_service}.
+Begin the streaming of the motion comic called {comic_name} in the {comics_genre} category on {comic_streaming_service}.
+Begin the streaming of the motion comic titled {comic_name} on {comic_streaming_service}.
+Begin {comics_genre} comic book animations on {comic_streaming_service}.
+Begin {comics_genre} motion comics on {comic_streaming_service}.
+Commence playback of a {comics_genre} motion comic on {comic_streaming_service}.
+Commence playback of the animated comic {comic_name} on {comic_streaming_service} in the {comics_genre} category.
+Execute a {comics_genre} motion comic titled {comic_name} on {comic_streaming_service}.
+Fire up playback of a {comics_genre} motion comic called {comic_name} in {comic_streaming_service}.
+Initiate the motion comic titled {comic_name} in {comic_streaming_service}.
+Initiate the motion comic with the title {comic_name} on {comic_streaming_service}
+Initiate the motion comic with the title {comic_name} on {comic_streaming_service} in the {comics_genre} genre.
+Kick off playback of a {comics_genre} motion comic on {comic_streaming_service} named {comic_name}.
+Kick off the playback of the animated comic {comic_name} in {comic_streaming_service}.
+Launch playback of the animated comic {comic_name} on {comic_streaming_service} in the {comics_genre} category.
+Launch the streaming of the motion comic named {comic_name} on {comic_streaming_service}.
+Launch the streaming of the motion comic with the title {comic_name} on {comic_streaming_service} in the {comics_genre} genre.
+Open the streaming of the motion comic with the title {comic_name} in the {comics_genre} category on {comic_streaming_service}.
+Play a {comics_genre} comic book animation on {comic_streaming_service}.
+Play a {comics_genre} comic book animation titled {comic_name} on {comic_streaming_service}.
+Play a {comics_genre} motion comic titled {comic_name} in {comic_streaming_service}.
+Play a {comics_genre} motion comic titled {comic_name} on {comic_streaming_service}.
+Play motion comics from the {comics_genre} category on {comic_streaming_service}.
+Play the motion comic titled {comic_name} in the {comics_genre} category on {comic_streaming_service}.
+Play the motion comic titled {comic_name} in {comic_streaming_service}.
+Play {comics_genre} animated comics on {comic_streaming_service}.
+Play {comics_genre} comics with narration on {comic_streaming_service}.
+Set off the motion comic titled {comic_name} in the {comics_genre} category on {comic_streaming_service}.
+Start playback of a {comics_genre} motion comic called {comic_name} in {comic_streaming_service}.
+Start playback of a {comics_genre} motion comic on {comic_streaming_service} named {comic_name}.
+Start playback of motion comics in the {comics_genre} genre on {comic_streaming_service}.
+Start playback of {comics_genre} motion comics on {comic_streaming_service}.
+Start playback of {comics_genre} motion comics with narration on {comic_streaming_service}.
+Start playing a {comics_genre} motion comic on {comic_streaming_service}.
+Start playing the motion comic with the title {comic_name} on {comic_streaming_service} in the {comics_genre} genre.
+Start playing the motion comic with the title {comic_name} on {comic_streaming_service}.
+Start streaming the motion comic named {comic_name} on {comic_streaming_service}.
+Start streaming the motion comic with the title {comic_name} in the {comics_genre} category on {comic_streaming_service}.
+Start streaming the motion comic with the title {comic_name} on {comic_streaming_service} in the {comics_genre} genre.
+Start the motion comic with the title {comic_name} on {comic_streaming_service}.
+Trigger the playback of a {comics_genre} animated comic on {comic_streaming_service} named {comic_name}.
+Trigger the playback of a {comics_genre} animated comic on {comic_streaming_service}.
 play a graphic novel
 play a graphic novel-style story
 play a graphic storytelling adventure
@@ -30,7 +79,9 @@ play an interactive comic session
 play an interactive fiction with visuals
 play an interactive narrative
 play an interactive story with visuals
+play {comic_name}
 play {comics_genre}
+search {comic_name}
 search {comics_genre}
 show me a graphic novel-style narrative
 show me a narrative with a visual aspect
@@ -80,5 +131,7 @@ start an immersive visual narrative
 start an interactive journey with visuals
 start an interactive narrative experience
 start an interactive visual experience
+view {comic_name}
 view {comics_genre}
+watch {comic_name}
 watch {comics_genre}
