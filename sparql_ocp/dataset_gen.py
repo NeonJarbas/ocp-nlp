@@ -13,10 +13,18 @@ LANGS = ["ca", "pt", "es", "fr", "en", "de", "uk", "gl", "ru", "da", "fi", "it"]
 
 import random
 
-
-
 ENTITIES = {
     # entity examples
+    "gaming_console_name": {
+        "P31": [
+            "Q8076",  # video gaming console
+            "Q17589470",  # home video gaming console
+        ],
+        "P279": [
+            "Q8076",  # video gaming console
+            "Q17589470",  # home video gaming console
+        ],
+    },
     "country_name": {
         "P31": ["Q6256"]  # country - used in templates to extend queries
     },
