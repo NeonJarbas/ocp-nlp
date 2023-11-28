@@ -1,7 +1,65 @@
+from os import makedirs
+from os.path import join, dirname
+
 import os
 import random
-
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.linear_model import Perceptron
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import LinearSVC
 from unidecode import unidecode
+
+from ovos_classifiers.skovos.tagger import SklearnOVOSVotingClassifierTagger
+
+
+class MediaTypeClassifier:
+    def __init__(self, pipeline="cv2"):
+        clf1 = LinearSVC()
+        clf2 = ExtraTreesClassifier(n_estimators=10, max_depth=None, min_samples_split=2)
+        clf3 = Perceptron()
+        clf4 = MultinomialNB()
+        estimators = [clf1, clf2, clf3, clf4]
+        self.pipeline = pipeline
+        self.clf = SklearnOVOSVotingClassifierTagger(estimators, self.pipeline)
+
+    def train(self, csv_path, model_folder):
+        makedirs(model_folder, exist_ok=True)
+
+        with open(csv_path) as f:
+            lines = f.read().split("\n")[1:]
+            random.shuffle(lines)
+            lines = [l.split(",") for l in lines if len(l.split(",")) == 2]
+            random.shuffle(lines)
+
+        thresh = int(0.8 * len(lines))
+        train = lines[:thresh]
+        test = lines[thresh:]
+        X = [_[1] for _ in train]
+        X_test = [_[1] for _ in test]
+        y = [_[0] for _ in train]
+        y_test = [_[0] for _ in test]
+
+        self.clf.train(X, y)
+
+        print('Training completed')
+
+        acc = self.clf.score(X_test, y_test)
+
+        print("Accuracy:", acc)
+        # Accuracy:  0.91
+
+        # save pickle
+        path = join(model_folder, f"{self.pipeline}_media_type.clf")
+        self.clf.save(path)
+        return acc
+
+    def load(self, model_folder, pipeline=None):
+        pipeline = pipeline or self.pipeline
+        path = join(model_folder, f"{pipeline}_media_type.clf")
+        self.clf.load_from_file(path)
+
+    def predict(self, utterances):
+        return self.clf.predict(utterances)
 
 
 class WordFeatures:
@@ -129,6 +187,24 @@ def generate_samples(p, lang):
 
 if __name__ == "__main__":
 
+    model_folder = join(dirname(__file__), "models")
+    csv_path = "/home/miro/PycharmProjects/OCP_sprint/ocp-nlp/sparql_ocp/dataset.csv"
+    clf = MediaTypeClassifier()
+
+    # clf.train(csv_path, model_folder)
+
+    clf.load(model_folder)
+
+    print(clf.predict(
+        [
+            "play metallica",
+            "play rob zombie",
+            "play a silent movie",
+            "play a classic film with zombies",
+            "I want to listen to a podcast"
+        ]))
+    # ['music' 'music' 'silent' 'movies' 'podcast']
+
     p = "/home/miro/PycharmProjects/OCP_sprint/ocp-nlp/sparql_ocp"
 
     l = WordFeatures(lang="en",
@@ -161,7 +237,6 @@ if __name__ == "__main__":
     #  'album_name': 'Science Fiction', 'short_film_name': 'Science',
     #  'book_name': 'Science Fiction', 'movie_name': 'Science Fiction'}
 
-    exit(1)
 
     dataset = []
 
