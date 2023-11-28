@@ -9,7 +9,7 @@ from unidecode import unidecode
 
 endpoint_url = "https://query.wikidata.org/sparql"
 
-LANGS = ["ca", "pt", "es", "fr", "en", "de", "uk", "gl", "ru", "da", "fi"]
+LANGS = ["ca", "pt", "es", "fr", "en", "de", "uk", "gl", "ru", "da", "fi", "it"]
 
 import random
 
@@ -208,8 +208,9 @@ COUNTRIES = {
     "ca": ["Q5705"],
     "uk": ["Q212"],
     "gl": ["Q3908"],
-    "da": [],
-    "fi": [],
+    "da": ["Q35"],
+    "fi": ["Q33"],
+    "it": ["Q38"],
     "es": [
         "Q29",  # Spain
         "Q96",  # Mexico
