@@ -88,7 +88,7 @@ Play the newest episode from {podcast_name}.
 Play the newest physics episodes from "Quantum Insights" on {podcast_streaming_service}.
 Play the newest {podcast_genre} episodes from {podcast_name} on {podcast_streaming_service}.
 Play {podcast_genre} podcasts that are great for relaxation on {podcast_streaming_service}.
-Play {podcast_name}'s latest episode with {guest} on {podcast_streaming_service}.
+Play {podcast_name} 's latest episode with {guest} on {podcast_streaming_service}.
 Recommend educational {podcast_genre} podcasts on {podcast_streaming_service}.
 Recommend podcasts for a road trip on {podcast_streaming_service}.
 Recommend podcasts for a workout session on {podcast_streaming_service}.

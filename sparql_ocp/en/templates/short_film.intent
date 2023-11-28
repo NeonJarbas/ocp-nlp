@@ -60,13 +60,13 @@ Give me details about {short_film_name}, a short film, not a feature, on {shorts
 Give me details about {short_film_name}, the short film on {shorts_streaming_service.entity}.
 Hey, play a quick {short_film_name}, it's a short film under 45 minutes, on {shorts_streaming_service.entity}.
 I want to discover short films from {country_name} on {shorts_streaming_service.entity}.
-I want to explore short films from {country_name}—what's available on {shorts_streaming_service.entity}?
-I want to watch a short film from {country_name}—any recommendations on {shorts_streaming_service.entity}?
+I want to explore short films from {country_name} what's available on {shorts_streaming_service.entity}?
+I want to watch a short film from {country_name} any recommendations on {shorts_streaming_service.entity}?
 I want to watch a {film_genre} short film from {country_name} on {shorts_streaming_service.entity}.
-I'm in the mood for a short film from {country_name}—what's available on {shorts_streaming_service.entity}?
-I'm in the mood for a short film from {country_name}—what's on {shorts_streaming_service.entity}?
-I'm interested in short films from {country_name}—what's on {shorts_streaming_service.entity}?
-I'm looking for a short film from {country_name} on {shorts_streaming_service.entity}—any suggestions?
+I'm in the mood for a short film from {country_name} what's available on {shorts_streaming_service.entity}?
+I'm in the mood for a short film from {country_name} what's on {shorts_streaming_service.entity}?
+I'm interested in short films from {country_name} what's on {shorts_streaming_service.entity}?
+I'm looking for a short film from {country_name} on {shorts_streaming_service.entity} any suggestions?
 In the mood for a quick film? Check out {short_film_name}, a short film available on {shorts_streaming_service.entity}.
 In the mood for something brief? Try the short film {short_film_name} on {shorts_streaming_service.entity}.
 In the mood for something shorter? Check out {short_film_name}, a captivating short film on {shorts_streaming_service.entity}.
@@ -79,7 +79,7 @@ List short films and play one, like {short_film_name}, on {shorts_streaming_serv
 List short films on {shorts_streaming_service.entity}.
 List short films, specifically those under 45 minutes, on {shorts_streaming_service.entity}.
 List short films, specifically those under 45 minutes, on {shorts_streaming_service.entity}. Pick one for me to watch.
-List some short films available on {shorts_streaming_service.entity}—maybe {short_film_name} is among them.
+List some short films available on {shorts_streaming_service.entity} maybe {short_film_name} is among them.
 Looking for a brief movie break? Try {short_film_name}, a short film available on {shorts_streaming_service.entity}.
 Looking for a brief yet impactful film? Try watching {short_film_name}, a short film, on {shorts_streaming_service.entity}.
 Looking for a film that doesn't require a long time commitment? Check out {short_film_name} on {shorts_streaming_service.entity}.

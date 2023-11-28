@@ -79,8 +79,8 @@ Guide me through the silent movie selection on {movie_streaming_service}; pick o
 Guide me through the world of silent cinema; suggest a film from {film_studio} on {movie_streaming_service}.
 Hey, let's set the mood—play that silent film from {film_studio} on the living room TV.
 How about some silent cinema magic? Play a {film_genre} silent film on the bedroom TV from {movie_streaming_service}.
-I want to explore silent movies from {country_name}—play them on {movie_streaming_service}.
-I want to explore silent movies from {country_name}—what's on {movie_streaming_service}?
+I want to explore silent movies from {country_name} play them on {movie_streaming_service}.
+I want to explore silent movies from {country_name} what's on {movie_streaming_service}?
 I want to explore the era of silent films; find me a captivating one on {movie_streaming_service}.
 I want to see a silent movie called {silent_movie_name} on {movie_streaming_service}.
 I want to watch {silent_movie_name} in {movie_streaming_service}.
@@ -89,8 +89,8 @@ I'd like to discover silent films from {country_name} on {movie_streaming_servic
 I'd like to watch a silent movie, maybe {silent_movie_name} on {movie_streaming_service}.
 I'd like to watch a silent movie, perhaps {silent_movie_name} on {movie_streaming_service}.
 I'd like to watch silent movies from {country_name} on {movie_streaming_service}.
+I'm curious about silent films from {film_studio} on {movie_streaming_service} any suggestions?
 I'm curious about silent films from {film_studio} on {movie_streaming_service}, any recommendations?
-I'm curious about silent films from {film_studio} on {movie_streaming_service}—any suggestions?
 I'm curious about the artistry of silent films; recommend one from {film_studio} on {movie_streaming_service}.
 I'm fascinated by the art of silent films; find me a {film_genre} one on {movie_streaming_service}.
 I'm fascinated by the silent era; what's noteworthy from {film_studio} on {movie_streaming_service}?
@@ -105,11 +105,11 @@ I'm in the mood for a quiet cinematic experience—how about a {film_genre} sile
 I'm in the mood for a silent gem that encapsulates the essence of {film_studio} on {movie_streaming_service}.
 I'm in the mood for a silent movie, like {silent_movie_name} on {movie_streaming_service}.
 I'm in the mood for a silent movie, maybe {silent_movie_name} on {movie_streaming_service}.
-I'm in the mood for a {film_genre} silent experience on {movie_streaming_service}—any recommendations?
+I'm in the mood for a {film_genre} silent experience on {movie_streaming_service} any recommendations?
 I'm in the mood for a {film_genre} silent film on {movie_streaming_service}; any standout options by {film_studio}?
-I'm in the mood for silent movies from {country_name}—what's on {movie_streaming_service}?
+I'm in the mood for silent movies from {country_name} what's on {movie_streaming_service}?
 I'm in the mood for silent storytelling; recommend a {film_genre} film from {film_studio} on {movie_streaming_service}.
-I'm interested in silent movies from {country_name}—what's on {movie_streaming_service}?
+I'm interested in silent movies from {country_name} what's on {movie_streaming_service}?
 I'm intrigued by silent films; what's available from {film_studio} on {movie_streaming_service}?
 I'm intrigued by silent storytelling; suggest a {film_genre} silent film on {movie_streaming_service}.
 I'm intrigued by the artistic expression of silent films; recommend a {film_genre} one on {movie_streaming_service}.
@@ -118,12 +118,12 @@ I'm intrigued by the elegance of silent films—find me a {film_genre} one on {m
 I'm looking for a silent movie called {silent_movie_name} available on {movie_streaming_service}.
 I'm looking for a unique cinematic experience; any recommendations for silent films on {movie_streaming_service}?
 I'm looking for a {film_genre} silent film on {movie_streaming_service} to add to my watchlist.
-I'm looking for silent movies from {country_name}—play them on {movie_streaming_service}.
+I'm looking for silent movies from {country_name} play them on {movie_streaming_service}.
 I'm on a quest for a silent gem that encapsulates the essence of {film_studio} on {movie_streaming_service}.
-I'm on a quest for a {film_genre} silent gem on {movie_streaming_service}—any suggestions?
+I'm on a quest for a {film_genre} silent gem on {movie_streaming_service} any suggestions?
 I'm on the hunt for a silent masterpiece; what does {movie_streaming_service} offer from {film_studio}?
+I'm on the lookout for a {film_genre} silent film on {movie_streaming_service} any hidden gems?
 I'm on the lookout for a {film_genre} silent film on {movie_streaming_service}; any recommendations from {film_studio}?
-I'm on the lookout for a {film_genre} silent film on {movie_streaming_service}—any hidden gems?
 I'm searching for a {film_genre} silent film with a touch of {film_studio} on {movie_streaming_service}.
 I'm seeking cinematic nostalgia; recommend a silent film from {film_studio} on {movie_streaming_service}.
 Immerse me in the charm of silent cinema—what's noteworthy from {film_studio} on {movie_streaming_service}?
@@ -208,7 +208,7 @@ Play a {film_genre} silent movie on the rooftop speakers.
 Play classic silent films from {country_name} on {movie_streaming_service}.
 Play silent films from {country_name} on {movie_streaming_service} for me.
 Play silent movies from {country_name} on {movie_streaming_service}.
-Play silent movies from {country_name}—what's available on {movie_streaming_service}?
+Play silent movies from {country_name} what's available on {movie_streaming_service}?
 Play {silent_movie_name} from {country_name} as a silent film on {movie_streaming_service}.
 Play {silent_movie_name} from {movie_streaming_service}.
 Play {silent_movie_name} in {movie_streaming_service} for me.

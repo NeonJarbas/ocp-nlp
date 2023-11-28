@@ -123,11 +123,12 @@ def generate_samples(p, lang):
                 if ent in t:
                     if not samples:
                         break
-
                     t = t.replace("{" + ent + "}", random.choice(samples))
+
+            if "{" not in t:
+                yield media_type, t
             else:
-                if "{" not in t:
-                    yield media_type, t
+                print("bad template", t)
 
 
 if __name__ == "__main__":

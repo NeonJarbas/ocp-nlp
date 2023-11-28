@@ -50,7 +50,7 @@ I need recommendations for {radio_drama_genre} radio theatre on {streaming_servi
 I want to discover new radio theatre shows on {streaming_service}.
 I want to explore audio dramas in the {radio_drama_genre} genre on {streaming_service}.
 I want to explore radio dramas in the {radio_drama_genre} genre on {streaming_service}.
-I want to explore {radio_drama_genre} radio theatre on {streaming_service}—any suggestions?
+I want to explore {radio_drama_genre} radio theatre on {streaming_service} any suggestions?
 I want to hear a {radio_drama_genre} radio show on {streaming_service}.
 I want to hear an {radio_drama_genre} audio show on {streaming_service}.
 I want to hear {radio_drama_name} from the {radio_drama_genre} genre on {streaming_service}.
@@ -65,7 +65,7 @@ I'm curious about {radio_drama_name} in {streaming_service}.
 I'm in the mood for a good audio theatre show on {streaming_service}.
 I'm in the mood for a good radio theatre show on {streaming_service}.
 I'm in the mood for a radio theatre program on {streaming_service}.
-I'm in the mood for a {radio_drama_genre} radio show on {streaming_service}—surprise me!
+I'm in the mood for a {radio_drama_genre} radio show on {streaming_service} surprise me!
 I'm in the mood for a {radio_drama_genre} radio theatre show on {streaming_service}.
 I'm in the mood for some radio theatre—recommend one on {streaming_service}.
 I'm interested in {radio_drama_name} on {streaming_service}.
@@ -90,17 +90,17 @@ Play a {radio_drama_genre} radio theatre program on {streaming_service}.
 Play an {radio_drama_genre} audio drama on {streaming_service}.
 Play the latest episode of {audio_drama_name} on {streaming_service}.
 Play the latest episode of {radio_drama_name} on {streaming_service}.
+Play the latest {radio_drama_name} on {streaming_service} I'm curious about it.
 Play the latest {radio_drama_name} on {streaming_service}.
-Play the latest {radio_drama_name} on {streaming_service}—I'm curious about it.
 Play {audio_drama_name} from {streaming_service} for me.
 Play {audio_drama_name} from {streaming_service}.
 Play {radio_drama_name} from the {radio_drama_genre} genre on {streaming_service}.
+Play {radio_drama_name} from {streaming_service} I heard it's fantastic.
+Play {radio_drama_name} from {streaming_service} I've heard it's a must-listen.
+Play {radio_drama_name} from {streaming_service} I've heard it's quite impressive.
 Play {radio_drama_name} from {streaming_service} for me.
 Play {radio_drama_name} from {streaming_service}.
-Play {radio_drama_name} from {streaming_service}—I heard it's fantastic.
-Play {radio_drama_name} from {streaming_service}—I've heard it's a must-listen.
-Play {radio_drama_name} from {streaming_service}—I've heard it's quite impressive.
-Play {radio_drama_name} in {streaming_service}—I've been meaning to check it out.
+Play {radio_drama_name} in {streaming_service} I've been meaning to check it out.
 Recommend a radio drama from {radio_drama_genre} on {streaming_service}.
 Recommend an audio drama from {radio_drama_genre} on {streaming_service}.
 Search for {audio_drama_name} in {streaming_service} and play it.
@@ -161,7 +161,7 @@ play a captivating radio theatre program on {streaming_service}.
 play a top-rated radio drama from {streaming_service}.
 play a {radio_drama_genre} radio drama from {streaming_service} that's highly rated.
 play a {radio_drama_genre} radio drama from {streaming_service}.
-play a {radio_drama_genre} radio show on {streaming_service}—something captivating.
+play a {radio_drama_genre} radio show on {streaming_service} something captivating.
 play a {radio_drama_genre} radio theatre program on {streaming_service} that's trending.
 play {radio_drama_genre}
 play {radio_drama_name}

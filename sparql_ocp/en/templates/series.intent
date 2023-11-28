@@ -85,8 +85,8 @@ I want a series that's both funny and thought-provoking—recommend one on {vide
 I want a series that's both heartwarming and funny—recommend one on {video_streaming_service}.
 I want to binge-watch {series_name} on {video_streaming_service}.
 I want to catch up on episode {episode_number} of {series_name} on {video_streaming_service}.
-I want to catch up on {series_name}—play the most recent episode on {video_streaming_service}.
-I want to catch up on {series_name}—what's the last episode on {video_streaming_service}?
+I want to catch up on {series_name} play the most recent episode on {video_streaming_service}.
+I want to catch up on {series_name} what's the last episode on {video_streaming_service}?
 I want to start a new series. What's hot on {video_streaming_service} right now?
 I want to start a new series. What's trending on {video_streaming_service} right now?
 I want to watch an episode from {series_name} with a good plot on {video_streaming_service}.
@@ -118,7 +118,7 @@ I'm in the mood for episode {episode_number} of {series_name} on {video_streamin
 I'm in the mood for episode {episode_number} of {series_name} on {video_streaming_service}.
 I'm in the mood for some TV—play {series_name} on {video_streaming_service}.
 I'm in the mood for {series_name} on {video_streaming_service}.
-I'm interested in episode {episode_number} of {series_name} on {video_streaming_service}—any information available?
+I'm interested in episode {episode_number} of {series_name} on {video_streaming_service} any information available?
 I'm interested in {series_name} – where can I watch it on {video_streaming_service}?
 I'm looking for a gripping series; what's popular on {video_streaming_service} right now?
 I'm looking for a series to binge-watch. How about {series_name} on {video_streaming_service}?
@@ -133,7 +133,7 @@ Inform me about the most recent episode of {series_name} on {video_streaming_ser
 Inform me about the newest episode of {series_name} on {video_streaming_service}.
 Inform me about the special episodes of {series_name} on {video_streaming_service}.
 Inform me about the upcoming episodes of {series_name} on {video_streaming_service}.
-Inform me about {series_name}—what's the plot and where can I watch it on {video_streaming_service}?
+Inform me about {series_name} what's the plot and where can I watch it on {video_streaming_service}?
 Let's binge-watch {series_name} from episode {episode_number} on {video_streaming_service}.
 Let's binge-watch {series_name} on {video_streaming_service}.
 Let's check out episode {episode_number} of {series_name} on {video_streaming_service}.

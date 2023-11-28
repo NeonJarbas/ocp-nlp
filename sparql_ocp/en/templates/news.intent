@@ -47,7 +47,7 @@ I need the recent {news_provider} news on {news_streaming_service}.
 I need updates on {news_provider}.
 I want to catch up on the news.
 I want to catch up on {news_provider} from {news_streaming_service}.
-I want to hear the international news from {country_name}—play it on {news_streaming_service}.
+I want to hear the international news from {country_name} play it on {news_streaming_service}.
 I want to hear the latest from {news_provider} on {news_streaming_service}.
 I want to hear the news from {news_provider}.
 I want to hear the news report from {news_provider} in {country_name} on {news_streaming_service}.
@@ -56,7 +56,7 @@ I want to hear the news.
 I want to hear the {country_name} news update from {news_provider} on {news_streaming_service}.
 I want to hear the {news_provider} news highlights on {news_streaming_service}.
 I want to hear the {news_provider} news on {news_streaming_service}.
-I want to hear what's happening in {country_name}—play the news on {news_streaming_service}.
+I want to hear what's happening in {country_name} play the news on {news_streaming_service}.
 I want to hear what's happening locally—play the news on {news_streaming_service}.
 I want to know the latest from {news_provider} on {news_streaming_service}.
 I want to know what's happening—play {news_provider} on {news_streaming_service}.
@@ -145,7 +145,7 @@ What's happening globally—play the international news from {country_name} on {
 What's happening in our community—play the local news on {news_streaming_service}.
 What's happening in our community—play the news on {news_streaming_service}.
 What's happening in the world on {news_provider}?
-What's happening in {country_name}—play the international news on {news_streaming_service}.
+What's happening in {country_name} play the international news on {news_streaming_service}.
 What's the breaking news on {news_provider}?
 What's the buzz with {news_provider} on {news_streaming_service}?
 What's the buzzworthy {news_provider} news on {news_streaming_service}?
@@ -167,7 +167,7 @@ What's the news on {news_streaming_service} from {news_provider}?
 What's the news today from {news_provider} on {news_streaming_service}?
 What's the story with {news_provider} on {news_streaming_service}?
 What's the word on the street from {news_provider} on {news_streaming_service}?
-What's the word on the street in {country_name}—play the news on {news_streaming_service}.
+What's the word on the street in {country_name} play the news on {news_streaming_service}.
 What's the word on the street internationally—play the news from {country_name} on {news_streaming_service}.
 What's the word on the street locally—play the news on {news_streaming_service}.
 What's the {country_name} news buzz on {news_streaming_service}?

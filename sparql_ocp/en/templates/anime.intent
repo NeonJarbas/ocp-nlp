@@ -12,8 +12,8 @@ I want to start watching episode {episode_number} of {anime_name} in {anime_genr
 I want to start watching {anime_name} in {anime_genre} on {anime_streaming_service}.
 I want to watch episode {episode_number} of {anime_name} in {anime_genre} on {anime_streaming_service}.
 I want to watch {anime_name} in {anime_genre} on {anime_streaming_service}.
-I'm in the mood for {anime_genre}—show me episode {episode_number} on {anime_streaming_service}.
-I'm in the mood for {anime_genre}—show me something on {anime_streaming_service}.
+I'm in the mood for {anime_genre} show me episode {episode_number} on {anime_streaming_service}.
+I'm in the mood for {anime_genre} show me something on {anime_streaming_service}.
 I'm interested in episode {episode_number} of {anime_name} on {anime_streaming_service}.
 I'm interested in {anime_name} episodes on {anime_streaming_service}.
 I'm looking for {anime_genre} anime episode {episode_number} on {anime_streaming_service}.

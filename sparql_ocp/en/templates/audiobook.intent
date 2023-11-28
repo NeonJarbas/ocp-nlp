@@ -42,9 +42,9 @@ Give me a book recommendation from {country_name}.
 Give me a book suggestion from {country_name} in {book_genre} on {audiobook_streaming_service}.
 Give me a book suggestion from {country_name} on {audiobook_streaming_service}.
 Give me a book suggestion from {country_name}.
-Give me a literary escape to {country_name}—play a book on {audiobook_streaming_service}.
-Give me a literary journey from {country_name}—play a book on {audiobook_streaming_service}.
-Give me a taste of literature from {country_name}—play a book on {audiobook_streaming_service}.
+Give me a literary escape to {country_name} play a book on {audiobook_streaming_service}.
+Give me a literary journey from {country_name} play a book on {audiobook_streaming_service}.
+Give me a taste of literature from {country_name} play a book on {audiobook_streaming_service}.
 Give me a {book_genre} book recommendation from {country_name} on {audiobook_streaming_service}.
 Give me an audiobook recommendation in the {book_genre} genre on {audiobook_streaming_service}.
 Give me an immersive experience with a book from {country_name} on {audiobook_streaming_service}.
@@ -53,31 +53,31 @@ I need a new audiobook, preferably in the {book_genre} genre on {audiobook_strea
 I need a {book_genre} recommendation for {audiobook_streaming_service}.
 I want to discover a new {book_genre} on {audiobook_streaming_service}.
 I want to discover hidden gem {book_genre} options on {audiobook_streaming_service}.
-I want to dive into the literature of {country_name}—play a book on {audiobook_streaming_service}.
-I want to experience the literature of {country_name}—play a book on {audiobook_streaming_service}.
+I want to dive into the literature of {country_name} play a book on {audiobook_streaming_service}.
+I want to experience the literature of {country_name} play a book on {audiobook_streaming_service}.
 I want to explore a new {book_genre} series on {audiobook_streaming_service}.
 I want to explore a {book_genre} on {audiobook_streaming_service}.
-I want to explore literature from {country_name}—read me a book on {audiobook_streaming_service}.
-I want to explore the literature of {country_name}—play a book on {audiobook_streaming_service}.
-I want to listen to a book from {country_name} by {author}—play one for me.
-I want to listen to a book from {country_name}—play one for me.
+I want to explore literature from {country_name} read me a book on {audiobook_streaming_service}.
+I want to explore the literature of {country_name} play a book on {audiobook_streaming_service}.
+I want to listen to a book from {country_name} by {author} play one for me.
+I want to listen to a book from {country_name} play one for me.
 I want to listen to a {book_genre} by a popular author on {audiobook_streaming_service}.
 I want to listen to a {book_genre} with a surprising plot twist on {audiobook_streaming_service}.
 I want to listen to an {book_genre} on {audiobook_streaming_service}.
-I'd like to explore literature from {country_name}—play a book for me.
+I'd like to explore literature from {country_name} play a book for me.
 I'd like to hear a book from {country_name} by {author}.
-I'd like to hear a story from {country_name}—play a book on {audiobook_streaming_service}.
+I'd like to hear a story from {country_name} play a book on {audiobook_streaming_service}.
 I'd like to listen to a book from {country_name}.
 I'm in the mood for a book from {country_name}.
-I'm in the mood for a book set in {country_name}—play one on {audiobook_streaming_service}.
+I'm in the mood for a book set in {country_name} play one on {audiobook_streaming_service}.
 I'm in the mood for a thought-provoking {book_genre} on {audiobook_streaming_service}.
 I'm in the mood for a {book_genre} on {audiobook_streaming_service}.
 I'm in the mood for a {book_genre} with humor on {audiobook_streaming_service}.
 I'm in the mood for an {book_genre} that's both entertaining and thought-provoking on {audiobook_streaming_service}.
-I'm in the mood for literature from {country_name}—play a book on {audiobook_streaming_service}.
+I'm in the mood for literature from {country_name} play a book on {audiobook_streaming_service}.
 I'm interested in a {book_genre} with a historical setting on {audiobook_streaming_service}.
-I'm interested in books from {country_name}—play one on {audiobook_streaming_service}.
-I'm interested in books written by authors from {country_name}—play one on {audiobook_streaming_service}.
+I'm interested in books from {country_name} play one on {audiobook_streaming_service}.
+I'm interested in books written by authors from {country_name} play one on {audiobook_streaming_service}.
 I'm interested in exploring {book_genre} options on {audiobook_streaming_service}.
 I'm looking for a {book_genre} that's easy to follow on {audiobook_streaming_service}.
 I'm looking for a {book_genre} to listen to on {audiobook_streaming_service}.
