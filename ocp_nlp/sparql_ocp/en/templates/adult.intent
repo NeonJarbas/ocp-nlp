@@ -1,6 +1,3 @@
-play {media_type_adult}
-start {media_type_adult}
-search {media_type_adult}
 Explore adult {porn_genre} films.
 Explore adult {pornstar} 's content.
 Explore explicit {porn_genre} films.
@@ -130,6 +127,7 @@ play something mature
 play something sexy
 play something spicy
 play something steamy
+play {media_type_adult}
 play {porn_film_name}
 play {porn_genre}
 play {porn_genre} on {porn_streaming_service}
@@ -140,6 +138,7 @@ play {pornstar_name} on {porn_streaming_service}
 play {pornstar_name} porn
 play {pornstar_name} scenes from {porn_streaming_service}
 play {pornstar_name} {porn_genre} in {porn_streaming_service}
+search {media_type_adult}
 search {porn_genre} on {porn_streaming_service}
 search {pornstar_name} blowjob
 search {pornstar_name} on {porn_streaming_service}
@@ -225,6 +224,7 @@ start something explicit
 start something for grown-ups
 start something naughty
 start something spicy
+start {media_type_adult}
 start {porn_film_name}
 start {porn_genre}
 start {porn_genre} porn

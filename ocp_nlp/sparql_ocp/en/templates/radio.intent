@@ -1,61 +1,12 @@
-play {media_type_radio}
-start {media_type_radio}
-Play {media_type_radio} for me.
-Start up {media_type_radio} and let's listen.
-Search for {media_type_radio} to play.
-Can we play some {media_type_radio} now?
-Start {media_type_radio} and set the mood.
-Search for {media_type_radio} to start the day.
-I'm in the mood for music; play {media_type_radio}.
-Start {media_type_radio} and let the good vibes roll.
-Search for {media_type_radio} to kick off the playlist.
-Let's play {media_type_radio} in the background.
-Start {media_type_radio} for a relaxing atmosphere.
-Search for {media_type_radio} to enjoy some tunes.
-I feel like listening to {media_type_radio}; play it.
-Start up {media_type_radio} and let's chill.
-Search for {media_type_radio} for a great music selection.
-Play {media_type_radio} to set the mood right.
-Start {media_type_radio} and let's dive into the playlist.
-Search for {media_type_radio} for some good tunes.
-Can we play {media_type_radio} in the living room?
-Start {media_type_radio} for a music-filled moment.
-Search for {media_type_radio} for a great audio experience.
-Play some {media_type_radio} to relax.
-Start {media_type_radio} for a laid-back vibe.
-Search for {media_type_radio} for a fantastic playlist.
-I'm in the mood for tunes; play {media_type_radio}.
-Start {media_type_radio} and let the music flow.
-Search for {media_type_radio} for a diverse playlist.
-Can we play {media_type_radio} during dinner?
-Start {media_type_radio} and let's enjoy the sounds.
-Search for {media_type_radio} for some great tunes.
-Play {media_type_radio} to uplift the atmosphere.
-Start {media_type_radio} for a musical escape.
-Search for {media_type_radio} for a variety of songs.
-Let's play {media_type_radio} and unwind.
-Start {media_type_radio} for a pleasant background.
-Search for {media_type_radio} for a customized playlist.
-I feel like some music; play {media_type_radio}.
-Start {media_type_radio} for a great listening experience.
-Search for {media_type_radio} to discover new tracks.
-Play {media_type_radio} and let the music take over.
-Start {media_type_radio} for a delightful audio journey.
-Search for {media_type_radio} to explore different genres.
-Can we play {media_type_radio} while we work?
-Start {media_type_radio} for a fantastic playlist.
-Search for {media_type_radio} for some good vibes.
-Play {media_type_radio} to enhance the mood.
-Start {media_type_radio} and enjoy the audio experience.
-Search for {media_type_radio} for a personalized playlist.
-Let's play {media_type_radio} and enjoy the moment.
-Start {media_type_radio} for a diverse selection of songs.
-search {media_type_radio}
 Any recommendations for a {radio_genre} radio program on {radio_streaming_service}?
 Any recommendations for new radio content on streaming platforms?
 Any recommendations for {radio_program} in {radio_genre} on {radio_streaming_service}?
 Any recommendations for {radio_program} on {radio_streaming_service}?
 Any suggestions for engaging radio shows on {radio_streaming_service}?
+Can we play some {media_type_radio} now?
+Can we play {media_type_radio} during dinner?
+Can we play {media_type_radio} in the living room?
+Can we play {media_type_radio} while we work?
 Can you find me some {radio_genre} {radio_program} on {radio_streaming_service}?
 Can you find some {radio_genre} shows on {radio_streaming_service} that are currently popular?
 Can you recommend some {radio_genre} shows on {radio_streaming_service}?
@@ -96,6 +47,8 @@ Finding a radio show on a preferred streaming service would be great.
 Finding interesting radio content across different streaming services is a quest.
 How about listening to {radio_program} in the {radio_genre} genre?
 How about playing a radio program in a specific genre on my favorite streaming service?
+I feel like listening to {media_type_radio} , play it.
+I feel like some music; play {media_type_radio}.
 I want to find a {radio_genre} show on {radio_streaming_service} that suits my mood.
 I wonder what {radio_streaming_service} offers for {radio_genre} radio.
 I'd like to discover new and unique radio shows.
@@ -113,6 +66,8 @@ I'm curious about {radio_program} in the {radio_genre} category on {radio_stream
 I'm in the mood for discovering new and interesting radio shows on {radio_streaming_service}.
 I'm in the mood for discovering new radio content on different platforms.
 I'm in the mood for exploring various radio programs and genres.
+I'm in the mood for music; play {media_type_radio}.
+I'm in the mood for tunes; play {media_type_radio}.
 I'm interested in exploring different radio genres on streaming platforms.
 I'm interested in exploring radio shows with diverse genres on {radio_streaming_service}.
 I'm interested in exploring {radio_genre} radio programs on {radio_streaming_service}.
@@ -129,6 +84,9 @@ Let's explore {radio_genre} programs on {radio_streaming_service}.
 Let's explore {radio_program} in {radio_genre} on {radio_streaming_service}.
 Let's listen to {radio_program} in {radio_genre}.
 Let's play some radio programs and see what we discover.
+Let's play {media_type_radio} and enjoy the moment.
+Let's play {media_type_radio} and unwind.
+Let's play {media_type_radio} in the background.
 Listen to a radio program in a specific genre.
 Listen to a radio program on your preferred streaming service.
 Listen to a radio program that suits your mood.
@@ -146,8 +104,14 @@ Play a radio show from a popular streaming platform.
 Play a radio show from a specific genre.
 Play a {radio_genre} show on {radio_streaming_service}.
 Play some radio programs.
+Play some {media_type_radio} to relax.
 Play some {radio_genre} {radio_program} on {radio_streaming_service}.
 Play the latest radio show.
+Play {media_type_radio} and let the music take over.
+Play {media_type_radio} for me.
+Play {media_type_radio} to enhance the mood.
+Play {media_type_radio} to set the mood right.
+Play {media_type_radio} to uplift the atmosphere.
 Play {radio_program} from {radio_genre} on {radio_streaming_service}.
 Play {radio_program} from {radio_streaming_service}.
 Play {radio_program} in {radio_genre} on {radio_streaming_service}.
@@ -161,6 +125,39 @@ Playing {radio_program} from {radio_genre} on {radio_streaming_service} is on my
 Playing {radio_program} from {radio_streaming_service} seems like a good idea.
 Playing {radio_program} in {radio_genre} on {radio_streaming_service} could be interesting.
 Playing {radio_program} on {radio_streaming_service} is something I'm considering.
+Search for {media_type_radio} for a customized playlist.
+Search for {media_type_radio} for a diverse playlist.
+Search for {media_type_radio} for a fantastic playlist.
+Search for {media_type_radio} for a great audio experience.
+Search for {media_type_radio} for a great music selection.
+Search for {media_type_radio} for a personalized playlist.
+Search for {media_type_radio} for a variety of songs.
+Search for {media_type_radio} for some good tunes.
+Search for {media_type_radio} for some good vibes.
+Search for {media_type_radio} for some great tunes.
+Search for {media_type_radio} to discover new tracks.
+Search for {media_type_radio} to enjoy some tunes.
+Search for {media_type_radio} to explore different genres.
+Search for {media_type_radio} to kick off the playlist.
+Search for {media_type_radio} to play.
+Search for {media_type_radio} to start the day.
+Start up {media_type_radio} and let's chill.
+Start up {media_type_radio} and let's listen.
+Start {media_type_radio} and enjoy the audio experience.
+Start {media_type_radio} and let the good vibes roll.
+Start {media_type_radio} and let the music flow.
+Start {media_type_radio} and let's dive into the playlist.
+Start {media_type_radio} and let's enjoy the sounds.
+Start {media_type_radio} and set the mood.
+Start {media_type_radio} for a delightful audio journey.
+Start {media_type_radio} for a diverse selection of songs.
+Start {media_type_radio} for a fantastic playlist.
+Start {media_type_radio} for a great listening experience.
+Start {media_type_radio} for a laid-back vibe.
+Start {media_type_radio} for a music-filled moment.
+Start {media_type_radio} for a musical escape.
+Start {media_type_radio} for a pleasant background.
+Start {media_type_radio} for a relaxing atmosphere.
 Tell me about the {radio_program} available in the {radio_genre} genre on {radio_streaming_service}.
 Tell me about the {radio_program} in the {radio_genre} category on {radio_streaming_service}.
 Tell me more about {radio_program} available on {radio_streaming_service}.
@@ -231,9 +228,11 @@ play radio station for workout
 play radio station in Spanish
 play radio station with book reviews
 play top 40 radio
+play {media_type_radio}
 play {music_genre} internet radio
 play {music_genre} radio
 play {radio_program_name}
+search {media_type_radio}
 search {music_genre} internet radio
 search {music_genre} radio
 search {radio_program_name}
@@ -260,6 +259,7 @@ start radio storytelling
 start radio theatre
 start rock music radio
 start talk radio show
+start {media_type_radio}
 start {music_genre} internet radio
 start {music_genre} radio
 start {radio_program_name}

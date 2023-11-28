@@ -64,20 +64,20 @@ Explore álbuns de {music_genre} no {music_streaming_service} da {record_label}.
 Explore álbuns de {music_genre} no {music_streaming_service}.
 Inicie a reprodução de {song_name} de {artist_name} do {album_name} no {music_music_streaming_service}.
 Inicie a reprodução de {song_name} de {artist_name} do álbum {album_name} no {music_music_streaming_service}.
-Me deparei com o novo álbum de {artist_name}, e estou curioso se você ouviu {song_name} dele.
+Me deparei com o novo álbum de {artist_name} , e estou curioso se você ouviu {song_name} dele.
 Me deparei com {album_name} de {artist_name} no {music_music_streaming_service} – você já explorou?
 Não consigo parar de ouvir {song_name} de {artist
 Você conferiu o novo álbum de {music_genre} de {artist_name} no {music_music_streaming_service}?
 Você conferiu {song_name} de {artist_name} do álbum {album_name}? Vale a pena ouvir.
 Você conferiu {song_name} de {artist_name} no {music_music_streaming_service}? É fantástico.
-Você explorou a discografia de {artist_name}, especialmente {album_name}? Vale a pena ouvir.
+Você explorou a discografia de {artist_name} , especialmente {album_name}? Vale a pena ouvir.
 Você explorou além dos sucessos populares na discografia de {artist_name}?
 Você ouviu a apresentação ao vivo recente de {artist_name}? Foi fenomenal.
 Você ouviu a apresentação recente de {artist_name}? Eles tocaram {song_name} do álbum {album_name} e foi incrível.
 Você ouviu a última música de {artist_name} do álbum {album_name}?
 Você ouviu a última música de {artist_name} no {music_music_streaming_service}?
-Você ouviu a última música de {artist_name}, {song_name}, do álbum {album_name}?
-Você ouviu o lançamento mais recente de {artist_name}, especialmente a faixa {song_name} do álbum {album_name}?
+Você ouviu a última música de {artist_name} , {song_name} , do álbum {album_name}?
+Você ouviu o lançamento mais recente de {artist_name} , especialmente a faixa {song_name} do álbum {album_name}?
 Você ouviu o lançamento recente de {artist_name} no {music_music_streaming_service}?
 Você ouviu o último álbum de {artist_name}? A faixa {song_name} é marcante.
 Você ouviu {song_name} de {artist_name} do álbum {album_name}? Vale a pena ouvir.

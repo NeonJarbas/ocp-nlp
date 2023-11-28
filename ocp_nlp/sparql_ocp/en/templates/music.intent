@@ -1,36 +1,3 @@
-play {media_type_music}
-start {media_type_music}
-search {media_type_music}
-Play some {media_type_music}.
-Let's play {media_type_music} now.
-Start playing {media_type_music}.
-Play a track from {media_type_music}.
-Can you play {media_type_music} for me?
-I'm in the mood for {media_type_music}, play it.
-Play a random song from {media_type_music}.
-Let's kick off with some {media_type_music}.
-Play a popular track from {media_type_music}.
-Can you play something from {media_type_music}?
-Start {media_type_music} for me.
-Begin playing {media_type_music}.
-Start a {media_type_music} session.
-Kickstart {media_type_music} now.
-Search for {media_type_music} tracks.
-Find songs from {media_type_music}.
-Look up {media_type_music} for me.
-Can you search for {media_type_music} content?
-Search for popular {media_type_music} songs.
-Find some {media_type_music} hits.
-Look for tracks in {media_type_music}.
-Search for trending {media_type_music} music.
-Find me something good from {media_type_music}.
-Can you search for the latest {media_type_music} releases?
-Begin a music session with {media_type_music}.
-Launch {media_type_music} for me.
-Start streaming {media_type_music}.
-Commence {media_type_music} playback.
-Fire up {media_type_music}.
-Let's start the music with {media_type_music}.
 Activate a laid-back music playlist.
 Activate a music playlist.
 Activate a personally curated music playlist.
@@ -40,6 +7,7 @@ Add {song_name} to my {playlist_name} on {music_streaming_service}.
 Begin a calming music playlist.
 Begin a curated music playlist.
 Begin a mood-enhancing music playlist.
+Begin a music session with {media_type_music}.
 Begin a playlist featuring the best of {artist_name}.
 Begin a playlist featuring {artist_name} 's top tracks.
 Begin a playlist featuring {artist_name}.
@@ -57,6 +25,7 @@ Begin playing the album {album_name} by {artist_name}.
 Begin playing the album {album_name} from {artist_name}.
 Begin playing {album_name} by {artist_name}.
 Begin playing {album_name} from {artist_name}.
+Begin playing {media_type_music}.
 Begin streaming {album_name} by {artist_name} on {music_streaming_service} for me.
 Begin streaming {album_name} by {artist_name} on {music_streaming_service} immediately.
 Begin streaming {album_name} by {artist_name} on {music_streaming_service} right away.
@@ -71,16 +40,20 @@ Begin {album_name} by {artist_name} in {music_streaming_service} right now.
 Begin {album_name} by {artist_name} in {music_streaming_service}.
 Begin {audio_streaming_service} and listen to {album_name} by {artist_name}.
 Begin {audio_streaming_service} and play {artist_name} 's {album_name}.
+Can you play something from {media_type_music}?
 Can you play the song {song_name} by {artist_name} from the album {album_name}?
 Can you play the song {song_name} from {album_name} by {artist_name} on {music_streaming_service}?
+Can you play {media_type_music} for me?
 Can you play {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}?
 Can you play {song_name} from the album {album_name} by {artist_name} on {music_streaming_service} for me?
+Can you play {song_name} from {album_name} by {artist_name} on {music_streaming_service} , please?
 Can you play {song_name} from {album_name} by {artist_name} on {music_streaming_service} for me?
-Can you play {song_name} from {album_name} by {artist_name} on {music_streaming_service}, please?
 Can you play {song_name} from {album_name} by {artist_name}?
+Can you play {song_name} from {playlist_name} by {artist_name} on {music_streaming_service} , please?
 Can you play {song_name} from {playlist_name} by {artist_name} on {music_streaming_service} for me?
-Can you play {song_name} from {playlist_name} by {artist_name} on {music_streaming_service}, please?
 Can you play {song_name} from {playlist_name} by {artist_name}?
+Can you search for the latest {media_type_music} releases?
+Can you search for {media_type_music} content?
 Can you start {album_name} and play the song {song_name} by {artist_name} on {music_streaming_service}?
 Can you start {playlist_name} and play the song {song_name} by {artist_name} on {music_streaming_service}?
 Can you start {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}?
@@ -103,6 +76,7 @@ Commence playback of {song_name} by {artist_name} from the album {album_name} on
 Commence playback of {song_name} by {artist_name} from {album_name} on {music_streaming_service}.
 Commence playing {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}.
 Commence playing {song_name} by {artist_name} off {album_name} on {music_streaming_service}.
+Commence {media_type_music} playback.
 Create a dynamic playlist with {song_name} and upbeat {music_genre} on {music_streaming_service} from {record_label}.
 Create a dynamic playlist with {song_name} and upbeat {music_genre} on {music_streaming_service}.
 Create a dynamic {playlist_name} with {song_name} and upbeat {music_genre} on {music_streaming_service}.
@@ -128,9 +102,9 @@ Cue up a feel-good music playlist.
 Cue up a handpicked music playlist.
 Cue up a song.
 Did you catch the recent release from {artist_name} on {music_streaming_service}?
-Did you catch {artist_name} 's latest track, {song_name}, from the album {album_name}?
+Did you catch {artist_name} 's latest track, {song_name} , from the album {album_name}?
 Did you catch {artist_name} 's recent live performance? It was phenomenal.
-Did you catch {artist_name} 's recent performance? They played {song_name} from {album_name}, and it was amazing.
+Did you catch {artist_name} 's recent performance? They played {song_name} from {album_name} , and it was amazing.
 Did you hear the latest song by {artist_name} from the album {album_name}?
 Discover new music on {music_streaming_service} from {record_label}.
 Discover new music on {music_streaming_service}.
@@ -194,12 +168,16 @@ Find and play a song I haven't encountered.
 Find and play a song I haven't explored.
 Find and play a song I haven't heard.
 Find and play a track I haven't discovered.
+Find me something good from {media_type_music}.
+Find some {media_type_music} hits.
+Find songs from {media_type_music}.
 Find {artist_name} top songs on {music_streaming_service}.
 Fire up a custom music playlist.
 Fire up a music playlist.
 Fire up a song.
 Fire up a tranquil music playlist.
 Fire up an energetic music playlist.
+Fire up {media_type_music}.
 Get a music playlist going.
 Get a song going.
 Get the chosen music playlist going.
@@ -235,34 +213,34 @@ I came across {album_name} by {artist_name} on {music_streaming_service} – hav
 I came across {artist_name} 's new album, and I'm curious if you've heard {song_name} from it.
 I can't stop listening to {song_name} by {artist_name}.
 I enjoy exploring different music genres, and {artist_name} 's {album_name} has been a recent discovery for me.
-I enjoy {music_genre}, and {artist_name} 's {album_name} perfectly captures the essence of it.
-I like exploring new {music_genre}, and {artist_name} 's {album_name} caught my attention recently.
+I enjoy {music_genre} , and {artist_name} 's {album_name} perfectly captures the essence of it.
+I like exploring new {music_genre} , and {artist_name} 's {album_name} caught my attention recently.
 I like the versatility of {artist_name} 's music, especially in {album_name}.
-I like the vibes of {music_genre}, and {artist_name} captures it perfectly.
+I like the vibes of {music_genre} , and {artist_name} captures it perfectly.
 I like to discover new music, and {artist_name} 's {album_name} introduced me to the fantastic track {song_name}.
 I like to stay updated on new releases, and {artist_name} 's latest album features the impressive track {song_name}.
-I recently attended a concert by {artist_name}, and they performed an incredible version of {song_name}.
-I recently attended a live performance by {artist_name}, and the rendition of {song_name} from {album_name} was unforgettable.
-I recently attended a live performance by {artist_name}, and they played an amazing rendition of {song_name}.
+I recently attended a concert by {artist_name} , and they performed an incredible version of {song_name}.
+I recently attended a live performance by {artist_name} , and the rendition of {song_name} from {album_name} was unforgettable.
+I recently attended a live performance by {artist_name} , and they played an amazing rendition of {song_name}.
 I recently discovered {artist_name} 's discography, and {album_name} is a personal favorite.
 I recently discovered {artist_name} 's music, and I'm really enjoying the song {song_name} from the album {album_name}.
 I recently discovered {artist_name} 's music, and {album_name} has become a favorite.
 I recently discovered {artist_name} 's music, and {song_name} has become a go-to
-I recently discovered {artist_name} 's {album_name}, and I can't get enough of their unique sound.
-I recently discovered {artist_name} 's {album_name}, and I'm impressed by the range of styles in each track.
-I recently discovered {artist_name} 's {album_name}, and it's been a delightful find.
+I recently discovered {artist_name} 's {album_name} , and I can't get enough of their unique sound.
+I recently discovered {artist_name} 's {album_name} , and I'm impressed by the range of styles in each track.
+I recently discovered {artist_name} 's {album_name} , and it's been a delightful find.
+I recently discovered {artist_name} , and I'm hooked on their track {song_name} from {album_name}.
 I recently discovered {artist_name} and found {song_name} from {album_name} to be a great introduction to their music.
 I recently discovered {artist_name} and their album {album_name} it's amazing!
-I recently discovered {artist_name}, and I'm hooked on their track {song_name} from {album_name}.
-I recently listened to {artist_name} 's {album_name}, and the song {song_name} has been stuck in my head.
+I recently listened to {artist_name} 's {album_name} , and the song {song_name} has been stuck in my head.
 I recently stumbled upon {artist_name} 's discography, and {album_name} is a standout.
-I recently stumbled upon {artist_name} 's {album_name}, and I'm loving the vibes.
+I recently stumbled upon {artist_name} 's {album_name} , and I'm loving the vibes.
 I stumbled upon {artist_name} 's discography, and {song_name} from {album_name} has become a favorite of mine.
-I stumbled upon {song_name} by {artist_name} from the album {album_name}, and it's become a favorite of mine.
-I stumbled upon {song_name} by {artist_name} from the album {album_name}, and it's been on my playlist non-stop.
+I stumbled upon {song_name} by {artist_name} from the album {album_name} , and it's become a favorite of mine.
+I stumbled upon {song_name} by {artist_name} from the album {album_name} , and it's been on my playlist non-stop.
 I want to enjoy {song_name} from the album {album_name} by {artist_name} can you play it?
-I want to hear {artist_name} 's {album_name}, and make sure to play the track {song_name} on {music_streaming_service}.
-I want to hear {artist_name} 's {album_name}, and specifically, the track {song_name} on {music_streaming_service}.
+I want to hear {artist_name} 's {album_name} , and make sure to play the track {song_name} on {music_streaming_service}.
+I want to hear {artist_name} 's {album_name} , and specifically, the track {song_name} on {music_streaming_service}.
 I want to hear {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}.
 I want to hear {song_name} by {artist_name} on {music_streaming_service}.
 I want to listen to {album_name} on {music_streaming_service} from {record_label}.
@@ -274,14 +252,14 @@ I was introduced to {artist_name} 's {album_name} recently, and now I can't get 
 I'd like to hear the song {song_name} from the album {album_name} by {artist_name}.
 I'd like to hear {song_name} from the album {album_name} by {artist_name}.
 I'd like to hear {song_name} from {album_name} by {artist_name} on {music_streaming_service}.
-I'd like to listen to {album_name} by {artist_name}, and I'm specifically interested in the track {song_name} on {music_streaming_service}.
-I'd like to listen to {album_name} by {artist_name}, and make sure to play the song {song_name} on {music_streaming_service}.
-I'd like to listen to {album_name} by {artist_name}, and specifically, the track {song_name} on {music_streaming_service}.
+I'd like to listen to {album_name} by {artist_name} , and I'm specifically interested in the track {song_name} on {music_streaming_service}.
+I'd like to listen to {album_name} by {artist_name} , and make sure to play the song {song_name} on {music_streaming_service}.
+I'd like to listen to {album_name} by {artist_name} , and specifically, the track {song_name} on {music_streaming_service}.
 I'd like to listen to {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}.
-I'm a big fan of {artist_name}, and {song_name} from {album_name} is one of my favorites.
-I'm a fan of {music_genre}, and {artist_name} 's {album_name} has some great tracks, including {song_name}.
-I'm a fan of {music_genre}, especially {artist_name} 's latest work like {album_name}.
-I'm curious if you've come across {artist_name} 's latest album—it's quite impressive.
+I'm a big fan of {artist_name} , and {song_name} from {album_name} is one of my favorites.
+I'm a fan of {music_genre} , and {artist_name} 's {album_name} has some great tracks, including {song_name}.
+I'm a fan of {music_genre} , especially {artist_name} 's latest work like {album_name}.
+I'm curious if you've come across {artist_name} 's latest album it's quite impressive.
 I'm curious if you've come across {artist_name} 's {album_name}. I think {song_name} is worth a listen.
 I'm curious if you've come across {artist_name} 's {album_name}. The track {song_name} has been on my playlist for a while.
 I'm curious if you've explored {artist_name} 's work in the {music_genre} genre.
@@ -289,13 +267,14 @@ I'm curious if you've listened to {artist_name} 's latest album. The song {song_
 I'm curious to know your thoughts on {artist_name} 's {album_name} – it's been on my radar lately.
 I'm curious, have you explored the {music_genre} genre, specifically {artist_name} 's work?
 I'm curious, what's your opinion on {artist_name} 's new release, {album_name}?
+I'm in the mood for {media_type_music} , play it.
 I'm in the mood for {music_genre} on {music_streaming_service} from {record_label}.
 I'm in the mood for {music_genre} on {music_streaming_service}.
 I'm in the mood for {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}.
 I'm in the mood for {song_name} by {artist_name} from {album_name} can you play it?
+I'm really into {music_genre} , and {artist_name} is one of my favorites in that genre.
+I'm really into {music_genre} , and {artist_name} is one of my favorites, especially their album {album_name}.
 I'm really into {music_genre} these days, especially {artist_name}.
-I'm really into {music_genre}, and {artist_name} is one of my favorites in that genre.
-I'm really into {music_genre}, and {artist_name} is one of my favorites, especially their album {album_name}.
 I'm really vibing with {artist_name} 's music lately, especially {album_name}.
 I've added some tracks from {artist_name} 's {album_name} to my playlist – they're so good!
 I've added {song_name} by {artist_name} to my favorite playlist.
@@ -317,38 +296,41 @@ I've been exploring {music_genre} lately, and {artist_name} 's {album_name} is o
 I've been exploring {music_genre} more, and {artist_name} 's {album_name} has become a favorite of mine.
 I've been exploring {music_genre} more, and {artist_name} 's {album_name} is a gem.
 I've been exploring {music_genre} more, and {artist_name} 's {album_name} is a standout for me.
-I've been immersed in the world of {music_genre}, with {artist_name} 's tracks on repeat.
+I've been immersed in the world of {music_genre} , with {artist_name} 's tracks on repeat.
 I've been immersed in {artist_name} 's discography, and {song_name} is a favorite.
 I've been immersed in {music_genre} lately, and {artist_name} 's {album_name} has been a significant part of that exploration.
 I've been immersing myself in {music_genre} recently, and {artist_name} 's {album_name} is a standout.
 I've been impressed by {artist_name} 's work, particularly {album_name} – have you given it a listen?
-I've been listening to {artist_name} across various albums—each one has its own charm.
+I've been listening to {artist_name} across various albums each one has its own charm.
 Initiate a mellow music playlist.
 Initiate a positive vibes music playlist.
 Initiate a song.
 Initiate a specially selected music playlist.
-Initiate playback of {album_name} by {artist_name}, and focus on the song {song_name} on {music_streaming_service}.
-Initiate playback of {album_name} by {artist_name}, and specifically play the song {song_name} on {music_streaming_service}.
+Initiate playback of {album_name} , and focus on the song {song_name} by {artist_name} on {music_streaming_service}.
+Initiate playback of {album_name} by {artist_name} , and focus on the song {song_name} on {music_streaming_service}.
+Initiate playback of {album_name} by {artist_name} , and specifically play the song {song_name} on {music_streaming_service}.
 Initiate playback of {album_name} by {artist_name}.
 Initiate playback of {album_name} from {artist_name}.
-Initiate playback of {album_name}, and focus on the song {song_name} by {artist_name} on {music_streaming_service}.
 Initiate playback of {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}.
 Initiate playing a music playlist.
 Initiate {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}.
 Initiate {song_name} by {artist_name} from {album_name} on {music_streaming_service}.
 Introduce me to a new song.
 Kick off a music playlist.
+Kickstart {media_type_music} now.
 Launch a favorite music playlist.
 Launch a motivating music playlist.
 Launch a music playlist.
 Launch a serene music playlist.
 Launch a song.
+Launch {media_type_music} for me.
 Launch {music_streaming_service} and play the song {song_name} from {album_name} by {artist_name}.
 Launch {music_streaming_service} and play {song_name} by {artist_name} from the album {album_name}.
 Launch {music_streaming_service} and play {song_name} from the album {album_name} by {artist_name}.
 Let the motivating music playlist play.
 Let the music playlist play.
 Let the selected music playlist play.
+Let's kick off with some {media_type_music}.
 Let's listen to a music playlist.
 Let's listen to a song.
 Let's listen to music by {artist_name}.
@@ -364,7 +346,11 @@ Let's play the {album_name} album by {artist_name} in {music_streaming_service}.
 Let's play the {album_name} album by {artist_name} on {music_streaming_service} for me.
 Let's play the {album_name} album by {artist_name} on {music_streaming_service} immediately.
 Let's play {album_name} by {artist_name} in {music_streaming_service}.
+Let's play {media_type_music} now.
+Let's start the music with {media_type_music}.
 Listen to {album_name} by {artist_name} on {music_streaming_service}.
+Look for tracks in {media_type_music}.
+Look up {media_type_music} for me.
 Mix and match the songs.
 Mix and shuffle the music.
 Mix up my music selection.
@@ -412,9 +398,11 @@ Play a new and unheard melody.
 Play a new and unheard track.
 Play a new release.
 Play a popular song.
+Play a popular track from {media_type_music}.
 Play a random assortment of songs.
 Play a random composition.
 Play a random melody.
+Play a random song from {media_type_music}.
 Play a random song on {music_streaming_service} from {record_label}.
 Play a random song on {music_streaming_service}.
 Play a random song.
@@ -435,6 +423,7 @@ Play a track I haven't heard yet.
 Play a track I'm not familiar with.
 Play a track I've yet to discover.
 Play a track I've yet to encounter.
+Play a track from {media_type_music}.
 Play a track that's new to my ears.
 Play a track that's unfamiliar to my ears.
 Play a track.
@@ -470,6 +459,7 @@ Play some tunes by {artist_name}.
 Play some tunes from a playlist.
 Play some tunes randomly.
 Play some {artist_name} tracks.
+Play some {media_type_music}.
 Play some {music_genre} from the {record_label} catalog on {music_streaming_service}.
 Play some {music_genre} from {artist_name} on {music_streaming_service}.
 Play some {music_genre} from {record_label} on {music_streaming_service}.
@@ -535,9 +525,9 @@ Play {artist_name} 's most popular songs.
 Play {artist_name} 's songs.
 Play {artist_name} 's top hits.
 Play {artist_name} 's {album_name} on {audio_streaming_service}.
-Play {artist_name} 's {album_name} on {music_streaming_service}, and focus on the track {song_name}.
-Play {artist_name} 's {album_name} on {music_streaming_service}, and make sure to play the song {song_name}.
-Play {artist_name} 's {album_name} on {music_streaming_service}, and specifically the track {song_name}.
+Play {artist_name} 's {album_name} on {music_streaming_service} , and focus on the track {song_name}.
+Play {artist_name} 's {album_name} on {music_streaming_service} , and make sure to play the song {song_name}.
+Play {artist_name} 's {album_name} on {music_streaming_service} , and specifically the track {song_name}.
 Play {artist_name} acoustic sessions on {music_streaming_service} from {record_label}.
 Play {artist_name} acoustic sessions on {music_streaming_service}.
 Play {artist_name} greatest hits on {music_streaming_service} from {record_label}.
@@ -546,7 +536,7 @@ Play {artist_name} latest hits on {music_streaming_service} from {record_label}.
 Play {artist_name} latest hits on {music_streaming_service}.
 Play {song_name} and similar {music_genre} hits on {music_streaming_service} from {record_label}.
 Play {song_name} and similar {music_genre} hits on {music_streaming_service}.
-Play {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}, please.
+Play {song_name} by {artist_name} from the album {album_name} on {music_streaming_service} , please.
 Play {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}.
 Play {song_name} by {artist_name} from {album_name} on {music_streaming_service} from {record_label}.
 Play {song_name} by {artist_name} from {album_name} on {music_streaming_service}.
@@ -555,7 +545,7 @@ Play {song_name} by {artist_name} on {music_streaming_service}.
 Play {song_name} by {artist_name} that's part of the album {album_name} on {music_streaming_service}.
 Play {song_name} from the album {album_name} by {artist_name} on {music_streaming_service}.
 Play {song_name} from the album {album_name} on {music_streaming_service}.
-Play {song_name} from {album_name} by {artist_name} on {music_streaming_service}, please.
+Play {song_name} from {album_name} by {artist_name} on {music_streaming_service} , please.
 Play {song_name} from {album_name} by {artist_name} on {music_streaming_service}.
 Press play on a calming music playlist.
 Press play on a music playlist.
@@ -651,6 +641,9 @@ Recommend a {playlist_name} on {music_streaming_service} for {music_genre}.
 Recommend a {playlist_name} with {song_name} and other {music_genre} hits on {music_streaming_service}.
 Recommend a {record_label} mix of {music_genre} and {music_genre} on {music_streaming_service}.
 Recommend me an {music_genre} album on {music_streaming_service}.
+Search for popular {media_type_music} songs.
+Search for trending {media_type_music} music.
+Search for {media_type_music} tracks.
 Set the atmosphere with a lively music playlist.
 Set the mood with a music playlist.
 Set the mood with a peaceful music playlist.
@@ -736,6 +729,7 @@ Start a track.
 Start a tune.
 Start a {artist_name} music playlist.
 Start a {artist_name} song collection.
+Start a {media_type_music} session.
 Start an old favorite.
 Start an uplifting tune.
 Start playing {album_name} from {artist_name} in {music_streaming_service} for me.
@@ -748,13 +742,15 @@ Start playing {artist_name} 's music.
 Start playing {artist_name} 's top hits.
 Start playing {artist_name} 's top tracks.
 Start playing {artist_name} 's top tunes.
+Start playing {media_type_music}.
 Start playing {song_name} by {artist_name} from {album_name} on {music_streaming_service}.
 Start streaming {album_name} by {artist_name} in {music_streaming_service}.
 Start streaming {album_name} by {artist_name}.
 Start streaming {album_name} from {artist_name}.
-Start the album {album_name} by {artist_name}, and make sure to play the song {song_name} on {music_streaming_service}.
-Start the album {album_name} by {artist_name}, and play the song {song_name} on {music_streaming_service}.
-Start the album {album_name} by {artist_name}, and specifically, play the song {song_name} on {music_streaming_service}.
+Start streaming {media_type_music}.
+Start the album {album_name} by {artist_name} , and make sure to play the song {song_name} on {music_streaming_service}.
+Start the album {album_name} by {artist_name} , and play the song {song_name} on {music_streaming_service}.
+Start the album {album_name} by {artist_name} , and specifically, play the song {song_name} on {music_streaming_service}.
 Start the calming music playlist, please.
 Start the music playlist, please.
 Start the music.
@@ -769,6 +765,7 @@ Start {album_name} from {artist_name}.
 Start {album_name} playback by {artist_name}.
 Start {audio_streaming_service} and enjoy {artist_name} 's {album_name}.
 Start {audio_streaming_service} and play {album_name} by {artist_name}.
+Start {media_type_music} for me.
 Start {song_name} by {artist_name} from the album {album_name} on {music_streaming_service}.
 Suggest a playlist by {artist_name} on {music_streaming_service} from {record_label}.
 Suggest a playlist by {artist_name} on {music_streaming_service}.
@@ -801,8 +798,8 @@ The latest release from {artist_name} showcases their evolution in the {music_ge
 The latest {music_genre} release by {artist_name} is worth checking out.
 The latest {music_genre} releases from {artist_name} are keeping me hooked.
 The latest {music_genre} tracks from {artist_name} on {music_streaming_service} are quite impressive.
-The music scene has been buzzing with {artist_name} 's latest tracks—have you heard them?
-The song {song_name} by {artist_name} has been on my playlist—it has such a good vibe.
+The music scene has been buzzing with {artist_name} 's latest tracks have you heard them?
+The song {song_name} by {artist_name} has been on my playlist it has such a good vibe.
 Turn on a chosen music playlist.
 Turn on a laid-back music playlist.
 Turn on a music playlist.
@@ -926,11 +923,13 @@ play the top 10 hits
 play the top charts
 play {album_name}
 play {artist_name}
+play {media_type_music}
 play {music_genre}
 play {music_genre} hit
 play {playlist_name}
 play {song_name}
 put on {playlist_name}
+search {media_type_music}
 search {music_genre}
 search {playlist_name}
 shuffle my music
@@ -1018,6 +1017,7 @@ start the album {album_name}
 start the playlist {playlist_name}
 start {album_name}
 start {artist_name}
+start {media_type_music}
 start {music_genre}
 start {playlist_name}
 start {song_name}
@@ -1028,14 +1028,14 @@ watch {song_name}
 {album_name} by {artist_name} has been on my playlist recently – it's such a solid collection of songs.
 {album_name} by {artist_name} is a masterpiece, don't you think?
 {album_name} by {artist_name} is on repeat for me – such a great collection of songs.
-{artist_name} 's latest album, {album_name}, has some incredible tracks – have you given it a listen?
+{artist_name} 's latest album, {album_name} , has some incredible tracks – have you given it a listen?
 {artist_name} 's music has a unique blend of {music_genre} elements that I appreciate.
-{artist_name} 's music, especially the song {song_name}, has been on repeat for me.
-{artist_name} 's music, especially the song {song_name}, resonates with me.
+{artist_name} 's music, especially the song {song_name} , has been on repeat for me.
+{artist_name} 's music, especially the song {song_name} , resonates with me.
 {artist_name} 's {album_name} has a nice mix of tracks, perfect for different moods.
-{artist_name} 's {album_name} has some great tracks—have you given it a listen?
+{artist_name} 's {album_name} has some great tracks have you given it a listen?
 {artist_name} always brings a fresh perspective to {music_genre} it's quite refreshing.
-{artist_name} always delivers fantastic music—have you explored their latest album?
+{artist_name} always delivers fantastic music have you explored their latest album?
 {artist_name} dropped a new single – {song_name} – and it's worth giving a listen.
 {artist_name} has a diverse discography, and I'm currently hooked on {song_name} from {album_name}.
 {artist_name} has a unique style, and I find {song_name} from {album_name} to be particularly captivating.
@@ -1043,6 +1043,6 @@ watch {song_name}
 {artist_name} has been consistently delivering great music
 {artist_name} has been creating some amazing music recently, and {album_name} is a standout for me.
 {artist_name} has been creating some incredible music lately, especially in {music_genre}.
-{artist_name} just released a new song called {song_name}, and it's been on repeat for me.
-{artist_name} just released a new song, {song_name}, and I think it's fantastic.
+{artist_name} just released a new song called {song_name} , and it's been on repeat for me.
+{artist_name} just released a new song, {song_name} , and I think it's fantastic.
 {artist_name} released a new album called {album_name} – have you checked it out?

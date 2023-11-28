@@ -1,62 +1,25 @@
-play {media_type_anime}
-start {media_type_anime}
-search {media_type_anime}
-Let's watch some {media_type_anime}.
-Start up {media_type_anime}, please.
-Search for {media_type_anime} to watch.
-Time to dive into {media_type_anime}.
-Can we play some {media_type_anime} now?
-Begin {media_type_anime} for me.
-I'm in the mood for {media_type_anime}—let's play.
-Start streaming {media_type_anime} for us.
-Search for {media_type_anime} episodes.
-How about starting {media_type_anime} on the screen?
-Let's get some {media_type_anime} on.
-Play the latest {media_type_anime} episode.
-Fire up {media_type_anime} for some entertainment.
-Can you find and play {media_type_anime}?
-Start searching for {media_type_anime} content.
-Time for a dose of {media_type_anime}.
-Let's start {media_type_anime} now.
-Play {media_type_anime} from the beginning.
-Begin streaming {media_type_anime} episodes.
-Search for {media_type_anime} titles.
-Let's dive into some {media_type_anime} goodness.
-Start playing {media_type_anime} for me.
-Search for {media_type_anime} series to watch.
-Time to enjoy some {media_type_anime} vibes.
-Can we start {media_type_anime} on the big screen?
-Let's play some {media_type_anime}—any recommendations?
-Fire up {media_type_anime} and let's enjoy.
-Begin streaming {media_type_anime} episodes.
-Search for {media_type_anime} with English subtitles.
-Ready for a marathon of {media_type_anime}?
-Let's start {media_type_anime} from where we left off.
-Play the latest {media_type_anime} release.
-Find and play {media_type_anime} episodes.
-Time to explore a new {media_type_anime}.
-Can we start {media_type_anime} from season one?
-Let's dive into {media_type_anime}—I'm excited!
-Search for {media_type_anime} with Japanese audio.
-Start playing {media_type_anime} with subtitles.
-Fire up {media_type_anime} for some animated fun.
-Begin streaming {media_type_anime} on the TV.
-Search for {media_type_anime} movies to watch.
-Let's start a {media_type_anime} marathon.
-Play {media_type_anime} episodes continuously.
-Find and play a new {media_type_anime} series.
-Time to enjoy some quality {media_type_anime}.
-Can we play {media_type_anime} in HD?
-Let's start {media_type_anime} with the latest season.
-Search for {media_type_anime} recommendations.
-Fire up {media_type_anime} on the entertainment system.
 Begin streaming {media_type_anime} episodes now.
+Begin streaming {media_type_anime} episodes.
+Begin streaming {media_type_anime} on the TV.
+Begin {media_type_anime} for me.
+Can we play some {media_type_anime} now?
+Can we play {media_type_anime} in HD?
+Can we start {media_type_anime} from season one?
+Can we start {media_type_anime} on the big screen?
+Can you find and play {media_type_anime}?
+Find and play a new {media_type_anime} series.
+Find and play {media_type_anime} episodes.
 Find episode {episode_number} of {anime_name} on {anime_streaming_service}.
 Find episode {episode_number} of {anime_name} with {anime_genre} on {anime_streaming_service}.
 Find me episode {episode_number} of {anime_name} on {anime_streaming_service}.
 Find me {anime_name} episodes on {anime_streaming_service}.
 Find {anime_name} episodes on {anime_streaming_service}.
 Find {anime_name} with {anime_genre} on {anime_streaming_service}.
+Fire up {media_type_anime} and let's enjoy.
+Fire up {media_type_anime} for some animated fun.
+Fire up {media_type_anime} for some entertainment.
+Fire up {media_type_anime} on the entertainment system.
+How about starting {media_type_anime} on the screen?
 I need recommendations for episode {episode_number} of {anime_name} in {anime_genre} on {anime_streaming_service}.
 I need recommendations for {anime_genre} on {anime_streaming_service}.
 I want to see episode {episode_number} of {anime_name} in {anime_genre} on {anime_streaming_service}.
@@ -67,12 +30,22 @@ I want to watch episode {episode_number} of {anime_name} in {anime_genre} on {an
 I want to watch {anime_name} in {anime_genre} on {anime_streaming_service}.
 I'm in the mood for {anime_genre} show me episode {episode_number} on {anime_streaming_service}.
 I'm in the mood for {anime_genre} show me something on {anime_streaming_service}.
+I'm in the mood for {media_type_anime} let's play.
 I'm interested in episode {episode_number} of {anime_name} on {anime_streaming_service}.
 I'm interested in {anime_name} episodes on {anime_streaming_service}.
 I'm looking for {anime_genre} anime episode {episode_number} on {anime_streaming_service}.
 I'm looking for {anime_genre} anime episodes on {anime_streaming_service}.
 I'm looking for {anime_genre} anime on {anime_streaming_service}.
 I'm looking forward to episode {episode_number} of {anime_name} in {anime_genre} on {anime_streaming_service}.
+Let's dive into some {media_type_anime} goodness.
+Let's dive into {media_type_anime} I'm excited!
+Let's get some {media_type_anime} on.
+Let's play some {media_type_anime} any recommendations?
+Let's start a {media_type_anime} marathon.
+Let's start {media_type_anime} from where we left off.
+Let's start {media_type_anime} now.
+Let's start {media_type_anime} with the latest season.
+Let's watch some {media_type_anime}.
 Play an episode of {anime_name} on {anime_streaming_service}.
 Play episode {episode_number} of the latest {anime_genre} anime on {anime_streaming_service}.
 Play episode {episode_number} of {anime_name} from {anime_streaming_service} for me.
@@ -83,6 +56,8 @@ Play the latest episode of {anime_name} on {anime_streaming_service}.
 Play the latest episode {episode_number} of {anime_name} on {anime_streaming_service}.
 Play the latest {anime_genre} anime on {anime_streaming_service}.
 Play the latest {anime_name} on {anime_streaming_service}.
+Play the latest {media_type_anime} episode.
+Play the latest {media_type_anime} release.
 Play {anime_name} episode {episode_number} from {anime_streaming_service} for me.
 Play {anime_name} episode {episode_number} from {anime_streaming_service}.
 Play {anime_name} episodes from {anime_streaming_service} for me.
@@ -90,6 +65,27 @@ Play {anime_name} episodes from {anime_streaming_service}.
 Play {anime_name} from {anime_streaming_service} for me.
 Play {anime_name} from {anime_streaming_service} in {anime_genre}.
 Play {anime_name} from {anime_streaming_service}.
+Play {media_type_anime} episodes continuously.
+Play {media_type_anime} from the beginning.
+Ready for a marathon of {media_type_anime}?
+Search for {media_type_anime} episodes.
+Search for {media_type_anime} movies to watch.
+Search for {media_type_anime} recommendations.
+Search for {media_type_anime} series to watch.
+Search for {media_type_anime} titles.
+Search for {media_type_anime} to watch.
+Search for {media_type_anime} with English subtitles.
+Search for {media_type_anime} with Japanese audio.
+Start playing {media_type_anime} for me.
+Start playing {media_type_anime} with subtitles.
+Start searching for {media_type_anime} content.
+Start streaming {media_type_anime} for us.
+Start up {media_type_anime} , please.
+Time for a dose of {media_type_anime}.
+Time to dive into {media_type_anime}.
+Time to enjoy some quality {media_type_anime}.
+Time to enjoy some {media_type_anime} vibes.
+Time to explore a new {media_type_anime}.
 Watch episode {episode_number} of {anime_name} in {anime_genre} on {anime_streaming_service}.
 Watch {anime_name} episode {episode_number} in {anime_genre} on {anime_streaming_service}.
 Watch {anime_name} episode {episode_number} on {anime_streaming_service}.
@@ -105,3 +101,6 @@ What's happening in episode {episode_number} of {anime_name} on {anime_streaming
 What's the best {anime_genre} anime episode {episode_number} on {anime_streaming_service} right now?
 What's the best {anime_genre} anime on {anime_streaming_service} right now?
 What's the plot of episode {episode_number} of {anime_name}?
+play {media_type_anime}
+search {media_type_anime}
+start {media_type_anime}

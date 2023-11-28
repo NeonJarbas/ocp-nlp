@@ -1,51 +1,10 @@
-play {media_type_podcast}
-start {media_type_podcast}
-Play {media_type_podcast} episode.
-Start the latest {media_type_podcast}.
-Search for {media_type_podcast} episodes.
-Can you play the newest {media_type_podcast}?
-Start {media_type_podcast} and resume from where I left off.
-Play the latest episode from {media_type_podcast}.
-Search for episodes of {media_type_podcast}.
-Start {media_type_podcast} and play the most recent episode.
-Can you find and play {media_type_podcast}?
-Play the most recent episode from {media_type_podcast}.
-Search for new episodes of {media_type_podcast}.
-Start the {media_type_podcast} series.
-Play the latest {media_type_podcast} episode available.
-Search for {media_type_podcast} episodes by {person}.
-Start {media_type_podcast} and play a random episode.
-Play the {media_type_podcast} episode released today.
-Search for episodes of {media_type_podcast} with {person}.
-Start {media_type_podcast} from the beginning.
-Play a random episode from {media_type_podcast}.
-Search for {media_type_podcast} episodes on {podcast_genre}.
-Start {media_type_podcast} and play episodes continuously.
-Play the most popular episode from {media_type_podcast}.
-Search for episodes of {media_type_podcast} released this week.
-Start {media_type_podcast} and play the first episode.
-Play {media_type_podcast} episodes with {podcast_genre}.
-Search for {media_type_podcast} episodes hosted by {person}.
-Start {media_type_podcast} and shuffle the episodes.
-Play the highest-rated episode of {media_type_podcast}.
-Search for episodes of {media_type_podcast} in the comedy genre.
-Start {media_type_podcast} and play episodes in reverse order.
-Play {media_type_podcast} episodes featuring {person}.
-Search for episodes of {media_type_podcast} with {person} as a guest.
-Start {media_type_podcast} and play episodes from the past month.
-Play {media_type_podcast} episodes discussing {podcast_genre}.
-Search for {media_type_podcast} episodes with a runtime of over an hour.
-Start {media_type_podcast} and play episodes released in the last three days.
-Play the top-rated episode from {media_type_podcast}.
-Search for episodes of {media_type_podcast} in the technology category.
-Start {media_type_podcast} and play episodes from the beginning of the series.
-Play {media_type_podcast} episodes on {podcast_genre} with {person}.
-search {media_type_podcast}
 Any good {podcast_genre} shows on {podcast_streaming_service}?
 Are there any live {podcast_genre} podcasts on {podcast_streaming_service} right now?
 Are there any {podcast_genre} podcasts available on {podcast_streaming_service}?
 Are there any {podcast_genre} podcasts in foreign languages on {podcast_streaming_service}?
 Are there any {podcast_genre} podcasts with interviews on {podcast_streaming_service}?
+Can you find and play {media_type_podcast}?
+Can you play the newest {media_type_podcast}?
 Explore {podcast_streaming_service} for podcasts about mindfulness.
 Explore {podcast_streaming_service} for podcasts about technology.
 Explore {podcast_streaming_service} for podcasts about {topic}.
@@ -95,6 +54,7 @@ I want to listen to {podcast_name} on {podcast_streaming_service}.
 I'm in the mood for some {podcast_genre} humor on {podcast_streaming_service}.
 I'm in the mood for {podcast_genre} podcasts on {podcast_streaming_service}.
 I'm interested in {podcast_genre} podcasts from {podcast_name} on {podcast_streaming_service}.
+Play a random episode from {media_type_podcast}.
 Play a random episode from {podcast_name} on {podcast_streaming_service}.
 Play a random episode of a history podcast on {podcast_streaming_service}.
 Play a random episode of a true crime podcast on {podcast_streaming_service}.
@@ -109,7 +69,9 @@ Play the best {podcast_genre} podcasts from {podcast_streaming_service}.
 Play the first episode of the "Science Unleashed" series on {podcast_streaming_service}.
 Play the first episode of the {podcast_genre} series on {podcast_streaming_service}.
 Play the highest-rated biology podcasts from {podcast_streaming_service}.
+Play the highest-rated episode of {media_type_podcast}.
 Play the highest-rated {podcast_genre} podcasts from {podcast_streaming_service}.
+Play the latest episode from {media_type_podcast}.
 Play the latest episode of "Tech Talk" with guest interviews on {podcast_streaming_service}.
 Play the latest episode of a news podcast on {podcast_streaming_service}.
 Play the latest episode of my favorite podcast on {podcast_streaming_service}.
@@ -118,8 +80,11 @@ Play the latest episode of my favorite {podcast_name} on {podcast_streaming_serv
 Play the latest episode of the "Scientific Wonders" series that I haven't listened to yet on {podcast_streaming_service}.
 Play the latest episode of the {podcast_genre} series that I haven't listened to yet on {podcast_streaming_service}.
 Play the latest episode of {podcast_name} on {podcast_streaming_service}.
+Play the latest {media_type_podcast} episode available.
 Play the most popular astronomy episodes from "Stellar Insights" on {podcast_streaming_service}.
+Play the most popular episode from {media_type_podcast}.
 Play the most popular {podcast_genre} episodes from {podcast_name} on {podcast_streaming_service}.
+Play the most recent episode from {media_type_podcast}.
 Play the most recent episode of a business podcast on {podcast_streaming_service}.
 Play the most recent episode of a science podcast on {podcast_streaming_service}.
 Play the most recent episode of the "Earth Matters" series I enjoy on {podcast_streaming_service}.
@@ -129,6 +94,13 @@ Play the most recent {podcast_genre} episodes from {podcast_name} on {podcast_st
 Play the newest episode from {podcast_name}.
 Play the newest physics episodes from "Quantum Insights" on {podcast_streaming_service}.
 Play the newest {podcast_genre} episodes from {podcast_name} on {podcast_streaming_service}.
+Play the top-rated episode from {media_type_podcast}.
+Play the {media_type_podcast} episode released today.
+Play {media_type_podcast} episode.
+Play {media_type_podcast} episodes discussing {podcast_genre}.
+Play {media_type_podcast} episodes featuring {person}.
+Play {media_type_podcast} episodes on {podcast_genre} with {person}.
+Play {media_type_podcast} episodes with {podcast_genre}.
 Play {podcast_genre} podcasts that are great for relaxation on {podcast_streaming_service}.
 Play {podcast_name} 's latest episode with {guest} on {podcast_streaming_service}.
 Recommend educational {podcast_genre} podcasts on {podcast_streaming_service}.
@@ -146,16 +118,41 @@ Recommend some {podcast_genre} podcasts.
 Recommend {podcast_genre} podcasts for a relaxing evening on {podcast_streaming_service}.
 Recommend {podcast_genre} podcasts that are perfect for commuting on {podcast_streaming_service}.
 Recommend {podcast_streaming_service} podcasts for a road trip.
+Search for episodes of {media_type_podcast} in the comedy genre.
+Search for episodes of {media_type_podcast} in the technology category.
+Search for episodes of {media_type_podcast} released this week.
+Search for episodes of {media_type_podcast} with {person} as a guest.
+Search for episodes of {media_type_podcast} with {person}.
+Search for episodes of {media_type_podcast}.
+Search for new episodes of {media_type_podcast}.
 Search for podcasts about physics on {podcast_streaming_service}.
 Search for podcasts about {topic} on {podcast_streaming_service}.
 Search for podcasts covering the latest advancements in technology on {podcast_streaming_service}.
 Search for podcasts that discuss {topic} on {podcast_streaming_service}.
 Search for podcasts that feature discussions on {topic} on {podcast_streaming_service}.
 Search for podcasts with {podcast_genre} themes on {podcast_streaming_service}.
+Search for {media_type_podcast} episodes by {person}.
+Search for {media_type_podcast} episodes hosted by {person}.
+Search for {media_type_podcast} episodes on {podcast_genre}.
+Search for {media_type_podcast} episodes with a runtime of over an hour.
+Search for {media_type_podcast} episodes.
 Search for {podcast_streaming_service} podcasts covering the latest tech trends.
 Shuffle episodes from {podcast_name} and other similar podcasts on {podcast_streaming_service}.
 Shuffle episodes from {podcast_name} on {podcast_streaming_service}.
 Start playing the first episode of {podcast_name} on {podcast_streaming_service}.
+Start the latest {media_type_podcast}.
+Start the {media_type_podcast} series.
+Start {media_type_podcast} and play a random episode.
+Start {media_type_podcast} and play episodes continuously.
+Start {media_type_podcast} and play episodes from the beginning of the series.
+Start {media_type_podcast} and play episodes from the past month.
+Start {media_type_podcast} and play episodes in reverse order.
+Start {media_type_podcast} and play episodes released in the last three days.
+Start {media_type_podcast} and play the first episode.
+Start {media_type_podcast} and play the most recent episode.
+Start {media_type_podcast} and resume from where I left off.
+Start {media_type_podcast} and shuffle the episodes.
+Start {media_type_podcast} from the beginning.
 Subscribe and notify me when there's a new episode of {podcast_name} on {podcast_streaming_service}.
 Subscribe me to the "Space Explorers" series by "Galaxy Gurus" on {podcast_streaming_service}.
 Subscribe me to the latest episodes of "The Scientific Mind" on {podcast_streaming_service}.
@@ -263,8 +260,10 @@ play podcasts on mindfulness
 play podcasts on personal development
 play the Joe Rogan Experience
 play the latest TED Talk
+play {media_type_podcast}
 play {podcast_genre}
 play {podcast_name}
+search {media_type_podcast}
 search {podcast_genre}
 search {podcast_name}
 show me podcasts
@@ -303,5 +302,6 @@ start podcasts on entrepreneurship
 start podcasts on environmental sustainability
 start podcasts on mental health
 start podcasts on spirituality
+start {media_type_podcast}
 start {podcast_genre}
 start {podcast_name}

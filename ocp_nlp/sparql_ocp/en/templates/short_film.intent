@@ -1,49 +1,27 @@
-search {media_type_short_film}
-Play {media_type_short_film}.
-Start {media_type_short_film}.
-Search for {media_type_short_film}.
-Play a short film.
-Start a short film.
-Search for short films.
-Play a brief film.
-Start a concise movie.
-Search for compact cinema.
-Play a film under 45 minutes.
-Start a quick cinematic experience.
-Search for limited duration movies.
-Play {media_type_short_film} on {streaming_service}.
-Start {media_type_short_film} on {streaming_service}.
-Search for {media_type_short_film} on {streaming_service}.
-Play a short film on {streaming_service}.
-Start a short film on {streaming_service}.
-Search for short films on {streaming_service}.
-Play a {media_type_short_film} from {film_studio}.
-Start a {media_type_short_film} from {film_studio}.
-Search for {media_type_short_film} from {film_studio}.
 Can you recommend a short film available on {shorts_streaming_service.entity} that stands out for its brevity, like {short_film_name}?
 Can you recommend a short film available on {shorts_streaming_service.entity}?
 Can you recommend a short film, not a full-length feature, available on {shorts_streaming_service.entity}?
 Can you recommend a short film, not a full-length feature, available on {shorts_streaming_service.entity}? Play it for me.
 Can you recommend a short film, not a full-length feature, on {shorts_streaming_service.entity}? Start playback.
-Can you suggest a concise {short_film_name}, a short film, not a feature, on {shorts_streaming_service.entity}?
-Can you suggest a concise {short_film_name}, a short film, not a feature, on {shorts_streaming_service.entity}? Let's watch it.
+Can you suggest a concise {short_film_name} , a short film, not a feature, on {shorts_streaming_service.entity}?
+Can you suggest a concise {short_film_name} , a short film, not a feature, on {shorts_streaming_service.entity}? Let's watch it.
 Can you suggest a film on {shorts_streaming_service.entity} that's under 45 minutes, like {short_film_name}?
-Can you suggest a quick {short_film_name}, a short film, on {shorts_streaming_service.entity}?
+Can you suggest a quick {short_film_name} , a short film, on {shorts_streaming_service.entity}?
 Can you suggest a short film on {shorts_streaming_service.entity}?
 Delve into the world of short films with {short_film_name} on {shorts_streaming_service.entity}.
 Discover compact storytelling with the short film {short_film_name} on {shorts_streaming_service.entity}.
-Discover the charm of concise storytelling with {short_film_name}, a short film on {shorts_streaming_service.entity}.
+Discover the charm of concise storytelling with {short_film_name} , a short film on {shorts_streaming_service.entity}.
 Discover the charm of short films with {short_film_name} on {shorts_streaming_service.entity}.
-Discover unique storytelling in a condensed format with {short_film_name}, a short film on {shorts_streaming_service.entity}.
-Dive into the world of compact narratives with {short_film_name}, a short film on {shorts_streaming_service.entity}.
+Discover unique storytelling in a condensed format with {short_film_name} , a short film on {shorts_streaming_service.entity}.
+Dive into the world of compact narratives with {short_film_name} , a short film on {shorts_streaming_service.entity}.
 Enjoy a cinematic gem that's under 45 minutes – {short_film_name} on {shorts_streaming_service.entity}.
 Enjoy a quick cinematic experience with the short film {short_film_name} on {shorts_streaming_service.entity}.
-Enjoy the art of storytelling in a compact form with {short_film_name}, a short film on {shorts_streaming_service.entity}.
-Experience impactful storytelling in a condensed form with {short_film_name}, a short film on {shorts_streaming_service.entity}.
+Enjoy the art of storytelling in a compact form with {short_film_name} , a short film on {shorts_streaming_service.entity}.
+Experience impactful storytelling in a condensed form with {short_film_name} , a short film on {shorts_streaming_service.entity}.
 Experience impactful storytelling in a shorter format with {short_film_name} on {shorts_streaming_service.entity}.
 Experience the art of storytelling in a condensed format with {short_film_name} on {shorts_streaming_service.entity}.
 Explore concise narratives by watching the short film {short_film_name} on {shorts_streaming_service.entity}.
-Explore concise narratives with {short_film_name}, a short film available for streaming on {shorts_streaming_service.entity}.
+Explore concise narratives with {short_film_name} , a short film available for streaming on {shorts_streaming_service.entity}.
 Explore short films on {shorts_streaming_service.entity}.
 Explore short films that are not full-length features on {shorts_streaming_service.entity}.
 Explore short films that are not full-length features on {shorts_streaming_service.entity}. Play something for me.
@@ -55,12 +33,12 @@ Explore short movies that differ from feature-length films on {shorts_streaming_
 Explore short movies that differ from feature-length films on {shorts_streaming_service.entity}. Start playback.
 Explore the world of concise storytelling with the short film {short_film_name} on {shorts_streaming_service.entity}.
 Explore the world of short films and start with {short_film_name} on {shorts_streaming_service.entity}.
-Explore the world of short films on {shorts_streaming_service.entity}, starting with {short_film_name}.
+Explore the world of short films on {shorts_streaming_service.entity} , starting with {short_film_name}.
 Find a bite-sized cinematic gem like {short_film_name} among the short films on {shorts_streaming_service.entity}.
-Find a brief {short_film_name} on {shorts_streaming_service.entity}, perfect for a short viewing session.
-Find a brief {short_film_name}, it's a short film, not a feature, on {shorts_streaming_service.entity}.
-Find and play a brief {short_film_name}, it's a short film, not a feature, on {shorts_streaming_service.entity}.
-Find engaging short films, like {short_film_name}, on {shorts_streaming_service.entity}.
+Find a brief {short_film_name} , it's a short film, not a feature, on {shorts_streaming_service.entity}.
+Find a brief {short_film_name} on {shorts_streaming_service.entity} , perfect for a short viewing session.
+Find and play a brief {short_film_name} , it's a short film, not a feature, on {shorts_streaming_service.entity}.
+Find engaging short films, like {short_film_name} , on {shorts_streaming_service.entity}.
 Find me a short film from {country_name} in the {film_genre} genre on {shorts_streaming_service.entity}.
 Find me a short film from {country_name} on {shorts_streaming_service.entity} in the {film_genre} genre.
 Find me a short film from {country_name} on {shorts_streaming_service.entity} with the title {short_film_name}.
@@ -75,12 +53,12 @@ Find {short_film_name} in the short film category, distinct from feature films, 
 Find {short_film_name} in the short film category, distinct from feature films, on {shorts_streaming_service.entity}. Initiate playback.
 Find {short_film_name} in the short film section on {shorts_streaming_service.entity}.
 Give me a list of short films from {country_name} on {shorts_streaming_service.entity}.
-Give me details about a short film, {short_film_name}, and play it on {shorts_streaming_service.entity}.
+Give me details about a short film, {short_film_name} , and play it on {shorts_streaming_service.entity}.
 Give me details about the short film {short_film_name} on {shorts_streaming_service.entity}.
-Give me details about {short_film_name}, a short film, not a feature, on {shorts_streaming_service.entity}.
-Give me details about {short_film_name}, a short film, not a feature, on {shorts_streaming_service.entity}. Play it for me.
-Give me details about {short_film_name}, the short film on {shorts_streaming_service.entity}.
-Hey, play a quick {short_film_name}, it's a short film under 45 minutes, on {shorts_streaming_service.entity}.
+Give me details about {short_film_name} , a short film, not a feature, on {shorts_streaming_service.entity}.
+Give me details about {short_film_name} , a short film, not a feature, on {shorts_streaming_service.entity}. Play it for me.
+Give me details about {short_film_name} , the short film on {shorts_streaming_service.entity}.
+Hey, play a quick {short_film_name} , it's a short film under 45 minutes, on {shorts_streaming_service.entity}.
 I want to discover short films from {country_name} on {shorts_streaming_service.entity}.
 I want to explore short films from {country_name} what's available on {shorts_streaming_service.entity}?
 I want to watch a short film from {country_name} any recommendations on {shorts_streaming_service.entity}?
@@ -89,30 +67,32 @@ I'm in the mood for a short film from {country_name} what's available on {shorts
 I'm in the mood for a short film from {country_name} what's on {shorts_streaming_service.entity}?
 I'm interested in short films from {country_name} what's on {shorts_streaming_service.entity}?
 I'm looking for a short film from {country_name} on {shorts_streaming_service.entity} any suggestions?
-In the mood for a quick film? Check out {short_film_name}, a short film available on {shorts_streaming_service.entity}.
+In the mood for a quick film? Check out {short_film_name} , a short film available on {shorts_streaming_service.entity}.
 In the mood for something brief? Try the short film {short_film_name} on {shorts_streaming_service.entity}.
-In the mood for something shorter? Check out {short_film_name}, a captivating short film on {shorts_streaming_service.entity}.
+In the mood for something shorter? Check out {short_film_name} , a captivating short film on {shorts_streaming_service.entity}.
 Inform me about the short film {short_film_name} available on {shorts_streaming_service.entity}.
-Inform me about {short_film_name}, a short film under 45 minutes, on {shorts_streaming_service.entity}.
-Inform me about {short_film_name}, a short film under 45 minutes, on {shorts_streaming_service.entity}. Start playback.
-Inform me about {short_film_name}, a short film you can find on {shorts_streaming_service.entity}.
-Inform me about {short_film_name}, a short film, and play it on {shorts_streaming_service.entity}.
-List short films and play one, like {short_film_name}, on {shorts_streaming_service.entity}.
+Inform me about {short_film_name} , a short film under 45 minutes, on {shorts_streaming_service.entity}.
+Inform me about {short_film_name} , a short film under 45 minutes, on {shorts_streaming_service.entity}. Start playback.
+Inform me about {short_film_name} , a short film you can find on {shorts_streaming_service.entity}.
+Inform me about {short_film_name} , a short film, and play it on {shorts_streaming_service.entity}.
+List short films and play one, like {short_film_name} , on {shorts_streaming_service.entity}.
 List short films on {shorts_streaming_service.entity}.
 List short films, specifically those under 45 minutes, on {shorts_streaming_service.entity}.
 List short films, specifically those under 45 minutes, on {shorts_streaming_service.entity}. Pick one for me to watch.
 List some short films available on {shorts_streaming_service.entity} maybe {short_film_name} is among them.
-Looking for a brief movie break? Try {short_film_name}, a short film available on {shorts_streaming_service.entity}.
-Looking for a brief yet impactful film? Try watching {short_film_name}, a short film, on {shorts_streaming_service.entity}.
+Looking for a brief movie break? Try {short_film_name} , a short film available on {shorts_streaming_service.entity}.
+Looking for a brief yet impactful film? Try watching {short_film_name} , a short film, on {shorts_streaming_service.entity}.
 Looking for a film that doesn't require a long time commitment? Check out {short_film_name} on {shorts_streaming_service.entity}.
 Looking for a film that's under 45 minutes? Check out {short_film_name} on {shorts_streaming_service.entity}.
 Looking for a movie that won't take up too much time? Try the short film {short_film_name} on {shorts_streaming_service.entity}.
-Looking for a quick film fix? Watch {short_film_name}, a short film on {shorts_streaming_service.entity}.
+Looking for a quick film fix? Watch {short_film_name} , a short film on {shorts_streaming_service.entity}.
 Not in the mood for a full-length movie? Try the short film {short_film_name} on {shorts_streaming_service.entity}.
-Not in the mood for a lengthy film? Opt for {short_film_name}, a short film on {shorts_streaming_service.entity}.
+Not in the mood for a lengthy film? Opt for {short_film_name} , a short film on {shorts_streaming_service.entity}.
 Play a bite-sized film like {short_film_name} on {shorts_streaming_service.entity}.
+Play a brief film.
+Play a film under 45 minutes.
 Play a quick short film called {short_film_name} on {shorts_streaming_service.entity}.
-Play a quick {short_film_name}, it's a short film under 45 minutes, on {shorts_streaming_service.entity}.
+Play a quick {short_film_name} , it's a short film under 45 minutes, on {shorts_streaming_service.entity}.
 Play a short film called {short_film_name} on {shorts_streaming_service.entity}.
 Play a short film from {country_name} on {shorts_streaming_service.entity} in the {film_genre} genre.
 Play a short film from {country_name} on {shorts_streaming_service.entity} with the title {short_film_name}.
@@ -120,64 +100,83 @@ Play a short film from {country_name} on {shorts_streaming_service.entity}.
 Play a short film from {country_name} with the title {short_film_name} on {shorts_streaming_service.entity}.
 Play a short film in the {film_genre} genre from {country_name} on {shorts_streaming_service.entity}.
 Play a short film in {film_genre} from {country_name} on {shorts_streaming_service.entity}.
-Play a short film named {short_film_name}, distinct from feature films, on {shorts_streaming_service.entity}.
-Play a short film named {short_film_name}, distinct from feature films, on {shorts_streaming_service.entity}. Initiate playback.
+Play a short film named {short_film_name} , distinct from feature films, on {shorts_streaming_service.entity}.
+Play a short film named {short_film_name} , distinct from feature films, on {shorts_streaming_service.entity}. Initiate playback.
+Play a short film on {streaming_service}.
+Play a short film.
 Play a short movie named {short_film_name} on {shorts_streaming_service.entity}.
 Play a short {short_film_name} on {shorts_streaming_service.entity} if you're looking for something brief.
 Play a {film_genre} short film from {country_name} on {shorts_streaming_service.entity} with the title {short_film_name}.
 Play a {film_genre} short film from {country_name} on {shorts_streaming_service.entity}.
-Play {short_film_name}, a captivating short film under 45 minutes, on {shorts_streaming_service.entity}.
-Play {short_film_name}, a short film on {shorts_streaming_service.entity} that won't take up too much of your time.
-Play {short_film_name}, a short film perfect for a quick viewing, on {shorts_streaming_service.entity}.
-Play {short_film_name}, a short film, on {shorts_streaming_service.entity}.
+Play a {media_type_short_film} from {film_studio}.
+Play {media_type_short_film} on {streaming_service}.
+Play {media_type_short_film}.
+Play {short_film_name} , a captivating short film under 45 minutes, on {shorts_streaming_service.entity}.
+Play {short_film_name} , a short film on {shorts_streaming_service.entity} that won't take up too much of your time.
+Play {short_film_name} , a short film perfect for a quick viewing, on {shorts_streaming_service.entity}.
+Play {short_film_name} , a short film, on {shorts_streaming_service.entity}.
 Recommend a concise {short_film_name} on {shorts_streaming_service.entity} if you're in the mood for a shorter film.
 Recommend a short film for a quick watch on {shorts_streaming_service.entity}.
-Recommend a short film for me, like {short_film_name}, on {shorts_streaming_service.entity}.
-Recommend a short film like {short_film_name}, perfect for a quick watch on {shorts_streaming_service.entity}.
+Recommend a short film for me, like {short_film_name} , on {shorts_streaming_service.entity}.
+Recommend a short film like {short_film_name} , perfect for a quick watch on {shorts_streaming_service.entity}.
 Recommend a short film on {shorts_streaming_service.entity}.
 Recommend short films for a quick watch on {shorts_streaming_service.entity}.
 Recommend short films for a quick watch on {shorts_streaming_service.entity}. Play one for me.
 Recommend short films on {shorts_streaming_service.entity} for those who prefer quicker entertainment.
 Recommend short films on {shorts_streaming_service.entity}.
-Savor the brevity of {short_film_name}, a short film on {shorts_streaming_service.entity}, ideal for a short movie night.
-Seeking a shorter movie option? Check out {short_film_name}, a captivating short film on {shorts_streaming_service.entity}.
-Start a short film, {short_film_name}, on {shorts_streaming_service.entity}.
-Start a short film, {short_film_name}, that's not too long, on {shorts_streaming_service.entity}.
+Savor the brevity of {short_film_name} , a short film on {shorts_streaming_service.entity} , ideal for a short movie night.
+Search for compact cinema.
+Search for limited duration movies.
+Search for short films on {streaming_service}.
+Search for short films.
+Search for {media_type_short_film} from {film_studio}.
+Search for {media_type_short_film} on {streaming_service}.
+Search for {media_type_short_film}.
+Seeking a shorter movie option? Check out {short_film_name} , a captivating short film on {shorts_streaming_service.entity}.
+Start a concise movie.
+Start a quick cinematic experience.
+Start a short film on {streaming_service}.
+Start a short film, {short_film_name} , on {shorts_streaming_service.entity}.
+Start a short film, {short_film_name} , that's not too long, on {shorts_streaming_service.entity}.
+Start a short film.
+Start a {media_type_short_film} from {film_studio}.
+Start {media_type_short_film} on {streaming_service}.
+Start {media_type_short_film}.
 Suggest a short film on {shorts_streaming_service.entity} that distinguishes itself with its brevity.
 Suggest a short film on {shorts_streaming_service.entity} to watch.
 Suggest a short film, not a full-length feature, on {shorts_streaming_service.entity} and start playback.
 Suggest a short film, not a full-length feature, on {shorts_streaming_service.entity}.
 Suggest a short film, not a full-length feature, on {shorts_streaming_service.entity}. Let's watch it.
-Tell me about a short film, {short_film_name}, and play it on {shorts_streaming_service.entity}.
+Tell me about a short film, {short_film_name} , and play it on {shorts_streaming_service.entity}.
 Tell me about short films on {shorts_streaming_service.entity} and how they differ from feature films.
 Tell me about short films on {shorts_streaming_service.entity}.
-Tell me about short films, and play one, like {short_film_name}, on {shorts_streaming_service.entity}.
+Tell me about short films, and play one, like {short_film_name} , on {shorts_streaming_service.entity}.
 Tell me about short films, specifically those under 45 minutes, on {shorts_streaming_service.entity}.
 Tell me about short films, specifically those under 45 minutes, on {shorts_streaming_service.entity}. Play one for me.
 Tell me about the short film {short_film_name} on {shorts_streaming_service.entity}.
-Tell me about {short_film_name}, a short film available on {shorts_streaming_service.entity}.
-Tell me about {short_film_name}, it's a short film, not a long feature, on {shorts_streaming_service.entity}.
-Tell me about {short_film_name}, it's a short film, not a long feature, on {shorts_streaming_service.entity}. Start playback.
+Tell me about {short_film_name} , a short film available on {shorts_streaming_service.entity}.
+Tell me about {short_film_name} , it's a short film, not a long feature, on {shorts_streaming_service.entity}.
+Tell me about {short_film_name} , it's a short film, not a long feature, on {shorts_streaming_service.entity}. Start playback.
 Want a movie you can watch during a short break? Try {short_film_name} on {shorts_streaming_service.entity}.
-Watch a quick {short_film_name} on {shorts_streaming_service.entity}, it's a short film under 45 minutes.
+Watch a quick {short_film_name} on {shorts_streaming_service.entity} , it's a short film under 45 minutes.
 Watch a short film called {short_film_name} on {shorts_streaming_service.entity}.
+Watch {short_film_name} , a short film on {shorts_streaming_service.entity} that provides a compact storytelling experience.
+Watch {short_film_name} , a short film on {shorts_streaming_service.entity} that won't take much of your time.
+Watch {short_film_name} , a short film perfect for a quick movie break, on {shorts_streaming_service.entity}.
+Watch {short_film_name} , a short film that won't take up too much time, on {shorts_streaming_service.entity}.
+Watch {short_film_name} , a short film that won't take up too much time, on {shorts_streaming_service.entity}. Start playback.
+Watch {short_film_name} , a short film, not a feature, on {shorts_streaming_service.entity}.
+Watch {short_film_name} , a short film, not a feature, on {shorts_streaming_service.entity}. Start playback.
+Watch {short_film_name} , it's a captivating short film, not a full-length feature, on {shorts_streaming_service.entity}.
 Watch {short_film_name} for a brief yet captivating cinematic experience on {shorts_streaming_service.entity}.
 Watch {short_film_name} in the short film category on {shorts_streaming_service.entity}.
 Watch {short_film_name} on {shorts_streaming_service.entity}.
-Watch {short_film_name}, a short film on {shorts_streaming_service.entity} that provides a compact storytelling experience.
-Watch {short_film_name}, a short film on {shorts_streaming_service.entity} that won't take much of your time.
-Watch {short_film_name}, a short film perfect for a quick movie break, on {shorts_streaming_service.entity}.
-Watch {short_film_name}, a short film that won't take up too much time, on {shorts_streaming_service.entity}.
-Watch {short_film_name}, a short film that won't take up too much time, on {shorts_streaming_service.entity}. Start playback.
-Watch {short_film_name}, a short film, not a feature, on {shorts_streaming_service.entity}.
-Watch {short_film_name}, a short film, not a feature, on {shorts_streaming_service.entity}. Start playback.
-Watch {short_film_name}, it's a captivating short film, not a full-length feature, on {shorts_streaming_service.entity}.
 What are some noteworthy short films, not feature-length, available on {shorts_streaming_service.entity}?
 What are some noteworthy short films, not feature-length, available on {shorts_streaming_service.entity}? Play one for me.
 What are some short films on {shorts_streaming_service.entity} that you'd recommend for a quick watch?
 What are the top short films from {country_name} on {shorts_streaming_service.entity}?
 What short films are available on {shorts_streaming_service.entity}?
-What short films are available? Play one, like {short_film_name}, on {shorts_streaming_service.entity}.
+What short films are available? Play one, like {short_film_name} , on {shorts_streaming_service.entity}.
 play a brief film for me
 play a brief film that's inspirational
 play a brief film with a strong narrative
@@ -206,6 +205,7 @@ play a short film with an inspiring message
 play a short film with great visuals
 play a short movie with a good storyline
 play {short_film_name}
+search {media_type_short_film}
 show me a brief cinematic piece with impressive storytelling
 show me a brief movie
 show me a concise cinematic piece

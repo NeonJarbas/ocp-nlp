@@ -1,65 +1,18 @@
-play {media_type_bts}
-start {media_type_bts}
-search {media_type_bts}
-Play some {media_type_bts} for me.
-Start up the {media_type_bts}, please.
-Search for {media_type_bts} and let's enjoy it.
-Can we play {media_type_bts} right now?
-Initiate the {media_type_bts}, I'm in the mood for it.
-Let's start with a bit of {media_type_bts} - play it.
-Search and play {media_type_bts} for a good time.
-Time to enjoy some {media_type_bts}, start it up.
-Let's dive into {media_type_bts}, hit play.
-Start the {media_type_bts} and let the entertainment begin.
-Can you search for {media_type_bts} and play it?
-Play some {media_type_bts} content, please.
-Start the {media_type_bts} and set the mood right.
-Search for {media_type_bts} and let's get entertained.
-It's time to play some {media_type_bts} - start it.
-Initiate the {media_type_bts}, I'm ready for it.
-Can we search and play {media_type_bts} now?
-Start up {media_type_bts}, let's enjoy the moment.
-Play {media_type_bts} to lighten up the mood.
-Search for {media_type_bts} and let's have a good time.
-Let's start with {media_type_bts} - hit play.
-Initiate {media_type_bts} and let the entertainment roll.
-Can you play some {media_type_bts} for me?
-Start up the {media_type_bts}, I'm in the mood for it.
-Search and play {media_type_bts} for a delightful experience.
-Time to enjoy some {media_type_bts}, hit play.
-Let's start with a bit of {media_type_bts} - play it.
-Play {media_type_bts} to set the vibe right.
-Start the {media_type_bts} and let the good times roll.
-Can we search for {media_type_bts} and enjoy it?
-Initiate {media_type_bts} for a great entertainment session.
-Play {media_type_bts} to relax and unwind.
-Start up {media_type_bts} for a fantastic experience.
-Search and play {media_type_bts} to brighten up the day.
-Let's start with a bit of {media_type_bts} - hit play.
-Can you play some {media_type_bts} to lift the spirits?
-Initiate the {media_type_bts}, I'm ready for some entertainment.
-Play {media_type_bts} and let's have a good time.
-Start up {media_type_bts} for a relaxing moment.
-Search and play {media_type_bts} for a delightful experience.
-Time to enjoy some {media_type_bts}, hit play.
-Let's start with a bit of {media_type_bts} - play it.
-Play {media_type_bts} to set the vibe right.
-Start the {media_type_bts} and let the good times roll.
-Can we search for {media_type_bts} and enjoy it?
-Initiate {media_type_bts} for a great entertainment session.
-Play {media_type_bts} to relax and unwind.
-Start up {media_type_bts} for a fantastic experience.
-Search and play {media_type_bts} to brighten up the day.
-Let's start with a bit of {media_type_bts} - hit play.
 Begin playing behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
 Begin playing {movie_name} behind-the-scenes on {movie_streaming_service}.
+Can we play {media_type_bts} right now?
+Can we search and play {media_type_bts} now?
+Can we search for {media_type_bts} and enjoy it?
 Can you find and play behind-the-scenes content of {movie_name} on {movie_streaming_service}?
 Can you find and play {movie_name} behind-the-scenes on {movie_streaming_service}?
 Can you find behind-the-scenes footage for {movie_name} on {movie_streaming_service}?
 Can you play behind-the-scenes footage of {movie_name} on {movie_streaming_service}?
+Can you play some {media_type_bts} for me?
+Can you play some {media_type_bts} to lift the spirits?
 Can you play the behind-the-scenes footage of {movie_name} on {movie_streaming_service}?
 Can you play the behind-the-scenes videos for {movie_name} on {movie_streaming_service}?
 Can you play {movie_streaming_service} for behind-the-scenes of {movie_name}?
+Can you search for {media_type_bts} and play it?
 Can you suggest behind-the-scenes content for {movie_name} on {movie_streaming_service}?
 Could you find and start the behind-the-scenes videos for {movie_name} on {movie_streaming_service}?
 Could you look for behind-the-scenes footage of {movie_name} on {movie_streaming_service}?
@@ -100,11 +53,21 @@ I'm in the mood to explore and play behind-the-scenes content for {movie_name} o
 I'm interested in exploring and watching behind-the-scenes content for {movie_name} on {movie_streaming_service}.
 I'm interested in the making-of {movie_name} in {country_name} on {streaming_service}.
 Inform me about behind-the-scenes footage of {movie_name} available on {movie_streaming_service}.
+Initiate the {media_type_bts} , I'm in the mood for it.
+Initiate the {media_type_bts} , I'm ready for it.
+Initiate the {media_type_bts} , I'm ready for some entertainment.
+Initiate {media_type_bts} and let the entertainment roll.
+Initiate {media_type_bts} for a great entertainment session.
 Is there any behind-the-scenes material available for {movie_name} on {movie_streaming_service}?
+It's time to play some {media_type_bts} - start it.
 Let's begin playing behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
+Let's dive into {media_type_bts} , hit play.
 Let's play behind-the-scenes videos for the movie {movie_name} on {movie_streaming_service}.
 Let's play the behind-the-scenes
 Let's play the behind-the-scenes videos for {movie_name} on {movie_streaming_service}.
+Let's start with a bit of {media_type_bts} - hit play.
+Let's start with a bit of {media_type_bts} - play it.
+Let's start with {media_type_bts} - hit play.
 Let's start {movie_streaming_service} for behind-the-scenes of {movie_name}.
 List behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
 Look for behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
@@ -120,14 +83,26 @@ Play behind-the-scenes videos for {movie_name} from {country_name} on {streaming
 Play behind-the-scenes videos for {movie_name} on {movie_streaming_service}.
 Play behind-the-scenes videos for {movie_name} on {streaming_service} from {country_name}.
 Play behind-the-scenes videos for {movie_name} on {streaming_service} in {country_name}.
+Play some {media_type_bts} content, please.
+Play some {media_type_bts} for me.
 Play the behind-the-scenes of {movie_name} on {movie_streaming_service}.
 Play the behind-the-scenes videos for {movie_name} on {movie_streaming_service}.
 Play the making-of {movie_name} from {country_name} on {streaming_service}.
 Play the making-of {movie_name} on {movie_streaming_service}.
+Play {media_type_bts} and let's have a good time.
+Play {media_type_bts} to lighten up the mood.
+Play {media_type_bts} to relax and unwind.
+Play {media_type_bts} to set the vibe right.
 Play {movie_name} behind-the-scenes on {movie_streaming_service}.
 Play {movie_name} behind-the-scenes videos on {movie_streaming_service}.
 Recommend behind-the-scenes videos for {movie_name} on {movie_streaming_service}.
+Search and play {media_type_bts} for a delightful experience.
+Search and play {media_type_bts} for a good time.
+Search and play {media_type_bts} to brighten up the day.
 Search for behind-the-scenes content for {movie_name} on {movie_streaming_service}.
+Search for {media_type_bts} and let's enjoy it.
+Search for {media_type_bts} and let's get entertained.
+Search for {media_type_bts} and let's have a good time.
 Show behind-the-scenes material for {movie_name} on {movie_streaming_service}.
 Show me behind-the-scenes clips of {movie_name} on {movie_streaming_service}.
 Show me behind-the-scenes content for {movie_name} on {movie_streaming_service}.
@@ -139,6 +114,14 @@ Show me how they made {movie_name} in {country_name} on {streaming_service}.
 Show me how {movie_name} was made in {country_name} on {streaming_service}.
 Show me {movie_name} behind-the-scenes on {movie_streaming_service}.
 Start playing {movie_name} behind-the-scenes on {movie_streaming_service}.
+Start the {media_type_bts} and let the entertainment begin.
+Start the {media_type_bts} and let the good times roll.
+Start the {media_type_bts} and set the mood right.
+Start up the {media_type_bts} , I'm in the mood for it.
+Start up the {media_type_bts} , please.
+Start up {media_type_bts} , let's enjoy the moment.
+Start up {media_type_bts} for a fantastic experience.
+Start up {media_type_bts} for a relaxing moment.
 Start {movie_streaming_service} and show me behind-the-scenes of {movie_name}.
 Start {movie_streaming_service} for behind-the-scenes of {movie_name}.
 Suggest behind-the-scenes content for {movie_name} on {movie_streaming_service}.
@@ -147,6 +130,8 @@ Tell me about behind-the-scenes details of {movie_name} on {movie_streaming_serv
 Tell me about the behind-the-scenes material of {movie_name} on {movie_streaming_service}.
 Tell me about the behind-the-scenes of {movie_name} on {movie_streaming_service}.
 Tell me more about the behind-the-scenes of {movie_name} on {movie_streaming_service}.
+Time to enjoy some {media_type_bts} , hit play.
+Time to enjoy some {media_type_bts} , start it up.
 Watch behind-the-scenes clips for {movie_name} on {movie_streaming_service}.
 Watch behind-the-scenes footage of {movie_name} on {movie_streaming_service}.
 Watch behind-the-scenes of {movie_name} in {movie_streaming_service} library.
@@ -205,7 +190,9 @@ play the making of Jurassic Park
 play the making of a blockbuster
 play the making of a classic movie
 play {film_genre} behind the scenes
+play {media_type_bts}
 search {film_genre} behind the scenes
+search {media_type_bts}
 show me how documentaries are filmed
 show me how movies are made
 show me how movies get greenlit
@@ -253,5 +240,6 @@ start behind the scenes of a horror movie
 start behind the scenes of a movie set
 start behind the scenes of an action thriller
 start behind-the-scenes content
+start {media_type_bts}
 view {film_genre} behind the scenes
 watch {film_genre} behind the scenes

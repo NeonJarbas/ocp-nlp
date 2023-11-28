@@ -1,6 +1,3 @@
-play {media_type_news}
-start {media_type_news}
-search {media_type_news}
 Can you play the hometown news on {news_streaming_service}?
 Can you play the news from {country_name} on {news_streaming_service}?
 Can you play the news report from {country_name} on {news_streaming_service}?
@@ -8,81 +5,13 @@ Check out the news from {news_provider}.
 Fill me in on {news_provider} from {news_streaming_service}.
 Fill me in on {news_provider} on {news_streaming_service}.
 Find me news updates.
-Play {media_type_news} about {news_genre}
-Start {media_type_news} on {news_provider}
-Search {media_type_news} for {news_genre}
-Play the latest {media_type_news}
-Start a {media_type_news} segment on {news_provider}
-Search for {media_type_news} on {news_provider}
-Play {media_type_news} on {news_provider} about {news_genre}
-Start {media_type_news} with the latest updates
-Search {media_type_news} for recent {news_genre}
-Play {media_type_news} on {news_provider} with {person}
-Start {media_type_news} featuring {news_provider}
-Search {media_type_news} for {news_genre} headlines
-Play {media_type_news} about {news_genre} from {news_provider}
-Start {media_type_news} covering {news_genre}
-Search {media_type_news} for {news_provider} coverage on {news_genre}
-Play {media_type_news} with the latest {news_genre} updates
-Start {media_type_news} focused on {news_provider}
-Search {media_type_news} for {news_genre} news on {news_provider}
-Play {media_type_news} related to {news_genre}
-Start a {media_type_news} session on {news_provider}
-Search {media_type_news} for {news_provider} reports on {news_genre}
-Play {media_type_news} with analysis on {news_genre}
-Start {media_type_news} featuring interviews from {news_provider}
-Search {media_type_news} for {news_provider} perspectives on {news_genre}
-Play {media_type_news} discussing {news_genre} on {news_provider}
-Start {media_type_news} on {news_provider} with breaking {news_genre} news
-Search {media_type_news} for {news_provider} coverage of {news_genre}
-Play {media_type_news} with {news_provider} updates on {news_genre}
-Start {media_type_news} featuring {person} on {news_provider}
-Search {media_type_news} for {news_genre} insights on {news_provider}
-Play {media_type_news} covering {news_genre} from {news_provider}
-Start {media_type_news} providing in-depth analysis on {news_genre}
-Search {media_type_news} for {news_genre} news with {news_provider}
-Play {media_type_news} presenting {news_genre} updates from {news_provider}
-Start {media_type_news} focused on {news_provider}'s perspective
-Search {media_type_news} for {news_provider} discussions on {news_genre}
-Get the latest updates from {news_provider} on {news_streaming_service}.
-Play the news on {news_streaming_service}.
-What's the latest news on {news_provider}?
-Tune in to {news_provider} on {news_streaming_service}.
-Play the news.
-What's happening in the world on {news_provider}?
-Check out the news from {news_provider}.
-Get the latest from {news_provider} on {news_streaming_service}.
-Turn on {news_provider} news.
-Play {news_provider} news.
-Tell me what's going on with {news_provider}.
-What's the current news on {news_provider}?
-Keep me informed with {news_provider} on {news_streaming_service}.
-Play the latest headlines on {news_streaming_service}.
-I want to hear the news from {news_provider}.
-Play the news on {news_streaming_service} from {news_provider}.
-What's the news on {news_streaming_service} from {news_provider}?
-Keep me updated with {news_provider} on {news_streaming_service}.
-Play the news from {news_provider} on {news_streaming_service}.
-Play {media_type_news} summarizing {news_genre} from {news_provider}
-Start {media_type_news} discussing {news_genre} on {news_provider}
-Search {media_type_news} for {news_provider} insights on {news_genre}
-Play {media_type_news} covering {news_genre} headlines on {news_provider}
-Start {media_type_news} featuring interviews on {news_genre} from {news_provider}
-Search {media_type_news} for {news_provider} reports on {news_genre} developments
-Play {media_type_news} providing analysis on {news_genre} from {news_provider}
-Start {media_type_news} with {news_provider} discussions on {news_genre}
-Search {media_type_news} for {news_genre} updates from {news_provider}
-Play {media_type_news} discussing {news_genre} on {news_provider} with {person}
-Start {media_type_news} summarizing {news_genre} coverage from {news_provider}
-Search {media_type_news} for {news_provider} reports on {news_genre} insights
-Play {media_type_news} covering {news_genre} headlines on {news_provider} with {person}
-Start {media_type_news} featuring interviews on {news_genre} from {news_provider}
 Find news updates on {news_provider}.
 Get me the audio news feed from {news_provider} in {country_name} on {news_streaming_service}.
 Get me the news from {news_provider} on {news_streaming_service}.
 Get me the news highlights from {news_provider} in {country_name} on {news_streaming_service}.
 Get me the news highlights in {country_name} from {news_provider} on {news_streaming_service}.
 Get me the scoop on {news_provider} news.
+Get the latest from {news_provider} on {news_streaming_service}.
 Get the latest updates from {news_provider} on {news_streaming_service}.
 Give me the audio news from {news_provider} in {country_name} on {news_streaming_service}.
 Give me the details on {news_provider} from {news_streaming_service}.
@@ -129,10 +58,10 @@ I want to hear the {country_name} news update from {news_provider} on {news_stre
 I want to hear the {news_provider} news highlights on {news_streaming_service}.
 I want to hear the {news_provider} news on {news_streaming_service}.
 I want to hear what's happening in {country_name} play the news on {news_streaming_service}.
-I want to hear what's happening locally—play the news on {news_streaming_service}.
+I want to hear what's happening locally play the news on {news_streaming_service}.
 I want to know the latest from {news_provider} on {news_streaming_service}.
-I want to know what's happening—play {news_provider} on {news_streaming_service}.
-I want to stay informed—play {news_provider} on {news_streaming_service}.
+I want to know what's happening play {news_provider} on {news_streaming_service}.
+I want to stay informed play {news_provider} on {news_streaming_service}.
 I'd like to catch up on {news_provider} news.
 I'm curious about the {news_provider} news buzz on {news_streaming_service}.
 I'm curious about the {news_provider} updates on {news_streaming_service}.
@@ -160,6 +89,7 @@ Play the latest news from around here on {news_streaming_service}.
 Play the latest news from {country_name} on {news_streaming_service}.
 Play the latest news on {news_streaming_service}.
 Play the latest news update from {news_provider} on {news_streaming_service}.
+Play the latest {media_type_news}
 Play the latest {news_provider} updates on {news_streaming_service}.
 Play the local news on {news_streaming_service}.
 Play the local news updates on {news_streaming_service}.
@@ -196,11 +126,59 @@ Play the {news_provider} news spotlight on {news_streaming_service}.
 Play the {news_provider} news summary on {news_streaming_service}.
 Play the {news_provider} news update on {news_streaming_service}.
 Play the {news_provider} segment on {news_streaming_service}.
+Play {media_type_news} about {news_genre}
+Play {media_type_news} about {news_genre} from {news_provider}
+Play {media_type_news} covering {news_genre} from {news_provider}
+Play {media_type_news} covering {news_genre} headlines on {news_provider}
+Play {media_type_news} covering {news_genre} headlines on {news_provider} with {person}
+Play {media_type_news} discussing {news_genre} on {news_provider}
+Play {media_type_news} discussing {news_genre} on {news_provider} with {person}
+Play {media_type_news} on {news_provider} about {news_genre}
+Play {media_type_news} on {news_provider} with {person}
+Play {media_type_news} presenting {news_genre} updates from {news_provider}
+Play {media_type_news} providing analysis on {news_genre} from {news_provider}
+Play {media_type_news} related to {news_genre}
+Play {media_type_news} summarizing {news_genre} from {news_provider}
+Play {media_type_news} with analysis on {news_genre}
+Play {media_type_news} with the latest {news_genre} updates
+Play {media_type_news} with {news_provider} updates on {news_genre}
 Play {news_provider} news.
 Play {news_provider} on {news_streaming_service} for the latest news.
 Play {news_provider} on {news_streaming_service}.
 Put on the latest news from {news_provider}.
 Put on the news from {news_provider}.
+Search for {media_type_news} on {news_provider}
+Search {media_type_news} for recent {news_genre}
+Search {media_type_news} for {news_genre}
+Search {media_type_news} for {news_genre} headlines
+Search {media_type_news} for {news_genre} insights on {news_provider}
+Search {media_type_news} for {news_genre} news on {news_provider}
+Search {media_type_news} for {news_genre} news with {news_provider}
+Search {media_type_news} for {news_genre} updates from {news_provider}
+Search {media_type_news} for {news_provider} coverage of {news_genre}
+Search {media_type_news} for {news_provider} coverage on {news_genre}
+Search {media_type_news} for {news_provider} discussions on {news_genre}
+Search {media_type_news} for {news_provider} insights on {news_genre}
+Search {media_type_news} for {news_provider} perspectives on {news_genre}
+Search {media_type_news} for {news_provider} reports on {news_genre}
+Search {media_type_news} for {news_provider} reports on {news_genre} developments
+Search {media_type_news} for {news_provider} reports on {news_genre} insights
+Start a {media_type_news} segment on {news_provider}
+Start a {media_type_news} session on {news_provider}
+Start {media_type_news} covering {news_genre}
+Start {media_type_news} discussing {news_genre} on {news_provider}
+Start {media_type_news} featuring interviews from {news_provider}
+Start {media_type_news} featuring interviews on {news_genre} from {news_provider}
+Start {media_type_news} featuring {news_provider}
+Start {media_type_news} featuring {person} on {news_provider}
+Start {media_type_news} focused on {news_provider}
+Start {media_type_news} focused on {news_provider}'s perspective
+Start {media_type_news} on {news_provider}
+Start {media_type_news} on {news_provider} with breaking {news_genre} news
+Start {media_type_news} providing in-depth analysis on {news_genre}
+Start {media_type_news} summarizing {news_genre} coverage from {news_provider}
+Start {media_type_news} with the latest updates
+Start {media_type_news} with {news_provider} discussions on {news_genre}
 Tell me the latest headlines.
 Tell me the news from {news_provider} on {news_streaming_service}.
 Tell me the top stories from {news_provider}.
@@ -213,9 +191,9 @@ Tell me what's happening with {news_provider} on {news_streaming_service}.
 Tune in to {news_provider} news on {news_streaming_service}.
 Tune in to {news_provider} on {news_streaming_service}.
 Turn on {news_provider} news.
-What's happening globally—play the international news from {country_name} on {news_streaming_service}.
-What's happening in our community—play the local news on {news_streaming_service}.
-What's happening in our community—play the news on {news_streaming_service}.
+What's happening globally play the international news from {country_name} on {news_streaming_service}.
+What's happening in our community play the local news on {news_streaming_service}.
+What's happening in our community play the news on {news_streaming_service}.
 What's happening in the world on {news_provider}?
 What's happening in {country_name} play the international news on {news_streaming_service}.
 What's the breaking news on {news_provider}?
@@ -240,8 +218,8 @@ What's the news today from {news_provider} on {news_streaming_service}?
 What's the story with {news_provider} on {news_streaming_service}?
 What's the word on the street from {news_provider} on {news_streaming_service}?
 What's the word on the street in {country_name} play the news on {news_streaming_service}.
-What's the word on the street internationally—play the news from {country_name} on {news_streaming_service}.
-What's the word on the street locally—play the news on {news_streaming_service}.
+What's the word on the street internationally play the news from {country_name} on {news_streaming_service}.
+What's the word on the street locally play the news on {news_streaming_service}.
 What's the {country_name} news buzz on {news_streaming_service}?
 What's the {news_provider} scoop on {news_streaming_service}?
 play business news
@@ -276,7 +254,9 @@ play the latest news
 play the news in English
 play the political news
 play the top news stories
+play {media_type_news}
 play {news_genre}
+search {media_type_news}
 search {news_genre}
 show me news headlines
 start a news analysis podcast
@@ -311,6 +291,7 @@ start a news talk series
 start a news talk show
 start a news update
 start a news update podcast
+start {media_type_news}
 start {news_genre}
 tell me the local news
 watch {news_genre}

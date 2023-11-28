@@ -1,50 +1,20 @@
-play {media_type_tv}
-start {media_type_tv}
-Watch a {media_type_tv} on {tv_channel}.
-Switch to {tv_channel} on {tv_streaming_service}.
-Play a {media_type_tv} on {tv_channel} via {tv_streaming_service}.
-Tune in to {tv_channel} on {tv_streaming_service} for a {media_type_tv}.
 Check out what's on {tv_channel} through {tv_streaming_service}.
-Play a {media_type_tv} from {tv_channel} on {tv_streaming_service}.
-What's airing on {tv_channel} on {tv_streaming_service}?
-Watch a {media_type_tv} from {tv_channel} via {tv_streaming_service}.
-Switch to {tv_channel} for a {media_type_tv} on {tv_streaming_service}.
-Explore {media_type_tv} options on {tv_channel} through {tv_streaming_service}.
-Play {tv_channel} on {tv_streaming_service} for a {media_type_tv}.
-Tune in to {media_type_tv} on {tv_channel} via {tv_streaming_service}.
-Check the schedule for {tv_channel} on {tv_streaming_service}.
-Watch a {media_type_tv} from {tv_channel} on {tv_streaming_service}.
-Switch to {tv_channel} through {tv_streaming_service} for a {media_type_tv}.
-Explore {media_type_tv} options on {tv_channel} via {tv_streaming_service}.
-Play a {media_type_tv} on {tv_channel} through {tv_streaming_service}.
-Tune in to {tv_channel} on {tv_streaming_service} for a {media_type_tv}.
 Check out what's on {tv_channel} via {tv_streaming_service} for a {media_type_tv}.
-Watch a {media_type_tv} from {tv_channel} on {tv_streaming_service}.
-Switch to {tv_channel} on {tv_streaming_service} for a {media_type_tv}.
-search {media_type_tv}
-Watch a {media_type_tv} show on {tv_channel} using {tv_streaming_service}.
-Play a {media_type_tv} series on {tv_channel} via {tv_streaming_service}.
-Find a {media_type_tv} program on {tv_channel} available on {tv_streaming_service}.
-Tune in to a {media_type_tv} show from {tv_channel} on {tv_streaming_service}.
-Play a {media_type_tv} episode on {tv_channel} using {tv_streaming_service}.
-Explore {tv_channel} on {tv_streaming_service} for {media_type_tv} content.
-Watch a {media_type_tv} series on {tv_channel} through {tv_streaming_service}.
 Check out {media_type_tv} shows on {tv_channel} with {tv_streaming_service}.
-Play a {media_type_tv} program on {tv_channel} from {tv_streaming_service}.
-Find {media_type_tv} content on {tv_channel} using {tv_streaming_service}.
-Explore {tv_channel} 's {media_type_tv} shows on {tv_streaming_service}.
-Tune in to a {media_type_tv} episode on {tv_channel} via {tv_streaming_service}.
-Watch {media_type_tv} on {tv_channel} through {tv_streaming_service}.
-Find a {media_type_tv} series on {tv_channel} with {tv_streaming_service}.
-Play {media_type_tv} on {tv_channel} available on {tv_streaming_service}.
-Explore {tv_channel} for {media_type_tv} content on {tv_streaming_service}.
-Tune in to {media_type_tv} shows on {tv_channel} via {tv_streaming_service}.
-Watch a {media_type_tv} episode from {tv_channel} using {tv_streaming_service}.
-Discover {tv_channel} 's {media_type_tv} content on {tv_streaming_service}.
+Check the schedule for {tv_channel} on {tv_streaming_service}.
 Discover new TV series on {tv_streaming_service} from {tv_channel}.
 Discover new TV shows on {tv_streaming_service}.
+Discover {tv_channel} 's {media_type_tv} content on {tv_streaming_service}.
 Discover {tv_channel} content on {tv_streaming_service}.
+Explore {media_type_tv} options on {tv_channel} through {tv_streaming_service}.
+Explore {media_type_tv} options on {tv_channel} via {tv_streaming_service}.
+Explore {tv_channel} 's {media_type_tv} shows on {tv_streaming_service}.
+Explore {tv_channel} for {media_type_tv} content on {tv_streaming_service}.
+Explore {tv_channel} on {tv_streaming_service} for {media_type_tv} content.
+Find a {media_type_tv} program on {tv_channel} available on {tv_streaming_service}.
+Find a {media_type_tv} series on {tv_channel} with {tv_streaming_service}.
 Find shows on {tv_channel} available on {tv_streaming_service}.
+Find {media_type_tv} content on {tv_channel} using {tv_streaming_service}.
 Find {tv_channel}  's schedule on {tv_streaming_service}.
 Find {tv_channel} content on {tv_streaming_service}.
 Find {tv_channel} on {tv_streaming_service}.
@@ -54,10 +24,18 @@ Play a TV series from {tv_channel} on {tv_streaming_service}.
 Play a TV show on {tv_streaming_service}.
 Play a random TV series on {tv_streaming_service}.
 Play a random TV show on {tv_streaming_service}.
+Play a {media_type_tv} episode on {tv_channel} using {tv_streaming_service}.
+Play a {media_type_tv} from {tv_channel} on {tv_streaming_service}.
+Play a {media_type_tv} on {tv_channel} through {tv_streaming_service}.
+Play a {media_type_tv} on {tv_channel} via {tv_streaming_service}.
+Play a {media_type_tv} program on {tv_channel} from {tv_streaming_service}.
+Play a {media_type_tv} series on {tv_channel} via {tv_streaming_service}.
 Play popular TV shows on {tv_streaming_service} from {tv_channel}.
 Play the latest episode of {tv_channel}.
 Play the latest episodes from {tv_channel} on {tv_streaming_service}.
+Play {media_type_tv} on {tv_channel} available on {tv_streaming_service}.
 Play {tv_channel} episodes on {tv_streaming_service}.
+Play {tv_channel} on {tv_streaming_service} for a {media_type_tv}.
 Play {tv_channel} on {tv_streaming_service}.
 Play {tv_channel} programs on {tv_streaming_service}.
 Play {tv_channel} series on {tv_streaming_service}.
@@ -67,14 +45,34 @@ Show me popular TV shows on {tv_streaming_service}.
 Show me popular shows on {tv_streaming_service} from {tv_channel}.
 Show me the best TV series on {tv_streaming_service}.
 Show me what 's on {tv_channel} right now.
+Switch to {tv_channel} for a {media_type_tv} on {tv_streaming_service}.
+Switch to {tv_channel} on {tv_streaming_service} for a {media_type_tv}.
+Switch to {tv_channel} on {tv_streaming_service}.
+Switch to {tv_channel} through {tv_streaming_service} for a {media_type_tv}.
+Tune in to a {media_type_tv} episode on {tv_channel} via {tv_streaming_service}.
+Tune in to a {media_type_tv} show from {tv_channel} on {tv_streaming_service}.
+Tune in to {media_type_tv} on {tv_channel} via {tv_streaming_service}.
+Tune in to {media_type_tv} shows on {tv_channel} via {tv_streaming_service}.
+Tune in to {tv_channel} on {tv_streaming_service} for a {media_type_tv}.
+Watch a {media_type_tv} episode from {tv_channel} using {tv_streaming_service}.
+Watch a {media_type_tv} from {tv_channel} on {tv_streaming_service}.
+Watch a {media_type_tv} from {tv_channel} via {tv_streaming_service}.
+Watch a {media_type_tv} on {tv_channel}.
+Watch a {media_type_tv} series on {tv_channel} through {tv_streaming_service}.
+Watch a {media_type_tv} show on {tv_channel} using {tv_streaming_service}.
 Watch shows on {tv_channel} available on {tv_streaming_service}.
+Watch {media_type_tv} on {tv_channel} through {tv_streaming_service}.
 Watch {tv_channel} live stream.
 Watch {tv_channel} live.
 Watch {tv_channel} series on {tv_streaming_service}.
 Watch {tv_channel} shows on {tv_streaming_service}.
+What's airing on {tv_channel} on {tv_streaming_service}?
+play {media_type_tv}
 play {tv_channel}
 play {tv_genre}
+search {media_type_tv}
 search {tv_genre}
+start {media_type_tv}
 start {tv_channel}
 start {tv_genre}
 view {tv_channel}

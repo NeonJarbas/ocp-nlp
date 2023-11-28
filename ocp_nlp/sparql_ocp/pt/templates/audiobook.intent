@@ -71,7 +71,7 @@ Me dê uma sugestão de livro de {country_name} no {audiobook_streaming_service}
 Me dê uma sugestão de livro de {country_name} no {book_genre} no {audiobook_streaming_service}.
 Me dê uma sugestão de livro de {country_name}.
 Me informe sobre o audiolivro {book_name} disponível no {audiobook_streaming_service}.
-Obtenha recomendações de audiolivros no gênero {book_genre}, especialmente {book_name}, no {audiobook_streaming_service}.
+Obtenha recomendações de audiolivros no gênero {book_genre} , especialmente {book_name} , no {audiobook_streaming_service}.
 Ouça o audiolivro {book_name} no gênero {book_genre} no {audiobook_streaming_service}.
 Ouça o audiolivro {book_name} no {audiobook_streaming_service}.
 Ouça um audiolivro chamado {book_name} no {audiobook_streaming_service}.

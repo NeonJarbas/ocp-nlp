@@ -52,10 +52,10 @@ Me mantenha atualizado com {news_provider} em {news_streaming_service}.
 Me mantenha atualizado sobre {news_provider} em {news_streaming_service}.
 Me mantenha informado com os destaques mais recentes de {news_provider}.
 Me mantenha informado sobre {news_provider} em {news_streaming_service}.
-O que está acontecendo em nossa comunidade—toca as notícias em {news_streaming_service}.
-O que está acontecendo em nossa comunidade—toca as notícias locais em {news_streaming_service}.
+O que está acontecendo em nossa comunidade toca as notícias em {news_streaming_service}.
+O que está acontecendo em nossa comunidade toca as notícias locais em {news_streaming_service}.
 O que está acontecendo em {country_name} toca as notícias internacionais em {news_streaming_service}.
-O que está acontecendo globalmente—toca as notícias internacionais de {country_name} em {news_streaming_service}.
+O que está acontecendo globalmente toca as notícias internacionais de {country_name} em {news_streaming_service}.
 O que está acontecendo nas notícias de {news_provider} em {news_streaming_service}?
 O que está acontecendo no mundo em {news_provider}?
 Ouça as últimas notícias de {news_provider}.
@@ -80,7 +80,7 @@ Qual é a última notícia em {news_provider}?
 Qual é o destaque nas notícias de {news_provider} em {news_streaming_service}?
 Quero me atualizar nas notícias.
 Quero me atualizar sobre {news_provider} em {news_streaming_service}.
-Quero me manter informado—toca {news_provider} em {news_streaming_service}.
+Quero me manter informado toca {news_provider} em {news_streaming_service}.
 Quero ouvir a atualização de notícias de {news_provider} em {country_name} em {news_streaming_service}.
 Quero ouvir as atualizações de notícias de {country_name} de {news_provider} em {news_streaming_service}.
 Quero ouvir as notícias de {news_provider} em {news_streaming_service}.
@@ -89,11 +89,11 @@ Quero ouvir as notícias internacionais de {country_name} toca em {news_streamin
 Quero ouvir as notícias.
 Quero ouvir as últimas de {news_provider} em {news_streaming_service}.
 Quero ouvir o que está acontecendo em {country_name} toca as notícias em {news_streaming_service}.
-Quero ouvir o que está acontecendo localmente—toca as notícias em {news_streaming_service}.
+Quero ouvir o que está acontecendo localmente toca as notícias em {news_streaming_service}.
 Quero ouvir o relatório de notícias de {news_provider} em {country_name} em {news_streaming_service}.
 Quero ouvir os destaques de notícias de {news_provider} em {news_streaming_service}.
 Quero saber as últimas de {news_provider} em {news_streaming_service}.
-Quero saber o que está acontecendo—toca {news_provider} em {news_streaming_service}.
+Quero saber o que está acontecendo toca {news_provider} em {news_streaming_service}.
 Receba as últimas atualizações de {news_provider} em {news_streaming_service}.
 Sintonize em {news_provider} em {news_streaming_service}.
 Sintonize nas notícias de {news_provider} em {news_streaming_service}.

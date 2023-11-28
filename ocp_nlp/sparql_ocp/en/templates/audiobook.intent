@@ -1,37 +1,3 @@
-play {media_type_audiobook}
-start {media_type_audiobook}
-search {media_type_audiobook}
-read {media_type_audiobook}
-Play {media_type_audiobook} on {audiobook_streaming_service}.
-Start {media_type_audiobook} from {audiobook_publisher}.
-Search for {media_type_audiobook} narrated by {narrator} on {audiobook_streaming_service}.
-Play an audiobook from the {audiobook_publisher} collection.
-Start {media_type_audiobook} by {author} on {audiobook_streaming_service}.
-Search for {media_type_audiobook} in the {audiobook_genre} category.
-Play {media_type_audiobook} on {audiobook_streaming_service} read by {narrator}.
-Start an audiobook by {author} on {audiobook_streaming_service}.
-Search for {media_type_audiobook} from {audiobook_publisher} on {audiobook_streaming_service}.
-Play an audiobook in the {audiobook_genre} genre on {audiobook_streaming_service}.
-Start {media_type_audiobook} narrated by {narrator} on {audiobook_streaming_service}.
-Search for {media_type_audiobook} by {author} in the {audiobook_genre} category.
-Play an audiobook from the {audiobook_publisher} catalog on {audiobook_streaming_service}.
-Start {media_type_audiobook} by {author} on {audiobook_streaming_service}.
-Search for {media_type_audiobook} in the {audiobook_genre} section on {audiobook_streaming_service}.
-Play {media_type_audiobook} from {audiobook_publisher} read by {narrator}.
-Start an audiobook in the {audiobook_genre} genre on {audiobook_streaming_service}.
-Search for {media_type_audiobook} by {author} on {audiobook_streaming_service}.
-Play {media_type_audiobook} from {audiobook_publisher} on {audiobook_streaming_service}.
-Start {media_type_audiobook} narrated by {narrator} on {audiobook_streaming_service}.
-Search for {media_type_audiobook} by {author} in the {audiobook_genre} category on {audiobook_streaming_service}.
-Play an audiobook in the {audiobook_genre} genre on {audiobook_streaming_service}.
-Start {media_type_audiobook} by {author} on {audiobook_streaming_service}.
-Search for {media_type_audiobook} from {audiobook_publisher} on {audiobook_streaming_service}.
-Play {media_type_audiobook} on {audiobook_streaming_service} read by {narrator}.
-Start an audiobook by {author} on {audiobook_streaming_service}.
-Search for {media_type_audiobook} in the {audiobook_genre} category on {audiobook_streaming_service}.
-Play an audiobook from the {audiobook_publisher} catalog on {audiobook_streaming_service}.
-Start {media_type_audiobook} by {author} on {audiobook_streaming_service}.
-Search for {media_type_audiobook} in the {audiobook_genre} section on {audiobook_streaming_service}.
 Access the audiobook {book_name} under the {book_genre} category on {audiobook_streaming_service}.
 Can you find me an {book_genre} to listen to on {audiobook_streaming_service}?
 Can you play a book from {country_name} on {audiobook_streaming_service}?
@@ -67,7 +33,7 @@ Find {book_name} audiobook in the {book_genre} category on {audiobook_streaming_
 Find {book_name} audiobook on {audiobook_streaming_service}.
 Find {book_name} in the audiobook section on {audiobook_streaming_service}.
 Find {book_name} in the {book_genre} audiobooks section on {audiobook_streaming_service}.
-Get recommendations for audiobooks in the {book_genre} genre, particularly {book_name}, on {audiobook_streaming_service}.
+Get recommendations for audiobooks in the {book_genre} genre, particularly {book_name} , on {audiobook_streaming_service}.
 Give me a book from {country_name} to enjoy on {audiobook_streaming_service}.
 Give me a book recommendation from {country_name} by {author}.
 Give me a book recommendation from {country_name} in {book_genre} on {audiobook_streaming_service}.
@@ -151,9 +117,12 @@ Play a {book_genre} recommended for relaxation on {audiobook_streaming_service}.
 Play a {book_genre} that's perfect for a road trip on {audiobook_streaming_service}.
 Play a {book_genre} with a compelling storyline on {audiobook_streaming_service}.
 Play an audiobook by an author from {country_name} on {audiobook_streaming_service}.
+Play an audiobook from the {audiobook_publisher} catalog on {audiobook_streaming_service}.
+Play an audiobook from the {audiobook_publisher} collection.
 Play an audiobook from {country_name} in {book_genre} on {audiobook_streaming_service}.
 Play an audiobook from {country_name} on {audiobook_streaming_service}.
 Play an audiobook from {country_name}.
+Play an audiobook in the {audiobook_genre} genre on {audiobook_streaming_service}.
 Play an audiobook in the {book_genre} category on {audiobook_streaming_service}.
 Play an audiobook in the {book_genre} section on {audiobook_streaming_service}.
 Play an audiobook named {book_name} in the {book_genre} genre on {audiobook_streaming_service}.
@@ -169,6 +138,10 @@ Play the audiobook {book_name} from the {book_genre} category on {audiobook_stre
 Play the latest {book_genre} on {audiobook_streaming_service}.
 Play {book_name} audiobook on {audiobook_streaming_service}.
 Play {book} as an audiobook on {audiobook_streaming_service}.
+Play {media_type_audiobook} from {audiobook_publisher} on {audiobook_streaming_service}.
+Play {media_type_audiobook} from {audiobook_publisher} read by {narrator}.
+Play {media_type_audiobook} on {audiobook_streaming_service} read by {narrator}.
+Play {media_type_audiobook} on {audiobook_streaming_service}.
 Provide information about the audiobook {book_name} on {audiobook_streaming_service}.
 Queue up the audiobook {book_name} from the {book_genre} section on {audiobook_streaming_service}.
 Read a book by an author from {country_name} in {book_genre} on {audiobook_streaming_service}.
@@ -190,7 +163,7 @@ Recommend a novel from {country_name} on {audiobook_streaming_service}.
 Recommend a {book_genre} book from {country_name} on {audiobook_streaming_service}.
 Recommend a {book_genre} that's suitable for all ages on {audiobook_streaming_service}.
 Recommend a {book_genre} with a great narrator on {audiobook_streaming_service}.
-Recommend an audiobook from the {book_genre} category, like {book_name}, on {audiobook_streaming_service}.
+Recommend an audiobook from the {book_genre} category, like {book_name} , on {audiobook_streaming_service}.
 Recommend an audiobook in the {book_genre} genre on {audiobook_streaming_service}.
 Recommend an audiobook on {audiobook_streaming_service} within the {book_genre} category.
 Recommend an audiobook titled {book_name} on {audiobook_streaming_service} in the {book_genre} genre.
@@ -201,8 +174,21 @@ Retrieve details about the audiobook {book_name} available on {audiobook_streami
 Retrieve information about the audiobook {book_name} in the {book_genre} genre on {audiobook_streaming_service}.
 Search for {book_name} audiobook on {audiobook_streaming_service}.
 Search for {book_name} in the {book_genre} audiobook collection on {audiobook_streaming_service}.
-Select an audiobook in the {book_genre} genre, such as {book_name}, to listen to on {audiobook_streaming_service}.
+Search for {media_type_audiobook} by {author} in the {audiobook_genre} category on {audiobook_streaming_service}.
+Search for {media_type_audiobook} by {author} in the {audiobook_genre} category.
+Search for {media_type_audiobook} by {author} on {audiobook_streaming_service}.
+Search for {media_type_audiobook} from {audiobook_publisher} on {audiobook_streaming_service}.
+Search for {media_type_audiobook} in the {audiobook_genre} category on {audiobook_streaming_service}.
+Search for {media_type_audiobook} in the {audiobook_genre} category.
+Search for {media_type_audiobook} in the {audiobook_genre} section on {audiobook_streaming_service}.
+Search for {media_type_audiobook} narrated by {narrator} on {audiobook_streaming_service}.
+Select an audiobook in the {book_genre} genre, such as {book_name} , to listen to on {audiobook_streaming_service}.
+Start an audiobook by {author} on {audiobook_streaming_service}.
+Start an audiobook in the {audiobook_genre} genre on {audiobook_streaming_service}.
 Start listening to an audiobook in the {book_genre} category called {book_name} on {audiobook_streaming_service}.
+Start {media_type_audiobook} by {author} on {audiobook_streaming_service}.
+Start {media_type_audiobook} from {audiobook_publisher}.
+Start {media_type_audiobook} narrated by {narrator} on {audiobook_streaming_service}.
 Suggest a fascinating {book_genre} audiobook on {audiobook_streaming_service}.
 Suggest a {book_genre} that's known for its engaging characters on {audiobook_streaming_service}.
 Suggest a {book_genre} that's perfect for a long drive on {audiobook_streaming_service}.
@@ -259,8 +245,11 @@ play an audiobook on technology
 play an educational audio book
 play the latest audiobook
 play {book_genre}
+play {media_type_audiobook}
 read {book_genre}
+read {media_type_audiobook}
 search {book_genre}
+search {media_type_audiobook}
 start 'The Hobbit' audiobook
 start a bestseller audio novel
 start a biography audiobook
@@ -298,3 +287,4 @@ start an audiobook on science
 start an audiobook on technology
 start listening to a classic audio book
 start {book_genre}
+start {media_type_audiobook}

@@ -1,36 +1,3 @@
-play {media_type_cartoon}
-start {media_type_cartoon}
-search {media_type_cartoon}
-Play a {media_type_cartoon} for me.
-Start watching {media_type_cartoon}.
-Search for {media_type_cartoon} to watch.
-Play some {media_type_cartoon} content.
-Start a fun {media_type_cartoon} episode.
-Search for the latest {media_type_cartoon} episodes.
-Play {media_type_cartoon} series.
-Start {media_type_cartoon} show.
-Search for {media_type_cartoon} episodes to enjoy.
-Play an exciting {media_type_cartoon}.
-Start the {media_type_cartoon} series.
-Search for {media_type_cartoon} episodes to watch now.
-Play a hilarious {media_type_cartoon} episode.
-Start watching {media_type_cartoon} series.
-Search for the best {media_type_cartoon} to watch.
-Play {media_type_cartoon} content for entertainment.
-Start a new {media_type_cartoon} episode.
-Search for the latest {media_type_cartoon} episodes to enjoy.
-Play a classic {media_type_cartoon} show.
-Start {media_type_cartoon} series for some fun.
-Search for {media_type_cartoon} episodes to watch today.
-Play an animated {media_type_cartoon}.
-Start the {media_type_cartoon} series now.
-Search for the top {media_type_cartoon} episodes.
-Play some exciting {media_type_cartoon} content.
-Start a {media_type_cartoon} episode for me.
-Search for the newest {media_type_cartoon} to enjoy.
-Play {media_type_cartoon} episodes for entertainment.
-Start the {media_type_cartoon} series for a good time.
-Search for {media_type_cartoon} episodes to watch and relax.
 Any good cartoon on {cartoon_streaming_service}?
 Any good {cartoon_name} recommendations on {cartoon_streaming_service}?
 Any recommendations for a fun and engaging {cartoon_name} for kids?
@@ -126,7 +93,9 @@ Play a cartoon series for me.
 Play a cartoon with lots of adventures and maybe some magic too!
 Play a children's cartoon with positive messages.
 Play a classic cartoon episode.
+Play a classic {media_type_cartoon} show.
 Play a fun cartoon for children.
+Play a hilarious {media_type_cartoon} episode.
 Play a popular anime series for kids.
 Play a super awesome {cartoon_name} on {cartoon_streaming_service}!
 Play a {cartoon_name} that's full of laughter and happy moments!
@@ -135,6 +104,9 @@ Play a {cartoon_name} that's perfect for a cozy afternoon at home!
 Play a {cartoon_name} that's perfect for a movie night with friends!
 Play a {cartoon_name} with funny characters and adventures!
 Play a {cartoon_name} with silly jokes and funny characters – it's my favorite!
+Play a {media_type_cartoon} for me.
+Play an animated {media_type_cartoon}.
+Play an exciting {media_type_cartoon}.
 Play an {cartoon_name} for me.
 Play an {cartoon_name} in the {cartoon_genre} category.
 Play an {cartoon_name} in the {cartoon_genre} section.
@@ -142,11 +114,16 @@ Play an {cartoon_name} on {cartoon_streaming_service}.
 Play an {cartoon_name} series on {cartoon_streaming_service}.
 Play an {cartoon_name} suitable for all ages.
 Play an {cartoon_name} with {cartoon_genre} elements.
+Play some exciting {media_type_cartoon} content.
+Play some {media_type_cartoon} content.
 Play the latest episode of an {cartoon_name}.
 Play the latest {cartoon_name} on {cartoon_streaming_service}.
 Play {cartoon_name} from the {cartoon_genre} collection.
 Play {cartoon_name} from {cartoon_streaming_service} library.
 Play {cartoon_name} on {cartoon_streaming_service}.
+Play {media_type_cartoon} content for entertainment.
+Play {media_type_cartoon} episodes for entertainment.
+Play {media_type_cartoon} series.
 Recommend a captivating {cartoon_name} available on {cartoon_streaming_service}.
 Recommend a cartoon available on {cartoon_streaming_service}.
 Recommend a cartoon in the {cartoon_genre} category.
@@ -163,7 +140,17 @@ Recommend me an anime with a good storyline.
 Recommend {cartoon_name} episodes on {cartoon_streaming_service}.
 Recommend {cartoon_name} series available on {cartoon_streaming_service}.
 Recommend {cartoon_name} shows.
+Search for the best {media_type_cartoon} to watch.
+Search for the latest {media_type_cartoon} episodes to enjoy.
+Search for the latest {media_type_cartoon} episodes.
+Search for the newest {media_type_cartoon} to enjoy.
+Search for the top {media_type_cartoon} episodes.
 Search for {anime_genre} anime.
+Search for {media_type_cartoon} episodes to enjoy.
+Search for {media_type_cartoon} episodes to watch and relax.
+Search for {media_type_cartoon} episodes to watch now.
+Search for {media_type_cartoon} episodes to watch today.
+Search for {media_type_cartoon} to watch.
 Show me animated movies that kids love.
 Show me cartoon available on {cartoon_streaming_service}.
 Show me cartoon options on {cartoon_streaming_service}.
@@ -173,12 +160,22 @@ Show me {cartoon_name} episodes on {cartoon_streaming_service}.
 Show me {cartoon_name} on {cartoon_streaming_service}.
 Show me {cartoon_name} options on {cartoon_streaming_service}.
 Start a fantastic {cartoon_name} for kids on {cartoon_streaming_service}!
+Start a fun {media_type_cartoon} episode.
+Start a new {media_type_cartoon} episode.
 Start a {cartoon_name} that's filled with magic and adventure – it's gonna be awesome!
 Start a {cartoon_name} that's perfect for a fun afternoon.
 Start a {cartoon_name} with friendly characters and fun stories!
 Start a {cartoon_name} with lots of laughs on {cartoon_streaming_service}!
+Start a {media_type_cartoon} episode for me.
 Start the {cartoon_name} with the awesome characters on {cartoon_streaming_service}!
 Start the {cartoon_name} with the catchy theme song – it's so much fun!
+Start the {media_type_cartoon} series for a good time.
+Start the {media_type_cartoon} series now.
+Start the {media_type_cartoon} series.
+Start watching {media_type_cartoon} series.
+Start watching {media_type_cartoon}.
+Start {media_type_cartoon} series for some fun.
+Start {media_type_cartoon} show.
 Suggest a cartoon for family viewing.
 Suggest a cartoon from the {cartoon_genre} category.
 Suggest a cartoon in the {cartoon_genre} category.
@@ -327,6 +324,8 @@ play an animated series with positive values
 play an animated series with themes of friendship and loyalty
 play an animated superhero series
 play animated content
+play {media_type_cartoon}
+search {media_type_cartoon}
 show me a cartoon
 show me a cartoon character's adventures
 show me a cartoon clip
@@ -415,6 +414,7 @@ start an animated series with science fiction
 start an animated series with strong moral values
 start an animated show
 start cartoon playback
+start {media_type_cartoon}
 watch a cartoon about friendship
 watch a cartoon clip
 watch a cartoon episode

@@ -1,30 +1,3 @@
-play {media_type_video}
-start {media_type_video}
-search {media_type_video}
-Subscribe to {youtube_channel} for {media_type_video} content.
-Watch {media_type_video} from {youtube_channel} on {video_streaming_service}.
-Explore {video_genre} videos on {youtube_channel} via {video_streaming_service}.
-Check out the latest {media_type_video} from {youtube_channel} on {video_streaming_service}.
-Play {youtube_channel}'s {media_type_video} on {video_streaming_service}.
-What's trending in {media_type_video} on {youtube_channel} through {video_streaming_service}?
-Subscribe to {youtube_channel} for {video_genre} {media_type_video}.
-Watch {media_type_video} from {youtube_channel} via {video_streaming_service}.
-Explore {youtube_channel}'s {media_type_video} in {video_genre} on {video_streaming_service}.
-Check out the latest {media_type_video} from {youtube_channel} on {video_streaming_service}.
-Play {youtube_channel}'s {media_type_video} in {video_genre} on {video_streaming_service}.
-What's trending in {video_genre} {media_type_video} on {youtube_channel} through {video_streaming_service}?
-Subscribe to {youtube_channel} for {media_type_video} in {video_genre}.
-Watch {youtube_channel}'s {media_type_video} on {video_streaming_service}.
-Explore {video_genre} {media_type_video} on {youtube_channel} via {video_streaming_service}.
-Check out the latest {media_type_video} from {youtube_channel} in {video_genre} on {video_streaming_service}.
-Play {media_type_video} from {youtube_channel} on {video_streaming_service}.
-What's trending in {youtube_channel}'s {video_genre} {media_type_video} on {video_streaming_service}?
-Subscribe to {youtube_channel} for {video_genre} videos.
-Watch {video_genre} {media_type_video} from {youtube_channel} on {video_streaming_service}.
-Explore {youtube_channel}'s {media_type_video} on {video_streaming_service}.
-Check out the latest {video_genre} {media_type_video} from {youtube_channel} on {video_streaming_service}.
-Play {youtube_channel}'s {media_type_video} on {video_streaming_service}.
-What's trending in {media_type_video} on {youtube_channel} through {video_streaming_service}?
 Can you find Let's Play videos for popular video games on {video_streaming_service}?
 Can you find insightful book review videos on {video_streaming_service}?
 Can you find me some interesting cooking tutorial videos on {video_streaming_service}?
@@ -36,7 +9,10 @@ Can you locate inspirational TED Talks and play them on {video_streaming_service
 Can you locate playthroughs of classic retro games on {video_streaming_service}?
 Can you play dance tutorial videos on {video_streaming_service}?
 Check out the latest videos in {video_genre} on {youtube_channel}.
+Check out the latest {media_type_video} from {youtube_channel} in {video_genre} on {video_streaming_service}.
+Check out the latest {media_type_video} from {youtube_channel} on {video_streaming_service}.
 Check out the latest {video_genre} videos on {youtube_channel}.
+Check out the latest {video_genre} {media_type_video} from {youtube_channel} on {video_streaming_service}.
 Check out {youtube_channel} for science videos.
 Check {youtube_channel} for sega videos.
 Could you play acoustic cover videos on {video_streaming_service}?
@@ -82,6 +58,8 @@ Explore videos on {youtube_channel}.
 Explore videos with tips for improving productivity on {video_streaming_service}.
 Explore virtual reality gaming videos on {video_streaming_service}.
 Explore workout routines on {video_streaming_service}.
+Explore {video_genre} videos on {youtube_channel} via {video_streaming_service}.
+Explore {video_genre} {media_type_video} on {youtube_channel} via {video_streaming_service}.
 Explore {video_streaming_service} channels that consistently produce quality {video_genre} content.
 Explore {video_streaming_service} channels that focus on {video_genre}.
 Explore {video_streaming_service} for cat videos.
@@ -90,6 +68,8 @@ Explore {video_streaming_service} for {video_genre} videos.
 Explore {youtube_channel} for new video content.
 Explore {youtube_channel} for new videos.
 Explore {youtube_channel} for {video_genre} videos.
+Explore {youtube_channel}'s {media_type_video} in {video_genre} on {video_streaming_service}.
+Explore {youtube_channel}'s {media_type_video} on {video_streaming_service}.
 Find DIY home improvement videos on {video_streaming_service}.
 Find art and craft DIY videos and play them on {video_streaming_service}.
 Find art and craft DIY videos on {video_streaming_service}.
@@ -214,9 +194,12 @@ Play videos about science on {video_streaming_service}.
 Play videos about unsolved mysteries on {video_streaming_service}.
 Play videos from {youtube_channel}.
 Play videos in {video_genre} from {youtube_channel}.
+Play {media_type_video} from {youtube_channel} on {video_streaming_service}.
 Play {video_genre} from {youtube_channel}.
 Play {video_genre} videos from {youtube_channel}.
 Play {video_genre} videos on {youtube_channel}.
+Play {youtube_channel}'s {media_type_video} in {video_genre} on {video_streaming_service}.
+Play {youtube_channel}'s {media_type_video} on {video_streaming_service}.
 Recommend me some popular {video_genre} channels.
 Recommend me some popular {video_streaming_service} {video_genre} content.
 Recommend some entertaining {video_genre} content creators on {video_streaming_service}.
@@ -284,6 +267,10 @@ Show me workout videos on {video_streaming_service}.
 Show me {video_streaming_service} channels that focus on creating {video_genre} content.
 Show me {video_streaming_service} channels that provide unique perspectives on {video_genre}.
 Show me {video_streaming_service} channels with a large following in the {video_genre} category.
+Subscribe to {youtube_channel} for {media_type_video} content.
+Subscribe to {youtube_channel} for {media_type_video} in {video_genre}.
+Subscribe to {youtube_channel} for {video_genre} videos.
+Subscribe to {youtube_channel} for {video_genre} {media_type_video}.
 Watch a video from {youtube_channel}.
 Watch a {video_genre} movie on {video_streaming_service}.
 Watch a {video_genre} video from {youtube_channel}.
@@ -306,10 +293,14 @@ Watch the newest {video_genre} videos from {youtube_channel}.
 Watch trending cat videos on {video_streaming_service}.
 Watch videos from {youtube_channel}.
 Watch videos in {video_genre} from {youtube_channel}.
+Watch {media_type_video} from {youtube_channel} on {video_streaming_service}.
+Watch {media_type_video} from {youtube_channel} via {video_streaming_service}.
 Watch {video_genre} episodes on {video_streaming_service}.
 Watch {video_genre} from {youtube_channel}.
 Watch {video_genre} on {youtube_channel}.
 Watch {video_genre} videos on {youtube_channel}.
+Watch {video_genre} {media_type_video} from {youtube_channel} on {video_streaming_service}.
+Watch {youtube_channel}'s {media_type_video} on {video_streaming_service}.
 What's happening in {video_genre} on {youtube_channel}?
 What's happening on {youtube_channel} lately?
 What's happening on {youtube_channel}?
@@ -322,6 +313,9 @@ What's the latest in {youtube_channel} 's videos?
 What's the latest upload from {youtube_channel}?
 What's the latest upload in {youtube_channel}?
 What's the newest content in {youtube_channel}?
+What's trending in {media_type_video} on {youtube_channel} through {video_streaming_service}?
+What's trending in {video_genre} {media_type_video} on {youtube_channel} through {video_streaming_service}?
+What's trending in {youtube_channel}'s {video_genre} {media_type_video} on {video_streaming_service}?
 any new videos in {youtube_channel}?
 latest video from {youtube_channel}
 new video from {youtube_channel}
@@ -356,9 +350,11 @@ play cat videos on {video_streaming_service}
 play video clips
 play video from {youtube_channel}
 play videos from {youtube_channel}
+play {media_type_video}
 play {video_genre}
 search sega videos from {youtube_channel}
 search videos about science from {youtube_channel}
+search {media_type_video}
 search {video_genre}
 show me a music video
 show me a science fiction video
@@ -403,6 +399,7 @@ start a virtual tour video
 start a vlog
 start a workout video
 start an educational video
+start {media_type_video}
 start {video_genre}
 video from {youtube_channel}
 view video from {youtube_channel}
