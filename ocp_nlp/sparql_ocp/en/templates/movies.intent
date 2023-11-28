@@ -1,0 +1,501 @@
+play {media_type_movie}
+start {media_type_movie}
+search {media_type_movie}
+Play a {media_type_movie}.
+Start the {media_type_movie}.
+Search for a {media_type_movie} to watch.
+Play the latest {media_type_movie}.
+Start watching {media_type_movie}.
+Search for {media_type_movie} on the streaming service.
+Play an exciting {media_type_movie}.
+Start the {media_type_movie} on {streaming_service}.
+Search for {media_type_movie} with subtitles.
+Play a classic {media_type_movie}.
+Start the {media_type_movie} from the beginning.
+Search for a {media_type_movie} with {genre} genre.
+Play {media_type_movie} released this year.
+Start the {media_type_movie} on my TV.
+Search for {media_type_movie} with {actor} in it.
+Play a {media_type_movie} from the '90s.
+Start watching the {media_type_movie} series.
+Search for {media_type_movie} with {director}'s films.
+Play an award-winning {media_type_movie}.
+Start the {media_type_movie} on my preferred platform.
+Search for a critically acclaimed {media_type_movie}.
+Play {media_type_movie} in HD quality.
+Start the {media_type_movie} on my favorite streaming service.
+Search for {media_type_movie} with a gripping storyline.
+Play a {media_type_movie} with action scenes.
+Start the {media_type_movie} on {streaming_service} at 8 PM.
+Search for {media_type_movie} with a high IMDb rating.
+Play {media_type_movie} with English subtitles.
+Start the {media_type_movie} on my smart TV.
+Search for {media_type_movie} with surround sound.
+Play a {media_type_movie} suitable for family viewing.
+Start the {media_type_movie} from where I left off.
+Search for {media_type_movie} with {keyword} theme.
+Play {media_type_movie} released in the last month.
+Start the {media_type_movie} series finale.
+Search for {media_type_movie} set in a historical period.
+Play a suspenseful {media_type_movie}.
+Start the {media_type_movie} on my home theater.
+Search for {media_type_movie} with breathtaking visuals.
+Play {media_type_movie} with a strong female lead.
+Start the {media_type_movie} on {streaming_service} at 9 PM.
+Search for {media_type_movie} with an ensemble cast.
+Play a critically acclaimed {media_type_movie}.
+Start the {media_type_movie} on my preferred device.
+Search for {media_type_movie} with mind-bending twists.
+Play {media_type_movie} that's perfect for a movie night.
+Start the {media_type_movie} on my big screen.
+Search for {media_type_movie} with an emotional storyline.
+Play a thought-provoking {media_type_movie}.
+Start the {media_type_movie} with Dolby Atmos support.
+Activate {movie_name} on the home theater speakers from {movie_streaming_service}.
+Activate {movie_name} on the home theater system.
+Begin watching {movie_name} on the home theater display.
+Begin {movie_name} on the home theater speakers.
+Begin {movie_name} on the home theater system.
+Can you play the movie {movie_name} in the home theater?
+Can you recommend a {film_genre} movie from {film_studio} on {movie_streaming_service}?
+Can you recommend a {film_genre} movie on {movie_streaming_service}?
+Can you recommend a {movie_genre} movie from {country_name} available on {streaming_service}?
+Can you suggest a good {film_genre} movie on {movie_streaming_service}?
+Can you suggest a movie from {country_name} available on {streaming_service}?
+Can you suggest a popular {movie_genre} movie available on the gaming console, like {movie_name}?
+Can you suggest a popular {movie_genre} movie available on the home theater system, like {movie_name}?
+Can you suggest a popular {movie_genre} movie available on the smart TV, like {movie_name}?
+Can you suggest a popular {movie_genre} movie available on {movie_streaming_service}, like {movie_name}?
+Can you suggest a {movie_genre} movie available on {movie_streaming_service}?
+Can you suggest a {movie_genre} movie from {country_name} on {streaming_service}?
+Commence playback of {movie_name} on the home theater system.
+Explore films from {country_name} on {streaming_service}.
+Explore movie options in the {film_genre} category on {movie_streaming_service}.
+Explore {country_name} movies on {streaming_service}.
+Explore {movie_genre} films on {movie_streaming_service}.
+Explore {movie_name} in the home theater collection.
+Explore {movie_name} options in the {film_genre} category on {movie_streaming_service}.
+Explore {movie_name} under the {movie_genre} section on the mobile device.
+Explore {movie_name} under the {movie_genre} section on the smart TV.
+Explore {movie_name} under the {movie_genre} section on {movie_streaming_service}.
+Find a movie to watch on {movie_streaming_service}.
+Find a {film_genre} movie on {movie_streaming_service} to watch.
+Find a {movie_genre} movie from {country_name} on {streaming_service}.
+Find a {movie_genre} movie on {movie_streaming_service}.
+Find films from {country_name} on {streaming_service}.
+Find me a good movie to watch on {movie_streaming_service}.
+Find movies from {film_studio} on {movie_streaming_service}.
+Find {country_name} movies in {streaming_service} library.
+Find {movie_name} and play it in the home theater.
+Find {movie_name} from {film_studio} on {movie_streaming_service}.
+Find {movie_name} in the home theater movie collection.
+Find {movie_name} in the {film_genre} category on {movie_streaming_service}.
+Find {movie_name} in the {movie_genre} category on the TV.
+Find {movie_name} in the {movie_genre} category on the laptop.
+Find {movie_name} in the {movie_genre} category on the tablet.
+Find {movie_name} in the {movie_genre} category on {movie_streaming_service}.
+Find {movie_name} in {film_genre} from {film_studio} on {movie_streaming_service} for me.
+Find {movie_name} in {film_genre} from {film_studio} on {movie_streaming_service}.
+Find {movie_name} in {film_genre} on {movie_streaming_service} for me.
+Find {movie_name} in {film_genre} to watch on {movie_streaming_service}.
+Find {movie_name} in {movie_streaming_service} library.
+Find {movie_name} on {movie_streaming_service} for me.
+Find {movie_name} on {movie_streaming_service} from {film_studio}.
+Find {movie_name} on {movie_streaming_service} to watch.
+Find {movie_name} streaming on {movie_streaming_service}.
+Find {movie_name} to watch on {movie_streaming_service}.
+Find {movie_name} within the collection on the e-reader.
+Find {movie_name} within the collection on the mobile device.
+Find {movie_name} within the collection on the television.
+Find {movie_name} within the collection on {movie_streaming_service}.
+Give me details about the movie from {country_name} on {streaming_service}.
+Give me details about the movie {movie_name} on {movie_streaming_service}.
+Give me information about a movie from {country_name}.
+Give me information about the {country_name} film {movie_name}.
+Give me information about {movie_name}.
+Give me information on the movie {movie_name} on the digital assistant.
+Give me information on the movie {movie_name} on the gaming console.
+Give me information on the movie {movie_name} on the television.
+Give me information on the movie {movie_name} on {movie_streaming_service}.
+Google, play a movie with a thrilling plot on {movie_streaming_service}.
+Google, recommend a movie with good reviews on {movie_streaming_service}.
+Hey find me a movie with a good storyline on {movie_streaming_service}.
+Hey what movie options do I have for {movie_streaming_service} right now?
+I want to explore {movie_genre} {movies} on {movie_streaming_service} any recommendations?
+I want to watch a movie from the {film_genre} genre.
+I want to watch a movie from {film_studio}.
+I'm in the mood for a classic movie from {film_studio} on {movie_streaming_service}.
+I'm in the mood for a movie from {film_studio}.
+I'm in the mood for a {film_genre} movie, what's on {movie_streaming_service}?
+Inform me about a movie from {country_name} available on {streaming_service}.
+Inform me about the availability of {movie_name} on the desktop computer.
+Inform me about the availability of {movie_name} on the streaming device.
+Inform me about the availability of {movie_name} on the television.
+Inform me about the availability of {movie_name} on {movie_streaming_service}.
+Inform me about the {country_name} film {movie_name} available on {streaming_service}.
+Inform me about {movie_name} available on {movie_streaming_service}.
+Initiate playback of {movie_name} in the home theater.
+Initiate {movie_name} in the home theater from {movie_streaming_service}.
+Launch {movie_name} on the home theater screen.
+List movies from {country_name} available on {streaming_service}.
+List movies from {country_name} on {streaming_service}.
+List movies in the {movie_genre} genre, including {movie_name}, on the e-reader.
+List movies in the {movie_genre} genre, including {movie_name}, on the laptop.
+List movies in the {movie_genre} genre, including {movie_name}, on the television.
+List movies in the {movie_genre} genre, including {movie_name}, on {movie_streaming_service}.
+List {country_name} films available on {streaming_service}.
+List {movie_genre} movies available on {movie_streaming_service}.
+Look up movie options on {movie_streaming_service}.
+Look up {movie_name} on {movie_streaming_service}.
+Look up {movie_name} options on {movie_streaming_service}.
+Play a film from {country_name} on {streaming_service}.
+Play a movie from {country_name} on {streaming_service}.
+Play a movie from {film_studio} on {movie_streaming_service}.
+Play a movie suitable for family viewing on {movie_streaming_service}.
+Play a movie with high ratings on {movie_streaming_service}.
+Play a {film_genre} film from {film_studio} on {movie_streaming_service}.
+Play a {film_genre} movie directed by {film_studio} on {movie_streaming_service}.
+Play a {film_genre} movie on {movie_streaming_service} directed by {film_studio}.
+Play a {film_genre} movie on {movie_streaming_service} for me.
+Play a {film_genre} movie on {movie_streaming_service} from {film_studio}.
+Play a {film_genre} movie on {movie_streaming_service}.
+Play a {movie_genre} film from {country_name} on {streaming_service}.
+Play a {movie_genre} film from {film_studio} in {country_name} on {streaming_service}.
+Play a {movie_genre} film from {film_studio} on {movie_streaming_service}.
+Play a {movie_genre} film on {movie_streaming_service}.
+Play a {movie_genre} film produced by {film_studio} named {movie_name} on the TV.
+Play a {movie_genre} film produced by {film_studio} named {movie_name} on the home theater system.
+Play a {movie_genre} film produced by {film_studio} named {movie_name} on the streaming device.
+Play a {movie_genre} film produced by {film_studio} named {movie_name} on {movie_streaming_service}.
+Play a {movie_genre} film, especially {movie_name}, on the home theater.
+Play the film {movie_name} on the home theater.
+Play the latest movie on {movie_streaming_service}.
+Play the movie titled {movie_name} from {movie_streaming_service}.
+Play {movie_name} directed by {film_studio} on {movie_streaming_service}.
+Play {movie_name} for the home theater experience.
+Play {movie_name} from {film_studio} on {movie_streaming_service}.
+Play {movie_name} in the {film_genre} genre on {movie_streaming_service}.
+Play {movie_name} on my home theater system.
+Play {movie_name} on the TV.
+Play {movie_name} on the home theater system.
+Play {movie_name} on the home theater.
+Play {movie_name} on {movie_streaming_service} from {film_studio}.
+Play {movie_name} on {movie_streaming_service}.
+Provide details about the movie {movie_name} in the {movie_genre} category on the projector.
+Provide details about the movie {movie_name} in the {movie_genre} category on the tablet.
+Provide details about the movie {movie_name} in the {movie_genre} category on the television.
+Provide details about the movie {movie_name} in the {movie_genre} category on {movie_streaming_service}.
+Recommend a film from {country_name} on {streaming_service}.
+Recommend a movie from {country_name} on {streaming_service}.
+Recommend a movie from {film_studio} on {movie_streaming_service}.
+Recommend a movie like {movie_name} for the home theater.
+Recommend a movie on {movie_streaming_service}.
+Recommend a {film_genre} film from {film_studio}.
+Recommend a {film_genre} movie from {film_studio} on {movie_streaming_service}.
+Recommend a {film_genre} movie on {movie_streaming_service}.
+Recommend a {movie_genre} movie on {movie_streaming_service}.
+Recommend a {movie_genre} movie, like {movie_name}, on the desktop computer.
+Recommend a {movie_genre} movie, like {movie_name}, on the gaming console.
+Recommend a {movie_genre} movie, like {movie_name}, on the smart TV.
+Recommend a {movie_genre} movie, like {movie_name}, on {movie_streaming_service}.
+Recommend {country_name} movies on {streaming_service}.
+Recommend {movie_genre} films from {country_name} on {streaming_service}.
+Recommend {movie_genre} films on {movie_streaming_service}.
+Recommend {movie_genre} films that include {movie_name} on the laptop.
+Recommend {movie_genre} films that include {movie_name} on the mobile device.
+Recommend {movie_genre} films that include {movie_name} on the smart TV.
+Recommend {movie_genre} films that include {movie_name} on {movie_streaming_service}.
+Search for {movie_name} and play it in the home theater.
+Show me movie options on {movie_streaming_service}.
+Show me the best {film_genre} movie on {movie_streaming_service}.
+Show me the latest {film_genre} movie on {movie_streaming_service}.
+Show me the top {film_genre} movie on {movie_streaming_service}.
+Show me {movie_name} from {film_studio} on {movie_streaming_service}.
+Show me {movie_name} in {film_genre} on {movie_streaming_service}.
+Show me {movie_name} on the big screen.
+Show me {movie_name} on the projector.
+Show me {movie_name} on {movie_streaming_service}.
+Show me {movie_name} options
+Show me {movie_name} options on {movie_streaming_service}.
+Show movie choices on {movie_streaming_service}.
+Show {movie_name} choices on {movie_streaming_service}.
+Start the movie titled {movie_name} in the home theater.
+Start the movie titled {movie_name} on the gaming console.
+Start the movie titled {movie_name} on the smart TV.
+Start the movie titled {movie_name} on the streaming device.
+Start {movie_name} in the home theater from {movie_streaming_service}.
+Start {movie_name} on {movie_streaming_service}.
+Stream {movie_name} in the home theater.
+Suggest a great {movie_genre} film such as {movie_name} on the smart TV.
+Suggest a great {movie_genre} film such as {movie_name} on the smartphone.
+Suggest a great {movie_genre} film such as {movie_name} on the tablet.
+Suggest a great {movie_genre} film such as {movie_name} on {movie_streaming_service}.
+Suggest a movie from {country_name} on {streaming_service}.
+Suggest a movie in the {film_genre} category on {movie_streaming_service}.
+Suggest a movie in the {film_genre} genre on {movie_streaming_service}.
+Suggest a {country_name} movie on {streaming_service}.
+Suggest a {film_genre} movie available on {movie_streaming_service}.
+Suggest a {movie_genre} movie on {movie_streaming_service}.
+Suggest a {movie_name} in the {film_genre} genre on {movie_streaming_service}.
+Suggest some good {film_genre} movie on {movie_streaming_service}.
+Suggest some {film_genre} films from {film_studio} on {movie_streaming_service}.
+Suggest some {film_genre} films on {movie_streaming_service}.
+Suggest some {film_genre} movie on {movie_streaming_service} to watch.
+Suggest some {film_genre} movie on {movie_streaming_service}.
+Suggest some {film_genre} movie streaming on {movie_streaming_service}.
+Suggest some {film_genre} movies available on {movie_streaming_service}.
+Tell me about a {movie_genre} movie from {country_name}.
+Tell me about the film from {country_name} on {streaming_service}.
+Tell me about the film {movie_name}.
+Tell me about the {country_name} film {movie_name}.
+Tell me about the {country_name} movie {movie_name}.
+Tell me about the {movie_genre} film called {movie_name} available on the computer.
+Tell me about the {movie_genre} film called {movie_name} available on the tablet.
+Tell me about the {movie_genre} film called {movie_name} available on the television.
+Tell me about the {movie_genre} film called {movie_name} available on {movie_streaming_service}.
+Tell me about {movie_name} on {movie_streaming_service}.
+Tell me about {movie_name}.
+Tell me more about the film titled {movie_name} available on the desktop computer.
+Tell me more about the film titled {movie_name} available on the digital assistant.
+Tell me more about the film titled {movie_name} available on the smart TV.
+Tell me more about the film titled {movie_name} available on {movie_streaming_service}.
+Watch a film from {country_name} on {streaming_service}.
+Watch a {movie_genre} film from {country_name} on {streaming_service}.
+Watch {movie_name} from the TV.
+Watch {movie_name} from the home entertainment system.
+Watch {movie_name} from the laptop.
+Watch {movie_name} from {movie_streaming_service}.
+Watch {movie_name} in {movie_streaming_service}.
+Watch {movie_name} on the home theater setup.
+Watch {movie_name} on {movie_streaming_service}.
+What are some good movies from {country_name} available on {streaming_service}?
+What are some good movies from {country_name} on {streaming_service}?
+What are some good {movie_genre} movies on {movie_streaming_service}?
+What are some popular {film_genre} movie on {movie_streaming_service}?
+What are some popular {film_genre} movies on {movie_streaming_service}?
+What are some {film_genre} movies on {movie_streaming_service}?
+What are the top-rated movies from {country_name} on {streaming_service}?
+What are the top-rated {film_genre} movies on {movie_streaming_service}?
+What movie can I watch on {movie_streaming_service}?
+What movie is available on {movie_streaming_service}?
+What movie options do I have for {movie_streaming_service} tonight?
+What movie should I watch from {film_studio} on {movie_streaming_service}?
+What {film_genre} films are available on {movie_streaming_service}?
+What {film_genre} films are highly rated on {movie_streaming_service}?
+What {film_genre} films are trending on {movie_streaming_service}?
+What {film_genre} movie are popular on {movie_streaming_service}?
+What {film_genre} movies can I watch on {movie_streaming_service}?
+What {movie_name} can I watch on {movie_streaming_service}?
+What {movie_name} is available on {movie_streaming_service}?
+What's a critically acclaimed movie on {movie_streaming_service} right now?
+What's a good movie from {country_name} on {streaming_service}?
+What's a good {film_genre} movie on {movie_streaming_service}?
+What's a good {movie_genre} movie from {country_name} on {streaming_service}?
+What's a good {movie_genre} movie on {movie_streaming_service}?
+What's a good {movie_genre} movie to watch in the home theater, like {movie_name}?
+What's a highly rated movie from {film_studio} available for streaming on {movie_streaming_service} right now?
+What's a highly recommended movie from {film_studio} on {movie_streaming_service}?
+What's a must-watch movie from {film_studio} available on {movie_streaming_service} right now?
+What's a must-watch movie from {film_studio} currently streaming on {movie_streaming_service}?
+What's a must-watch movie from {film_studio} with a feel-good storyline and an unexpected plot twist available on {movie_streaming_service} right now?
+What's a must-watch movie from {film_studio} with positive viewer reviews available on {movie_streaming_service} right now?
+What's a must-watch movie on {movie_streaming_service} right now?
+What's a popular movie from {film_studio} currently available on {movie_streaming_service}?
+What's a popular movie from {film_studio} suitable for a family movie night on {movie_streaming_service}?
+What's a popular movie from {film_studio} with positive viewer reviews and a unique storyline on {movie_streaming_service}?
+What's a popular movie from {film_studio} with stunning visuals and a compelling plot on {movie_streaming_service}?
+What's a top-rated movie from {film_studio} currently trending on {movie_streaming_service}?
+What's a top-rated movie from {film_studio} that's currently trending on {movie_streaming_service}?
+What's a top-rated movie from {film_studio} with great cinematography that's currently trending on {movie_streaming_service}?
+What's a top-rated {movie_genre} movie, such as {movie_name}, on the gaming console?
+What's a top-rated {movie_genre} movie, such as {movie_name}, on the projector?
+What's a top-rated {movie_genre} movie, such as {movie_name}, on the smart TV?
+What's a top-rated {movie_genre} movie, such as {movie_name}, on {movie_streaming_service}?
+What's playing in the home theater? How about {movie_name}?
+What's playing on {movie_streaming_service} right now?
+What's the best {film_genre} movie on {movie_streaming_service} right now?
+Which movie is trending on {movie_streaming_service}?
+Which {movie_name} is trending on {movie_streaming_service}?
+can you recommend a movie in the {movie_genre} category on {movie_streaming_service}?
+find me a highly rated movie from {film_studio} on {movie_streaming_service}.
+find me a movie from {film_studio} with stunning visuals and an unexpected plot twist that's currently popular on {movie_streaming_service}.
+find me a movie in the {movie_genre} category that's currently trending on {movie_streaming_service}.
+find me a movie in the {movie_genre} category that's popular on {movie_streaming_service}.
+find me a movie in the {movie_genre} category with a feel-good storyline and positive viewer reviews that's currently popular on {movie_streaming_service}.
+find me a movie in the {movie_genre} category with a surprising ending on {movie_streaming_service}.
+find me a movie in the {movie_genre} category with a unique storyline and stunning visuals on {movie_streaming_service}.
+find me a movie in the {movie_genre} category with great cinematography and a unique storyline on {movie_streaming_service}.
+find me a movie in the {movie_genre} category with stunning visuals and a compelling plot on {movie_streaming_service}.
+find me a movie in the {movie_genre} category with stunning visuals and a feel-good storyline that's currently trending on {streaming
+find me a movie that's currently popular on {movie_streaming_service}.
+find me a movie that's trending and available on {movie_streaming_service}.
+find me a movie that's trending and worth watching on {movie_streaming_service}.
+find me a movie that's trending on {movie_streaming_service}.
+find me a movie with a captivating storyline on {movie_streaming_service}.
+find me a movie with great cinematography and a unique storyline that's suitable for a family movie night on {movie_streaming_service}.
+find me a movie with great cinematography from {film_studio} on {movie_streaming_service}.
+find me a movie with stunning visuals and a compelling plot on {movie_streaming_service}.
+find me some movie options on {movie_streaming_service}.
+play a classic film
+play a cult classic film
+play a family-friendly film
+play a movie
+play a movie from the 80s
+play a movie from {film_studio} known for its cinematography on {movie_streaming_service}.
+play a movie from {film_studio} known for its feel-good storyline on {movie_streaming_service}.
+play a movie from {film_studio} known for its suspenseful storyline on {movie_streaming_service}.
+play a movie from {film_studio} with a feel-good storyline and positive viewer reviews on {movie_streaming_service}.
+play a movie from {film_studio} with positive viewer reviews and a compelling plot on {movie_streaming_service}.
+play a movie in the {movie_genre} genre on {movie_streaming_service}.
+play a movie suitable for a cozy night in on {movie_streaming_service}.
+play a movie suitable for a movie night with friends on {movie_streaming_service}.
+play a movie that will make me think
+play a movie that will surprise me
+play a movie that's perfect for a movie night with friends on {movie_streaming_service}.
+play a movie that's perfect for a weekend movie marathon on {movie_streaming_service}.
+play a movie that's suitable for a relaxing movie night on {movie_streaming_service}.
+play a movie with Tom Hanks
+play a movie with a famous ensemble cast
+play a movie with a feel-good storyline and a surprising ending on {movie_streaming_service}.
+play a movie with a feel-good storyline and stunning visuals suitable for a movie night with friends on {movie_streaming_service}.
+play a movie with a feel-good storyline that's perfect for a relaxing movie night on {movie_streaming_service}.
+play a movie with a great soundtrack
+play a movie with a happy ending
+play a movie with a plot twist
+play a movie with a powerful message
+play a movie with a strong female lead
+play a movie with a strong storyline and a surprising ending that's currently popular on {movie_streaming_service}.
+play a movie with a strong storyline and positive viewer reviews on {movie_streaming_service}.
+play a movie with a strong storyline and stunning visuals on {movie_streaming_service}.
+play a movie with a surprising ending
+play a movie with a surprising ending and great cinematography on {movie_streaming_service}.
+play a movie with a surprising ending and positive viewer reviews on {movie_streaming_service}.
+play a movie with a twist of humor
+play a movie with a unique storyline
+play a movie with amazing visuals
+play a movie with an intriguing storyline on {movie_streaming_service}.
+play a movie with an unexpected plot twist and a feel-good storyline suitable for a cozy night in on {movie_streaming_service}.
+play a movie with an unexpected plot twist and a strong storyline on {movie_streaming_service}.
+play a movie with an unexpected plot twist on {movie_streaming_service}.
+play a movie with good user reviews on {movie_streaming_service}.
+play a movie with great cinematography and a surprising ending on {movie_streaming_service}.
+play a movie with great reviews
+play a movie with great visuals and a compelling storyline on {movie_streaming_service}.
+play a movie with great visuals from {film_studio} on {movie_streaming_service}.
+play a movie with intense action
+play a movie with positive user reviews on {movie_streaming_service}.
+play a movie with strong character development
+play a movie with stunning visuals and a feel-good storyline suitable for a cozy night in on {movie_streaming_service}.
+play a movie with stunning visuals on {movie_streaming_service}.
+play a movie with subtitles
+play a movie with witty dialogue
+play a mystery movie
+play a popular movie from {film_studio} on {movie_streaming_service}.
+play a romantic film
+play an adventure film
+play an animated film
+play the latest blockbuster movie on {movie_streaming_service}.
+play the latest movie from {film_studio} on {movie_streaming_service}.
+play the top movie from {film_studio} on {movie_streaming_service}.
+play {film_genre}
+play {film_genre} movies
+play {movie_name}
+recommend a feel-good movie for tonight on {movie_streaming_service}.
+recommend a movie from {film_studio} that's currently popular on {movie_streaming_service}.
+recommend a movie from {film_studio} with an unexpected plot twist suitable for a movie night with friends on {movie_streaming_service}.
+recommend a movie in the {movie_genre} category from {film_studio}.
+recommend a movie in the {movie_genre} category that's suitable for a cozy night in on {movie_streaming_service}.
+recommend a movie in the {movie_genre} category that's suitable for a family movie night on {movie_streaming_service}.
+recommend a movie in the {movie_genre} category with a strong storyline and great cinematography on {movie_streaming_service}.
+recommend a movie in the {movie_genre} category with a strong storyline and positive viewer reviews on {movie_streaming_service}.
+recommend a movie in the {movie_genre} category with a strong storyline on {movie_streaming_service}.
+recommend a movie in the {movie_genre} category with high ratings on {movie_streaming_service}.
+recommend a movie in the {movie_genre} category with high viewer ratings on {movie_streaming_service}.
+recommend a movie in the {movie_genre} category with stunning visuals and positive viewer reviews on {movie_streaming_service}.
+recommend a movie with a strong storyline and great cinematography that's currently trending on {movie_streaming_service}.
+recommend a movie with a unique storyline and stunning visuals from {film_studio} on {movie_streaming_service}.
+recommend a movie with a unique storyline from {film_studio} on {movie_streaming_service}.
+recommend a movie with positive viewer reviews in the {movie_genre} category on {movie_streaming_service}.
+recommend a top-rated movie from {film_studio} on {movie_streaming_service}.
+search {film_genre}
+search {film_genre} movies
+show me a classic Hollywood movie
+show me a documentary about movies
+show me a documentary on filmmaking
+show me a feel-good comedy
+show me a great movie
+show me a mind-bending movie
+show me a movie that will blow my mind
+show me a movie trailer
+show me a satire
+show me a superhero movie
+show me a time travel movie
+show me a war movie
+show me an Oscar-winning movie
+show me drama movies
+start a 3D movie
+start a black and white movie
+start a classic comedy
+start a comedy film
+start a coming-of-age movie
+start a courtroom drama
+start a crime thriller
+start a critically acclaimed film
+start a dystopian film
+start a film
+start a film directed by Christopher Nolan
+start a film with great cinematography
+start a foreign film
+start a heist film
+start a historical film
+start a horror film
+start a movie based on a true story
+start a movie night
+start a movie that will make me laugh
+start a movie that will touch my heart
+start a movie with clever wordplay
+start a romantic comedy
+start a sci-fi movie
+start a slapstick comedy
+start a thought-provoking film
+start a thriller
+start an inspirational film
+start {film_genre}
+start {film_genre} movies
+start {movie_name}
+suggest a classic movie from {film_studio} on {movie_streaming_service}.
+suggest a critically acclaimed movie from {film_studio} on {movie_streaming_service}.
+suggest a movie from {film_studio} with an unexpected plot twist and great cinematography on {movie_streaming_service}.
+suggest a movie from {film_studio} with an unexpected plot twist that's currently popular on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category available on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category from {film_studio}.
+suggest a movie in the {movie_genre} category suitable for a movie night with friends on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category that's currently popular on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category that's trending on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category with a feel-good storyline on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category with a unique storyline and positive viewer reviews on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category with an unexpected plot twist and stunning visuals that's currently trending on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category with an unexpected plot twist on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category with an unexpected plot twist that's suitable for a family movie night on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category with high ratings on {movie_streaming_service}.
+suggest a movie in the {movie_genre} category with positive viewer reviews on {movie_streaming_service}.
+suggest a movie in the {movie_genre} genre available on {movie_streaming_service}.
+suggest a suspenseful movie in the {movie_genre} category on {movie_streaming_service}.
+suggest a top-rated movie from {film_studio} available on {movie_streaming_service}.
+view {movie_name}
+watch a 2020 movie
+watch a Bollywood movie
+watch a dark comedy
+watch a fantasy film
+watch a feel-good movie
+watch a movie that will give me chills
+watch a movie with outstanding special effects
+watch a psychological thriller
+watch a romantic drama
+watch a silent movie
+watch a tearjerker
+watch an action movie
+watch an independent film
+watch {film_genre}
+watch {film_genre} movies
+watch {movie_name}
