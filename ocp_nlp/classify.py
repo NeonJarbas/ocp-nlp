@@ -56,105 +56,14 @@ class LookupMatcher:
     def load_entities(self, path):
         path = f"{path}/{self.lang}"
         ents = {
-            "playlist_name": ["sing in the shower",
-                              "mint acoustic",
-                              "piano covers",
-                              "rainy day",
-                              "mint",
-                              "focus beats",
-                              "edm bangers",
-                              "legendary women of rock",
-                              "lo-fi beats",
-                              "ultimate indie",
-                              "chill hits",
-                              "summer party",
-                              "classical tranquility",
-                              "soundtrack for studying",
-                              "love songs",
-                              "peaceful piano",
-                              "groovy tunes",
-                              "80s love songs",
-                              "soulful sunday",
-                              "coffee shop tunes",
-                              "pop punk powerhouses",
-                              "all out 00s",
-                              "country hits",
-                              "coffeehouse blend",
-                              "happy hits",
-                              "power workout",
-                              "rock legends",
-                              "funk legends",
-                              "electro pop",
-                              "dance party",
-                              "pop up",
-                              "throwback hits",
-                              "r&b gems",
-                              "diva forever",
-                              "soft pop hits",
-                              "sing-along indie hits",
-                              "classic rock anthems",
-                              "karaoke classics",
-                              "90s rock anthems",
-                              "chill vibes",
-                              "timeless love songs",
-                              "best of the decade",
-                              "acoustic hits",
-                              "pop remix",
-                              "deep focus",
-                              "90s dance hits",
-                              "summer throwback",
-                              "rock classics",
-                              "yacht rock",
-                              "all out 80s",
-                              "reggae vibes",
-                              "all out 90s",
-                              "feel-good pop",
-                              "pump up the jam",
-                              "early pop hits",
-                              "songs to sing in the car",
-                              "alternative chill",
-                              "summer chillout",
-                              "country roads",
-                              "80s power ballads",
-                              "indie coffeehouse",
-                              "80s smash hits",
-                              "road trip sing-alongs",
-                              "the most beautiful songs in the world",
-                              "pure moods",
-                              "hot country",
-                              "rap caviar",
-                              "tropical house",
-                              "summer road trip",
-                              "greatest love songs",
-                              "ultimate karaoke",
-                              "gold school",
-                              "70s disco fever",
-                              "jazz classics",
-                              "latin heat",
-                              "viva latino",
-                              "shut up & dance",
-                              "classical essentials",
-                              "acoustic love",
-                              "indie pop bliss",
-                              "pop divas",
-                              "guilty pleasures",
-                              "dance hits",
-                              "shower songs",
-                              "indie electronic",
-                              "ultimate party anthems",
-                              "the 50 most loved songs of all time",
-                              "today's top hits",
-                              "power ballads",
-                              "are & be",
-                              "indie all-stars",
-                              "hot hits uk",
-                              "80s new wave",
-                              "workout motivation",
-                              "90s hip-hop",
-                              "piano ballads",
-                              "80s hair metal"],
             "episode_number": [str(i) for i in range(50)]
         }
+
+        for e in os.listdir(f"{path}/dataset_gen"):
+            with open(f"{path}/dataset_gen/{e}") as f:
+                samples = f.read().split("\n")
+                ents[e.replace(".intent", "")] = samples
+
         for f in os.listdir(path):
             if not f.endswith(".entity"):
                 continue
@@ -195,9 +104,8 @@ class LookupMatcher:
         return ents
 
 
-def generate_samples():
-    m = LookupMatcher("en")
-    p = "/home/miro/PycharmProjects/OCP_sprint/ocp-nlp/sparql_ocp"
+def generate_samples(p, lang):
+    m = LookupMatcher(lang)
     ents = m.load_entities(p)
     templs = m.load_templates(p)
 
@@ -224,8 +132,11 @@ def generate_samples():
 
 if __name__ == "__main__":
     dataset = []
+
+    p = "/home/miro/PycharmProjects/OCP_sprint/ocp-nlp/sparql_ocp"
+    lang = "en"
     for i in range(3):
-        dataset += list(generate_samples())
+        dataset += list(generate_samples(p, lang))
 
     with open("../sparql_ocp/dataset.csv", "w") as f:
         f.write("label, sentence\n")

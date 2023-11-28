@@ -208,6 +208,8 @@ COUNTRIES = {
     "ca": ["Q5705"],
     "uk": ["Q212"],
     "gl": ["Q3908"],
+    "da": [],
+    "fi": [],
     "es": [
         "Q29",  # Spain
         "Q96",  # Mexico
