@@ -1,51 +1,32 @@
-import dataclasses
 import os
 import random
 
 from unidecode import unidecode
 
 
-@dataclasses.dataclass
-class UtteranceMatch:
-    utterance: str
+class WordFeatures:
+    """ these features introduce a bias to the classification model
 
-    # each entry below contains text matched against a keyword database
+    at runtime registered skills can provide keywords that
+    explicitly trigger some media_type specific features
 
-    # platforms
-    audio_steaming_service: str = ""
-    video_steaming_service: str = ""
+    during training a wordlist gathered from wikidata via sparql queries is used to introduce bias
 
-    # publishers
-    audiobook_publisher: str = ""
-    record_label: str = ""
-    film_studio: str = ""
+    a biased and an unbiased model are provided, unbiased operates on word features only
 
-    # genres
-    media_type: str = ""
-    movie_genre: str = ""
-    music_genre: str = ""
-    podcast_genre: str = ""
-    literary_genre: str = ""
+    can also be used as is for rudimentary keyword extraction,
+        eg. matching genres as auxiliary data for OCP searches
 
-    # known instance names, eg "the matrix"
-    book_name: str = ""
-    podcast_name: str = ""
-    movie_name: str = ""
-    cartoon_name: str = ""
-    anime_name: str = ""
-    tv_channel_name: str = ""
-    series_name: str = ""
-    radio_name: str = ""
-    radio_drama_name: str = ""
-    song_name: str = ""
-    artist_name: str = ""
-    album_name: str = ""
-    playlist_name: str = ""
+        TODO: new decorator
+             @ocp_genre_search
+    """
 
-
-class LookupMatcher:
-    def __init__(self, lang, path=None):
+    def __init__(self, lang, path=None, ignore_list=None):
         self.lang = lang
+        if ignore_list is None and lang == "en":
+            # books/movies etc with this name exist, ignore them
+            ignore_list = ["play", "search", "listen", "movie"]
+        self.ignore_list = ignore_list or []  # aka stop_words
         if path:
             self.entities = self.load_entities(path)
             self.templates = self.load_templates(path)
@@ -103,9 +84,27 @@ class LookupMatcher:
                     ents[n].append(g.replace("{query}", "{" + n + "_name}"))
         return ents
 
+    def extract(self, sentence, as_bool=False):
+        match = {}
+        for ent, samples in self.entities.items():
+            ent = ent.split("_Q")[0].split(".entity")[0]
+            if as_bool:
+                match[ent] = ""
+            for s in [_ for _ in samples if len(_) > 3 and _.lower() not in self.ignore_list]:
+                if s.lower() in sentence.lower():
+                    if ent in match:
+                        if len(s) > len(match[ent]):
+                            match[ent] = s
+                    else:
+                        match[ent] = s
+        if as_bool:
+            return {k: bool(v) for k, v in match.items()}
+        return match
 
+
+# dataset generator
 def generate_samples(p, lang):
-    m = LookupMatcher(lang)
+    m = WordFeatures(lang)
     ents = m.load_entities(p)
     templs = m.load_templates(p)
 
@@ -115,11 +114,8 @@ def generate_samples(p, lang):
             words = t.split()
             slots = [w for w in words if w.startswith("{") and w.endswith("}")]
             if slots and any(s[1:-1] not in ents for s in slots):
-                # print(666, t, list(ents.keys()))
                 continue
-            # t = " ".join([w for w in words if not w.startswith("(")])
             for ent, samples in ents.items():
-                #                samples = [s for s in samples if s not in ents["hentai_name"]]
                 if ent in t:
                     if not samples:
                         break
@@ -132,9 +128,43 @@ def generate_samples(p, lang):
 
 
 if __name__ == "__main__":
-    dataset = []
 
     p = "/home/miro/PycharmProjects/OCP_sprint/ocp-nlp/sparql_ocp"
+
+    l = WordFeatures(lang="en",
+                     path=p)
+
+    print(l.extract("play metallica"))
+    # {'music_genre': 'Metal', 'artist_name': 'Metallica',
+    # 'album_name': 'Metallica', 'game_name': 'METAL', 'movie_name': 'Alli'}
+
+    print(l.extract("play the beatles"))
+    # {'series_name': 'The Beatles', 'artist_name': 'The Beatles',
+    # 'music_genre': 'Beat', 'album_name': 'The Beatles',
+    # 'song_name': 'Play The Beat', 'movie_name': 'The Beatles', 'game_name': 'Beat'}
+
+    print(l.extract("play rob zombie"))
+    # {'artist_name': 'Rob Zombie', 'album_name': 'Zombie',
+    # 'book_name': 'Zombie', 'game_name': 'Zombie', 'movie_name': 'Zombie'}
+
+    print(l.extract("play horror movie"))
+    # {'film_genre': 'Horror', 'cartoon_genre': 'Horror',
+    # 'anime_genre': 'Horror', 'video_genre': 'horror',
+    # 'book_genre': 'Horror', 'album_name': 'MOVIE',
+    # 'book_name': 'Horr', 'movie_name': 'Horror Movie'}
+
+    print(l.extract("play science fiction"))
+    #  {'film_genre': 'Science Fiction', 'cartoon_genre': 'Science Fiction',
+    #  'podcast_genre': 'Fiction', 'anime_genre': 'Science Fiction',
+    #  'documentary_genre': 'Science', 'book_genre': 'Science Fiction',
+    #  'artist_name': 'Fiction', 'tv_channel': 'Science',
+    #  'album_name': 'Science Fiction', 'short_film_name': 'Science',
+    #  'book_name': 'Science Fiction', 'movie_name': 'Science Fiction'}
+
+    exit(1)
+
+    dataset = []
+
     lang = "en"
     for i in range(3):
         dataset += list(generate_samples(p, lang))
