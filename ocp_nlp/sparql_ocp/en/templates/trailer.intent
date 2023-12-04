@@ -1,36 +1,51 @@
-I want to see the {media_type_trailer} of "{movie_name}" under {film_genre} on {movie_streaming_service}.
-I want to watch the {media_type_trailer} for "{movie_name}" in the {film_genre} genre on {movie_streaming_service}.
-I want to watch the {media_type_trailer} for "{movie_name}" with {film_genre} on {movie_streaming_service}.
-I'm interested in the {media_type_trailer} of "{movie_name}" in the {film_genre} genre on {movie_streaming_service}.
-I'm interested in the {media_type_trailer} of "{movie_name}" on {movie_streaming_service} within {film_genre}.
-Play the {media_type_trailer} for "{movie_name}" available on {movie_streaming_service} in {film_genre}.
-Play the {media_type_trailer} for "{movie_name}" in the {film_genre} category on {movie_streaming_service}.
-Play the {media_type_trailer} for "{movie_name}" in {film_genre} on {movie_streaming_service}.
-Play the {media_type_trailer} for "{movie_name}" with {film_genre} on {movie_streaming_service}.
-Play the {media_type_trailer} for "{movie_name}" within the {film_genre} category on {movie_streaming_service}.
-Play the {media_type_trailer} for the {film_genre} film {movie_name} on {movie_streaming_service}.
-Play the {media_type_trailer} for the {film_genre} movie {movie_name}.
+    Begin a trailer marathon for a cinematic anticipation experience.
+    Dive into a world of movie trailers for a glimpse of upcoming blockbusters.
+    Play a movie trailer for a sneak peek into upcoming releases.
+    Press play and get excited about the latest film releases.
+    Start a trailer compilation for a quick movie preview session.
+Begin your cinematic adventure by watching the trailer for {movie_name} on {movie_streaming_service} .
+Catch a glimpse of the {movie_genre} masterpiece, {movie_name} , through its official trailer.
+Discover exciting previews on {movie_streaming_service} .
+Explore upcoming movie trailers on {movie_streaming_service} .
+Explore {movie_streaming_service} for the latest {movie_genre} trailers, including {movie_name} .
+I want to see the {media_type_trailer} of "{movie_name}" under {film_genre} on {movie_streaming_service} .
+I want to watch the {media_type_trailer} for "{movie_name}" in the {film_genre} genre on {movie_streaming_service} .
+I want to watch the {media_type_trailer} for "{movie_name}" with {film_genre} on {movie_streaming_service} .
+I'm interested in the {media_type_trailer} of "{movie_name}" in the {film_genre} genre on {movie_streaming_service} .
+I'm interested in the {media_type_trailer} of "{movie_name}" on {movie_streaming_service} within {film_genre} .
+Play a random movie trailer on {movie_streaming_service} .
+Play the trailer for "{movie_name}" on {movie_streaming_service} .
+Play the {media_type_trailer} for "{movie_name}" available on {movie_streaming_service} in {film_genre} .
+Play the {media_type_trailer} for "{movie_name}" in the {film_genre} category on {movie_streaming_service} .
+Play the {media_type_trailer} for "{movie_name}" in {film_genre} on {movie_streaming_service} .
+Play the {media_type_trailer} for "{movie_name}" with {film_genre} on {movie_streaming_service} .
+Play the {media_type_trailer} for "{movie_name}" within the {film_genre} category on {movie_streaming_service} .
+Play the {media_type_trailer} for the {film_genre} film {movie_name} on {movie_streaming_service} .
+Play the {media_type_trailer} for the {film_genre} movie {movie_name} .
+Play the {media_type_trailer} for {movie_name} .
 Play the {media_type_trailer} for {movie_name} in the {film_genre} category.
-Play the {media_type_trailer} for {movie_name}.
-Play the {media_type_trailer} of "{movie_name}" available on {movie_streaming_service} within {film_genre}.
-Play the {media_type_trailer} of the {film_genre} film {movie_name}.
-Play {media_type_trailer} for "{movie_name}" in {film_genre} on {movie_streaming_service}.
-Play {media_type_trailer} for "{movie_name}" with {film_genre} on {movie_streaming_service}.
-Show me the {media_type_trailer} for "{movie_name}" with {film_genre} on {movie_streaming_service}.
-Show me the {media_type_trailer} for {movie_name} in the {film_genre} category on {movie_streaming_service}.
+Play the {media_type_trailer} of "{movie_name}" available on {movie_streaming_service} within {film_genre} .
+Play the {media_type_trailer} of the {film_genre} film {movie_name} .
+Play {media_type_trailer} for "{movie_name}" in {film_genre} on {movie_streaming_service} .
+Play {media_type_trailer} for "{movie_name}" with {film_genre} on {movie_streaming_service} .
+Preview the upcoming {movie_name} with its official {movie_genre} trailer.
+Resume watching the trailer for "{movie_name}" on {movie_streaming_service} .
+Show me the {media_type_trailer} for "{movie_name}" with {film_genre} on {movie_streaming_service} .
+Show me the {media_type_trailer} for {movie_name} in the {film_genre} category on {movie_streaming_service} .
 Show me the {media_type_trailer} for {movie_name} in the {film_genre} category.
-Show me the {media_type_trailer} of "{movie_name}" in {film_genre} available on {movie_streaming_service}.
-Show me the {media_type_trailer} of "{movie_name}" on {movie_streaming_service} with {film_genre}.
+Show me the {media_type_trailer} of "{movie_name}" in {film_genre} available on {movie_streaming_service} .
+Show me the {media_type_trailer} of "{movie_name}" on {movie_streaming_service} with {film_genre} .
 Show me the {media_type_trailer} of {movie_name} in the {film_genre} genre.
 Show the {media_type_trailer} for "{movie_name}" available on {movie_streaming_service} in the {film_genre} category.
-Show the {media_type_trailer} for "{movie_name}" on {movie_streaming_service} in {film_genre}.
-Show the {media_type_trailer} for the {film_genre} film {movie_name}.
-Show the {media_type_trailer} for {movie_name} available on {movie_streaming_service}.
-Show the {media_type_trailer} of "{movie_name}" under the {film_genre} category on {movie_streaming_service}.
-Watch the {media_type_trailer} for {movie_name} on {movie_streaming_service}.
-Watch the {media_type_trailer} of the {film_genre} film {movie_name}.
-Watch the {media_type_trailer} of the {film_genre} movie {movie_name} on {movie_streaming_service}.
-Watch the {media_type_trailer} of {movie_name} in the {film_genre} genre on {movie_streaming_service}.
+Show the {media_type_trailer} for "{movie_name}" on {movie_streaming_service} in {film_genre} .
+Show the {media_type_trailer} for the {film_genre} film {movie_name} .
+Show the {media_type_trailer} for {movie_name} available on {movie_streaming_service} .
+Show the {media_type_trailer} of "{movie_name}" under the {film_genre} category on {movie_streaming_service} .
+Watch the intriguing trailer for {movie_name} in {movie_genre} .
+Watch the {media_type_trailer} for {movie_name} on {movie_streaming_service} .
+Watch the {media_type_trailer} of the {film_genre} film {movie_name} .
+Watch the {media_type_trailer} of the {film_genre} movie {movie_name} on {movie_streaming_service} .
+Watch the {media_type_trailer} of {movie_name} in the {film_genre} genre on {movie_streaming_service} .
 Watch the {media_type_trailer} of {movie_name} in the {film_genre} genre.
 play a movie teaser
 play a movie trailer

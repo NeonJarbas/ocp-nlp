@@ -8,7 +8,7 @@ import sys
 from SPARQLWrapper import SPARQLWrapper, JSON
 from unidecode import unidecode
 
-from ocp_nlp.classify import WordFeatures
+from ocp_nlp.classify import KeywordFeatures
 
 endpoint_url = "https://query.wikidata.org/sparql"
 
@@ -121,65 +121,65 @@ ENTITIES = {
     },
     "film_studio": {
         "P31": ["Q375336", "Q368290"]
-    },
+    } ,
     "youtube_channel": {
         "P31": ["Q17558136"]
-    },
+    } ,
 
     # streaming services
     "audiobook_streaming_service": {
         "P31": ["Q1644277"]  # audiobook_publisher
-    },
+    } ,
     "movie_streaming_service": {
         "P31": [
             "Q109509795",  # web broadcaster  - movie
         ]
-    },
+    } ,
     "tv_streaming_service": {
         "P31": [
             "Q10689397",  # television production company
         ]
-    },
+    } ,
     "video_streaming_service": {
         "P31": [
             "Q63241860", "Q122759350"
         ]
-    },
+    } ,
     "music_streaming_service": {
         "P31": [
             "Q15590336"
         ]
-    },
+    } ,
     "radio_streaming_service": {
         "P31": [
             "Q184973"
         ]
-    },
+    } ,
     "podcast_streaming_service": {
         "P31": [
             "Q24579448", "Q24581379"
         ]
-    },
+    } ,
 
     # genres
     "podcast_genre": {
         "P31": ["Q104822033"]
-    },
+    } ,
     "music_genre": {
         "P31": ["Q188451"]
-    },
+    } ,
     "film_genre": {
         "P31": ["Q201658"]
-    },
+    } ,
     "book_genre": {
         "P31": ["Q223393"]
-    },
+    } ,
     "radio_drama_genre": {
         "P31": ["Q2933978"]
-    },
+    } ,
     "tv_genre": {
         "P31": ["Q15961987"]
-    },
+    } ,
     "audio_genre": {
         "P31": ["Q108676140"]
     },
@@ -256,6 +256,7 @@ def get_results(endpoint_url, query):
 
 
 for lang in LANGS:
+    continue
     base = f"{os.path.dirname(__file__)}/{lang}"
     os.makedirs(base, exist_ok=True)
 
@@ -343,7 +344,7 @@ p = os.path.dirname(__file__)
 
 
 def generate_samples(p, lang):
-    m = WordFeatures(lang)
+    m = KeywordFeatures(lang)
     ents = m.load_entities(p)
     templs = m.load_templates(p)
 
@@ -375,7 +376,7 @@ with open(f"{p}/dataset.csv", "w") as f:
         f.write(f"{label}, {sentence}\n")
 
 # dedup
-r = f"{p}/sparql_ocp"
+r = f"/home/miro/PycharmProjects/OCP_sprint/ocp-nlp/ocp_nlp/sparql_ocp/en/templates"
 for root, folders, files in os.walk(r):
     for f in files:
         if f.endswith(".py") or f.endswith(".csv"):

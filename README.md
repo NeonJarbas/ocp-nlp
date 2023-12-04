@@ -70,3 +70,66 @@ class MediaType:
 entities have been collected via wikidata SPARQL queries to generate synthetic samples, including language support and regional specific samples
 
 ChatGPT was used to generate sentence templates, entity slots were replaced with wikidata entity values during training
+
+
+## Usage
+
+### MediaType Classifier
+
+```python
+from ocp_nlp.classify import MediaTypeClassifier, BiasedMediaTypeClassifier, KeywordFeatures
+
+
+# basic text only classifier
+clf1 = MediaTypeClassifier()
+clf1.load()
+
+label, confidence = clf1.predict_prob(["play metallica"])[0]
+print(label, confidence)  # [('music', 0.3438956411030462)]
+
+# keyword biased classifier, uses the above internally for extra features
+clf = BiasedMediaTypeClassifier(clf1, lang="en", preload=True)  # load entities database
+
+# csv_path = f"{dirname(__file__)}/sparql_ocp/dataset.csv"
+#clf.precompute_features(csv_path)
+#clf.train_from_precomputed()
+
+clf.load()
+
+# klownevilus is an unknown entity
+label, confidence = clf.predict_prob(["play klownevilus"])[0]
+print(label, confidence)  # music 0.3398020446925623
+
+# probability increases for movie
+clf.register_entity("movie_name", ["klownevilus"])  # movie correctly predicted now
+label, confidence = clf.predict_prob(["play klownevilus"])[0]
+print(label, confidence)  # movie 0.540225616798516
+
+# using feature extractor standalone
+l = KeywordFeatures(lang="en", path=f"{dirname(__file__)}/sparql_ocp")
+
+print(l.extract("play metallica"))
+# {'album_name': 'Metallica', 'artist_name': 'Metallica'}
+
+print(l.extract("play the beatles"))
+# {'album_name': 'The Beatles', 'series_name': 'The Beatles',
+# 'artist_name': 'The Beatles', 'movie_name': 'The Beatles'}
+
+print(l.extract("play rob zombie"))
+# {'artist_name': 'Rob Zombie', 'album_name': 'Zombie',
+# 'book_name': 'Zombie', 'game_name': 'Zombie', 'movie_name': 'Zombie'}
+
+print(l.extract("play horror movie"))
+# {'film_genre': 'Horror', 'cartoon_genre': 'Horror', 'anime_genre': 'Horror',
+# 'radio_drama_genre': 'horror', 'video_genre': 'horror',
+# 'book_genre': 'Horror', 'movie_name': 'Horror Movie'}
+
+print(l.extract("play science fiction"))
+#  {'film_genre': 'Science Fiction', 'cartoon_genre': 'Science Fiction',
+#  'podcast_genre': 'Fiction', 'anime_genre': 'Science Fiction',
+#  'documentary_genre': 'Science', 'book_genre': 'Science Fiction',
+#  'artist_name': 'Fiction', 'tv_channel': 'Science',
+#  'album_name': 'Science Fiction', 'short_film_name': 'Science',
+#  'book_name': 'Science Fiction', 'movie_name': 'Science Fiction'}
+
+```
