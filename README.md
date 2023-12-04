@@ -8,8 +8,16 @@ all utterance parsing happens here
 - [ ] media type heuristic classifier
 - [x] media type classifier
 - [ ] NER system for media entities  (movie_name, streaming_service, playback_device ...)
-- [ ] binary classifier is_playback_query
+- [x] binary classifier is_playback_query
 - [ ] OVOS pipeline
+
+## Datasets
+
+entities have been collected via wikidata SPARQL queries to generate synthetic samples, including language support and regional specific samples
+
+ChatGPT was used to generate sentence templates, entity slots were replaced with wikidata entity values during training
+
+download dataset from https://github.com/NeonJarbas/OCP-dataset
 
 ## OCP Pipeline
 
@@ -41,7 +49,9 @@ OCP skills can provide these keywords at runtime, additional keywords for things
 uses a binary classifier to detect if a query is about media playback
 
 
-## Media Type Classifier
+## Classifiers
+
+### Media Type Classifier
 
 internally used to tag utterances before OCP search process, this informs the result selection by giving priority to certain skills and helps performance by skipping some skills completely during search
 
@@ -77,18 +87,28 @@ class MediaType:
     HENTAI = 70  # for content filtering # for content filtering
 ```
 
-## Synthetic data
+### Binary classifier
 
-entities have been collected via wikidata SPARQL queries to generate synthetic samples, including language support and regional specific samples
+using the dataset collected for media type + ovos-datasets
 
-ChatGPT was used to generate sentence templates, entity slots were replaced with wikidata entity values during training
+### Usage
 
-download dataset from https://github.com/NeonJarbas/OCP-dataset
+check if a utterance is playback related
 
-## Usage
+```python
+from ocp_nlp.classify import BinaryPlaybackClassifier
 
-### MediaType Classifier
+clf = BinaryPlaybackClassifier()
+# clf.train(csv_path)  # 0.9915889974994316
+clf.load()
 
+preds = clf.predict(["play a song", "play my morning jams",
+                   "i want to watch the matrix",
+                   "tell me a joke", "who are you", "you suck"])
+print(preds)  # ['OCP' 'OCP' 'OCP' 'other' 'other' 'other']
+```
+
+get media type of a playback utterance
 ```python
 from ocp_nlp.classify import MediaTypeClassifier, BiasedMediaTypeClassifier
 

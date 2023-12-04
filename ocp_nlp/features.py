@@ -1,7 +1,7 @@
+import os
 from os.path import dirname
 
 import numpy as np
-import os
 from sklearn.base import BaseEstimator, TransformerMixin
 from unidecode import unidecode
 
@@ -51,8 +51,8 @@ class KeywordFeatures:
     def load_entities(self, path):
         path = f"{path}/{self.lang}"
         ents = {
-            "season_number": [str(i) for i in range(20)],
-            "episode_number": [str(i) for i in range(50)]
+            "season_number": [str(i) for i in range(30)],
+            "episode_number": [str(i) for i in range(100)]
         }
 
         # non wikidata entity list - manually maintained by users
@@ -96,7 +96,9 @@ class KeywordFeatures:
                     if s.startswith("#") or not s.strip():
                         continue
                     ents[n].append(s)
-            if n not in ["game"]:
+            if n not in ["game", "movie", "series", "short_film", "silent_movie",
+                         "video", "tv_channel", "comic", "bw_movie", "bts",
+                         "anime", "cartoon"]:
                 for g in GENERIC:
                     ents[n].append(g.replace("{query}", "{" + n + "_genre}"))
                     ents[n].append(g.replace("{query}", "{" + n + "_name}"))
@@ -171,7 +173,8 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
                              'media_type_bw_movie', 'podcast_genre', 'comic_streaming_service', 'music_genre',
                              'media_type_video_episodes', 'anime_genre', 'media_type_audio', 'media_type_bts',
                              'media_type_silent_movie', 'audiobook_streaming_service', 'radio_drama_genre',
-                             'media_type_podcast', 'radio_theatre_company', 'media_type_short_film', 'media_type_movie', 'news_provider',
+                             'media_type_podcast', 'radio_theatre_company', 'media_type_short_film', 'media_type_movie',
+                             'news_provider',
                              'documentary_genre', 'radio_theatre_streaming_service', 'podcast_streaming_service',
                              'media_type_tv', 'comic_name', 'media_type_news', 'media_type_music',
                              'media_type_cartoon', 'documentary_streaming_service', 'cartoon_streaming_service',

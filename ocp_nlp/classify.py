@@ -1,17 +1,18 @@
+import random
 from os import makedirs
 from os.path import join, dirname
 
 import joblib
 import numpy as np
-import random
+from ovos_classifiers.skovos.tagger import SklearnOVOSClassifier
 from sklearn.svm import SVC
 
 from ocp_nlp.features import MediaFeaturesVectorizer
-from ovos_classifiers.skovos.tagger import SklearnOVOSClassifier
 
 
-class MediaTypeClassifier:
-    def __init__(self, lang="en"):
+class _OCPClassifier:
+    def __init__(self, model_name, lang="en"):
+        self.model_name = model_name
         self.lang = lang
         clf = SVC(kernel='linear', probability=True)  # 0.8690685413005272
         self.clf = SklearnOVOSClassifier("cv2", clf)
@@ -44,7 +45,7 @@ class MediaTypeClassifier:
         # Accuracy:  0.7473269555430501
 
         # save pickle
-        path = join(model_folder, f"cv2_svc_media_type_{self.lang}.clf")
+        path = join(model_folder, f"{self.model_name}_{self.lang}.clf")
         self.clf.save(path)
 
         # predictions = self.clf.predict(X_test)
@@ -57,7 +58,7 @@ class MediaTypeClassifier:
 
     def load(self, model_folder=None):
         model_folder = model_folder or f"{dirname(__file__)}/models"
-        path = join(model_folder, f"cv2_svc_media_type_{self.lang}.clf")
+        path = join(model_folder, f"{self.model_name}_{self.lang}.clf")
         self.clf.load_from_file(path)
 
     def predict(self, utterances):
@@ -72,12 +73,17 @@ class MediaTypeClassifier:
         return self.clf.clf.predict_proba(utterances)
 
 
+class MediaTypeClassifier(_OCPClassifier):
+    def __init__(self, lang="en"):
+        super().__init__("cv2_svc_media_type", lang)
+
+
 class BiasedMediaTypeClassifier:
     def __init__(self, base_clf: MediaTypeClassifier, lang="en", preload=False, dataset_path=None):
         self.lang = lang
-        self.base_clf = base_clf
+        self.base_clf = base_clf  # 0.7597073719752392
         self.feats = MediaFeaturesVectorizer(lang=self.lang, preload=preload, dataset_path=dataset_path)
-        self.clf = SVC(kernel='linear', probability=True)  # 0.9859402460456942
+        self.clf = SVC(kernel='linear', probability=True)  # 0.8868880135059088
 
     def register_entity(self, name, samples):
         self.feats.register_entity(name, samples)
@@ -213,10 +219,27 @@ class BiasedMediaTypeClassifier:
         return list(zip(self.clf.predict(X), p))
 
 
+class BinaryPlaybackClassifier(_OCPClassifier):
+    def __init__(self, lang="en"):
+        super().__init__("cv2_svc_binary_ocp", lang)
+
+
 if __name__ == "__main__":
-    # download dataset from https://github.com/NeonJarbas/OCP-dataset
-    csv_path = f"{dirname(__file__)}/dataset.csv"
-    entities_path = f"{dirname(__file__)}/sparql_ocp"
+    # download datasets from https://github.com/NeonJarbas/OCP-dataset
+
+    csv_path = f"/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/playback.csv"
+
+    o = BinaryPlaybackClassifier()
+    # o.train(csv_path)  # 0.9915889974994316
+    o.load()
+
+    preds = o.predict(["play a song", "play my morning jams",
+                       "i want to watch the matrix",
+                       "tell me a joke", "who are you", "you suck"])
+    print(preds)  # ['OCP' 'OCP' 'OCP' 'other' 'other' 'other']
+
+    csv_path = f"/home/miro/PycharmProjects/OCP-dataset/dataset.csv"
+    entities_path = f"/home/miro/PycharmProjects/OCP-dataset/sparql_ocp"
 
     # basic text only classifier
     clf1 = MediaTypeClassifier()
@@ -224,15 +247,14 @@ if __name__ == "__main__":
     clf1.load()
 
     label, confidence = clf1.predict_prob(["play metallica"])[0]
-    print(label, confidence)  # [('music', 0.3438956411030462)]
+    print(label, confidence)  # [('music', 0.28702889685755173)]
 
     # keyword biased classifier, uses the above internally for extra features
-    clf = BiasedMediaTypeClassifier(clf1, lang="en", preload=True, dataset_path=entities_path)  # load entities database
+    clf = BiasedMediaTypeClassifier(clf1, lang="en",
+                                    preload=True, dataset_path=entities_path)  # load entities database
 
-    # csv_path = f"{dirname(__file__)}/sparql_ocp/dataset.csv"
     # clf.precompute_features(csv_path)
     clf.train_from_precomputed()  # Accuracy: 0.8868880135059088
-
     clf.load()
 
     # klownevilus is an unknown entity
