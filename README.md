@@ -47,6 +47,8 @@ internally used to tag utterances before OCP search process, this informs the re
 
 uses a scikit-learn classifier trained in a large synthetic dataset
 
+![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/4cdb440d-4673-4972-8691-4c3c489ff4e8)
+
 ```python
 class MediaType:
     GENERIC = 0  # nothing else matches
