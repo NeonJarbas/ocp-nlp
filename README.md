@@ -71,6 +71,7 @@ entities have been collected via wikidata SPARQL queries to generate synthetic s
 
 ChatGPT was used to generate sentence templates, entity slots were replaced with wikidata entity values during training
 
+download dataset from https://github.com/NeonJarbas/OCP-dataset
 
 ## Usage
 
@@ -78,7 +79,6 @@ ChatGPT was used to generate sentence templates, entity slots were replaced with
 
 ```python
 from ocp_nlp.classify import MediaTypeClassifier, BiasedMediaTypeClassifier, KeywordFeatures
-
 
 # basic text only classifier
 clf1 = MediaTypeClassifier()

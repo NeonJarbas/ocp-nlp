@@ -19,7 +19,7 @@ class TestOCP(unittest.TestCase):
         self.assertIn('en-us', self.ocp._vocs)
 
         intents = ['play.intent', 'music.intent', 'featured.intent', 'movie.intent', 'read.intent', 'pause.intent',
-                   'news.intent', 'audio.intent', 'tv.intent', 'podcast.intent', 'hentai.intent', 'game.intent',
+                   'news.intent', 'audio.intent', 'tv_channel.intent', 'podcast.intent', 'hentai.intent', 'game.intent',
                    'next.intent', 'video.intent', 'open.intent', 'resume.intent', 'behind_scenes.intent',
                    'silent_movie.intent', 'documentaries.intent', 'prev.intent', 'short_movie.intent', 'porn.intent',
                    'audiobook.intent', 'bw_movie.intent', 'movietrailer.intent', 'radio.intent', 'radio_drama.intent',
