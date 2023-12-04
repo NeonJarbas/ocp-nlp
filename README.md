@@ -91,6 +91,8 @@ class MediaType:
 
 using the dataset collected for media type + ovos-datasets
 
+![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/bf9b796e-dc57-4320-a472-5b859b9dfcaf)
+
 ### Usage
 
 check if a utterance is playback related
