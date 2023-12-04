@@ -2,9 +2,18 @@ to become part of ovos-core pipeline stage
 
 all utterance parsing happens here
 
-# OCP Intents 
+# Tasks
 
-## Layer 1 - Unambiguous
+- [x] media type [dataset](https://github.com/NeonJarbas/OCP-dataset)
+- [ ] media type heuristic classifier
+- [x] media type classifier
+- [ ] NER system for media entities  (movie_name, streaming_service, playback_device ...)
+- [ ] binary classifier is_playback_query
+- [ ] OVOS pipeline
+
+## OCP Pipeline
+
+### Layer 1 - Unambiguous
 
 Before regular intent stage, taking into account current OCP state  (media ready to play / playing)
 
@@ -19,7 +28,7 @@ uses padacioso for exact matches
 - play / resume (media needs to be loaded)
 - stop (media needs to be loaded)
 
-## Layer 2 - Ambiguous
+### Layer 2 - Ambiguous
 
 Using adapt keyword matching for flexibility, runs after high confidence intents
 
@@ -27,15 +36,16 @@ these intents require a play verb + at least one of media_type, media_genre or m
 
 OCP skills can provide these keywords at runtime, additional keywords for things such as media_genre were collected via SPARQL queries to wikidata
 
-## Layer 3 - Fallback
+### Layer 3 - Fallback / CommonQA
 
 uses a binary classifier to detect if a query is about media playback
 
-# Media Type Classifier
+
+## Media Type Classifier
 
 internally used to tag utterances before OCP search process, this informs the result selection by giving priority to certain skills and helps performance by skipping some skills completely during search
 
-uses a jurebes classifier trained in a large synthetic dataset
+uses a scikit-learn classifier trained in a large synthetic dataset
 
 ```python
 class MediaType:
@@ -65,7 +75,7 @@ class MediaType:
     HENTAI = 70  # for content filtering # for content filtering
 ```
 
-# Synthetic data
+## Synthetic data
 
 entities have been collected via wikidata SPARQL queries to generate synthetic samples, including language support and regional specific samples
 
@@ -78,7 +88,7 @@ download dataset from https://github.com/NeonJarbas/OCP-dataset
 ### MediaType Classifier
 
 ```python
-from ocp_nlp.classify import MediaTypeClassifier, BiasedMediaTypeClassifier, KeywordFeatures
+from ocp_nlp.classify import MediaTypeClassifier, BiasedMediaTypeClassifier
 
 # basic text only classifier
 clf1 = MediaTypeClassifier()
@@ -104,6 +114,13 @@ print(label, confidence)  # music 0.3398020446925623
 clf.register_entity("movie_name", ["klownevilus"])  # movie correctly predicted now
 label, confidence = clf.predict_prob(["play klownevilus"])[0]
 print(label, confidence)  # movie 0.540225616798516
+
+```
+
+extract keywords based on a wikidata wordlist gathered via SPARQL queries
+```python
+
+from ocp_nlp.features import KeywordFeatures
 
 # using feature extractor standalone
 l = KeywordFeatures(lang="en", path=f"{dirname(__file__)}/sparql_ocp")
