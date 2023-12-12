@@ -101,6 +101,7 @@ class MediaType(IntEnum):
     TV = 9  # live tv stream
     MOVIE = 10
     TRAILER = 11
+    AUDIO_DESCRIPTION = 12  # narrated movie for the blind
     VISUAL_STORY = 13  # things like animated comic books
     BEHIND_THE_SCENES = 14
     DOCUMENTARY = 15
@@ -112,5 +113,6 @@ class MediaType(IntEnum):
     CARTOON = 21
     ANIME = 22
 
-    ADULT = 69  # for content filtering # for content filtering
-    HENTAI = 70  # for content filtering # for content filtering
+    ADULT = 69  # for content filtering
+    HENTAI = 70  # for content filtering
+    ADULT_AUDIO = 71  # for content filtering
