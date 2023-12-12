@@ -139,7 +139,7 @@ class KeywordFeatures:
 
         for k, automaton in self.automatons.items():
             for idx, v in automaton.iter(utt):
-                if v.lower() in self.ignore_list:
+                if v.lower() in self.ignore_list or len(v) <= 3:
                     continue
                 # filter partial words
                 if " " not in v:

@@ -8,6 +8,7 @@ from ovos_classifiers.skovos.tagger import SklearnOVOSClassifier
 from sklearn.svm import SVC
 
 from ocp_nlp.features import MediaFeaturesVectorizer
+from ocp_nlp.constants import MediaType
 from ocp_nlp.utils import ParallelWorkers
 
 
@@ -86,6 +87,65 @@ class BiasedMediaTypeClassifier:
         self.base_clf = base_clf  # 0.7597073719752392
         self.feats = MediaFeaturesVectorizer(lang=self.lang, preload=preload, dataset_path=dataset_path)
         self.clf = SVC(kernel='linear', probability=True)  # 0.8868880135059088
+
+    def extract_entities(self, utterance):
+        return self.feats._transformer.wordlist.extract(utterance)
+
+    @staticmethod
+    def label2media(label):
+        if label == "ad":
+            mt = MediaType.AUDIO_DESCRIPTION
+        elif label == "adult":
+            mt = MediaType.ADULT
+        elif label == "adult_asmr":
+            mt = MediaType.ADULT_AUDIO
+        elif label == "anime":
+            mt = MediaType.ANIME
+        elif label == "audio":
+            mt = MediaType.AUDIO
+        elif label == "audiobook":
+            mt = MediaType.AUDIOBOOK
+        elif label == "bts":
+            mt = MediaType.BEHIND_THE_SCENES
+        elif label == "bw_movie":
+            mt = MediaType.BLACK_WHITE_MOVIE
+        elif label == "cartoon":
+            mt = MediaType.CARTOON
+        elif label == "comic":
+            mt = MediaType.VISUAL_STORY
+        elif label == "documentary":
+            mt = MediaType.DOCUMENTARY
+        elif label == "game":
+            mt = MediaType.GAME
+        elif label == "hentai":
+            mt = MediaType.HENTAI
+        elif label == "movie":
+            mt = MediaType.MOVIE
+        elif label == "music":
+            mt = MediaType.MUSIC
+        elif label == "news":
+            mt = MediaType.NEWS
+        elif label == "podcast":
+            mt = MediaType.PODCAST
+        elif label == "radio":
+            mt = MediaType.RADIO
+        elif label == "radio_drama":
+            mt = MediaType.RADIO_THEATRE
+        elif label == "series":
+            mt = MediaType.VIDEO_EPISODES
+        elif label == "short_film":
+            mt = MediaType.SHORT_FILM
+        elif label == "silent_movie":
+            mt = MediaType.SILENT_MOVIE
+        elif label == "trailer":
+            mt = MediaType.TRAILER
+        elif label == "tv_channel":
+            mt = MediaType.TV
+        elif label == "video":
+            mt = MediaType.VIDEO
+        else:
+            mt = MediaType.GENERIC
+        return mt
 
     def register_entity(self, name, samples):
         self.feats.register_entity(name, samples)

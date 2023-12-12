@@ -5,57 +5,42 @@ from os.path import join, dirname
 from threading import RLock
 
 from ovos_bus_client.message import Message, dig_for_message
+from ovos_core.intent_services import IntentMatch
 from ovos_utils.enclosure.api import EnclosureAPI
-from ovos_utils.gui import can_use_gui
 from ovos_utils.log import LOG
+from ovos_utils.messagebus import FakeBus
 from padacioso import IntentContainer
 
-from ocp_nlp.constants import *
+from ocp_nlp.classify import BinaryPlaybackClassifier, BiasedMediaTypeClassifier, MediaTypeClassifier
+from ocp_nlp.constants import OCP_ID, MediaType, PlaybackType, PlaybackMode, PlayerState
 from ocp_nlp.search import OCPQuery
 
 
-class OCP:
-    intent2media = {
-        "music": MediaType.MUSIC,
-        "video": MediaType.VIDEO,
-        "audiobook": MediaType.AUDIOBOOK,
-        "radio": MediaType.RADIO,
-        "radio_drama": MediaType.RADIO_THEATRE,
-        "game": MediaType.GAME,
-        "tv": MediaType.TV,
-        "podcast": MediaType.PODCAST,
-        "news": MediaType.NEWS,
-        "movie": MediaType.MOVIE,
-        "short_movie": MediaType.SHORT_FILM,
-        "silent_movie": MediaType.SILENT_MOVIE,
-        "bw_movie": MediaType.BLACK_WHITE_MOVIE,
-        "documentaries": MediaType.DOCUMENTARY,
-        "comic": MediaType.VISUAL_STORY,
-        "movietrailer": MediaType.TRAILER,
-        "behind_scenes": MediaType.BEHIND_THE_SCENES,
+class OCPPipelineMatcher:
 
-    }
-    # filtered content
-    adultintents = {
-        "porn": MediaType.ADULT,
-        "hentai": MediaType.HENTAI
-    }
+    def __init__(self, bus=None, config=None, entities_path=f"{dirname(__file__)}/sparql_ocp"):
+        self.bus = bus or FakeBus()
+        self.entities_path = entities_path
+        # TODO - auto download OCP dataset to a XDG directory
 
-    def __init__(self, bus, config=None):
-        self.bus = bus
+        self.ocp_clfs = {}
+        self.m_clfs = {}
+
         self._dialogs = {}  # lang: {name: [utts]}
         self._intents = {}  # lang: {name: [utts]}
         self._vocs = {}  # lang: {name: [utts]}
+
         self.config = config or {}
         self.search_lock = RLock()
         self.player_state = PlayerState.STOPPED  # TODO - track state via bus
+
         self.pipeline_engines = {}
-        self.media_engines = {}
+
         self.enclosure = EnclosureAPI(self.bus, skill_id=OCP_ID)
+
         self.load_resource_files()
         self.register_ocp_api_events()
         self.register_ocp_intents()
-        self.register_media_intents()
 
     def load_resource_files(self):
         # TODO - filter by native languages
@@ -91,7 +76,7 @@ class OCP:
         self.bus.on("ovos.common_play.search", self.handle_search_query)
 
     def register_ocp_intents(self):
-        intents = ["play.intent", "read.intent", "open.intent",
+        intents = ["play.intent", "open.intent",
                    "next.intent", "prev.intent", "pause.intent",
                    "resume.intent"]
 
@@ -100,58 +85,143 @@ class OCP:
             for intent_name in intents:
                 samples = intent_data.get(intent_name)
                 LOG.debug(f"registering OCP intent: {intent_name}")
-                self.pipeline_engines[lang].add_intent(intent_name, samples)
+                self.pipeline_engines[lang].add_intent(
+                    intent_name.replace(".intent", ""), samples)
 
-    def register_media_intents(self):
-        """
-        NOTE: uses the same format as mycroft .intent files, language
-        support is handled the same way
-        """
-        intents = self.intent2media
-        if self.config.get("adult_content", False):
-            intents.update(self.adultintents)
+    def load_clf(self, lang):
+        if lang not in self.ocp_clfs:
+            ocp_clf = BinaryPlaybackClassifier()
+            ocp_clf.load()
+            self.ocp_clfs[lang] = ocp_clf
 
-        for lang, intent_data in self._intents.items():
-            self.media_engines[lang] = IntentContainer()
-            for intent_name in intents:
-                samples = intent_data.get(intent_name + ".intent")
-                LOG.debug(f"registering media type intent: {intent_name}")
-                self.media_engines[lang].add_intent(intent_name, samples)
+        if lang not in self.m_clfs:
+            clf1 = MediaTypeClassifier()
+            clf1.load()
+            clf = BiasedMediaTypeClassifier(clf1, lang="en", preload=True,
+                                            dataset_path=self.entities_path)  # load entities database
+            clf.load()
+            self.m_clfs[lang] = clf
+        return self.ocp_clfs[lang], self.m_clfs[lang]
 
     # pipeline
-    def match_utterance(self, utterance, lang):
-        is_intents = False
+    def match_high(self, utterance, lang):
+        """ exact matches only, handles playback control
+        recommended after high confidence intents pipeline stage """
         if lang not in self.pipeline_engines:
-            return None  # TODO - return IntentMatch
+            return None
+
         match = self.pipeline_engines[lang].calc_intent(utterance)
 
-        is_play = False  # TODO - process match
-        if is_play:
-            return self._process_play_query(utterance, lang)
-        else:  # TODO - other intents
-            pass
+        if match["name"] is None:
+            return None
+        if match["name"] == "play":
+            return self._process_play_query(utterance, lang, match)
 
-    def _process_play_query(self, utterance, lang):
-        phrase = utterance  # TODO remove the "play" from the consumed intent
+        return IntentMatch(intent_service="OCP_intents",
+                           intent_type=f'ocp:{match["name"]}',  # TODO intent event handler
+                           intent_data=match,
+                           skill_id=OCP_ID,
+                           utterance=utterance)
+
+    def match_medium(self, utterance, lang):
+        """ match a utterance via classifiers,
+        recommended before common_qa pipeline stage"""
+        ocp_clf, clf = self.load_clf(lang)
+        is_ocp = ocp_clf.predict([utterance])[0] == "OCP"
+        if not is_ocp:
+            return None
+        label, confidence = clf.predict_prob([utterance])[0]
+        mt = clf.label2media(label)
+        ents = clf.extract_entities(utterance)
+        # extract the query string
+        query = self.remove_voc(utterance, "Play", lang).strip()
+        return IntentMatch(intent_service="OCP_media",
+                           intent_type=f"ocp:play",
+                           intent_data={"media_type": mt,
+                                        "entities": ents,
+                                        "query": query,
+                                        "conf": confidence},
+                           skill_id=OCP_ID,
+                           utterance=utterance)
+
+    def match_fallback(self, utterance, lang):
+        """ match a utterance via presence of known OCP keywords,
+        recommended before fallback_low pipeline stage"""
+        ocp_clf, clf = self.load_clf(lang)
+        ents = clf.extract_entities(utterance)
+        if not ents:
+            return None
+        label, confidence = clf.predict_prob([utterance])[0]
+        mt = clf.label2media(label)
+        # extract the query string
+        query = self.remove_voc(utterance, "Play", lang).strip()
+        return IntentMatch(intent_service="OCP_fallback",
+                           intent_type=f"ocp:play",
+                           intent_data={"media_type": mt,
+                                        "entities": ents,
+                                        "query": query,
+                                        "conf": confidence},
+                           skill_id=OCP_ID,
+                           utterance=utterance)
+
+    def _process_play_query(self, utterance, lang, match):
         # if media is currently paused, empty string means "resume playback"
-        if self._should_resume(phrase, lang):
-            self.bus.emit(Message('ovos.common_play.resume'))
-            return  # TODO ret IntentMatch
-        if not phrase:
+        if self._should_resume(utterance, lang):
+            # self.bus.emit(Message('ovos.common_play.resume'))
+            return IntentMatch(intent_service="OCP_intents",
+                               intent_type=f"ocp:resume",  # TODO intent event handler
+                               intent_data=match,
+                               skill_id=OCP_ID,
+                               utterance=utterance)
+
+        if not utterance:
+            # user just said "play", we missed the search query somehow
             phrase = self.get_response("play.what")  # TODO - port this method
             if not phrase:
                 # TODO some dialog ?
-                self.bus.emit(Message('ovos.common_play.stop'))
-                return  # TODO ret IntentMatch
+                # self.bus.emit(Message('ovos.common_play.stop'))
+                return IntentMatch(intent_service="OCP_intents",
+                                   intent_type=f"ocp:stop",  # TODO intent event handler
+                                   intent_data=match,
+                                   skill_id=OCP_ID,
+                                   utterance=utterance)
 
         # classify the query media type
         media_type = self.classify_media(utterance, lang)
 
-        # search common play skills
-        results = self._search(phrase, utterance, media_type, lang)
-        self._do_play(phrase, lang, results, media_type)
-        return  # TODO ret IntentMatch
+        # extract the query string
+        query = self.remove_voc(utterance, "Play", lang).strip()
 
+        ocp_clf, clf = self.load_clf(lang)
+        ents = clf.extract_entities(utterance)
+
+        # search common play skills
+        # results = self._search(utterance, media_type, lang)
+        # self._do_play(utterance, lang, results, media_type)
+        return IntentMatch(intent_service="OCP_intents",
+                           intent_type=f"ocp:play",  # TODO intent event handler
+                           intent_data={"media_type": media_type,
+                                        "query": query,
+                                        "entities": ents,
+                                        "conf": match["conf"],
+                                        # "results": results,
+                                        "lang": lang},
+                           skill_id=OCP_ID,
+                           utterance=utterance)
+
+    # bus api
+    def handle_search_query(self, message):
+        utterance = message.data["utterance"]
+        phrase = message.data.get("query", "") or utterance
+        lang = message.data.get("lang") or message.context.get("session", {}).get("lang", "en-us")
+        LOG.debug(f"Handle {message.msg_type} request: {phrase}")
+        num = message.data.get("number", "")
+        if num:
+            phrase += " " + num
+
+        self._process_play_query(phrase, lang)
+
+    # intent handlers
     def _do_play(self, phrase, lang, results, media_type=MediaType.GENERIC):
         self.bus.emit(Message('ovos.common_play.reset'))
         LOG.debug(f"Playing {len(results)} results for: {phrase}")
@@ -171,56 +241,20 @@ class OCP:
                                    'word': "",
                                    'origin': OCP_ID}))
 
-    # bus api
-    def handle_search_query(self, message):
-        utterance = message.data["utterance"]
-        phrase = message.data.get("query", "") or utterance
-        lang = message.data.get("lang") or message.context.get("session", {}).get("lang", "en-us")
-        LOG.debug(f"Handle {message.msg_type} request: {phrase}")
-        num = message.data.get("number", "")
-        if num:
-            phrase += " " + num
-
-        self._process_play_query(phrase, lang)
-
-    # intent handlers
-    def handle_read(self, message):
-        # "read XXX" - non "play XXX" audio book intent
-        utterance = message.data["utterance"]
-        phrase = message.data.get("query", "") or utterance
-        lang = message.data.get("lang") or message.context.get("session", {}).get("lang", "en-us")
-        # search common play skills
-        results = self._search(phrase, utterance, MediaType.AUDIOBOOK, lang)
-        self._do_play(phrase, lang, results, MediaType.AUDIOBOOK)
-
     # NLP
     def classify_media(self, query, lang):
-        """ this method uses a strict regex based parser to determine what
-        media type is being requested, this helps in the media process
-        - only skills that support media type are considered
-        - if no matches a generic media is performed
-        - some skills only answer for specific media types, usually to avoid over matching
-        - skills may use media type to calc confidence
-        - skills may ignore media type
+        """ determine what media type is being requested """
 
-        NOTE: uses the same format as mycroft .intent files, language
-        support is handled the same way
-        """
-        if lang not in self.media_engines:
-            return MediaType.GENERIC
         if self.voc_match(query, "audio_only", lang=lang):
             query = self.remove_voc(query, "audio_only", lang=lang).strip()
         elif self.voc_match(query, "video_only", lang=lang):
             query = self.remove_voc(query, "video_only", lang=lang)
 
-        pred = self.media_engines[lang].calc_intent(query)
-        LOG.info(f"OVOSCommonPlay MediaType prediction: {pred}")
+        ocp_clf, clf = self.load_clf(lang)
+        label, confidence = clf.predict_prob([query])[0]
+        LOG.info(f"OVOSCommonPlay MediaType prediction: {label}")
         LOG.debug(f"     utterance: {query}")
-        intent = pred.get("name", "")
-        if intent in self.intent2media:
-            return self.intent2media[intent]
-        LOG.debug("Generic OVOSCommonPlay query")
-        return MediaType.GENERIC
+        return clf.label2media(label)
 
     def _should_resume(self, phrase: str, lang: str) -> bool:
         """
@@ -325,8 +359,12 @@ class OCP:
         m.context["skill_id"] = OCP_ID
         self.bus.emit(m)
 
+    def get_response(self, dialog):
+        return None  # TODO port this method from workshop
+
     # search
-    def _search(self, phrase, utterance, media_type, lang: str):
+    def _search(self, phrase, media_type, lang: str):
+
         self.enclosure.mouth_think()
         # check if user said "play XXX audio only/no video"
         audio_only = False
@@ -335,8 +373,7 @@ class OCP:
             audio_only = True
             # dont include "audio only" in search query
             phrase = self.remove_voc(phrase, "audio_only", lang=lang)
-            # dont include "audio only" in media type classification
-            utterance = self.remove_voc(utterance, "audio_only", lang=lang).strip()
+
         elif self.voc_match(phrase, "video_only", lang=lang):
             video_only = True
             # dont include "video only" in search query
@@ -345,7 +382,6 @@ class OCP:
         # Now we place a query on the messsagebus for anyone who wants to
         # attempt to service a 'play.request' message.
         results = []
-        phrase = phrase or utterance
         for r in self._execute_query(phrase, media_type=media_type):
             results += r["results"]
         LOG.debug(f"Got {len(results)} results")
@@ -375,13 +411,6 @@ class OCP:
             # filter audio only streams
             results = [r for r in results
                        if r["playback"] == PlaybackType.VIDEO]
-
-        # filter video results if GUI not connected
-        elif not can_use_gui(self.bus):
-            LOG.info("unable to use GUI, filtering non-audio results")
-            # filter video only streams
-            results = [r for r in results
-                       if r["playback"] in [PlaybackType.AUDIO, PlaybackType.SKILL]]
 
         LOG.debug(f"Returning {len(results)} results")
         return results
@@ -458,3 +487,37 @@ class OCP:
         LOG.debug(f"OVOSCommonPlay selected: {selected['skill_id']} - "
                   f"{selected['match_confidence']}")
         return selected
+
+
+if __name__ == "__main__":
+
+    ocp = OCPPipelineMatcher()
+    print(ocp.match_high("play metallica", "en-us"))
+    # IntentMatch(intent_service='OCP_intents',
+    #   intent_type='ocp:play',
+    #   intent_data={'media_type': <MediaType.MUSIC: 2>, 'query': 'metallica',
+    #                'entities': {'album_name': 'Metallica', 'artist_name': 'Metallica'},
+    #                'conf': 0.96, 'lang': 'en-us'},
+    #   skill_id='ovos.common_play', utterance='play metallica')
+    print(ocp.match_high("put on some metallica", "en-us"))
+    # None
+
+    print(ocp.match_medium("put on some metallica", "en-us"))
+    # IntentMatch(intent_service='OCP_media',
+    #   intent_type='ocp:play',
+    #   intent_data={'media_type': <MediaType.MUSIC: 2>,
+    #                'entities': {'album_name': 'Metallica', 'artist_name': 'Metallica', 'movie_name': 'Some'},
+    #                'query': 'put on some metallica',
+    #                'conf': 0.9578441098114333},
+    #   skill_id='ovos.common_play', utterance='put on some metallica')
+    print(ocp.match_medium("i wanna hear metallica", "en-us"))
+    # None
+
+    print(ocp.match_fallback("i wanna hear metallica", "en-us"))
+    #  IntentMatch(intent_service='OCP_fallback',
+    #    intent_type='ocp:play',
+    #    intent_data={'media_type': <MediaType.MUSIC: 2>,
+    #                 'entities': {'album_name': 'Metallica', 'artist_name': 'Metallica'},
+    #                 'query': 'i wanna hear metallica',
+    #                 'conf': 0.5027561091821287},
+    #    skill_id='ovos.common_play', utterance='i wanna hear metallica')

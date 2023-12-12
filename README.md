@@ -36,18 +36,66 @@ uses padacioso for exact matches
 - play / resume (media needs to be loaded)
 - stop (media needs to be loaded)
 
-### Layer 2 - Ambiguous
+```python
+from ocp_nlp.intents import OCPPipelineMatcher
 
-Using adapt keyword matching for flexibility, runs after high confidence intents
+ocp = OCPPipelineMatcher()
+print(ocp.match_high("play metallica", "en-us"))
+# IntentMatch(intent_service='OCP_intents',
+#   intent_type='ocp:play',
+#   intent_data={'media_type': <MediaType.MUSIC: 2>, 'query': 'metallica',
+#                'entities': {'album_name': 'Metallica', 'artist_name': 'Metallica'},
+#                'conf': 0.96, 'lang': 'en-us'},
+#   skill_id='ovos.common_play', utterance='play metallica')
 
-these intents require a play verb + at least one of media_type, media_genre or media_name (from database of registered results)
+```
 
-OCP skills can provide these keywords at runtime, additional keywords for things such as media_genre were collected via SPARQL queries to wikidata
-
-### Layer 3 - Fallback / CommonQA
+### Layer 2 - Semi-Ambiguous
 
 uses a binary classifier to detect if a query is about media playback
 
+```python
+from ocp_nlp.intents import OCPPipelineMatcher
+
+ocp = OCPPipelineMatcher()
+
+print(ocp.match_high("put on some metallica", "en-us"))
+# None
+
+print(ocp.match_medium("put on some metallica", "en-us"))
+# IntentMatch(intent_service='OCP_media',
+#   intent_type='ocp:play',
+#   intent_data={'media_type': <MediaType.MUSIC: 2>,
+#                'entities': {'album_name': 'Metallica', 'artist_name': 'Metallica', 'movie_name': 'Some'},
+#                'query': 'put on some metallica',
+#                'conf': 0.9578441098114333},
+#   skill_id='ovos.common_play', utterance='put on some metallica')
+```
+
+### Layer 3 - Ambiguous
+
+Uses keyword matching and requires at least 1 keyword
+
+OCP skills can provide these keywords at runtime, additional keywords for things such as media_genre were collected via SPARQL queries to wikidata
+
+```python
+from ocp_nlp.intents import OCPPipelineMatcher
+
+ocp = OCPPipelineMatcher()
+
+print(ocp.match_medium("i wanna hear metallica", "en-us"))
+# None
+
+print(ocp.match_fallback("i wanna hear metallica", "en-us"))
+#  IntentMatch(intent_service='OCP_fallback',
+#    intent_type='ocp:play',
+#    intent_data={'media_type': <MediaType.MUSIC: 2>,
+#                 'entities': {'album_name': 'Metallica', 'artist_name': 'Metallica'},
+#                 'query': 'i wanna hear metallica',
+#                 'conf': 0.5027561091821287},
+#    skill_id='ovos.common_play', utterance='i wanna hear metallica')
+
+```
 
 ## Classifiers
 
@@ -73,18 +121,21 @@ class MediaType:
     TV = 9  # live tv stream
     MOVIE = 10
     TRAILER = 11
+    AUDIO_DESCRIPTION = 12  # narrated movie for the blind
     VISUAL_STORY = 13  # things like animated comic books
     BEHIND_THE_SCENES = 14
     DOCUMENTARY = 15
-    RADIO_THEATRE = 16  # unlike audiobooks usually contain a diverse cast and full audio production
+    RADIO_THEATRE = 16
     SHORT_FILM = 17  # typically movies under 45 min
     SILENT_MOVIE = 18
     VIDEO_EPISODES = 19  # tv series etc
     BLACK_WHITE_MOVIE = 20
     CARTOON = 21
+    ANIME = 22
 
-    ADULT = 69  # for content filtering # for content filtering
-    HENTAI = 70  # for content filtering # for content filtering
+    ADULT = 69  # for content filtering
+    HENTAI = 70  # for content filtering
+    ADULT_AUDIO = 71  # for content filtering
 ```
 
 ### Binary classifier

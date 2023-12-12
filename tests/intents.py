@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from ocp_nlp.intents import OCP
+from ocp_nlp.intents import OCPPipelineMatcher
 from ocp_nlp.constants import MediaType
 from ovos_bus_client.message import Message
 
@@ -9,7 +9,7 @@ class TestOCP(unittest.TestCase):
 
     def setUp(self):
         self.bus = MagicMock()
-        self.ocp = OCP(self.bus)
+        self.ocp = OCPPipelineMatcher(self.bus)
 
     def test_load_resource_files(self):
         self.ocp.load_resource_files()
