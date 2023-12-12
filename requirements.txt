@@ -2,3 +2,4 @@ ovos-workshop
 padacioso
 ovos-classifiers
 scikit-learn
+pyahocorasick

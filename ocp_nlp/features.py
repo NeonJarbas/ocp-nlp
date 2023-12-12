@@ -1,6 +1,7 @@
 import os
 from os.path import dirname
 
+import ahocorasick
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 from unidecode import unidecode
@@ -23,20 +24,23 @@ class KeywordFeatures:
              @ocp_genre_search
     """
 
-    def __init__(self, lang, path=None, ignore_list=None, preload=False):
+    def __init__(self, lang, path=None, ignore_list=None, preload=False, debug=True):
         self.lang = lang
         path = path or f"{dirname(__file__)}/sparql_ocp"
         if ignore_list is None and lang == "en":
             # books/movies etc with this name exist, ignore them
             ignore_list = ["play", "search", "listen", "movie"]
         self.ignore_list = ignore_list or []  # aka stop_words
+        self.bias = {}  # just for logging
+        self.debug = debug
+        self.automatons = {}
+        self._needs_building = []
         if path and preload:
             self.entities = self.load_entities(path)
             self.templates = self.load_templates(path)
         else:
             self.entities = {}
             self.templates = {}
-        self.bias = {}  # just for logging
 
     def register_entity(self, name, samples):
         """ register runtime entity samples,
@@ -47,6 +51,13 @@ class KeywordFeatures:
         if name not in self.bias:
             self.bias[name] = []
         self.bias[name] += samples
+
+        if name not in self.automatons:
+            self.automatons[name] = ahocorasick.Automaton()
+        for s in samples:
+            self.automatons[name].add_word(s.lower(), s)
+
+        self._needs_building.append(name)
 
     def load_entities(self, path):
         path = f"{path}/{self.lang}"
@@ -75,6 +86,13 @@ class KeywordFeatures:
                     if s:
                         s = unidecode(s)
                         ents[n].append(s)
+
+        for k, samples in ents.items():
+            self._needs_building.append(k)
+            if k not in self.automatons:
+                self.automatons[k] = ahocorasick.Automaton()
+            for s in samples:
+                self.automatons[k].add_word(s.lower(), s)
 
         return ents
 
@@ -110,27 +128,44 @@ class KeywordFeatures:
                     ents[n].append(g.replace("{query}", "{" + n + "_name}"))
         return ents
 
+    def match(self, utt):
+        for k, automaton in self.automatons.items():
+            if k in self._needs_building:
+                automaton.make_automaton()
+
+        self._needs_building = []
+
+        utt = utt.lower().strip(".!?,;:")
+
+        for k, automaton in self.automatons.items():
+            for idx, v in automaton.iter(utt):
+                if v.lower() in self.ignore_list:
+                    continue
+                # filter partial words
+                if " " not in v:
+                    if v.lower() not in utt.split(" "):
+                        continue
+                if v.lower() + " " in utt or utt.endswith(v.lower()):
+                    yield k, v
+
     def extract(self, sentence, as_bool=False):
         match = {}
-        for ent, samples in self.entities.items():
-            ent = ent.split("_Q")[0].split(".entity")[0]
-            for s in [_ for _ in samples if len(_) > 3 and _.lower() not in self.ignore_list]:
-                if s.lower() + " " in sentence.lower() or \
-                        sentence.lower().strip(".!?,;:").endswith(s.lower()):
-                    if ent in match:
-                        if len(s) > len(match[ent]):
-                            match[ent] = s
-                    else:
-                        match[ent] = s
-            if as_bool and ent not in match:
-                match[ent] = ""
-        for k, v in match.items():
-            if k in self.bias:
-                for s in self.bias[k]:
-                    if s in sentence:
-                        print("BIAS", k, "because of:", s)
+        for k, v in self.match(sentence):
+            if k not in match:
+                match[k] = v
+            elif len(v) > len(match[k]):
+                match[k] = v
+
+        if self.debug:
+            for k, v in match.items():
+                if k in self.bias:
+                    for s in self.bias[k]:
+                        if s in sentence:
+                            print("BIAS", k, "because of:", s)
+
         if as_bool:
-            return {k: str(bool(v)) for k, v in match.items()}
+            return {k: bool(v) for k, v in match.items()}
+
         return match
 
 
@@ -168,29 +203,30 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
         self.lang = lang
         self._transformer = MediaFeaturesTransformer(lang=lang, preload=preload, dataset_path=dataset_path)
         # NOTE: changing this list requires retraining the classifier
-        self.labels_index = ['season_number', 'episode_number', 'film_genre', 'cartoon_genre',
-                             'news_streaming_service', 'media_type_documentary', 'media_type_adult',
-                             'media_type_bw_movie', 'podcast_genre', 'comic_streaming_service', 'music_genre',
-                             'media_type_video_episodes', 'anime_genre', 'media_type_audio', 'media_type_bts',
-                             'media_type_silent_movie', 'audiobook_streaming_service', 'radio_drama_genre',
-                             'media_type_podcast', 'radio_theatre_company', 'media_type_short_film', 'media_type_movie',
-                             'news_provider',
+        # MediaFeaturesTransformer(dataset_path="...").get_entity_names()
+        self.labels_index = ['season_number', 'episode_number', 'film_genre', 'cartoon_genre', 'news_streaming_service',
+                             'media_type_documentary', 'media_type_adult', 'media_type_bw_movie', 'podcast_genre',
+                             'comic_streaming_service', 'music_genre', 'media_type_video_episodes', 'anime_genre',
+                             'media_type_audio', 'media_type_bts', 'media_type_silent_movie',
+                             'audiobook_streaming_service', 'radio_drama_genre', 'media_type_podcast',
+                             'radio_theatre_company', 'media_type_short_film', 'media_type_movie', 'news_provider',
                              'documentary_genre', 'radio_theatre_streaming_service', 'podcast_streaming_service',
-                             'media_type_tv', 'comic_name', 'media_type_news', 'media_type_music',
-                             'media_type_cartoon', 'documentary_streaming_service', 'cartoon_streaming_service',
-                             'anime_streaming_service', 'media_type_hentai', 'movie_streaming_service',
-                             'media_type_trailer', 'shorts_streaming_service', 'video_genre', 'porn_streaming_service',
-                             'playback_device', 'media_type_game', 'playlist_name', 'media_type_video',
-                             'media_type_visual_story', 'media_type_radio_theatre', 'media_type_audiobook',
-                             'porn_genre', 'book_genre', 'media_type_anime', 'sound', 'media_type_radio', 'album_name',
-                             'country_name', 'generic_streaming_service', 'tv_streaming_service', 'radio_drama_name',
-                             'film_studio', 'video_streaming_service', 'short_film_name', 'tv_channel',
-                             'youtube_channel', 'bw_movie_name', 'radio_drama', 'radio_program_name', 'game_name',
-                             'series_name', 'artist_name', 'tv_genre', 'hentai_name', 'podcast_name',
-                             'music_streaming_service', 'silent_movie_name', 'book_name', 'gaming_console_name',
-                             'record_label', 'radio_streaming_service', 'game_genre', 'anime_name', 'documentary_name',
-                             'cartoon_name', 'audio_genre', 'song_name', 'movie_name', 'porn_film_name', 'comics_genre',
-                             'radio_program', 'porn_site', 'pornstar_name']
+                             'media_type_tv', 'comic_name', 'media_type_adult_audio', 'media_type_news',
+                             'media_type_music', 'media_type_cartoon', 'documentary_streaming_service',
+                             'cartoon_streaming_service', 'anime_streaming_service', 'media_type_hentai',
+                             'movie_streaming_service', 'media_type_trailer', 'shorts_streaming_service', 'video_genre',
+                             'porn_streaming_service', 'playback_device', 'media_type_game', 'playlist_name',
+                             'media_type_video', 'media_type_visual_story', 'media_type_radio_theatre',
+                             'media_type_audiobook', 'porn_genre', 'book_genre', 'media_type_anime', 'sound',
+                             'media_type_radio', 'album_name', 'country_name', 'generic_streaming_service',
+                             'tv_streaming_service', 'radio_drama_name', 'film_studio', 'video_streaming_service',
+                             'short_film_name', 'tv_channel', 'youtube_channel', 'bw_movie_name', 'audiobook_narrator',
+                             'radio_drama', 'radio_program_name', 'game_name', 'series_name', 'artist_name', 'tv_genre',
+                             'hentai_name', 'podcast_name', 'music_streaming_service', 'silent_movie_name', 'book_name',
+                             'gaming_console_name', 'book_author', 'record_label', 'radio_streaming_service',
+                             'game_genre', 'anime_name', 'documentary_name', 'cartoon_name', 'audio_genre', 'song_name',
+                             'movie_name', 'porn_film_name', 'comics_genre', 'radio_program', 'porn_site',
+                             'pornstar_name']
 
     def register_entity(self, name, samples):
         """ register runtime entity samples,
@@ -205,7 +241,7 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
         for match in self._transformer.transform(X):
             feats = []
             for label in self.labels_index:
-                if match.get(label) == "True":
+                if match.get(label):
                     feats.append(1)
                 else:
                     feats.append(0)
@@ -216,9 +252,11 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
 
 if __name__ == "__main__":
     # download dataset from https://github.com/NeonJarbas/OCP-dataset
+    dataset_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/sparql_ocp"
+    print(MediaFeaturesTransformer(dataset_path=dataset_path).get_entity_names())
 
     # using feature extractor standalone
-    l = KeywordFeatures(lang="en", path=f"{dirname(__file__)}/sparql_ocp")
+    l = KeywordFeatures(lang="en", path=dataset_path, preload=True)
 
     print(l.extract("play metallica"))
     # {'album_name': 'Metallica', 'artist_name': 'Metallica'}

@@ -8,6 +8,7 @@ from ovos_classifiers.skovos.tagger import SklearnOVOSClassifier
 from sklearn.svm import SVC
 
 from ocp_nlp.features import MediaFeaturesVectorizer
+from ocp_nlp.utils import ParallelWorkers
 
 
 class _OCPClassifier:
@@ -48,12 +49,13 @@ class _OCPClassifier:
         path = join(model_folder, f"{self.model_name}_{self.lang}.clf")
         self.clf.save(path)
 
+        # from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
         # predictions = self.clf.predict(X_test)
         # cm = confusion_matrix(y_test, predictions, labels=self.clf.clf.classes_)
         # disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=self.clf.clf.classes_)
         # disp.plot()
         # import matplotlib.pyplot as plt
-        # plt.savefig('simple_cm.png')
+        # plt.savefig(f'{self.model_name}_cm.png')
         return acc
 
     def load(self, model_folder=None):
@@ -89,6 +91,8 @@ class BiasedMediaTypeClassifier:
         self.feats.register_entity(name, samples)
 
     def transform(self, X):
+        if isinstance(X, str):
+            X = [X]
         feats1 = self.feats.transform(X)
         feats2 = self.base_clf.transform(X)
         X2 = []
@@ -140,6 +144,22 @@ class BiasedMediaTypeClassifier:
 
         return acc
 
+    def transform_from_precomputed(self, X, tagged_sents):
+        feats1 = []
+        for s in X:
+            if s not in tagged_sents:
+                f = self.feats.transform([s])[0]
+            else:
+                f = tagged_sents[s]
+            feats1.append(f)
+
+        feats2 = self.base_clf.transform(X)
+        X2 = []
+        for f1, f2 in zip(feats1, feats2):
+            f = np.hstack((f1, f2))
+            X2.append(f)
+        return np.array(X2)
+
     def precompute_features(self, csv_path, model_folder=None):
         model_folder = model_folder or f"{dirname(__file__)}/models"
         makedirs(model_folder, exist_ok=True)
@@ -151,36 +171,47 @@ class BiasedMediaTypeClassifier:
             random.shuffle(lines)
 
         X = [_[1] for _ in lines]
-        y = [_[0] for _ in lines]
 
-        print('computing features, this might take a while')
+        print('tagging dataset, this might take a while')
 
-        X = self.transform(X)
+        def heavy_work(u):
+            f = self.feats.transform([u])[0]
+            return f
 
-        print('Features computed')
+        t = ParallelWorkers()
+        # t.workers = 26
+        tagged_sents = t.do_work(X, heavy_work)
+
+        print('dataset tagged')
 
         # save pickle
-        xpath = join(model_folder, f"media_type_{self.lang}.X")
-        joblib.dump(X, xpath)
-        ypath = join(model_folder, f"media_type_{self.lang}.y")
-        joblib.dump(y, ypath)
-        return xpath, ypath
+        xpath = join(model_folder, f"tagged_sentences.X")
+        joblib.dump(tagged_sents, xpath)
+        return xpath
 
-    def train_from_precomputed(self, model_folder=None):
+    def train_from_precomputed(self, csv_path, model_folder=None):
         model_folder = model_folder or f"{dirname(__file__)}/models"
 
         print("loading pre computed features")
 
-        xpath = join(model_folder, f"media_type_{self.lang}.X")
-        X = joblib.load(xpath)
-        ypath = join(model_folder, f"media_type_{self.lang}.y")
-        y = joblib.load(ypath)
+        path = join(model_folder, f"tagged_sentences.X")
+        tagged_sents = joblib.load(path)
 
-        thresh = int(0.8 * len(X))
-        X_test = X[thresh:]
-        y_test = y[thresh:]
-        X = X[:thresh]
-        y = y[:thresh]
+        with open(csv_path) as f:
+            lines = f.read().split("\n")[1:]
+            random.shuffle(lines)
+            lines = [l.split(",") for l in lines if len(l.split(",")) == 2]
+            random.shuffle(lines)
+
+        thresh = int(0.8 * len(lines))
+        train = lines[:thresh]
+        test = lines[thresh:]
+        X = [_[1] for _ in train]
+        X_test = [_[1] for _ in test]
+        y = [_[0] for _ in train]
+        y_test = [_[0] for _ in test]
+
+        X = self.transform_from_precomputed(X, tagged_sents)
 
         self.clf.fit(X, y)
 
@@ -189,19 +220,20 @@ class BiasedMediaTypeClassifier:
         # save pickle
         path = join(model_folder, f"biased_svc_media_type_{self.lang}.clf")
         joblib.dump(self.clf, path)
-        # self.clf.save(path)
 
+        X_test = self.transform_from_precomputed(X_test, tagged_sents)
         acc = self.clf.score(X_test, y_test)
 
         print("Accuracy:", acc)
         # Accuracy:  0.88
 
-        # predictions = self.clf.predict(X_test)
-        # cm = confusion_matrix(y_test, predictions, labels=self.clf.classes_)
-        # disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=self.clf.classes_)
-        # disp.plot()
-        # import matplotlib.pyplot as plt
-        # plt.savefig('biased_cm.png')
+        #from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+        #predictions = self.clf.predict(X_test)
+        #cm = confusion_matrix(y_test, predictions, labels=self.clf.classes_)
+        #disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=self.clf.classes_)
+        #disp.plot()
+        #import matplotlib.pyplot as plt
+        #plt.savefig('biased_cm.png')
 
         return acc
 
@@ -238,30 +270,31 @@ if __name__ == "__main__":
                        "tell me a joke", "who are you", "you suck"])
     print(preds)  # ['OCP' 'OCP' 'OCP' 'other' 'other' 'other']
 
-    csv_path = f"/home/miro/PycharmProjects/OCP-dataset/dataset.csv"
-    entities_path = f"/home/miro/PycharmProjects/OCP-dataset/sparql_ocp"
+    csv_path = f"/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/dataset.csv"
+    entities_path = f"/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/sparql_ocp"
 
     # basic text only classifier
     clf1 = MediaTypeClassifier()
-    clf1.train(csv_path)  # Accuracy: 0.7473269555430501
+    # clf1.train(csv_path)  # Accuracy: 0.8489847715736041
     clf1.load()
 
     label, confidence = clf1.predict_prob(["play metallica"])[0]
-    print(label, confidence)  # [('music', 0.28702889685755173)]
+    print(label, confidence)  # [('music', 0.3818757631643521)]
 
     # keyword biased classifier, uses the above internally for extra features
     clf = BiasedMediaTypeClassifier(clf1, lang="en",
                                     preload=True, dataset_path=entities_path)  # load entities database
 
-    # clf.precompute_features(csv_path)
-    clf.train_from_precomputed()  # Accuracy: 0.8868880135059088
-    clf.load()
+    #clf.precompute_features(csv_path)
+
+    clf.train_from_precomputed(csv_path)  # Accuracy: 0.9809644670050761
+    #clf.load()
 
     # klownevilus is an unknown entity
     label, confidence = clf.predict_prob(["play klownevilus"])[0]
-    print(label, confidence)  # music 0.3398020446925623
+    print(label, confidence)  # music 0.2517992708279099
 
     # probability increases for movie
     clf.register_entity("movie_name", ["klownevilus"])  # movie correctly predicted now
     label, confidence = clf.predict_prob(["play klownevilus"])[0]
-    print(label, confidence)  # movie 0.540225616798516
+    print(label, confidence)  # movie 0.3957754156588387
