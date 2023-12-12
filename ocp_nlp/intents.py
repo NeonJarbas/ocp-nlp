@@ -7,6 +7,7 @@ from ovos_bus_client.message import Message
 from ovos_core.intent_services import IntentMatch
 from ovos_utils.log import LOG
 from ovos_utils.messagebus import FakeBus
+from ovos_utils.skills.audioservice import OCPInterface
 from ovos_workshop.app import OVOSAbstractApplication
 from padacioso import IntentContainer
 
@@ -26,6 +27,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
 
         self.ocp_clfs = {}
         self.m_clfs = {}
+        self.ocp_api = OCPInterface(self.bus)
 
         self.config = config or {}
         self.search_lock = RLock()
@@ -72,6 +74,14 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
                 LOG.debug(f"registering OCP intent: {intent_name}")
                 self.pipeline_engines[lang].add_intent(
                     intent_name.replace(".intent", ""), samples)
+
+        self.bus.on("ocp:play", self.handle_play_intent)
+        self.bus.on("ocp:open", self.handle_open_intent)
+        self.bus.on("ocp:next", self.handle_next_intent)
+        self.bus.on("ocp:prev", self.handle_prev_intent)
+        self.bus.on("ocp:pause", self.handle_pause_intent)
+        self.bus.on("ocp:resume", self.handle_resume_intent)
+        self.bus.on("ocp:search_error", self.handle_search_error_intent)
 
     def handle_player_state_update(self, message):
         """
@@ -132,7 +142,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
             return None
 
         return IntentMatch(intent_service="OCP_intents",
-                           intent_type=f'ocp:{match["name"]}',  # TODO intent event handler
+                           intent_type=f'ocp:{match["name"]}',
                            intent_data=match,
                            skill_id=OCP_ID,
                            utterance=utterance)
@@ -182,21 +192,19 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         # if media is currently paused, empty string means "resume playback"
         if self.player_state == PlayerState.PAUSED and \
                 self._should_resume(utterance, lang):
-            # self.bus.emit(Message('ovos.common_play.resume'))
             return IntentMatch(intent_service="OCP_intents",
-                               intent_type=f"ocp:resume",  # TODO intent event handler
+                               intent_type=f"ocp:resume",
                                intent_data=match,
                                skill_id=OCP_ID,
                                utterance=utterance)
 
         if not utterance:
-            # user just said "play", we missed the search query somehow
-            phrase = self.get_response("play.what")  # TODO - port this method
+            # user just said "play", we are missing the search query
+            phrase = self.get_response("play.what")
             if not phrase:
-                # TODO some dialog ?
-                # self.bus.emit(Message('ovos.common_play.stop'))
+                # let the error intent handler take action
                 return IntentMatch(intent_service="OCP_intents",
-                                   intent_type=f"ocp:stop",  # TODO intent event handler
+                                   intent_type=f"ocp:search_error",
                                    intent_data=match,
                                    skill_id=OCP_ID,
                                    utterance=utterance)
@@ -210,11 +218,8 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         ocp_clf, clf = self.load_clf(lang)
         ents = clf.extract_entities(utterance)
 
-        # search common play skills
-        # results = self._search(utterance, media_type, lang)
-        # self._do_play(utterance, lang, results, media_type)
         return IntentMatch(intent_service="OCP_intents",
-                           intent_type=f"ocp:play",  # TODO intent event handler
+                           intent_type=f"ocp:play",
                            intent_data={"media_type": media_type,
                                         "query": query,
                                         "entities": ents,
@@ -234,10 +239,46 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         if num:
             phrase += " " + num
 
-        self._process_play_query(phrase, lang, {"conf": 0.99})
+        # classify the query media type
+        media_type = self.classify_media(utterance, lang)
+
+        # search common play skills
+        results = self._search(phrase, media_type, lang)
+        best = self.select_best(results)
+        self.bus.emit(message.response(data={"results": results, "best": best}))
 
     # intent handlers
-    def _do_play(self, phrase, lang, results, media_type=MediaType.GENERIC):
+    def handle_play_intent(self, message: Message):
+        lang = message.data["lang"]
+        query = message.data["query"]
+        media_type = message.data["media_type"]
+
+        # search common play skills
+        results = self._search(query, media_type, lang)
+
+        # tell OCP to play
+        self._do_play(query, results, media_type)
+
+    def handle_open_intent(self, message: Message):
+        pass  # TODO - show gui
+
+    def handle_next_intent(self, message: Message):
+        self.ocp_api.next()
+
+    def handle_prev_intent(self, message: Message):
+        self.ocp_api.prev()
+
+    def handle_pause_intent(self, message: Message):
+        self.ocp_api.pause()
+
+    def handle_resume_intent(self, message: Message):
+        self.ocp_api.resume()
+
+    def handle_search_error_intent(self, message: Message):
+        self.speak_dialog("play.not.understood")
+        self.ocp_api.stop()
+
+    def _do_play(self, phrase, results, media_type=MediaType.GENERIC):
         self.bus.emit(Message('ovos.common_play.reset'))
         LOG.debug(f"Playing {len(results)} results for: {phrase}")
         if not results:
@@ -248,13 +289,13 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
             best = self.select_best(results)
             results = [r for r in results if r != best]
             results.insert(0, best)
-            self.bus.emit(Message("ovos.common_play.play",
-                                  {"media": best, "disambiguation": results}))
-            self.enclosure.mouth_reset()  # TODO display music icon in mk1
             self.bus.emit(Message('add_context',
                                   {'context': "Playing",
                                    'word': "",
                                    'origin': OCP_ID}))
+
+            # ovos-PHAL-plugin-mk1 will display music icon in response to play message
+            self.ocp_api.play(results, phrase)
 
     # NLP
     def classify_media(self, query, lang):
@@ -278,7 +319,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         @param phrase: Extracted playback phrase
         @return: True if player should resume, False if this is a new request
         """
-        if self.player_state == PlayerState.PAUSED:  # TODO - track state via bus
+        if self.player_state == PlayerState.PAUSED:
             if not phrase.strip() or \
                     self.voc_match(phrase, "Resume", lang=lang, exact=True) or \
                     self.voc_match(phrase, "Play", lang=lang, exact=True):
@@ -288,7 +329,8 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
     # search
     def _search(self, phrase, media_type, lang: str):
 
-        self.enclosure.mouth_think()
+        self.enclosure.mouth_think()  # animate mk1 mouth during search
+
         # check if user said "play XXX audio only/no video"
         audio_only = False
         video_only = False
