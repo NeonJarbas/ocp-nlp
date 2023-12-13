@@ -1,30 +1,26 @@
+from os.path import join, dirname
+
 import os
 import random
-from os.path import join, dirname
-from threading import RLock
-
 from ovos_bus_client.message import Message
-from ovos_core.intent_services import IntentMatch
 from ovos_utils.log import LOG
 from ovos_utils.messagebus import FakeBus
 from ovos_utils.skills.audioservice import OCPInterface
-from ovos_workshop.app import OVOSAbstractApplication
 from padacioso import IntentContainer
+from threading import RLock
 
 from ocp_nlp.classify import BinaryPlaybackClassifier, BiasedMediaTypeClassifier, MediaTypeClassifier
 from ocp_nlp.constants import OCP_ID, MediaType, PlaybackType, PlaybackMode, PlayerState
 from ocp_nlp.search import OCPQuery
+from ovos_core.intent_services import IntentMatch
+from ovos_workshop.app import OVOSAbstractApplication
 
 
 class OCPPipelineMatcher(OVOSAbstractApplication):
 
-    def __init__(self, bus=None, config=None, entities_path=f"{dirname(__file__)}/sparql_ocp"):
+    def __init__(self, bus=None, config=None):
         super().__init__(skill_id=OCP_ID, bus=bus or FakeBus(),
                          resources_dir=f"{dirname(__file__)}")
-
-        self.entities_path = entities_path
-        # TODO - auto download OCP dataset to a XDG directory
-
         self.ocp_clfs = {}
         self.m_clfs = {}
         self.ocp_api = OCPInterface(self.bus)
@@ -65,7 +61,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
 
         intents = ["play.intent", "open.intent",
                    "next.intent", "prev.intent", "pause.intent",
-                   "resume.intent"]
+                   "resume.intent", "stop.intent"]
 
         for lang, intent_data in intent_files.items():
             self.pipeline_engines[lang] = IntentContainer()
@@ -81,6 +77,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         self.bus.on("ocp:prev", self.handle_prev_intent)
         self.bus.on("ocp:pause", self.handle_pause_intent)
         self.bus.on("ocp:resume", self.handle_resume_intent)
+        self.bus.on("ocp:stop", self.handle_stop_intent)
         self.bus.on("ocp:search_error", self.handle_search_error_intent)
 
     def handle_player_state_update(self, message):
@@ -115,8 +112,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         if lang not in self.m_clfs:
             clf1 = MediaTypeClassifier()
             clf1.load()
-            clf = BiasedMediaTypeClassifier(clf1, lang="en", preload=True,
-                                            dataset_path=self.entities_path)  # load entities database
+            clf = BiasedMediaTypeClassifier(clf1, lang="en", preload=True)  # load entities database
             clf.load()
             self.m_clfs[lang] = clf
         return self.ocp_clfs[lang], self.m_clfs[lang]
@@ -138,8 +134,13 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         if self.player_state == PlayerState.STOPPED:
             # next / previous / pause / resume not targeted
             # at OCP if playback is not happening / paused
-            # TODO - handle resume for last_played query, eg, previous day
-            return None
+            if match["name"] == "resume":
+                # TODO - handle resume for last_played query, eg, previous day
+                return None
+            elif match["name"] == "open":  # TODO check for gui connected
+                pass  # open the GUI
+            else:
+                return None
 
         return IntentMatch(intent_service="OCP_intents",
                            intent_type=f'ocp:{match["name"]}',
@@ -257,10 +258,29 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         results = self._search(query, media_type, lang)
 
         # tell OCP to play
-        self._do_play(query, results, media_type)
+        self.bus.emit(Message('ovos.common_play.reset'))
+        if not results:
+            self.speak_dialog("cant.play",
+                              data={"phrase": query,
+                                    "media_type": media_type})
+        else:
+            LOG.debug(f"Playing {len(results)} results for: {query}")
+            best = self.select_best(results)
+            results = [r for r in results if r != best]
+            results.insert(0, best)
+            self.bus.emit(Message('add_context',
+                                  {'context': "Playing",
+                                   'word': "",
+                                   'origin': OCP_ID}))
+
+            # ovos-PHAL-plugin-mk1 will display music icon in response to play message
+            self.ocp_api.play(results, query)
 
     def handle_open_intent(self, message: Message):
         pass  # TODO - show gui
+
+    def handle_stop_intent(self, message: Message):
+        self.ocp_api.stop()
 
     def handle_next_intent(self, message: Message):
         self.ocp_api.next()
@@ -455,7 +475,11 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
 
 
 if __name__ == "__main__":
-    ocp = OCPPipelineMatcher()
+    LOG.set_level("DEBUG")
+    bus = FakeBus()
+
+    ocp = OCPPipelineMatcher(bus=bus)
+
     print(ocp.match_high("play metallica", "en-us"))
     # IntentMatch(intent_service='OCP_intents',
     #   intent_type='ocp:play',
@@ -481,3 +505,24 @@ if __name__ == "__main__":
     #                 'query': 'i wanna hear metallica',
     #                 'conf': 0.5027561091821287},
     #    skill_id='ovos.common_play', utterance='i wanna hear metallica')
+
+    from skill_ovos_somafm import SomaFMSkill
+    from skill_ovos_youtube import SimpleYoutubeSkill
+
+    s = SomaFMSkill(skill_id="somafm.ovos", bus=bus)
+    # s = YoutubeMusicSkill(skill_id="ytmus.ovos", bus=bus)
+    s = SimpleYoutubeSkill(skill_id="yt.ovos", bus=bus)
+
+
+    def on_m(m):
+        print(m)
+
+
+    # bus.on("message", on_m)
+
+    bus.emit(Message("ocp:play", {"lang": "en-us",
+                                  "query": "rock",
+                                  "media_type": MediaType.RADIO}))
+    bus.emit(Message("ocp:play", {"lang": "en-us",
+                                  "query": "turtles",
+                                  "media_type": MediaType.VIDEO}))

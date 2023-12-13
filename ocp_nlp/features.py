@@ -36,7 +36,7 @@ class KeywordFeatures:
                 r = requests.get(url).text
                 with open(path, "w") as f:
                     f.write(r)
-                LOG.init(f"downloaded ocp_entities.csv to {path}")
+                LOG.init(f"downloaded ocp_entities.csv to: {path}")
 
         if ignore_list:
             # books/movies etc with this name exist, ignore them
@@ -113,20 +113,22 @@ class KeywordFeatures:
                 if v.lower() + " " in utt or utt.endswith(v.lower()):
                     yield k, v
 
+    def count(self, sentence):
+        match = {k: 0 for k in self.entities.keys()}
+        for k, v in self.match(sentence):
+            match[k] += 1
+            if v in self.bias.get(k, []):
+                LOG.debug(f"Feature Bias: {k} +1 because of: {v}")
+                match[k] += 1
+        return match
+
     def extract(self, sentence, as_bool=False):
         match = {}
         for k, v in self.match(sentence):
             if k not in match:
                 match[k] = v
-            elif len(v) > len(match[k]):
+            elif self.bias.get(k) == v or len(v) > len(match[k]):
                 match[k] = v
-
-        if self.debug:
-            for k, v in match.items():
-                if k in self.bias:
-                    for s in self.bias[k]:
-                        if s in sentence:
-                            print("BIAS", k, "because of:", s)
 
         if as_bool:
             return {k: bool(v) for k, v in match.items()}
@@ -155,7 +157,7 @@ class MediaFeaturesTransformer(BaseEstimator, TransformerMixin):
     def transform(self, X, **transform_params):
         feats = []
         for sent in X:
-            s_feature = self.wordlist.extract(sent, as_bool=True)
+            s_feature = self.wordlist.count(sent)
             feats += [s_feature]
         return feats
 
@@ -165,30 +167,7 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
         super().__init__(**kwargs)
         self._transformer = MediaFeaturesTransformer(preload=preload, dataset_path=dataset_path)
         # NOTE: changing this list requires retraining the classifier
-        # MediaFeaturesTransformer(dataset_path="...").get_entity_names()
-        self.labels_index = ['season_number', 'episode_number', 'film_genre', 'cartoon_genre', 'news_streaming_service',
-                             'media_type_documentary', 'media_type_adult', 'media_type_bw_movie', 'podcast_genre',
-                             'comic_streaming_service', 'music_genre', 'media_type_video_episodes', 'anime_genre',
-                             'media_type_audio', 'media_type_bts', 'media_type_silent_movie',
-                             'audiobook_streaming_service', 'radio_drama_genre', 'media_type_podcast',
-                             'radio_theatre_company', 'media_type_short_film', 'media_type_movie', 'news_provider',
-                             'documentary_genre', 'radio_theatre_streaming_service', 'podcast_streaming_service',
-                             'media_type_tv', 'comic_name', 'media_type_adult_audio', 'media_type_news',
-                             'media_type_music', 'media_type_cartoon', 'documentary_streaming_service',
-                             'cartoon_streaming_service', 'anime_streaming_service', 'media_type_hentai',
-                             'movie_streaming_service', 'media_type_trailer', 'shorts_streaming_service', 'video_genre',
-                             'porn_streaming_service', 'playback_device', 'media_type_game', 'playlist_name',
-                             'media_type_video', 'media_type_visual_story', 'media_type_radio_theatre',
-                             'media_type_audiobook', 'porn_genre', 'book_genre', 'media_type_anime', 'sound',
-                             'media_type_radio', 'album_name', 'country_name', 'generic_streaming_service',
-                             'tv_streaming_service', 'radio_drama_name', 'film_studio', 'video_streaming_service',
-                             'short_film_name', 'tv_channel', 'youtube_channel', 'bw_movie_name', 'audiobook_narrator',
-                             'radio_drama', 'radio_program_name', 'game_name', 'series_name', 'artist_name', 'tv_genre',
-                             'hentai_name', 'podcast_name', 'music_streaming_service', 'silent_movie_name', 'book_name',
-                             'gaming_console_name', 'book_author', 'record_label', 'radio_streaming_service',
-                             'game_genre', 'anime_name', 'documentary_name', 'cartoon_name', 'audio_genre', 'song_name',
-                             'movie_name', 'porn_film_name', 'comics_genre', 'radio_program', 'porn_site',
-                             'pornstar_name']
+        self.labels_index = sorted(self._transformer.get_entity_names())
 
     def register_entity(self, name, samples):
         """ register runtime entity samples,
@@ -203,8 +182,8 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
         for match in self._transformer.transform(X):
             feats = []
             for label in self.labels_index:
-                if match.get(label):
-                    feats.append(1)
+                if label in match:
+                    feats.append(match[label])
                 else:
                     feats.append(0)
             X2.append(feats)
