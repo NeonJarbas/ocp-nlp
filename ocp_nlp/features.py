@@ -1,10 +1,12 @@
-import os
-from os.path import dirname
+import os.path
 
 import ahocorasick
 import numpy as np
+import requests
+from normality.transliteration import latinize_text
+from ovos_config.locations import get_xdg_data_save_path
+from ovos_utils.log import LOG
 from sklearn.base import BaseEstimator, TransformerMixin
-from unidecode import unidecode
 
 
 class KeywordFeatures:
@@ -24,12 +26,22 @@ class KeywordFeatures:
              @ocp_genre_search
     """
 
-    def __init__(self, lang, path=None, ignore_list=None, preload=False, debug=True):
-        self.lang = lang
-        path = path or f"{dirname(__file__)}/sparql_ocp"
-        if ignore_list is None and lang == "en":
+    def __init__(self, path=None, ignore_list=None, preload=False, debug=True):
+        # auto dl to XDG directory
+        if path is None:
+            os.makedirs(f"/{get_xdg_data_save_path()}/OCP", exist_ok=True)
+            path = f"/{get_xdg_data_save_path()}/OCP/ocp_entities_v0.csv"
+            if not os.path.isfile(path):
+                url = "https://github.com/OpenVoiceOS/ovos-datasets/raw/master/text/ocp_entities_v0.csv"
+                r = requests.get(url).text
+                with open(path, "w") as f:
+                    f.write(r)
+                LOG.init(f"downloaded ocp_entities.csv to {path}")
+
+        if ignore_list:
             # books/movies etc with this name exist, ignore them
             ignore_list = ["play", "search", "listen", "movie"]
+
         self.ignore_list = ignore_list or []  # aka stop_words
         self.bias = {}  # just for logging
         self.debug = debug
@@ -37,10 +49,8 @@ class KeywordFeatures:
         self._needs_building = []
         if path and preload:
             self.entities = self.load_entities(path)
-            self.templates = self.load_templates(path)
         else:
             self.entities = {}
-            self.templates = {}
 
     def register_entity(self, name, samples):
         """ register runtime entity samples,
@@ -59,33 +69,20 @@ class KeywordFeatures:
 
         self._needs_building.append(name)
 
-    def load_entities(self, path):
-        path = f"{path}/{self.lang}"
+    def load_entities(self, csv_path):
         ents = {
             "season_number": [str(i) for i in range(30)],
             "episode_number": [str(i) for i in range(100)]
         }
+        with open(csv_path) as f:
+            lines = f.read().split("\n")[1:]
+            data = [l.split(",", 1) for l in lines if "," in l]
 
-        # non wikidata entity list - manually maintained by users
-        for e in os.listdir(f"{path}/dataset_gen"):
-            with open(f"{path}/dataset_gen/{e}") as f:
-                samples = f.read().split("\n")
-                ents[e.replace(".entity", "").split("_Q")[0]] = samples
-
-        # from sparql queries - auto generated
-        for f in os.listdir(path):
-            if not f.endswith(".entity"):
-                continue
-            # normalize and map to slots
-            n = f.replace(".entity", "").split("_Q")[0]
-
+        for n, s in data:
             if n not in ents:
                 ents[n] = []
-            with open(f"{path}/{f}") as fi:
-                for s in fi.read().split("\n"):
-                    if s:
-                        s = unidecode(s)
-                        ents[n].append(s)
+            s = latinize_text(s)
+            ents[n].append(s)
 
         for k, samples in ents.items():
             self._needs_building.append(k)
@@ -94,38 +91,6 @@ class KeywordFeatures:
             for s in samples:
                 self.automatons[k].add_word(s.lower(), s)
 
-        return ents
-
-    def load_templates(self, path):
-        path = f"{path}/{self.lang}/templates"
-        ents = {}
-        with open(f"{path}/generic.intent") as f:
-            GENERIC = f.read().split("\n")
-        with open(f"{path}/generic_video.intent") as f:
-            GENERIC2 = f.read().split("\n")
-        for f in os.listdir(path):
-            if f == "generic.intent":
-                continue
-            n = f.replace(".intent", "")
-            if n not in ents:
-                ents[n] = []
-            with open(f"{path}/{f}") as fi:
-                for s in fi.read().split("\n"):
-                    if s.startswith("#") or not s.strip():
-                        continue
-                    ents[n].append(s)
-            if n not in ["game", "movie", "series", "short_film", "silent_movie",
-                         "video", "tv_channel", "comic", "bw_movie", "bts",
-                         "anime", "cartoon"]:
-                for g in GENERIC:
-                    ents[n].append(g.replace("{query}", "{" + n + "_genre}"))
-                    ents[n].append(g.replace("{query}", "{" + n + "_name}"))
-            if n in ["movie", "series", "short_film", "silent_movie",
-                     "video", "tv_channel", "comic", "bw_movie", "bts",
-                     "anime", "cartoon"]:
-                for g in GENERIC2:
-                    ents[n].append(g.replace("{query}", "{" + n + "_genre}"))
-                    ents[n].append(g.replace("{query}", "{" + n + "_name}"))
         return ents
 
     def match(self, utt):
@@ -171,10 +136,8 @@ class KeywordFeatures:
 
 class MediaFeaturesTransformer(BaseEstimator, TransformerMixin):
 
-    def __init__(self, lang="en", preload=True, dataset_path=None, **kwargs):
-        self.lang = lang
-        self.wordlist = KeywordFeatures(self.lang,
-                                        path=dataset_path or f"{dirname(__file__)}/sparql_ocp",
+    def __init__(self, preload=True, dataset_path=None, **kwargs):
+        self.wordlist = KeywordFeatures(path=dataset_path,
                                         preload=preload)
         super().__init__(**kwargs)
 
@@ -198,10 +161,9 @@ class MediaFeaturesTransformer(BaseEstimator, TransformerMixin):
 
 
 class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
-    def __init__(self, lang="en", preload=True, dataset_path=None, **kwargs):
+    def __init__(self, preload=True, dataset_path=None, **kwargs):
         super().__init__(**kwargs)
-        self.lang = lang
-        self._transformer = MediaFeaturesTransformer(lang=lang, preload=preload, dataset_path=dataset_path)
+        self._transformer = MediaFeaturesTransformer(preload=preload, dataset_path=dataset_path)
         # NOTE: changing this list requires retraining the classifier
         # MediaFeaturesTransformer(dataset_path="...").get_entity_names()
         self.labels_index = ['season_number', 'episode_number', 'film_genre', 'cartoon_genre', 'news_streaming_service',
@@ -251,12 +213,10 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
 
 
 if __name__ == "__main__":
-    # download dataset from https://github.com/NeonJarbas/OCP-dataset
-    dataset_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/sparql_ocp"
-    print(MediaFeaturesTransformer(dataset_path=dataset_path).get_entity_names())
+    print(MediaFeaturesTransformer().get_entity_names())
 
     # using feature extractor standalone
-    l = KeywordFeatures(lang="en", path=dataset_path, preload=True)
+    l = KeywordFeatures(preload=True)
 
     print(l.extract("play metallica"))
     # {'album_name': 'Metallica', 'artist_name': 'Metallica'}

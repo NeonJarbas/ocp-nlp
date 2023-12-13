@@ -3,3 +3,4 @@ padacioso
 ovos-classifiers
 scikit-learn
 pyahocorasick
+normality
