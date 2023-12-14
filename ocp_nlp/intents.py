@@ -137,8 +137,13 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
             if match["name"] == "resume":
                 # TODO - handle resume for last_played query, eg, previous day
                 return None
-            elif match["name"] == "open":  # TODO check for gui connected
-                pass  # open the GUI
+            elif match["name"] == "open":
+                # open the GUI
+                return IntentMatch(intent_service="OCP_intents",
+                                   intent_type=f'ocp:homescreen',
+                                   intent_data=match,
+                                   skill_id=OCP_ID,
+                                   utterance=utterance)
             else:
                 return None
 
