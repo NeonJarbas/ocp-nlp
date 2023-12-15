@@ -116,3 +116,129 @@ class MediaType(IntEnum):
     ADULT = 69  # for content filtering
     HENTAI = 70  # for content filtering
     ADULT_AUDIO = 71  # for content filtering
+
+
+# Valid entities for the OCP classifiers
+# skills can register samples of these to
+# introduce bias in the classifications
+OCP_ENTITIES = [
+    # Generic helpers
+    'play_verb_audio',
+    'play_verb_video',
+    'playback_device',
+    'country_name',
+    # Skill entities
+    'news_streaming_service',
+    'comic_streaming_service',
+    'radio_theatre_streaming_service',
+    'anime_streaming_service',
+    'documentary_streaming_service',
+    'cartoon_streaming_service',
+    'movie_streaming_service',
+    'music_streaming_service',
+    'podcast_streaming_service',
+    'audiobook_streaming_service',
+    'hentai_streaming_service',
+    'generic_streaming_service',
+    'shorts_streaming_service',
+    'tv_streaming_service',
+    'video_streaming_service',
+    'porn_streaming_service',
+    'radio_streaming_service',
+    # Genres
+    'film_genre',
+    'cartoon_genre',
+    'podcast_genre',
+    'music_genre',
+    'radio_drama_genre',
+    'documentary_genre',
+    'video_genre',
+    'anime_genre',
+    'tv_genre',
+    'game_genre',
+    'audio_genre',
+    'comics_genre',
+    'porn_genre',
+    # Media Type specific keywords
+    'media_type_documentary',
+    'media_type_adult',
+    'media_type_bw_movie',
+    'media_type_video_episodes',
+    'media_type_audio',
+    'media_type_bts',
+    'media_type_silent_movie',
+    'media_type_podcast',
+    'media_type_adult_audio',
+    'media_type_news',
+    'media_type_music',
+    'media_type_cartoon',
+    'media_type_hentai',
+    'media_type_trailer',
+    'media_type_tv',
+    'media_type_short_film',
+    'media_type_sound',
+    'media_type_movie',
+    'media_type_video',
+    'media_type_visual_story',
+    'media_type_radio_theatre',
+    'media_type_audiobook',
+    'media_type_anime',
+    'media_type_radio',
+    'media_type_game',
+    # Series entities
+    'season_number',
+    'episode_number',
+    'series_name',
+    # Radio Theatre
+    'radio_theatre_company',
+    'radio_drama_name',
+    # Audio Description
+    'ad_keyword',
+    # News
+    'news_provider',
+    # Visual Story
+    'comic_name',
+    # Music
+    'soundtrack_keyword',
+    'playlist_name',
+    'album_name',
+    'artist_name',
+    'song_name',
+    'record_label',
+    # Adult
+    'pornstar_name',
+    'porn_film_name',
+    # Audiobook
+    'book_genre',
+    'audiobook_narrator',
+    'book_name',
+    'book_author',
+    # Movie
+    'film_studio',
+    'movie_name',
+    # Short Film
+    'short_film_name',
+    # TV
+    'tv_channel',
+    # Videos
+    'youtube_channel',
+    # BW Movie
+    'bw_movie_name',
+    # Silent Movie
+    'silent_movie_name',
+    # Podcast
+    'podcast_name',
+    # Radio
+    'radio_program_name',
+    # Game
+    'game_name',
+    'gaming_console_name',
+    # Anime
+    'anime_name',
+    # Hentai
+    'hentai_name',
+    # Documentary
+    'documentary_name',
+    # Cartoon
+    'cartoon_name',
+]

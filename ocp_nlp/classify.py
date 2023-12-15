@@ -92,7 +92,6 @@ class _OCPClassifier:
 
         X = [_[1] for _ in lines]
         y = [_[0] for _ in lines]
-        print(set(y))
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size,
                                                             random_state=42, stratify=y)

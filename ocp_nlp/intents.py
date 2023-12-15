@@ -56,6 +56,10 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         self.bus.on("ovos.common_play.search", self.handle_search_query)
         self.bus.on('ovos.common_play.player.state', self.handle_player_state_update)
 
+        self.bus.on('ovos.common_play.register_keyword', self.handle_skill_keyword_register)
+        self.bus.on('ovos.common_play.deregister_keyword', self.handle_skill_keyword_deregister)
+        self.bus.on('ovos.common_play.announce', self.handle_skill_register)
+
     def register_ocp_intents(self):
         intent_files = self.load_resource_files()
 
@@ -79,6 +83,31 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         self.bus.on("ocp:resume", self.handle_resume_intent)
         self.bus.on("ocp:stop", self.handle_stop_intent)
         self.bus.on("ocp:search_error", self.handle_search_error_intent)
+
+    def handle_skill_register(self, message):
+        skill_id = message.data["skill_id"]
+        aliases = message.data["aliases"]
+        media = message.data["media_type"]
+        has_featured_media = message.data["featured_tracks"]
+        thumbnail = message.data["thumbnail"]
+        display_name = message.data["skill_name"]
+        # TODO - set bias in classifier (all langs)
+        # aliases -> {type}_streaming_provider bias
+
+    def handle_skill_keyword_register(self, message):
+        skill_id = message.data["skill_id"]
+        kw_label = message.data["label"]
+        media = message.data["media_type"]
+        samples = message.data["samples"]
+        langs = message.data["langs"]
+        # TODO - set bias in classifier
+
+    def handle_skill_keyword_deregister(self, message):
+        skill_id = message.data["skill_id"]
+        kw_label = message.data["label"]
+        media = message.data["media_type"]
+        langs = message.data["langs"]
+        # TODO - unset bias in classifier
 
     def handle_player_state_update(self, message):
         """
