@@ -3,12 +3,13 @@ from os import makedirs
 from os.path import join, dirname
 
 import numpy as np
+from ovos_classifiers.skovos.classifier import SklearnOVOSClassifier, iter_clfs
+from ovos_utils.log import LOG
 from sklearn.metrics import balanced_accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 from sklearn.model_selection import train_test_split
 
 from ocp_nlp.constants import MediaType
-from ocp_nlp.features import MediaFeaturesVectorizer, BiasFeaturesVectorizer
-from ovos_classifiers.skovos.classifier import SklearnOVOSClassifier, iter_clfs
+from ocp_nlp.features import MediaFeaturesVectorizer, BiasFeaturesVectorizer, KeywordFeatures
 
 
 class _OCPClassifier:
@@ -223,18 +224,177 @@ class BiasedMediaTypeClassifier(KeywordMediaTypeClassifier):
         return np.array(X2)
 
 
-if __name__ == "__main__":
-    from ovos_utils.log import LOG
+class HeuristicMediaTypeClassifier:
+    def __init__(self, lang="en", preload=True, entities_path=None):
+        self.lang = lang
+        self.feats = KeywordFeatures(preload=preload, path=entities_path)
 
+    def split_train_test(self, csv_path, test_size=1.0):
+
+        with open(csv_path) as f:
+            lines = f.read().split("\n")[1:]
+            lines = [l.split(",", 1) for l in lines if "," in l]
+
+        X = [_[1] for _ in lines]
+        y = [_[0] for _ in lines]
+        return [], X, [], y  # all for testing
+
+    def classification_report(self, X_test, y_test, model_folder=None):
+        model_folder = model_folder or f"{dirname(__file__)}/models"
+        y_pred = self.predict(X_test)
+        acc = balanced_accuracy_score(y_test, y_pred)
+
+        report = f"Balanced Accuracy: {acc}\n" + classification_report(y_test, y_pred,
+                                                                       target_names=self.feats.labels)
+        # print(report)
+        with open(f'{model_folder}/reports/heuristic_{self.lang}.txt', "w") as f:
+            f.write(report)
+        return report
+
+    def predict_labels(self, X):
+        if isinstance(X, str):
+            X = [X]
+        res = []
+        for utt in X:
+            bias = self.feats.get_bias(utt)
+            ents = self.feats.extract(utt)
+
+            if any(x in ents for x in
+                   ['season_number', 'episode_number', 'media_type_video_episodes', 'series_name']):
+                bias["series"] = 1.0
+            if any(x in ents for x in ['media_type_bw_movie', 'bw_movie_name']):
+                bias["bw_movie"] = 1.0
+            elif any(x in ents for x in ['media_type_silent_movie', 'silent_movie_name']):
+                bias["silent_movie"] = 1.0
+            elif any(x in ents for x in ['media_type_short_film', 'short_film_name']):
+                bias["short_film"] = 1.0
+            elif any(x in ents for x in ['media_type_movie', 'film_studio', 'movie_name']):
+                bias["movie"] = 1.0
+            if any(x in ents for x in ['media_type_documentary', 'documentary_name']):
+                bias["documentary"] = 1.0
+            if any(x in ents for x in ['media_type_cartoon', 'cartoon_name']):
+                bias["cartoon"] = 1.0
+            if any(x in ents for x in ['anime_name', 'media_type_anime']):
+                bias["anime"] = 1.0
+            if any(x in ents for x in ['media_type_hentai', 'hentai_name']):
+                bias = {k: 0 for k in bias}
+                bias["hentai"] = 1.0
+            if any(x in ents for x in ['media_type_video', 'youtube_channel']):
+                bias["video"] = 1.0
+            if any(x in ents for x in ['media_type_tv', 'tv_channel']):
+                bias["tv_channel"] = 1.0
+            if any(x in ents for x in ['pornstar_name', 'media_type_adult', 'porn_genre',
+                                       'porn_film_name']):
+                bias = {k: 0 for k in bias}
+                bias["adult"] = 1.0
+            if any(x in ents for x in ['media_type_radio']):
+                bias["radio"] = 1.0
+            if any(x in ents for x in ['media_type_trailer']):
+                bias["trailer"] = 1.0
+            if any(x in ents for x in ['media_type_bts']):
+                bias["bts"] = 1.0
+            if any(x in ents for x in ['comic_name']):
+                bias["comic"] = 1.0
+            if any(x in ents for x in ['soundtrack_keyword',
+                                       'playlist_name',
+                                       'album_name',
+                                       'artist_name',
+                                       'song_name', 'media_type_music',
+                                       'record_label']):
+                bias["music"] = 1.0
+            elif any(x in ents for x in ['book_genre',
+                                         'audiobook_narrator',
+                                         'book_name', 'media_type_audiobook',
+                                         'book_author']):
+                bias["audiobook"] = 1.0
+            elif any(x in ents for x in ['media_type_podcast', 'podcast_name']):
+                bias["podcast"] = 1.0
+            elif any(x in ents for x in ['radio_theatre_company', 'media_type_radio_theatre',
+                                         'radio_drama_name']):
+                bias["radio_drama"] = 1.0
+            elif any(x in ents for x in ['audio_genre', 'media_type_audio']):
+                bias["audio"] = 1.0
+            if any(x in ents for x in ['media_type_adult_audio', 'porn_genre', 'pornstar_name',
+                                       'media_type_hentai', 'media_type_adult',
+                                       'porn_film_name']):
+                bias["adult_asmr"] = 1.0
+
+            if any(x in ents for x in ['media_type_news', 'news_provider', 'news_streaming_service']):
+                bias = {k: 0 for k in bias}
+                bias["news"] = 1.0
+            if any(x in ents for x in ['ad_keyword']):
+                bias = {k: 0 for k in bias}
+                bias["ad"] = 1.0
+            if any(x in ents for x in ['game_name', 'media_type_game',
+                                       'gaming_console_name']):
+                bias = {k: 0 for k in bias}
+                bias["game"] = 1.0
+            res.append(bias)
+        return res
+
+    def predict(self, X):
+        labels = self.predict_labels(X)
+        return [max(x, key=lambda k: x[k]) for x in labels]
+
+    def vectorize(self, X):
+        labels = self.predict_labels(X)
+        return [list(x.values()) for x in labels]
+
+
+if __name__ == "__main__":
     ents_csv_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/ocp_entities_v0.csv"
+    s_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/ocp_sentences_v0.csv"
+    csv_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/ocp_media_types_v0.csv"
+
+    clf = HeuristicMediaTypeClassifier(entities_path=ents_csv_path, preload=True)
+    preds = clf.predict_labels(["play metallica"])
+    # [{'radio_drama': 0.25, 'anime': 0.25, 'news': 0.25, 'movie': 0.25, 'tv_channel': 0.25, 'silent_movie': 0.25,
+    # 'music': 1.0, 'ad': 0.25, 'audiobook': 0.375, 'bts': 0.25, 'video': 0.25, 'trailer': 0.25, 'series': 0.25,
+    # 'comic': 0.25, 'audio': 0.25, 'podcast': 0.25, 'bw_movie': 0.25, 'short_film': 0.25, 'adult': 0.25,
+    # 'cartoon': 0.25, 'radio': 0.25, 'adult_asmr': 0.0, 'documentary': 0.25, 'game': 0.25, 'hentai': 0.25}]
+    [], X, [], y = clf.split_train_test(csv_path)
+
+    clf.classification_report(X, y)  # sucks as expected, just for comparison anyway
+    # (not deterministic because of ties)
+
+    #  Balanced Accuracy: 0.22182720592334784
+    #               precision    recall  f1-score   support
+    #
+    #       hentai       0.23      0.29      0.25       136
+    #  documentary       0.00      0.00      0.00       213
+    #          bts       0.07      0.76      0.13        25
+    #        comic       0.47      0.47      0.47       117
+    #         game       0.29      0.03      0.05       298
+    #      podcast       0.10      0.40      0.16       312
+    #        anime       0.97      0.44      0.60       232
+    # silent_movie       0.00      0.00      0.00       351
+    #           ad       0.00      0.00      0.00       486
+    #        radio       1.00      0.05      0.10       157
+    #   adult_asmr       0.55      0.31      0.40       448
+    #   short_film       0.07      0.97      0.14       306
+    #  radio_drama       0.73      0.22      0.34       297
+    #         news       0.50      0.00      0.01       876
+    #        adult       0.17      0.10      0.13      1241
+    #    audiobook       0.63      0.45      0.53       284
+    #        audio       0.43      0.19      0.26       542
+    #        music       0.96      0.09      0.17       246
+    #       series       0.82      0.10      0.18       472
+    #      cartoon       0.67      0.01      0.03       302
+    #      trailer       0.05      0.29      0.09       154
+    #        video       0.75      0.33      0.46       403
+    #   tv_channel       0.00      0.00      0.00       136
+    #        movie       1.00      0.03      0.05        80
+    #     bw_movie       0.25      0.00      0.01       446
+    #
+    #     accuracy                           0.17      8560
+    #    macro avg       0.43      0.22      0.18      8560
+    # weighted avg       0.40      0.17      0.17      8560
 
     LOG.set_level("DEBUG")
     # download datasets from https://github.com/NeonJarbas/OCP-dataset
 
-    csv_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/ocp_sentences_v0.csv"
-
     o = BinaryPlaybackClassifier()
-    # o.search_best(csv_path)  # 0.99
+    # o.search_best(s_path)  # 0.99
     o.load()
 
     preds = o.predict(["play a song", "play my morning jams",

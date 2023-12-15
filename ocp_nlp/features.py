@@ -686,6 +686,10 @@ class KeywordFeatures:
             self.entities = self.load_entities(path)
         else:
             self.entities = {}
+        self.labels = {'video', 'tv_channel', 'movie', 'silent_movie', 'adult_asmr',
+                       'cartoon', 'audio', 'anime', 'game', 'bw_movie', 'ad', 'trailer',
+                       'radio', 'comic', 'news', 'bts', 'documentary', 'adult', 'hentai',
+                       'podcast', 'short_film', 'music', 'radio_drama', 'audiobook', 'series'}
 
     def register_entity(self, name, samples):
         """ register runtime entity samples,
@@ -776,14 +780,10 @@ class KeywordFeatures:
                 match[k] += 1
         return match
 
-    def get_bias(self, sentence):
+    def get_bias(self, sentence, normalize=True):
         # print("##", sentence)
-        labels = {'video', 'tv_channel', 'movie', 'silent_movie', 'adult_asmr',
-                  'cartoon', 'audio', 'anime', 'game', 'bw_movie', 'ad', 'trailer',
-                  'radio', 'comic', 'news', 'bts', 'documentary', 'adult', 'hentai',
-                  'podcast', 'short_film', 'music', 'radio_drama', 'audiobook', 'series'}
         leftover = sentence.lower()
-        match = {l: 0 for l in labels}
+        match = {l: 0 for l in self.labels}
         seen = {}
         for k, v in sorted(self.match(sentence),
                            key=lambda k: len(k[1]),
@@ -805,6 +805,9 @@ class KeywordFeatures:
                 if k in kws:
                     match[l] -= 2
                     # LOG.debug(f"Bias: {l} -1 because of: {k} {v}")
+
+        if not normalize:
+            return match
 
         # LOG.debug(f"leftover sentence: {leftover}")
         # normalize the matches to contain numbers between 0 and 1

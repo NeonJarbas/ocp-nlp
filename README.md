@@ -5,7 +5,7 @@ all utterance parsing happens here
 # Tasks
 
 - [x] media type [dataset](https://github.com/NeonJarbas/OCP-dataset)
-- [ ] media type heuristic classifier
+- [x] media type heuristic classifier (sucks, 20% accuracy best)
 - [x] media type classifier
 - [ ] NER system for media entities  (movie_name, streaming_service, playback_device ...)
 - [x] binary classifier is_playback_query
