@@ -7,7 +7,7 @@ from normality.transliteration import latinize_text
 from ovos_config.locations import get_xdg_data_save_path
 from ovos_utils.log import LOG
 from sklearn.base import BaseEstimator, TransformerMixin
-import shutil
+
 # labels introduce a positive bias without invalidating other labels
 PositiveBias = {
     "adult": ["media_type_adult", "pornstar_name", "porn_site", "play_verb_video",
@@ -660,9 +660,10 @@ class KeywordFeatures:
              @ocp_genre_search
     """
 
-    def __init__(self, path=None, ignore_list=None, preload=False, debug=True):
+    def __init__(self, path=None, ignore_list=None, preload=False, debug=True,
+                 auto_download=False):
         # auto dl to XDG directory
-        if path is None:
+        if path is None and auto_download:
             os.makedirs(f"/{get_xdg_data_save_path()}/OCP", exist_ok=True)
             path = f"/{get_xdg_data_save_path()}/OCP/ocp_entities_v0.csv"
             if not os.path.isfile(path):
@@ -676,7 +677,7 @@ class KeywordFeatures:
         ignore_list = ignore_list or ["play", "search", "listen",
                                       "watch", "view", "start"]
 
-        self.ignore_list = ignore_list or []  # aka stop_words
+        self.ignore_list = ignore_list
         self.bias = {}  # just for logging
         self.debug = debug
         self.automatons = {}
@@ -702,6 +703,18 @@ class KeywordFeatures:
             self.automatons[name].add_word(s.lower(), s)
 
         self._needs_building.append(name)
+
+    def deregister_entity(self, name):
+        """ register runtime entity samples,
+            eg from skills"""
+        if name in self.entities:
+            self.entities.pop(name)
+        if name in self.bias:
+            self.bias.pop(name)
+        if name in self.automatons:
+            self.automatons.pop(name)
+        if name in self._needs_building:
+            self._needs_building.pop(name)
 
     def load_entities(self, csv_path):
         ents = {
@@ -802,17 +815,13 @@ class KeywordFeatures:
         return {k: round((v - low) / (high - low), 3)
                 for k, v in match.items()}
 
-    def extract(self, sentence, as_bool=False):
+    def extract(self, sentence):
         match = {}
         for k, v in self.match(sentence):
             if k not in match:
                 match[k] = v
             elif self.bias.get(k) == v or len(v) > len(match[k]):
                 match[k] = v
-
-        if as_bool:
-            return {k: bool(v) for k, v in match.items()}
-
         return match
 
 
