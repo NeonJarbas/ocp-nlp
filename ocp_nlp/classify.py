@@ -26,7 +26,7 @@ def iter_clfs():
         "percep": Perceptron(),
         "pa": PassiveAggressiveClassifier(),
         "et": ExtraTreesClassifier(n_estimators=50),
-        "mlp": MLPClassifier(max_iter=300),
+        "mlp": MLPClassifier(max_iter=1000),
         "svc": SVC(kernel='linear', probability=True),
         "lr": LogisticRegression(),
         "mnb": MultinomialNB(),
@@ -402,7 +402,7 @@ if __name__ == "__main__":
     clf = BiasedMediaTypeClassifier(lang="en", preload=True,
                                     entities_path=ents_csv_path)  # load entities database
     # clf = KeywordMediaTypeClassifier()
-    #clf.search_best(csv_path)  # Accuracy  0.9248816600696221
+    #clf.search_best(csv_path)  # Accuracy 0.9311456835977218
     # m = "/home/miro/PycharmProjects/OCP_sprint/ocp-nlp/ocp_nlp/models/cv2_biased_media_type_en.c_percep"
     clf.load()
 
