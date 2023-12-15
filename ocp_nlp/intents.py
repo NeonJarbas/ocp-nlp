@@ -139,9 +139,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
             self.ocp_clfs[lang] = ocp_clf
 
         if lang not in self.m_clfs:
-            clf1 = MediaTypeClassifier()
-            clf1.load()
-            clf = BiasedMediaTypeClassifier(clf1, lang="en", preload=True)  # load entities database
+            clf = BiasedMediaTypeClassifier(lang=lang, preload=True)  # load entities database
             clf.load()
             self.m_clfs[lang] = clf
         return self.ocp_clfs[lang], self.m_clfs[lang]
@@ -189,7 +187,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
         is_ocp = ocp_clf.predict([utterance])[0] == "OCP"
         if not is_ocp:
             return None
-        label, confidence = clf.predict_prob([utterance])[0]
+        label, confidence = clf.predict([utterance], probability=True)[0]
         mt = clf.label2media(label)
         ents = clf.extract_entities(utterance)
         # extract the query string
@@ -204,13 +202,13 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
                            utterance=utterance)
 
     def match_fallback(self, utterance, lang):
-        """ match a utterance via presence of known OCP keywords,
+        """ match an utterance via presence of known OCP keywords,
         recommended before fallback_low pipeline stage"""
         ocp_clf, clf = self.load_clf(lang)
         ents = clf.extract_entities(utterance)
         if not ents:
             return None
-        label, confidence = clf.predict_prob([utterance])[0]
+        label, confidence = clf.predict([utterance], probability=True)[0]
         mt = clf.label2media(label)
         # extract the query string
         query = self.remove_voc(utterance, "Play", lang).strip()
@@ -361,7 +359,7 @@ class OCPPipelineMatcher(OVOSAbstractApplication):
             query = self.remove_voc(query, "video_only", lang=lang)
 
         ocp_clf, clf = self.load_clf(lang)
-        label, confidence = clf.predict_prob([query])[0]
+        label = clf.predict([query])[0]
         LOG.info(f"OVOSCommonPlay MediaType prediction: {label}")
         LOG.debug(f"     utterance: {query}")
         return clf.label2media(label)

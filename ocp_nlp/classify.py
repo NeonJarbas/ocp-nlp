@@ -3,20 +3,20 @@ from os import makedirs
 from os.path import join, dirname
 
 import numpy as np
-from ovos_classifiers.skovos.classifier import SklearnOVOSClassifier, iter_clfs
 from ovos_utils.log import LOG
 from sklearn.metrics import balanced_accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 from sklearn.model_selection import train_test_split
 
 from ocp_nlp.constants import MediaType
 from ocp_nlp.features import MediaFeaturesVectorizer, BiasFeaturesVectorizer, KeywordFeatures
+from ovos_classifiers.skovos.classifier import SklearnOVOSClassifier, iter_clfs
 
 
 class _OCPClassifier:
     def __init__(self, model_name, lang="en",
                  pipeline_id="cv2"):
         self.model_name = model_name
-        self.lang = lang
+        self.lang = lang.split("-")[0].lower()
         self.pipeline_id = pipeline_id
         self.clf = SklearnOVOSClassifier(pipeline_id, None)
 
@@ -45,7 +45,7 @@ class _OCPClassifier:
         X_test = self.transform(X_test)
 
         best = (None, 0)
-        for k, c in iter_clfs():
+        for k, c in iter_clfs(calibrate=True):
             path = join(model_folder, f"{self.model_name}_{self.lang}.{k}")
             if os.path.isfile(path) and not retrain:
                 continue
@@ -119,7 +119,8 @@ class BinaryPlaybackClassifier(_OCPClassifier):
 
 
 class KeywordMediaTypeClassifier(_OCPClassifier):
-    def __init__(self, lang="en", preload=True, model_name="kword_media_type", entities_path=None):
+    def __init__(self, lang="all", preload=True, model_name="kword_biased_media_type", entities_path=None):
+        entities_path = entities_path or f"{dirname(__file__)}/models/ocp_entities_v0.csv"
         self.feats = MediaFeaturesVectorizer(preload=preload, dataset_path=entities_path)
         self.feats2 = BiasFeaturesVectorizer(preload=preload, dataset_path=entities_path)
         super().__init__(model_name, lang, pipeline_id="raw")
@@ -198,6 +199,10 @@ class KeywordMediaTypeClassifier(_OCPClassifier):
             X2.append(f)
         return np.array(X2)
 
+    def load(self, model_path=None):
+        model_path = model_path or f"{dirname(__file__)}/models/{self.model_name}_{self.lang}.c_percep"
+        super().load(model_path)
+
 
 class BiasedMediaTypeClassifier(KeywordMediaTypeClassifier):
     def __init__(self, base_clf: MediaTypeClassifier = None, lang="en", preload=True,
@@ -207,10 +212,6 @@ class BiasedMediaTypeClassifier(KeywordMediaTypeClassifier):
             base_clf = MediaTypeClassifier()
             base_clf.load()
         self.base_clf = base_clf
-
-    def load(self, model_path=None):
-        model_path = model_path or f"{dirname(__file__)}/models/{self.model_name}_{self.lang}.c_mlp"
-        super().load(model_path)
 
     def transform(self, X):
         if isinstance(X, str):
@@ -222,6 +223,15 @@ class BiasedMediaTypeClassifier(KeywordMediaTypeClassifier):
             f = np.hstack((f1, f2))
             X2.append(f)
         return np.array(X2)
+
+    def load(self, model_path=None):
+        model_path = model_path or f"{dirname(__file__)}/models/{self.model_name}_{self.lang}.c_mlp"
+        super().load(model_path)
+
+
+class BinaryKeywordPlaybackClassifier(KeywordMediaTypeClassifier):
+    def __init__(self, lang="all", preload=True, model_name="kword_biased_binary_ocp", entities_path=None):
+        super().__init__(lang, preload, model_name, entities_path)
 
 
 class HeuristicMediaTypeClassifier:
@@ -249,6 +259,38 @@ class HeuristicMediaTypeClassifier:
         # print(report)
         with open(f'{model_folder}/reports/heuristic_{self.lang}.txt', "w") as f:
             f.write(report)
+        #  Balanced Accuracy: 0.22182720592334784
+        #               precision    recall  f1-score   support
+        #
+        #       hentai       0.23      0.29      0.25       136
+        #  documentary       0.00      0.00      0.00       213
+        #          bts       0.07      0.76      0.13        25
+        #        comic       0.47      0.47      0.47       117
+        #         game       0.29      0.03      0.05       298
+        #      podcast       0.10      0.40      0.16       312
+        #        anime       0.97      0.44      0.60       232
+        # silent_movie       0.00      0.00      0.00       351
+        #           ad       0.00      0.00      0.00       486
+        #        radio       1.00      0.05      0.10       157
+        #   adult_asmr       0.55      0.31      0.40       448
+        #   short_film       0.07      0.97      0.14       306
+        #  radio_drama       0.73      0.22      0.34       297
+        #         news       0.50      0.00      0.01       876
+        #        adult       0.17      0.10      0.13      1241
+        #    audiobook       0.63      0.45      0.53       284
+        #        audio       0.43      0.19      0.26       542
+        #        music       0.96      0.09      0.17       246
+        #       series       0.82      0.10      0.18       472
+        #      cartoon       0.67      0.01      0.03       302
+        #      trailer       0.05      0.29      0.09       154
+        #        video       0.75      0.33      0.46       403
+        #   tv_channel       0.00      0.00      0.00       136
+        #        movie       1.00      0.03      0.05        80
+        #     bw_movie       0.25      0.00      0.01       446
+        #
+        #     accuracy                           0.17      8560
+        #    macro avg       0.43      0.22      0.18      8560
+        # weighted avg       0.40      0.17      0.17      8560
         return report
 
     def predict_labels(self, X):
@@ -346,50 +388,6 @@ if __name__ == "__main__":
     s_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/ocp_sentences_v0.csv"
     csv_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/ocp_media_types_v0.csv"
 
-    clf = HeuristicMediaTypeClassifier(entities_path=ents_csv_path, preload=True)
-    preds = clf.predict_labels(["play metallica"])
-    # [{'radio_drama': 0.25, 'anime': 0.25, 'news': 0.25, 'movie': 0.25, 'tv_channel': 0.25, 'silent_movie': 0.25,
-    # 'music': 1.0, 'ad': 0.25, 'audiobook': 0.375, 'bts': 0.25, 'video': 0.25, 'trailer': 0.25, 'series': 0.25,
-    # 'comic': 0.25, 'audio': 0.25, 'podcast': 0.25, 'bw_movie': 0.25, 'short_film': 0.25, 'adult': 0.25,
-    # 'cartoon': 0.25, 'radio': 0.25, 'adult_asmr': 0.0, 'documentary': 0.25, 'game': 0.25, 'hentai': 0.25}]
-    [], X, [], y = clf.split_train_test(csv_path)
-
-    clf.classification_report(X, y)  # sucks as expected, just for comparison anyway
-    # (not deterministic because of ties)
-
-    #  Balanced Accuracy: 0.22182720592334784
-    #               precision    recall  f1-score   support
-    #
-    #       hentai       0.23      0.29      0.25       136
-    #  documentary       0.00      0.00      0.00       213
-    #          bts       0.07      0.76      0.13        25
-    #        comic       0.47      0.47      0.47       117
-    #         game       0.29      0.03      0.05       298
-    #      podcast       0.10      0.40      0.16       312
-    #        anime       0.97      0.44      0.60       232
-    # silent_movie       0.00      0.00      0.00       351
-    #           ad       0.00      0.00      0.00       486
-    #        radio       1.00      0.05      0.10       157
-    #   adult_asmr       0.55      0.31      0.40       448
-    #   short_film       0.07      0.97      0.14       306
-    #  radio_drama       0.73      0.22      0.34       297
-    #         news       0.50      0.00      0.01       876
-    #        adult       0.17      0.10      0.13      1241
-    #    audiobook       0.63      0.45      0.53       284
-    #        audio       0.43      0.19      0.26       542
-    #        music       0.96      0.09      0.17       246
-    #       series       0.82      0.10      0.18       472
-    #      cartoon       0.67      0.01      0.03       302
-    #      trailer       0.05      0.29      0.09       154
-    #        video       0.75      0.33      0.46       403
-    #   tv_channel       0.00      0.00      0.00       136
-    #        movie       1.00      0.03      0.05        80
-    #     bw_movie       0.25      0.00      0.01       446
-    #
-    #     accuracy                           0.17      8560
-    #    macro avg       0.43      0.22      0.18      8560
-    # weighted avg       0.40      0.17      0.17      8560
-
     LOG.set_level("DEBUG")
     # download datasets from https://github.com/NeonJarbas/OCP-dataset
 
@@ -397,10 +395,14 @@ if __name__ == "__main__":
     # o.search_best(s_path)  # 0.99
     o.load()
 
-    preds = o.predict(["play a song", "play my morning jams",
-                       "i want to watch the matrix",
-                       "tell me a joke", "who are you", "you suck"])
-    # print(preds)  # ['OCP' 'OCP' 'OCP' 'other' 'other' 'other']
+    clf = BinaryKeywordPlaybackClassifier()
+    clf.search_best(s_path)
+    clf.load()
+
+    preds = clf.predict(["play a song", "play my morning jams",
+                         "i want to watch the matrix",
+                         "tell me a joke", "who are you", "you suck"])
+    print(preds)  # ['OCP' 'OCP' 'OCP' 'other' 'other' 'other']
 
     csv_path = "/home/miro/PycharmProjects/OCP_sprint/OCP-dataset/ocp_media_types_v0.csv"
 
@@ -415,8 +417,40 @@ if __name__ == "__main__":
     print(label, confidence)  # [('music', 0.15532930055019162)]
 
     # keyword biased classifier, uses the above internally for extra features
-    # clf = KeywordMediaTypeClassifier()
-    # clf.search_best(csv_path)  #  Accuracy 0.735218828459692
+    # clf = KeywordMediaTypeClassifier()  # lang agnostic
+    # clf.search_best(csv_path)  # Accuracy 0.7925217191210133
+    #               precision    recall  f1-score   support
+    #
+    #           ad       0.75      0.56      0.64        82
+    #        adult       0.66      0.71      0.69       128
+    #   adult_asmr       0.93      0.93      0.93        15
+    #        anime       0.81      0.71      0.76        70
+    #        audio       0.79      0.72      0.75       179
+    #    audiobook       0.93      0.93      0.93       187
+    #          bts       0.90      0.86      0.88       139
+    #     bw_movie       0.95      0.89      0.92       211
+    #      cartoon       0.85      0.78      0.81       291
+    #        comic       0.60      0.74      0.66        94
+    #  documentary       0.82      0.84      0.83       269
+    #         game       0.93      0.88      0.90       184
+    #       hentai       0.89      0.88      0.88       178
+    #        movie       0.77      0.86      0.81       525
+    #        music       0.84      0.89      0.86       745
+    #         news       0.95      0.98      0.97       170
+    #      podcast       0.80      0.84      0.82       325
+    #        radio       0.77      0.64      0.70       148
+    #  radio_drama       0.87      0.88      0.87       283
+    #       series       0.78      0.85      0.81       181
+    #   short_film       0.56      0.51      0.53        92
+    # silent_movie       0.91      0.84      0.88       242
+    #      trailer       0.63      0.56      0.59        82
+    #   tv_channel       0.91      0.81      0.86        48
+    #        video       0.77      0.71      0.74       268
+    #
+    #     accuracy                           0.82      5136
+    #    macro avg       0.81      0.79      0.80      5136
+    # weighted avg       0.83      0.82      0.82      5136
+    # clf.load()
 
     clf = BiasedMediaTypeClassifier(lang="en", preload=True,
                                     entities_path=ents_csv_path)  # load entities database

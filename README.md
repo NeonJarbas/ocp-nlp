@@ -6,10 +6,12 @@ all utterance parsing happens here
 
 - [x] media type [dataset](https://github.com/NeonJarbas/OCP-dataset)
 - [x] media type heuristic classifier (sucks, 20% accuracy best)
-- [x] media type classifier
+- [x] media type classifier (english)
+- [x] media type classifier (lang agnostic)
 - [ ] NER system for media entities  (movie_name, streaming_service, playback_device ...)
-- [x] binary classifier is_playback_query
-- [ ] OVOS pipeline
+- [x] binary classifier is_playback_query (english)
+- [x] binary classifier is_playback_query (lang agnostic)
+- [ ] OVOS pipeline 
 
 ## Datasets
 
@@ -138,23 +140,36 @@ class MediaType:
     ADULT_AUDIO = 71  # for content filtering
 ```
 
+The features of this classifier have been engineered to allow influencing classifications at runtime based on available skills
+
+Classifier options:
+- heuristic based on keyword features (baseline - lang agnostic) ~= 20% accuracy
+- trained on text only features (count vectorizer baseline - english) ~= 80% accuracy
+- trained on keyword features (lang agnostic - runtime keywords influence classification) ~= 75% accuracy
+- trained on probabilities of text only classifier + keyword features (english only - runtime keywords influence classification) ~= 90% accuracy
+
+NOTE: several classification algorithms have been tested, Perceptron and MLP are the most sensitive to the runtime bias properly
+
 ### Binary classifier
 
 using the dataset collected for media type + ovos-datasets
 
 ![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/bf9b796e-dc57-4320-a472-5b859b9dfcaf)
 
+Classifier options:
+- trained on text only features (count vectorizer baseline - english) ~= 95% accuracy
+- trained on keyword features (lang agnostic - runtime keywords influence classification) ~= 90% accuracy
+
+
 ### Usage
 
-check if a utterance is playback related
+check if an utterance is playback related
 
 ```python
 from ocp_nlp.classify import BinaryPlaybackClassifier
 
 clf = BinaryPlaybackClassifier()
-# clf.train(csv_path)  # 0.9915889974994316
 clf.load()
-
 preds = clf.predict(["play a song", "play my morning jams",
                    "i want to watch the matrix",
                    "tell me a joke", "who are you", "you suck"])
@@ -173,12 +188,7 @@ label, confidence = clf1.predict_prob(["play metallica"])[0]
 print(label, confidence)  # [('music', 0.3438956411030462)]
 
 # keyword biased classifier, uses the above internally for extra features
-clf = BiasedMediaTypeClassifier(clf1, lang="en", preload=True)  # load entities database
-
-# csv_path = f"{dirname(__file__)}/sparql_ocp/dataset.csv"
-#clf.precompute_features(csv_path)
-#clf.train_from_precomputed()
-
+clf = BiasedMediaTypeClassifier(lang="en", preload=True)  # load entities database
 clf.load()
 
 # klownevilus is an unknown entity
@@ -189,7 +199,6 @@ print(label, confidence)  # music 0.3398020446925623
 clf.register_entity("movie_name", ["klownevilus"])  # movie correctly predicted now
 label, confidence = clf.predict_prob(["play klownevilus"])[0]
 print(label, confidence)  # movie 0.540225616798516
-
 ```
 
 extract keywords based on a wikidata wordlist gathered via SPARQL queries
