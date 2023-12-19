@@ -144,9 +144,9 @@ The features of this classifier have been engineered to allow influencing classi
 
 Classifier options:
 - heuristic based on keyword features (baseline - lang agnostic) ~= 20% accuracy
-- trained on text only features (count vectorizer baseline - english) ~= 80% accuracy
-- trained on keyword features (lang agnostic - runtime keywords influence classification) ~= 75% accuracy
-- trained on probabilities of text only classifier + keyword features (english only - runtime keywords influence classification) ~= 90% accuracy
+- trained on text only features (count vectorizer baseline - english) ~= 85% accuracy
+- trained on keyword features (lang agnostic - runtime keywords influence classification) ~= 88% accuracy
+- trained on probabilities of text only classifier + keyword features (english only - runtime keywords influence classification) ~= 95% accuracy
 
 NOTE: several classification algorithms have been tested, Perceptron and MLP are the most sensitive to the runtime bias properly
 

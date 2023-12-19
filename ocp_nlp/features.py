@@ -8,13 +8,18 @@ from ovos_config.locations import get_xdg_data_save_path
 from ovos_utils.log import LOG
 from sklearn.base import BaseEstimator, TransformerMixin
 
+# NOTE: retrain classifiers using "bias" features
+# if you change PositiveBias or NegativeBias dicts
+
 # labels introduce a positive bias without invalidating other labels
 PositiveBias = {
-    "adult": ["media_type_adult", "pornstar_name", "porn_site", "play_verb_video",
+    "iot_playback": ["playback_device"],
+    "asmr": ["asmr_keyword", "asmr_trigger"],
+    "adult": ["media_type_adult", "pornstar_name", "porn_streaming_service", "play_verb_video",
               "porn_genre", "porn_film_name"],
     "adult_asmr": ["media_type_adult_audio", "play_verb_audio"],
     "anime": ["media_type_anime", "anime_name", "play_verb_video"],
-    "audio": ["media_type_audio", "audio_genre", "play_verb_audio"],
+    "audio": ["media_type_audio", "audio_genre", "sound_name"],
     "audiobook": ["media_type_audiobook", "book_name",
                   "book_genre", "book_author",
                   "audiobook_streaming_service", "audiobook_narrator", "play_verb_audio"],
@@ -26,15 +31,16 @@ PositiveBias = {
     "hentai": ["media_type_hentai", "hentai_name" "hentai_streaming_service", "play_verb_video"],
     "music": ["media_type_music", "music_streaming_service", "album_name", "playlist_name", "soundtrack_keyword",
               "song_name", "record_label", "music_genre", "artist_name", "play_verb_audio"],
-    "movie": ["media_type_movie", "movie_streaming_service",
+    "movie": ["media_type_movie", "movie_streaming_service", "movie_director", "movie_actor",
               "movie_name", "film_studio", "film_genre", "play_verb_video"],
     "ad": ["ad_keyword", "movie_name", "play_verb_audio"],
     "news": ["media_type_news", "news_provider", "news_streaming_service", "play_verb_video", "play_verb_audio"],
     "podcast": ["media_type_podcast", "podcast_streaming_service",
+                "podcaster",
                 "podcast_name", "podcast_genre", "play_verb_audio"],
     "radio": ["media_type_radio", "radio_streaming_service", "play_verb_audio"],
     "short_film": ["media_type_short_film", "short_film_name", "play_verb_video"],
-    "radio_drama": ["media_type_radio_theatre", "radio_drama_name", "play_verb_audio"],
+    "radio_drama": ["media_type_radio_theatre", "radio_drama_actor", "radio_drama_name", "play_verb_audio"],
     "silent_movie": ["media_type_silent_movie", "silent_movie_name", "play_verb_video"],
     "trailer": ["media_type_trailer", "play_verb_video"],
     "tv_channel": ["media_type_tv", "tv_streaming_service", "tv_genre", "tv_channel", "play_verb_video"],
@@ -44,8 +50,8 @@ PositiveBias = {
 }
 # labels introduce a negative bias without invalidating the label
 NegativeBias = {
-    "adult": ["ad_keyword", "play_verb_audio",
-              "soundtrack_keyword",
+    "adult": ["asmr_keyword", "asmr_trigger", "podcaster", "radio_drama_actor", "ad_keyword", "play_verb_audio",
+              "soundtrack_keyword", "movie_director", "movie_actor",
               "music_streaming_service",
               "movie_streaming_service",
               "video_streaming_service",
@@ -54,7 +60,7 @@ NegativeBias = {
               "podcast_streaming_service",
               "news_streaming_service",
 
-              "media_type_audio",
+              "media_type_audio", "sound_name",
               "media_type_audiobook", "audiobook_narrator",
               "media_type_bts",
               "media_type_documentary",
@@ -65,7 +71,8 @@ NegativeBias = {
               "media_type_radio_theatre",
               "media_type_trailer",
               ],
-    "adult_asmr": ["media_type_music", "music_streaming_service", "album_name", "playlist_name",
+    "adult_asmr": ["podcaster", "radio_drama_actor", "media_type_music", "music_streaming_service", "album_name",
+                   "playlist_name", "sound_name",
                    "song_name", "record_label", "music_genre", "artist_name", "media_type_audiobook", "book_name",
                    "book_genre", "book_author", "media_type_bw_movie", "bw_movie_name", "media_type_radio_theatre",
                    "radio_drama_name", "media_type_music", "music_streaming_service", "album_name", "media_type_audio",
@@ -74,9 +81,9 @@ NegativeBias = {
                    "podcast_streaming_service", "podcast_name", "podcast_genre", "youtube_channel",
                    "video_streaming_service", "media_type_radio", "radio_streaming_service",
                    "audiobook_streaming_service", "media_type_cartoon", "cartoon_name",
-
+                   "movie_director", "movie_actor",
                    "soundtrack_keyword", "audiobook_narrator"],
-    "anime": ["ad_keyword", "play_verb_audio",
+    "anime": ["asmr_keyword", "asmr_trigger", "podcaster", "radio_drama_actor", "ad_keyword", "play_verb_audio",
               "soundtrack_keyword",
               "music_streaming_service",
               "radio_streaming_service",
@@ -84,12 +91,12 @@ NegativeBias = {
               "podcast_streaming_service",
               "news_streaming_service",
               "hentai_streaming_service",
-              "porn_site",
+              "porn_streaming_service",
 
               "media_type_adult", "pornstar_name",
               "media_type_adult_audio", "porn_genre", "porn_film_name",
-
-              "media_type_audio",
+              "movie_actor",
+              "media_type_audio", "sound_name",
               "media_type_audiobook", "audiobook_narrator",
               "media_type_bts",
               "media_type_documentary",
@@ -100,14 +107,19 @@ NegativeBias = {
               "media_type_radio_theatre",
               "media_type_trailer",
               ],
-    "audio": ["play_verb_video",
+    "audio": ["asmr_keyword", "asmr_trigger", "podcaster", "radio_drama_actor", "play_verb_video",
               "movie_streaming_service",
               "hentai_streaming_service",
-              "porn_site",
-
-              "media_type_adult", "pornstar_name", "porn_site",
+              "porn_streaming_service",
+              "movie_director", "movie_actor",
+              "media_type_adult", "pornstar_name", "porn_streaming_service",
               "media_type_adult_audio", "porn_genre", "porn_film_name",
               "media_type_hentai", "hentai_name",
+
+              "book_name",
+              "book_genre", "book_author",
+              "audiobook_streaming_service",
+              "podcast_streaming_service",
 
               "media_type_movie", "movie_name",
               "media_type_bw_movie", "bw_movie_name",
@@ -121,13 +133,15 @@ NegativeBias = {
               "media_type_cartoon",
               "media_type_anime"
               ],
-    "audiobook": ["play_verb_video",
+    "audiobook": ["asmr_keyword", "asmr_trigger", "play_verb_video",
                   "soundtrack_keyword",
+                  "movie_director",
+                  "podcaster", "radio_drama_actor",
                   "movie_streaming_service",
                   "hentai_streaming_service",
-                  "porn_site",
+                  "porn_streaming_service",
 
-                  "media_type_adult", "pornstar_name", "porn_site",
+                  "media_type_adult", "pornstar_name",
                   "media_type_adult_audio", "porn_genre", "porn_film_name",
                   "media_type_hentai", "hentai_name",
                   "media_type_movie", "movie_name",
@@ -137,12 +151,17 @@ NegativeBias = {
                   "media_type_bts",
                   "media_type_documentary",
                   "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
+                  "media_type_news", "news_provider",
+                  "media_type_podcast",
+                  "media_type_radio",
+                  "media_type_radio_theatre",
                   "media_type_trailer",
                   "media_type_cartoon",
+                  "media_type_audio", "sound_name",
                   "media_type_anime"
                   ],
-    "bts": ["ad_keyword", "play_verb_audio",
-            "soundtrack_keyword",
+    "bts": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
+            "soundtrack_keyword", "podcaster", "radio_drama_actor",
             "music_streaming_service",
             "radio_streaming_service",
             "audiobook_streaming_service",
@@ -152,7 +171,7 @@ NegativeBias = {
 
             "media_type_hentai", "hentai_name",
 
-            "media_type_audio",
+            "media_type_audio", "sound_name",
             "media_type_audiobook", "audiobook_narrator",
             "media_type_documentary",
             "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
@@ -162,21 +181,21 @@ NegativeBias = {
             "media_type_radio_theatre",
             "media_type_trailer",
             ],
-    "bw_movie": ["ad_keyword", "play_verb_audio",
-                 "soundtrack_keyword",
+    "bw_movie": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
+                 "soundtrack_keyword", "podcaster", "radio_drama_actor",
                  "music_streaming_service",
                  "radio_streaming_service",
                  "audiobook_streaming_service",
                  "podcast_streaming_service",
                  "news_streaming_service",
                  "hentai_streaming_service",
-                 "porn_site",
+                 "porn_streaming_service",
 
-                 "media_type_adult", "pornstar_name", "porn_site",
+                 "media_type_adult", "pornstar_name", "porn_streaming_service",
                  "media_type_adult_audio", "porn_genre", "porn_film_name",
                  "media_type_hentai", "hentai_name",
 
-                 "media_type_audio",
+                 "media_type_audio", "sound_name",
                  "media_type_audiobook", "audiobook_narrator",
                  "media_type_bts",
                  "media_type_documentary",
@@ -189,21 +208,21 @@ NegativeBias = {
                  "media_type_cartoon",
                  "media_type_anime"
                  ],
-    "cartoon": ["ad_keyword", "play_verb_audio",
-                "soundtrack_keyword",
+    "cartoon": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
+                "soundtrack_keyword", "podcaster", "radio_drama_actor",
                 "music_streaming_service",
                 "radio_streaming_service",
                 "audiobook_streaming_service",
                 "podcast_streaming_service",
                 "news_streaming_service",
                 "hentai_streaming_service",
-                "porn_site",
+                "porn_streaming_service",
 
-                "media_type_adult", "pornstar_name", "porn_site",
+                "media_type_adult", "pornstar_name", "porn_streaming_service",
                 "media_type_adult_audio", "porn_genre", "porn_film_name",
                 "media_type_hentai", "hentai_name",
 
-                "media_type_audio",
+                "media_type_audio", "sound_name",
                 "media_type_audiobook", "audiobook_narrator",
                 "media_type_bts",
                 "media_type_documentary",
@@ -214,21 +233,21 @@ NegativeBias = {
                 "media_type_radio_theatre",
                 "media_type_trailer",
                 ],
-    "documentary": ["ad_keyword", "play_verb_audio",
-                    "soundtrack_keyword",
+    "documentary": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
+                    "soundtrack_keyword", "podcaster", "radio_drama_actor",
                     "music_streaming_service",
                     "radio_streaming_service",
                     "audiobook_streaming_service",
                     "podcast_streaming_service",
                     "news_streaming_service",
                     "hentai_streaming_service",
-                    "porn_site",
+                    "porn_streaming_service",
 
-                    "media_type_adult", "pornstar_name", "porn_site",
+                    "media_type_adult", "pornstar_name", "porn_streaming_service",
                     "media_type_adult_audio", "porn_genre", "porn_film_name",
                     "media_type_hentai", "hentai_name",
 
-                    "media_type_audio",
+                    "media_type_audio", "sound_name",
                     "media_type_audiobook", "audiobook_narrator",
                     "media_type_bts",
                     "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
@@ -240,8 +259,8 @@ NegativeBias = {
                     "media_type_cartoon",
                     "media_type_anime"
                     ],
-    "game": ["ad_keyword", "play_verb_audio", "play_verb_video",
-             "soundtrack_keyword",
+    "game": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio", "play_verb_video",
+             "soundtrack_keyword", "podcaster", "radio_drama_actor",
              "music_streaming_service",
              "radio_streaming_service",
              "audiobook_streaming_service",
@@ -249,9 +268,9 @@ NegativeBias = {
              "news_streaming_service",
              "movie_streaming_service",
              "hentai_streaming_service",
-             "porn_site",
+             "porn_streaming_service",
 
-             "media_type_adult", "pornstar_name", "porn_site",
+             "media_type_adult", "pornstar_name", "porn_streaming_service",
              "media_type_adult_audio", "porn_genre", "porn_film_name",
              "media_type_hentai", "hentai_name",
 
@@ -261,14 +280,16 @@ NegativeBias = {
              "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
              "media_type_news", "news_provider",
              "media_type_podcast",
+             "media_type_audio", "sound_name",
              "media_type_radio",
              "media_type_radio_theatre",
              "media_type_trailer",
              "media_type_cartoon",
              "media_type_anime"
              ],
-    "hentai": ["ad_keyword", "play_verb_audio",
-               "soundtrack_keyword",
+    "hentai": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
+               "soundtrack_keyword", "podcaster", "radio_drama_actor",
+               "movie_director", "movie_actor",
                "movie_streaming_service",
                "video_streaming_service",
                "music_streaming_service",
@@ -280,7 +301,7 @@ NegativeBias = {
                "media_type_adult", "pornstar_name",
                "media_type_adult_audio", "porn_film_name",
 
-               "media_type_audio",
+               "media_type_audio", "sound_name",
                "media_type_audiobook", "audiobook_narrator",
                "media_type_bts",
                "media_type_documentary",
@@ -291,10 +312,11 @@ NegativeBias = {
                "media_type_radio_theatre",
                "media_type_trailer"
                ],
-    "music": ["play_verb_video",
+    "music": ["asmr_keyword", "asmr_trigger", "play_verb_video", "podcaster", "radio_drama_actor",
+              "movie_director", "movie_actor",
               "movie_streaming_service",
               "hentai_streaming_service",
-              "porn_site",
+              "porn_streaming_service",
 
               "media_type_adult", "pornstar_name",
               "media_type_adult_audio", "porn_genre", "porn_film_name",
@@ -309,12 +331,13 @@ NegativeBias = {
               "media_type_news", "news_provider",
               "media_type_podcast",
               "media_type_radio",
+              "media_type_audio", "sound_name",
               "media_type_radio_theatre",
               "media_type_trailer",
               "media_type_cartoon",
               "media_type_anime"
               ],
-    "movie": ["ad_keyword", "play_verb_audio",
+    "movie": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
               "soundtrack_keyword",
               "music_streaming_service",
               "radio_streaming_service",
@@ -322,13 +345,13 @@ NegativeBias = {
               "podcast_streaming_service",
               "news_streaming_service",
               "hentai_streaming_service",
-              "porn_site",
-
-              "media_type_adult", "pornstar_name", "porn_site",
+              "porn_streaming_service",
+              "podcaster", "radio_drama_actor",
+              "media_type_adult", "pornstar_name", "porn_streaming_service",
               "media_type_adult_audio", "porn_genre", "porn_film_name",
               "media_type_hentai", "hentai_name",
 
-              "media_type_audio",
+              "media_type_audio", "sound_name",
               "media_type_audiobook", "audiobook_narrator",
               "media_type_bts",
               "media_type_documentary",
@@ -341,61 +364,90 @@ NegativeBias = {
               "media_type_cartoon",
               "media_type_anime"
               ],
-    "ad": [
-        "soundtrack_keyword",
-        "music_streaming_service",
-        "radio_streaming_service",
-        "audiobook_streaming_service",
-        "podcast_streaming_service",
-        "news_streaming_service",
-        "hentai_streaming_service",
-        "porn_site",
+    "asmr": ["ad_keyword",
+             "soundtrack_keyword",
+             "music_streaming_service",
+             "radio_streaming_service",
+             "audiobook_streaming_service",
+             "podcast_streaming_service",
+             "news_streaming_service",
+             "hentai_streaming_service",
+             "porn_streaming_service",
+             "podcaster", "radio_drama_actor",
+             "media_type_adult", "pornstar_name", "porn_streaming_service",
+             "media_type_adult_audio", "porn_genre", "porn_film_name",
+             "media_type_hentai", "hentai_name",
 
-        "media_type_adult", "pornstar_name", "porn_site",
-        "media_type_adult_audio", "porn_genre", "porn_film_name",
-        "media_type_hentai", "hentai_name",
+             "media_type_audio", "sound_name",
+             "media_type_audiobook", "audiobook_narrator",
+             "media_type_bts",
+             "media_type_documentary",
+             "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
+             "media_type_news", "news_provider",
+             "media_type_podcast",
+             "media_type_radio",
+             "media_type_radio_theatre",
+             "media_type_trailer",
+             "media_type_cartoon",
+             "media_type_anime"
+             ],
+    "ad": ["asmr_keyword", "asmr_trigger",
+           "soundtrack_keyword",
+           "music_streaming_service",
+           "radio_streaming_service",
+           "audiobook_streaming_service",
+           "podcast_streaming_service",
+           "news_streaming_service",
+           "hentai_streaming_service",
+           "porn_streaming_service",
+           "podcaster", "radio_drama_actor",
+           "media_type_adult", "pornstar_name", "porn_streaming_service",
+           "media_type_adult_audio", "porn_genre", "porn_film_name",
+           "media_type_hentai", "hentai_name",
 
-        "media_type_audio",
-        "media_type_audiobook", "audiobook_narrator",
-        "media_type_bts",
-        "media_type_documentary",
-        "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
-        "media_type_news", "news_provider",
-        "media_type_podcast",
-        "media_type_radio",
-        "media_type_radio_theatre",
-        "media_type_trailer",
-        "media_type_cartoon",
-        "media_type_anime"
-    ],
-    "news": [
-        "soundtrack_keyword",
-        "movie_streaming_service",
-        "hentai_streaming_service",
-        "porn_site",
+           "media_type_audio", "sound_name",
+           "media_type_audiobook", "audiobook_narrator",
+           "media_type_bts",
+           "media_type_documentary",
+           "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
+           "media_type_news", "news_provider",
+           "media_type_podcast",
+           "media_type_radio",
+           "media_type_radio_theatre",
+           "media_type_trailer",
+           "media_type_cartoon",
+           "media_type_anime"
+           ],
+    "news": ["asmr_keyword", "asmr_trigger",
+             "soundtrack_keyword",
+             "movie_director", "movie_actor",
+             "movie_streaming_service",
+             "hentai_streaming_service",
+             "porn_streaming_service",
+             "podcaster", "radio_drama_actor",
+             "media_type_adult", "pornstar_name", "porn_streaming_service",
+             "media_type_adult_audio", "porn_genre", "porn_film_name",
+             "media_type_hentai", "hentai_name",
 
-        "media_type_adult", "pornstar_name", "porn_site",
-        "media_type_adult_audio", "porn_genre", "porn_film_name",
-        "media_type_hentai", "hentai_name",
-
-        "media_type_movie", "movie_name",
-        "media_type_bw_movie", "bw_movie_name",
-        "media_type_silent_movie", "silent_movie_name",
-        "media_type_audiobook", "audiobook_narrator",
-        "media_type_bts",
-        "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
-        "media_type_radio_theatre",
-        "media_type_trailer",
-        "media_type_cartoon",
-        "media_type_anime"
-    ],
-    "podcast": ["play_verb_video",
+             "media_type_movie", "movie_name",
+             "media_type_bw_movie", "bw_movie_name",
+             "media_type_silent_movie", "silent_movie_name",
+             "media_type_audiobook", "audiobook_narrator",
+             "media_type_bts",
+             "media_type_audio", "sound_name",
+             "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
+             "media_type_radio_theatre",
+             "media_type_trailer",
+             "media_type_cartoon",
+             "media_type_anime"
+             ],
+    "podcast": ["asmr_keyword", "asmr_trigger", "play_verb_video",
                 "soundtrack_keyword",
                 "movie_streaming_service",
                 "hentai_streaming_service",
-                "porn_site",
-
-                "media_type_adult", "porn_site",
+                "porn_streaming_service",
+                "radio_drama_actor",
+                "media_type_adult", "porn_streaming_service",
                 "media_type_adult_audio", "porn_genre", "porn_film_name",
                 "media_type_hentai", "hentai_name",
 
@@ -404,19 +456,23 @@ NegativeBias = {
                 "media_type_silent_movie", "silent_movie_name",
                 "media_type_audiobook", "audiobook_narrator",
                 "media_type_bts",
+                "media_type_audio", "sound_name",
+                "media_type_radio",
+                "media_type_radio_theatre",
                 "media_type_documentary",
                 "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
                 "media_type_trailer",
                 "media_type_cartoon",
                 "media_type_anime"
                 ],
-    "radio": ["play_verb_video",
+    "radio": ["asmr_keyword", "asmr_trigger", "play_verb_video",
+              "movie_director", "movie_actor",
               "soundtrack_keyword",
               "movie_streaming_service",
               "hentai_streaming_service",
-              "porn_site",
-
-              "media_type_adult", "pornstar_name", "porn_site",
+              "porn_streaming_service",
+              "podcaster", "radio_drama_actor",
+              "media_type_adult", "pornstar_name", "porn_streaming_service",
               "media_type_adult_audio", "porn_genre", "porn_film_name",
               "media_type_hentai", "hentai_name",
 
@@ -425,6 +481,7 @@ NegativeBias = {
               "media_type_silent_movie", "silent_movie_name",
               "media_type_audiobook", "audiobook_narrator",
               "media_type_bts",
+              "media_type_audio", "sound_name",
               "media_type_documentary",
               "media_type_music", "album_name", "playlist_name", "song_name", "record_label", "artist_name",
               "media_type_podcast",
@@ -432,7 +489,7 @@ NegativeBias = {
               "media_type_cartoon",
               "media_type_anime"
               ],
-    "short_film": ["ad_keyword", "play_verb_audio",
+    "short_film": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
                    "soundtrack_keyword",
                    "music_streaming_service",
                    "radio_streaming_service",
@@ -440,13 +497,13 @@ NegativeBias = {
                    "podcast_streaming_service",
                    "news_streaming_service",
                    "hentai_streaming_service",
-                   "porn_site",
-
-                   "media_type_adult", "pornstar_name", "porn_site",
+                   "porn_streaming_service",
+                   "podcaster", "radio_drama_actor",
+                   "media_type_adult", "pornstar_name", "porn_streaming_service",
                    "media_type_adult_audio", "porn_genre", "porn_film_name",
                    "media_type_hentai", "hentai_name",
 
-                   "media_type_audio",
+                   "media_type_audio", "sound_name",
                    "media_type_audiobook", "audiobook_narrator",
                    "media_type_bts",
                    "media_type_documentary",
@@ -459,14 +516,14 @@ NegativeBias = {
                    "media_type_cartoon",
                    "media_type_anime"
                    ],
-    "radio_drama": ["play_verb_video",
+    "radio_drama": ["asmr_keyword", "asmr_trigger", "play_verb_video",
                     "soundtrack_keyword",
                     "movie_streaming_service",
                     "news_streaming_service",
                     "hentai_streaming_service",
-                    "porn_site",
-
-                    "media_type_adult", "pornstar_name", "porn_site",
+                    "porn_streaming_service",
+                    "podcaster",
+                    "media_type_adult", "pornstar_name", "porn_streaming_service",
                     "media_type_adult_audio", "porn_genre", "porn_film_name",
                     "media_type_hentai", "hentai_name",
 
@@ -476,24 +533,25 @@ NegativeBias = {
                     "media_type_news", "news_provider",
                     "media_type_podcast",
                     "media_type_trailer",
+                    "media_type_audio", "sound_name",
                     "media_type_cartoon",
                     "media_type_anime"
                     ],
-    "silent_movie": ["ad_keyword", "play_verb_audio",
-                     "soundtrack_keyword",
+    "silent_movie": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
+                     "soundtrack_keyword", "podcaster", "radio_drama_actor",
                      "music_streaming_service",
                      "radio_streaming_service",
                      "audiobook_streaming_service",
                      "podcast_streaming_service",
                      "news_streaming_service",
                      "hentai_streaming_service",
-                     "porn_site",
+                     "porn_streaming_service",
 
-                     "media_type_adult", "pornstar_name", "porn_site",
+                     "media_type_adult", "pornstar_name", "porn_streaming_service",
                      "media_type_adult_audio", "porn_genre", "porn_film_name",
                      "media_type_hentai", "hentai_name",
 
-                     "media_type_audio",
+                     "media_type_audio", "sound_name",
                      "media_type_audiobook", "audiobook_narrator",
                      "media_type_bts",
                      "media_type_documentary",
@@ -506,7 +564,7 @@ NegativeBias = {
                      "media_type_cartoon",
                      "media_type_anime"
                      ],
-    "trailer": ["play_verb_audio",
+    "trailer": ["asmr_keyword", "asmr_trigger", "play_verb_audio",
                 "soundtrack_keyword",
                 "music_streaming_service",
                 "radio_streaming_service",
@@ -514,13 +572,13 @@ NegativeBias = {
                 "podcast_streaming_service",
                 "news_streaming_service",
                 "hentai_streaming_service",
-                "porn_site",
-
-                "media_type_adult", "pornstar_name", "porn_site",
+                "porn_streaming_service",
+                "podcaster", "radio_drama_actor",
+                "media_type_adult", "pornstar_name", "porn_streaming_service",
                 "media_type_adult_audio", "porn_genre", "porn_film_name",
                 "media_type_hentai", "hentai_name", "hentai_streaming_service",
 
-                "media_type_audio",
+                "media_type_audio", "sound_name",
                 "media_type_audiobook", "audiobook_narrator",
                 "media_type_bts",
 
@@ -533,7 +591,7 @@ NegativeBias = {
                 "media_type_radio_theatre", "radio_drama_name",
                 "media_type_cartoon",
                 ],
-    "tv_channel": ["ad_keyword", "play_verb_audio",
+    "tv_channel": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
                    "soundtrack_keyword",
                    "music_streaming_service",
                    "radio_streaming_service",
@@ -541,13 +599,13 @@ NegativeBias = {
                    "podcast_streaming_service",
                    "news_streaming_service",
                    "hentai_streaming_service",
-                   "porn_site",
-
-                   "media_type_adult", "pornstar_name", "porn_site",
+                   "porn_streaming_service",
+                   "podcaster", "radio_drama_actor",
+                   "media_type_adult", "pornstar_name", "porn_streaming_service",
                    "media_type_adult_audio", "porn_genre", "porn_film_name",
                    "media_type_hentai", "hentai_name",
 
-                   "media_type_audio",
+                   "media_type_audio", "sound_name",
                    "media_type_audiobook", "audiobook_narrator",
                    "media_type_bts",
 
@@ -560,7 +618,7 @@ NegativeBias = {
                    "media_type_radio_theatre",
                    "media_type_trailer"
                    ],
-    "series": ["ad_keyword", "play_verb_audio",
+    "series": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
                "soundtrack_keyword",
                "music_streaming_service",
                "radio_streaming_service",
@@ -568,13 +626,13 @@ NegativeBias = {
                "podcast_streaming_service",
                "news_streaming_service",
                "hentai_streaming_service",
-               "porn_site",
-
-               "media_type_adult", "pornstar_name", "porn_site",
+               "porn_streaming_service",
+               "podcaster", "radio_drama_actor",
+               "media_type_adult", "pornstar_name", "porn_streaming_service",
                "media_type_adult_audio", "porn_genre", "porn_film_name",
                "media_type_hentai", "hentai_name",
 
-               "media_type_audio",
+               "media_type_audio", "sound_name",
                "media_type_audiobook", "audiobook_narrator",
                "media_type_bts",
                "media_type_documentary",
@@ -588,7 +646,7 @@ NegativeBias = {
                "media_type_radio_theatre",
                "media_type_trailer"
                ],
-    "comic": ["ad_keyword", "play_verb_audio",
+    "comic": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
               "soundtrack_keyword",
               "music_streaming_service",
               "radio_streaming_service",
@@ -596,13 +654,13 @@ NegativeBias = {
               "podcast_streaming_service",
               "news_streaming_service",
               "hentai_streaming_service",
-              "porn_site",
-
-              "media_type_adult", "pornstar_name", "porn_site",
+              "porn_streaming_service",
+              "podcaster", "radio_drama_actor",
+              "media_type_adult", "pornstar_name",
               "media_type_adult_audio", "porn_genre", "porn_film_name",
               "media_type_hentai", "hentai_name",
 
-              "media_type_audio",
+              "media_type_audio", "sound_name",
               "media_type_audiobook", "audiobook_narrator",
               "media_type_bts",
               "media_type_documentary",
@@ -613,21 +671,22 @@ NegativeBias = {
               "media_type_radio_theatre",
               "media_type_trailer"
               ],
-    "video": ["ad_keyword", "play_verb_audio",
+    "video": ["asmr_keyword", "asmr_trigger", "ad_keyword", "play_verb_audio",
               "soundtrack_keyword",
+              "movie_director", "movie_actor",
               "music_streaming_service",
               "radio_streaming_service",
               "audiobook_streaming_service",
               "podcast_streaming_service",
               "news_streaming_service",
               "hentai_streaming_service",
-              "porn_site",
-
+              "porn_streaming_service",
+              "podcaster", "radio_drama_actor",
               "media_type_adult", "pornstar_name",
               "media_type_adult_audio", "porn_genre", "porn_film_name",
               "media_type_hentai", "hentai_name",
 
-              "media_type_audio",
+              "media_type_audio", "sound_name",
               "media_type_audiobook", "audiobook_narrator",
               "media_type_bts",
               "media_type_documentary",
@@ -635,6 +694,7 @@ NegativeBias = {
               "media_type_news", "news_provider",
               "media_type_podcast",
               "media_type_radio",
+              "media_type_audio", "sound_name",
               "media_type_radio_theatre",
               "media_type_trailer",
               "media_type_cartoon",
@@ -689,7 +749,8 @@ class KeywordFeatures:
         self.labels = {'video', 'tv_channel', 'movie', 'silent_movie', 'adult_asmr',
                        'cartoon', 'audio', 'anime', 'game', 'bw_movie', 'ad', 'trailer',
                        'radio', 'comic', 'news', 'bts', 'documentary', 'adult', 'hentai',
-                       'podcast', 'short_film', 'music', 'radio_drama', 'audiobook', 'series'}
+                       'podcast', 'short_film', 'music', 'radio_drama', 'audiobook', 'series',
+                       'asmr', 'iot_playback'}
 
     def register_entity(self, name, samples):
         """ register runtime entity samples,
@@ -718,7 +779,7 @@ class KeywordFeatures:
         if name in self.automatons:
             self.automatons.pop(name)
         if name in self._needs_building:
-            self._needs_building.pop(name)
+            self._needs_building.remove(name)
 
     def load_entities(self, csv_path):
         ents = {
@@ -767,6 +828,8 @@ class KeywordFeatures:
                     if v.lower() not in utt.split(" "):
                         continue
                 if v.lower() + " " in utt or utt.endswith(v.lower()):
+                    # if k in self.bias:
+                    #    LOG.debug(f"BIAS {k} : {v}")
                     yield k, v
 
     def count(self, sentence):
@@ -803,7 +866,7 @@ class KeywordFeatures:
 
             for l, kws in NegativeBias.items():
                 if k in kws:
-                    match[l] -= 2
+                    match[l] -= 1
                     # LOG.debug(f"Bias: {l} -1 because of: {k} {v}")
 
         if not normalize:
@@ -823,14 +886,17 @@ class KeywordFeatures:
         for k, v in self.match(sentence):
             if k not in match:
                 match[k] = v
-            elif self.bias.get(k) == v or len(v) > len(match[k]):
+            elif v in self.bias.get(k, []) or len(v) > len(match[k]):
                 match[k] = v
+
         return match
 
 
 class MediaFeaturesTransformer(BaseEstimator, TransformerMixin):
 
     def __init__(self, preload=True, dataset_path=None, **kwargs):
+        self.preload = preload
+        self.dataset_path = dataset_path
         self.wordlist = KeywordFeatures(path=dataset_path,
                                         preload=preload)
         super().__init__(**kwargs)
@@ -839,6 +905,11 @@ class MediaFeaturesTransformer(BaseEstimator, TransformerMixin):
         """ register runtime entity samples,
             eg from skills"""
         self.wordlist.register_entity(name, samples)
+
+    def deregister_entity(self, name):
+        """ register runtime entity samples,
+            eg from skills"""
+        self.wordlist.deregister_entity(name)
 
     def get_entity_names(self):
         return list(self.wordlist.entities.keys())
@@ -857,6 +928,8 @@ class MediaFeaturesTransformer(BaseEstimator, TransformerMixin):
 class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
     def __init__(self, preload=True, dataset_path=None, **kwargs):
         super().__init__(**kwargs)
+        self.preload = preload
+        self.dataset_path = dataset_path
         self._transformer = MediaFeaturesTransformer(preload=preload, dataset_path=dataset_path)
         # NOTE: changing this list requires retraining the classifier
         self.labels_index = sorted(self._transformer.get_entity_names())
@@ -865,6 +938,11 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
         """ register runtime entity samples,
             eg from skills"""
         self._transformer.register_entity(name, samples)
+
+    def deregister_entity(self, name):
+        """ register runtime entity samples,
+            eg from skills"""
+        self._transformer.deregister_entity(name)
 
     def fit(self, *args, **kwargs):
         return self
@@ -898,6 +976,11 @@ class BiasFeaturesTransformer(BaseEstimator, TransformerMixin):
             eg from skills"""
         self.wordlist.register_entity(name, samples)
 
+    def deregister_entity(self, name):
+        """ register runtime entity samples,
+            eg from skills"""
+        self.wordlist.deregister_entity(name)
+
     def fit(self, *args, **kwargs):
         return self
 
@@ -922,6 +1005,11 @@ class BiasFeaturesVectorizer(BaseEstimator, TransformerMixin):
         """ register runtime entity samples,
             eg from skills"""
         self._transformer.register_entity(name, samples)
+
+    def deregister_entity(self, name):
+        """ register runtime entity samples,
+            eg from skills"""
+        self._transformer.deregister_entity(name)
 
     def fit(self, *args, **kwargs):
         return self

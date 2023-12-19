@@ -112,6 +112,7 @@ class MediaType(IntEnum):
     BLACK_WHITE_MOVIE = 20
     CARTOON = 21
     ANIME = 22
+    ASMR = 23
 
     ADULT = 69  # for content filtering
     HENTAI = 70  # for content filtering
