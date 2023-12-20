@@ -207,7 +207,7 @@ extract keywords based on a wikidata wordlist gathered via SPARQL queries
 from ocp_nlp.features import KeywordFeatures
 
 # using feature extractor standalone
-l = KeywordFeatures(lang="en", path=f"{dirname(__file__)}/sparql_ocp")
+l = KeywordFeatures(lang="en")
 
 print(l.extract("play metallica"))
 # {'album_name': 'Metallica', 'artist_name': 'Metallica'}

@@ -2,9 +2,7 @@ import os.path
 
 import ahocorasick
 import numpy as np
-import requests
 from normality.transliteration import latinize_text
-from ovos_config.locations import get_xdg_data_save_path
 from ovos_utils.log import LOG
 from sklearn.base import BaseEstimator, TransformerMixin
 
@@ -720,19 +718,7 @@ class KeywordFeatures:
              @ocp_genre_search
     """
 
-    def __init__(self, path=None, ignore_list=None, preload=False, debug=True,
-                 auto_download=False):
-        # auto dl to XDG directory
-        if path is None and auto_download:
-            os.makedirs(f"/{get_xdg_data_save_path()}/OCP", exist_ok=True)
-            path = f"/{get_xdg_data_save_path()}/OCP/ocp_entities_v0.csv"
-            if not os.path.isfile(path):
-                url = "https://github.com/OpenVoiceOS/ovos-datasets/raw/master/text/ocp_entities_v0.csv"
-                r = requests.get(url).text
-                with open(path, "w") as f:
-                    f.write(r)
-                LOG.init(f"downloaded ocp_entities.csv to: {path}")
-
+    def __init__(self, ignore_list=None, preload=False, debug=True):
         # books/movies etc with this name exist, ignore them
         ignore_list = ignore_list or ["play", "search", "listen",
                                       "watch", "view", "start"]
@@ -742,15 +728,20 @@ class KeywordFeatures:
         self.debug = debug
         self.automatons = {}
         self._needs_building = []
-        if path and preload:
-            self.entities = self.load_entities(path)
-        else:
-            self.entities = {}
+        self.entities = {}
         self.labels = {'video', 'tv_channel', 'movie', 'silent_movie', 'adult_asmr',
                        'cartoon', 'audio', 'anime', 'game', 'bw_movie', 'ad', 'trailer',
                        'radio', 'comic', 'news', 'bts', 'documentary', 'adult', 'hentai',
                        'podcast', 'short_film', 'music', 'radio_drama', 'audiobook', 'series',
                        'asmr', 'iot_playback'}
+        if preload:
+            self.load_keyword_lists()
+
+    def load_keyword_lists(self):
+        # TODO - allow from config / per lang
+        # TODO add more datasets
+        ocp_dataset = f"{os.path.dirname(__file__)}/models/ocp_entities_v0.csv"
+        self.entities = self.load_entities(ocp_dataset)
 
     def register_entity(self, name, samples):
         """ register runtime entity samples,
@@ -894,11 +885,9 @@ class KeywordFeatures:
 
 class MediaFeaturesTransformer(BaseEstimator, TransformerMixin):
 
-    def __init__(self, preload=True, dataset_path=None, **kwargs):
+    def __init__(self, preload=True, **kwargs):
         self.preload = preload
-        self.dataset_path = dataset_path
-        self.wordlist = KeywordFeatures(path=dataset_path,
-                                        preload=preload)
+        self.wordlist = KeywordFeatures(preload=preload)
         super().__init__(**kwargs)
 
     def register_entity(self, name, samples):
@@ -926,11 +915,10 @@ class MediaFeaturesTransformer(BaseEstimator, TransformerMixin):
 
 
 class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
-    def __init__(self, preload=True, dataset_path=None, **kwargs):
+    def __init__(self, preload=True, **kwargs):
         super().__init__(**kwargs)
         self.preload = preload
-        self.dataset_path = dataset_path
-        self._transformer = MediaFeaturesTransformer(preload=preload, dataset_path=dataset_path)
+        self._transformer = MediaFeaturesTransformer(preload=preload)
         # NOTE: changing this list requires retraining the classifier
         self.labels_index = sorted(self._transformer.get_entity_names())
 
@@ -963,9 +951,8 @@ class MediaFeaturesVectorizer(BaseEstimator, TransformerMixin):
 
 class BiasFeaturesTransformer(BaseEstimator, TransformerMixin):
 
-    def __init__(self, preload=True, dataset_path=None, **kwargs):
-        self.wordlist = KeywordFeatures(path=dataset_path,
-                                        preload=preload)
+    def __init__(self, preload=True, **kwargs):
+        self.wordlist = KeywordFeatures(preload=preload)
         self.labels = ['tv_channel', 'adult_asmr', 'bts', 'radio', 'game', 'video', 'bw_movie', 'trailer', 'comic',
                        'radio_drama', 'documentary', 'movie', 'ad', 'podcast', 'anime', 'cartoon', 'hentai', 'music',
                        'news', 'audio', 'short_film', 'series', 'audiobook', 'silent_movie', 'adult']
@@ -995,9 +982,9 @@ class BiasFeaturesTransformer(BaseEstimator, TransformerMixin):
 
 
 class BiasFeaturesVectorizer(BaseEstimator, TransformerMixin):
-    def __init__(self, preload=True, dataset_path=None, **kwargs):
+    def __init__(self, preload=True,  **kwargs):
         super().__init__(**kwargs)
-        self._transformer = BiasFeaturesTransformer(preload=preload, dataset_path=dataset_path)
+        self._transformer = BiasFeaturesTransformer(preload=preload)
         # NOTE: changing this list requires retraining the classifier
         self.labels_index = sorted(self._transformer.labels)
 

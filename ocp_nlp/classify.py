@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 
 from ocp_nlp.constants import MediaType
-from ocp_nlp.features import MediaFeaturesVectorizer, BiasFeaturesVectorizer, KeywordFeatures
+from ocp_nlp.features import MediaFeaturesVectorizer, BiasFeaturesVectorizer, KeywordFeatures, PositiveBias
 from ovos_classifiers.skovos.classifier import SklearnOVOSClassifier, iter_clfs
 
 
@@ -160,11 +160,9 @@ class BinaryPlaybackClassifier(_OCPClassifier):
 # using keyword features - lang agnostic
 class BaseKeywordClassifier(_OCPClassifier):
     def __init__(self, lang="all", preload=True, model_name="kword_biased_media_type",
-                 entities_path=None,
                  enabled_features=None):
-        entities_path = entities_path or f"{dirname(__file__)}/models/ocp_entities_v0.csv"
-        self.feats = MediaFeaturesVectorizer(preload=preload, dataset_path=entities_path)
-        self.feats2 = BiasFeaturesVectorizer(preload=preload, dataset_path=entities_path)
+        self.feats = MediaFeaturesVectorizer(preload=preload)
+        self.feats2 = BiasFeaturesVectorizer(preload=preload)
         super().__init__(model_name, lang, pipeline_id="raw")
         # store in self.clf so it gets saved to pickle
         self.clf.enabled_feats = enabled_features or ["keyword", "bias"]
@@ -394,8 +392,8 @@ class BaseKeywordClassifier(_OCPClassifier):
 
 class KeywordPlaybackTypeClassifier(BaseKeywordClassifier):
     def __init__(self, lang="all", preload=True, model_name="kword_biased_playback_type",
-                 entities_path=None, enabled_features=None):
-        super().__init__(lang, preload, model_name, entities_path, enabled_features)
+                 enabled_features=None):
+        super().__init__(lang, preload, model_name, enabled_features)
 
     def load(self, model_path=None):
         model_path = model_path or f"{dirname(__file__)}/models/{self.model_name}_{self.lang}.c_mlp"
@@ -404,8 +402,8 @@ class KeywordPlaybackTypeClassifier(BaseKeywordClassifier):
 
 class KeywordBinaryPlaybackClassifier(BaseKeywordClassifier):
     def __init__(self, lang="all", preload=True, model_name="kword_biased_binary_ocp",
-                 entities_path=None, enabled_features=None):
-        super().__init__(lang, preload, model_name, entities_path, enabled_features)
+                 enabled_features=None):
+        super().__init__(lang, preload, model_name, enabled_features)
 
     def load(self, model_path=None):
         model_path = model_path or f"{dirname(__file__)}/models/{self.model_name}_{self.lang}.c_mlp"
@@ -415,9 +413,9 @@ class KeywordBinaryPlaybackClassifier(BaseKeywordClassifier):
 class KeywordMediaTypeClassifier(BaseKeywordClassifier):
     def __init__(self, base_clf: PlaybackTypeClassifier = None,
                  lang="en", preload=True,
-                 model_name="kword_biased_media_type", entities_path=None,
+                 model_name="kword_biased_media_type",
                  enabled_features=None):
-        super().__init__(lang, preload, model_name, entities_path, enabled_features)
+        super().__init__(lang, preload, model_name, enabled_features)
         if base_clf is None:
             base_clf = KeywordPlaybackTypeClassifier()
             base_clf.load()
@@ -434,13 +432,12 @@ class BiasedMediaTypeClassifier(KeywordMediaTypeClassifier):
     def __init__(self, base_clf: PlaybackTypeClassifier = None,
                  base_clf2: MediaTypeClassifier = None,
                  lang="en", preload=True,
-                 model_name="cv2_biased_media_type", entities_path=None,
+                 model_name="cv2_biased_media_type",
                  enabled_features=None):
         if base_clf is None:
             base_clf = PlaybackTypeClassifier()
             base_clf.load()
-        super().__init__(base_clf, lang, preload, model_name,
-                         entities_path, enabled_features)
+        super().__init__(base_clf, lang, preload, model_name, enabled_features)
         if base_clf2 is None:
             base_clf2 = MediaTypeClassifier()
             base_clf2.load()
@@ -452,62 +449,61 @@ class BiasedMediaTypeClassifier(KeywordMediaTypeClassifier):
 
 
 class HeuristicMediaTypeClassifier:
-    def __init__(self, lang="en", preload=True, entities_path=None):
+    def __init__(self, lang="en", preload=True):
         self.lang = lang
-        self.feats = KeywordFeatures(preload=preload, path=entities_path)
+        self.feats = KeywordFeatures(preload=preload)
 
-    def split_train_test(self, csv_path, test_size=1.0):
+    def classification_report(self, csv_path, model_folder=None):
+        model_folder = model_folder or f"{dirname(__file__)}/models"
 
         with open(csv_path) as f:
             lines = f.read().split("\n")[1:]
             lines = [l.split(",", 1) for l in lines if "," in l]
 
-        X = [_[1] for _ in lines]
-        y = [_[0] for _ in lines]
-        return [], X, [], y  # all for testing
+        X_test = [_[1] for _ in lines]
+        y_test = [_[0] for _ in lines]
 
-    def classification_report(self, X_test, y_test, model_folder=None):
-        model_folder = model_folder or f"{dirname(__file__)}/models"
         y_pred = self.predict(X_test)
         acc = balanced_accuracy_score(y_test, y_pred)
 
         report = f"Balanced Accuracy: {acc}\n" + classification_report(y_test, y_pred,
-                                                                       target_names=self.feats.labels)
+                                                                       target_names=set(y_test))
         # print(report)
         with open(f'{model_folder}/reports/heuristic_{self.lang}.txt', "w") as f:
             f.write(report)
-        #  Balanced Accuracy: 0.22182720592334784
+        # Balanced Accuracy: 0.1794732309758858
         #               precision    recall  f1-score   support
         #
-        #       hentai       0.23      0.29      0.25       136
-        #  documentary       0.00      0.00      0.00       213
-        #          bts       0.07      0.76      0.13        25
-        #        comic       0.47      0.47      0.47       117
-        #         game       0.29      0.03      0.05       298
-        #      podcast       0.10      0.40      0.16       312
-        #        anime       0.97      0.44      0.60       232
-        # silent_movie       0.00      0.00      0.00       351
-        #           ad       0.00      0.00      0.00       486
-        #        radio       1.00      0.05      0.10       157
-        #   adult_asmr       0.55      0.31      0.40       448
-        #   short_film       0.07      0.97      0.14       306
-        #  radio_drama       0.73      0.22      0.34       297
-        #         news       0.50      0.00      0.01       876
-        #        adult       0.17      0.10      0.13      1241
-        #    audiobook       0.63      0.45      0.53       284
-        #        audio       0.43      0.19      0.26       542
-        #        music       0.96      0.09      0.17       246
-        #       series       0.82      0.10      0.18       472
-        #      cartoon       0.67      0.01      0.03       302
-        #      trailer       0.05      0.29      0.09       154
-        #        video       0.75      0.33      0.46       403
-        #   tv_channel       0.00      0.00      0.00       136
-        #        movie       1.00      0.03      0.05        80
-        #     bw_movie       0.25      0.00      0.01       446
+        #         game       1.00      0.00      0.00      1200
+        #    audiobook       0.12      0.89      0.21       671
+        #      cartoon       0.00      0.00      0.00      1146
+        #        anime       0.50      0.65      0.56       961
+        #      podcast       0.95      0.91      0.93       779
+        #         asmr       0.91      0.72      0.81      1032
+        #   tv_channel       0.08      0.91      0.15      1170
+        #        music       1.00      0.14      0.24       754
+        #           ad       0.94      0.02      0.04       830
+        #         news       0.76      0.07      0.12       905
+        #  documentary       1.00      0.00      0.01       632
+        #       hentai       0.62      0.15      0.24      1005
+        #     bw_movie       0.11      0.07      0.09      1194
+        # silent_movie       0.00      0.00      0.00       918
+        #   short_film       0.06      0.00      0.01      1200
+        #  radio_drama       0.07      0.10      0.08      1199
+        #          bts       0.00      0.00      0.00       876
+        #       series       1.00      0.01      0.02      1196
+        #        movie       0.00      0.00      0.00       596
+        #   adult_asmr       1.00      0.00      0.01      1147
+        #        comic       0.40      0.00      0.00      1176
+        #        video       0.00      0.00      0.00       354
+        #        radio       0.00      0.00      0.00       939
+        #      trailer       1.00      0.00      0.00       504
+        #        adult       1.00      0.01      0.02      1172
+        #        audio       0.33      0.01      0.01      1093
         #
-        #     accuracy                           0.17      8560
-        #    macro avg       0.43      0.22      0.18      8560
-        # weighted avg       0.40      0.17      0.17      8560
+        #     accuracy                           0.18     24649
+        #    macro avg       0.49      0.18      0.14     24649
+        # weighted avg       0.49      0.18      0.13     24649
         return report
 
     def predict(self, X):
@@ -516,122 +512,15 @@ class HeuristicMediaTypeClassifier:
         res = []
         for utt in X:
             ents = self.feats.extract(utt)
+            l = "music" # default
+            for label, lents in PositiveBias.items():
+                if label in ["iot_playback"]:
+                    continue
+                if any(x in ents for x in lents):
+                    l = label
+                    break
 
-            if any(x in ents for x in
-                   ['season_number', 'episode_number', 'media_type_video_episodes', 'series_name']):
-                res.append("series")
-                continue
-
-            if any(x in ents for x in ['media_type_bw_movie', 'bw_movie_name']):
-                res.append("bw_movie")
-                continue
-
-            if any(x in ents for x in ['media_type_silent_movie', 'silent_movie_name']):
-                res.append("silent_movie")
-                continue
-
-            if any(x in ents for x in ['media_type_short_film', 'short_film_name']):
-                res.append("short_film")
-                continue
-
-            if any(x in ents for x in ['media_type_movie', 'film_studio', 'movie_name']):
-                res.append("movie")
-                continue
-
-            if any(x in ents for x in ['media_type_documentary', 'documentary_name']):
-                res.append("documentary")
-                continue
-
-            if any(x in ents for x in ['media_type_cartoon', 'cartoon_name']):
-                res.append("cartoon")
-                continue
-
-            if any(x in ents for x in ['anime_name', 'media_type_anime']):
-                res.append("anime")
-                continue
-
-            if any(x in ents for x in ['media_type_hentai', 'hentai_name']):
-                res.append("hentai")
-                continue
-
-            if any(x in ents for x in ['media_type_video', 'youtube_channel']):
-                res.append("video")
-                continue
-
-            if any(x in ents for x in ['media_type_tv', 'tv_channel']):
-                res.append("tv_channel")
-                continue
-
-            if any(x in ents for x in ['pornstar_name', 'media_type_adult', 'porn_genre',
-                                       'porn_film_name']):
-                res.append("adult")
-                continue
-
-            if any(x in ents for x in ['media_type_radio']):
-                res.append("radio")
-                continue
-
-            if any(x in ents for x in ['media_type_trailer']):
-                res.append("trailer")
-                continue
-
-            if any(x in ents for x in ['media_type_bts']):
-                res.append("bts")
-                continue
-
-            if any(x in ents for x in ['comic_name']):
-                res.append("comic")
-                continue
-
-            if any(x in ents for x in ['soundtrack_keyword',
-                                       'playlist_name',
-                                       'album_name',
-                                       'artist_name',
-                                       'song_name', 'media_type_music',
-                                       'record_label']):
-                res.append("music")
-                continue
-
-            if any(x in ents for x in ['book_genre',
-                                       'audiobook_narrator',
-                                       'book_name', 'media_type_audiobook',
-                                       'book_author']):
-                res.append("audiobook")
-                continue
-
-            if any(x in ents for x in ['media_type_podcast', 'podcast_name', 'podcaster']):
-                res.append("podcast")
-                continue
-
-            if any(x in ents for x in ['radio_theatre_company', 'media_type_radio_theatre',
-                                       'radio_drama_name']):
-                res.append("radio_drama")
-                continue
-
-            if any(x in ents for x in ['audio_genre', 'media_type_audio', 'sound_name']):
-                res.append("audio")
-                continue
-
-            if any(x in ents for x in ['media_type_adult_audio', 'porn_genre', 'pornstar_name',
-                                       'media_type_hentai', 'media_type_adult',
-                                       'porn_film_name']):
-                res.append("adult_asmr")
-                continue
-
-            if any(x in ents for x in ['media_type_news', 'news_provider', 'news_streaming_service']):
-                res.append("news")
-                continue
-
-            if any(x in ents for x in ['ad_keyword']):
-                res.append("ad")
-                continue
-
-            if any(x in ents for x in ['game_name', 'media_type_game',
-                                       'gaming_console_name']):
-                res.append("game")
-                continue
-
-            res.append("music")  # default
+            res.append(l)
         return res
 
 
