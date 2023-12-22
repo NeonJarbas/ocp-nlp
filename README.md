@@ -21,6 +21,8 @@ ChatGPT was used to generate sentence templates, entity slots were replaced with
 
 download dataset from https://github.com/NeonJarbas/OCP-dataset
 
+![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/dc8f670e-8a5c-4ec5-bc40-6f1aea34525d)
+
 ## OCP Pipeline
 
 ### Layer 1 - Unambiguous
@@ -101,6 +103,17 @@ print(ocp.match_fallback("i wanna hear metallica", "en-us"))
 
 ## Classifiers
 
+### Architecture
+
+During runtime any number of entities.csv files can be loaded, OVOS skills can also register their own keywords
+
+![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/8abbd761-221f-4e59-8586-f35db7f48945)
+
+![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/a52cab17-60e0-4779-9ae9-73c9b4245392)
+
+![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/2144c6a7-d32d-4b3f-89c3-0151f6257f60)
+
+
 ### Media Type Classifier
 
 internally used to tag utterances before OCP search process, this informs the result selection by giving priority to certain skills and helps performance by skipping some skills completely during search
@@ -159,16 +172,6 @@ using the dataset collected for media type + ovos-datasets
 Classifier options:
 - trained on text only features (count vectorizer baseline - english) ~= 95% accuracy
 - trained on keyword features (lang agnostic - runtime keywords influence classification) ~= 90% accuracy
-
-### Architecture
-
-During runtime any number of entities.csv files can be loaded, OVOS skills can also register their own keywords
-
-![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/8abbd761-221f-4e59-8586-f35db7f48945)
-
-![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/a52cab17-60e0-4779-9ae9-73c9b4245392)
-
-![imagem](https://github.com/NeonJarbas/ocp-nlp/assets/59943014/2144c6a7-d32d-4b3f-89c3-0151f6257f60)
 
 
 ### Usage
