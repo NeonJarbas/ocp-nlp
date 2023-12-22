@@ -1,17 +1,6 @@
-to become part of ovos-core pipeline stage
+**temporary repository** to become part of ovos-core pipeline stage
 
 all utterance parsing happens here
-
-# Tasks
-
-- [x] media type [dataset](https://github.com/NeonJarbas/OCP-dataset)
-- [x] media type heuristic classifier (sucks, 20% accuracy best)
-- [x] media type classifier (english)
-- [x] media type classifier (lang agnostic)
-- [ ] NER system for media entities  (movie_name, streaming_service, playback_device ...)
-- [x] binary classifier is_playback_query (english)
-- [x] binary classifier is_playback_query (lang agnostic)
-- [ ] OVOS pipeline 
 
 ## Datasets
 
